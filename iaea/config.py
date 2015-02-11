@@ -10,6 +10,7 @@ CFG_SITE_NAME_INTL = {
 PACKAGES = [
     "iaea.base",
     "invenio.modules.*",
+    "invenio.base",
 ]
 
 try:
