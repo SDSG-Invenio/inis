@@ -7,8 +7,13 @@ CFG_SITE_NAME_INTL = {
     "en": CFG_SITE_NAME
 }
 
+DEPOSIT_TYPES = [
+    "iaea.modules.deposit.workflows.upload:upload",
+]
+
 PACKAGES = [
     "iaea.base",
+    "iaea.modules.deposit",
     "invenio.modules.*",
     "invenio.base",
 ]
