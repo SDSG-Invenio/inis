@@ -1,4 +1,4 @@
-from iaea.modules.deposit.forms import UploadForm
+from inis.modules.deposit.forms import UploadForm
 
 from invenio.modules.deposit.tasks import create_recid, \
     finalize_record_sip, \

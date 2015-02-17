@@ -8,18 +8,18 @@ CFG_SITE_NAME_INTL = {
 }
 
 DEPOSIT_TYPES = [
-    "iaea.modules.deposit.workflows.upload:upload",
+    "inis.modules.deposit.workflows.upload:upload",
 ]
 
 PACKAGES = [
-    "iaea.base",
-    "iaea.modules.deposit",
+    "inis.base",
+    "inis.modules.deposit",
     "invenio.modules.*",
     "invenio.base",
 ]
 
 try:
-    from iaea import instance_config
+    from inis import instance_config
     sys.modules[__name__] = instance_config
     del instance_config
 except ImportError:

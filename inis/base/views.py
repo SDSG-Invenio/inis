@@ -1,7 +1,7 @@
 from flask import Blueprint
 
 blueprint = Blueprint(
-    "iaea",
+    "inis",
     __name__,
     url_prefix="/",
     template_folder="templates",  # where your custom templates will go
