@@ -1,0 +1,56 @@
+{#
+# This file is part of Invenio.
+# Copyright (C) 2013, 2014 CERN.
+#
+# Invenio is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# Invenio is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#
+# {{ url_for('.deposition_type_index', deposition_type=deptype.get_identifier()) }}
+#
+#}
+
+{% extends "deposit/index_base.html" %}
+{% block body %}
+
+<div class="page-header">
+  <h3>{{ _('Select a Document Type') }}</h3>
+</div>
+
+<div class="row">
+  <div id="webdeposit_types_accordion" class="col-sm-6 col-md-7">
+    {% for deptype in deposition_types.values() %}
+        <div class="panel-body" style="padding: 0px;">
+          <ul class="nav nav-pills nav-stacked" style="margin-bottom: 0px;">
+            <li>
+              <a href="{{ url_for('webdeposit.create', deposition_type=deptype.get_identifier()) }}">
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+                {{ deptype.name }}
+                {% if deptype.type in drafts %}
+                &nbsp;
+                <span class="badge badge-important">
+                  {{ drafts[dep.dep_type] }}
+                </span>
+                {% endif %}
+              </a>
+            </li>
+          </ul>
+        </div>
+  {% endfor %}
+  </div>
+  <div class="col-sm-6 col-md-5">
+    {% include "deposit/myview.html" %}
+  </div>
+</div>
+
+{% endblock %}
