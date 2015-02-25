@@ -1,4 +1,5 @@
 from inis.modules.deposit.forms import UploadForm
+from inis.modules.deposit.tasks import check_files
 
 from invenio.modules.deposit.tasks import create_recid, \
     finalize_record_sip, \
@@ -30,6 +31,8 @@ class upload(SimpleRecordDeposition):
         # Reserve a new record id, so that we can provide proper feedback to
         # user before the record has been uploaded.
         create_recid(),
+        # Check files
+        check_files(),
         # Generate MARC based on metadata dictionary.
         finalize_record_sip(is_dump=False),
         # Seal the SIP and write MARCXML file and call bibupload on it
