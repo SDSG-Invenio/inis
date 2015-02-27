@@ -1,7 +1,8 @@
 # from datetime import datetime
 
 from inis.modules.deposit.forms import UploadForm
-from inis.modules.deposit.tasks import check_files, reject
+from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
+    notify_rejection, validate
 
 from invenio.ext.login import UserInfo
 
@@ -14,17 +15,34 @@ from invenio.modules.deposit.tasks import create_recid, \
     upload_record_sip
 from invenio.modules.deposit.types import SimpleRecordDeposition
 
+
 from workflow import patterns as p
 
 
 def process_recjson(deposition, recjson):
-    # try:
-    user = UserInfo(deposition.user_id)
-    #if not user.is_admin:
-    recjson['member'] = user.info['group']
-    # except TypeError:
-    #     # Happens on re-run
-    #     pass
+    try:
+        sip = deposition.get_latest_sip(sealed=False)
+        if sip is None:
+            sip = deposition.create_sip()
+
+        user = UserInfo(deposition.user_id)
+        #if not user.is_admin:
+        recjson['member'] = user.info['group']
+
+        TRNs = get_TRNs(sip)
+        recjson['trns'] = TRNs
+
+        missing_trns = file_names_not_in_TRNs(sip)
+        recjson['missing_trns'] = missing_trns
+
+        if TRNs is not [] and missing_trns == []:
+            recjson['collections'] = [{'primary': recjson['member']}, ]
+        else:
+            recjson['collections'] = [{'primary': 'Rejected', 'secondary': recjson['member']}, ]
+
+    except TypeError:
+        # Happens on re-run
+        pass
 
     return recjson
 
@@ -47,9 +65,6 @@ def process_recjson_new(deposition, recjson):
         id=deposition.user_id,
         deposition_id=deposition.id,
     )
-
-    # recjson['title'] = str(recjson['member']) + ' - ' + datetime.isoformat(datetime.now())
-    recjson['valid'] = 'Unknown'
 
     return recjson
 
@@ -78,20 +93,20 @@ class upload(SimpleRecordDeposition):
         finalize_record_sip(is_dump=False),
         # Check files
         p.IF_ELSE(
-            check_files(),
+            validate(),
             [
                 upload_record_sip(),
             ],
             [
-                reject(),
+                notify_rejection(),
+                upload_record_sip(),
             ]
         ),
-        # Seal the SIP and write MARCXML file and call bibupload on it
     ]
 
     name = "Upload"
     name_plural = "Uploads"
-    group = "Articles & Preprints"
+    group = "INIS Submissions"
     draft_definitions = {
         'default': UploadForm,
     }

@@ -1,5 +1,7 @@
 """Contains forms related to INIS submissions."""
 
+import os
+
 from flask import current_app, request
 
 from invenio.base.i18n import _
@@ -48,7 +50,7 @@ class UploadForm(WebDepositForm):
         if not getattr(request, 'is_api_request', False):
             # Tested in API by a separate workflow task.
             for f in form.files:
-                if f.name[-4:].lower() not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
+                if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
                     raise ValidationError("All files must have one of the following extensions :" +
                                           ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
 

@@ -20,8 +20,16 @@
 # granted to it by virtue of its status as an Intergovernmental Organization
 # or submit itself to any jurisdiction.
 
-DEPOSIT_ACCEPTED_EXTENSIONS = [
+
+DEPOSIT_ACCEPTED_MD_EXTENSIONS = [
     '.ttf',
     '.txt',
+    '.text',
+]
+
+DEPOSIT_ACCEPTED_FULLTEXT_EXTENSIONS = [
     '.pdf',
 ]
+
+DEPOSIT_ACCEPTED_EXTENSIONS = DEPOSIT_ACCEPTED_MD_EXTENSIONS + \
+    DEPOSIT_ACCEPTED_FULLTEXT_EXTENSIONS
