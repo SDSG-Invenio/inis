@@ -55,7 +55,7 @@
     {% endif %}
     <tr>
         <td>
-        {%- if dep.get_latest_sip().metadata['collections']['primary'] == 'Rejected' %}
+        {%- if dep.get_latest_sip().metadata['collections'][0]['primary'] == 'Rejected' %}
             <div class="fa fa-warning" style="color:red"></div>
         {%- else %}
             <div class="fa fa-check" style="color:green"></div>
