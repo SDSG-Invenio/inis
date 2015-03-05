@@ -124,6 +124,8 @@ def trn_exists(trn):
 
 
 def file_names_not_in_TRNs(sip):
+    from invenio.config import CFG_SITE_NAME
+
     files = sip.metadata['fft']
     TRNs = set(sip.metadata['trns'])
     names = set()
@@ -134,8 +136,7 @@ def file_names_not_in_TRNs(sip):
     diff = list(names - TRNs)  # not in current upload
     missing = []
     for trn in diff:
-        #FIXME: change community name
-        if perform_request_search(p=trn, cc='communities', f='trn') == []:  # not in IIM
+        if perform_request_search(p=trn, cc=CFG_SITE_NAME, f='trn') == []:  # not in IIM
             if not trn_exists(trn):  # not in INIS DB
                 missing.append(trn)
 
