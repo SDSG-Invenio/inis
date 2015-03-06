@@ -67,7 +67,7 @@ def notify_rejection():
 
         errors = "<ul>"
         for e in sip.metadata['errors']:
-            errors += "<li>" + CFG_SUMBISSION_ERRORS[e['code']]['message']
+            errors += "<li>" + CFG_SUMBISSION_ERRORS[e['code']]
             if e['list']:
                 errors += "<ul><li>%s</li></ul>" % '</li><li>'.join(e['list'])
             errors += "</li>"

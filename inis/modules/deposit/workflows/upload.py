@@ -36,7 +36,7 @@ def process_recjson(deposition, recjson):
         missing_trns = file_names_not_in_TRNs(sip)
         recjson['missing_trns'] = missing_trns
         if missing_trns != []:
-            sip.metadata['errors'].append({'code': 2, 'list': missing_trns})
+            sip.metadata['errors'].append({'code': 0, 'list': missing_trns})
 
         if recjson['errors']:
             recjson['collections'] = [{'primary': 'Rejected', 'secondary': recjson['member']}, ]

@@ -27,10 +27,8 @@ except ImportError:
     pass
 
 CFG_SUMBISSION_ERRORS = {
-    1: {'code': 1, 'description': 'Metadata file without records',
-        'message': 'The following files do not contain TTF metadata (or TRN tag "001" is missing):'},
-    2: {'code': 2, 'description': 'Wrong fulltext file name',
-        'message': 'The following fulltext files have names that do not correspond to any known TRN:'},
+    0: 'The following fulltext files have names that do not correspond to any known TRN:',
+    1: 'The following files do not contain TTF metadata (or TRN tag "001" is missing):',
 }
 
 CFG_MEMBERS_DICT = {
