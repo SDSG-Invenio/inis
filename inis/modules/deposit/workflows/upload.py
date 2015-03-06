@@ -28,17 +28,20 @@ def process_recjson(deposition, recjson):
         user = UserInfo(deposition.user_id)
         #if not user.is_admin:
         recjson['member'] = user.info['group']
+        recjson['errors'] = []
 
         TRNs = get_TRNs(sip)
         recjson['trns'] = TRNs
 
         missing_trns = file_names_not_in_TRNs(sip)
         recjson['missing_trns'] = missing_trns
+        if missing_trns != []:
+            sip.metadata['errors'].append({'code': 2, 'list': missing_trns})
 
-        if TRNs is not [] and missing_trns == []:
-            recjson['collections'] = [{'primary': recjson['member']}, ]
-        else:
+        if recjson['errors']:
             recjson['collections'] = [{'primary': 'Rejected', 'secondary': recjson['member']}, ]
+        else:
+            recjson['collections'] = [{'primary': recjson['member']}, ]
 
     except TypeError:
         # Happens on re-run
