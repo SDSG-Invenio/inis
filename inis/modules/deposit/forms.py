@@ -20,7 +20,6 @@ class UploadForm(WebDepositForm):
 
     title = fields.TitleField(
         label=_('Title'),
-        description='Optional.',
         widget_classes="form-control",
         icon='fa fa-book fa-fw',
         validators=[validators.DataRequired()],

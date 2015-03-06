@@ -38,9 +38,9 @@ colls.append((2, 'Rejected', 'Rejected', '980__a:Rejected'))
 
 i = 3
 for name in CFG_MEMBERS_NAMES:
-    colls.append((i, name, name, '980__a:'+name, ))
+    colls.append((i, name, name, '980__a:"'+name + '"', ))
     i = i + 1
-    colls.append((i, name, 'r-'+name, '980__b:'+name, ))
+    colls.append((i, name, 'r-'+name, '980__b:"'+name + '"', ))
     i = i + 1
 
 idx = 2
