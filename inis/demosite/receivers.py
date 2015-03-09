@@ -28,13 +28,13 @@ from invenio.ext.sqlalchemy import db
 def post_handler_database_create(sender, default_data='', *args, **kwargs):
     """Load data after demosite creation."""
     # from invenio.modules.communities.models import Community
-    from inis.config import CFG_MEMBERS_NAMES
+    from inis.config import CFG_MEMBERS_NAMES, CFG_MEMBERS_DICT
 
     print(">>> Adding user groups.")
 
     from invenio.modules.accounts.models import Usergroup  # , UserUsergroup
     for member_name in CFG_MEMBERS_NAMES:
-        ug = Usergroup(name=member_name, join_policy='VM', description="Submissions from %s." % member_name)
+        ug = Usergroup(name=member_name, join_policy='VM', description=CFG_MEMBERS_DICT[member_name])
         # ug.users.append(UserUsergroup(id_user=1, user_status=UserUsergroup.USER_STATUS['ADMIN']))
         db.session.add(ug)
 

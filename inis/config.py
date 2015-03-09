@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 
 CFG_SITE_LANGS = ["en"]
@@ -32,11 +33,39 @@ CFG_SUMBISSION_ERRORS = {
 }
 
 CFG_MEMBERS_DICT = {
-    'Afghanistan': 'AFG',
-    'African Union (AU)': 'AU',
+    'Afghanistan': """<b>INIS Liaison Officer</b></br>
+Mr. Khoshal Ahmad Stanikzai</br>
+GM Technical Cooperation</br>
+Afghan Atomic Energy High Commission (AAEHC)</br>
+Silo Main Street, KABUL, AFGHANISTAN</br>
+Mobile: +93 (0) 700 246 957</br>
+Email: khoshal@aaehc.gov.af</br>
+</br>
+<b>Alternate INIS Liaison Officer</b></br>
+Mr. Bismillah Burhan</br>
+Afghan Atomic Energy High Commission (AAEHC)</br>
+Silo Main Street, KABUL, AFGHANISTAN</br>
+Mobile: +93 (0) 776161003</br>
+Email: besburhan@yahoo.com</br>""",
+    'African Union (AU)': """<strong>INIS Liaison Officer<br />
+</strong>Mr. Atef Wahba Ghabrial<br />
+Chief, Science and Technology Department<br />
+African Union (AU)<br />
+P.O. Box 3243, Addis Ababa, Ethiopia<br />
+Telex: 21046 OAU<br />
+Telephone: 517700<br />
+Cable: OAU, ADDIS ABABA<br />
+Facsimile: +251(1) 517844""",
     'Albania': 'ALB',
     'Algeria': 'DZA',
-    'Arab Atomic Energy Agency (AAEA)': 'AAEA',
+    'Arab Atomic Energy Agency (AAEA)': """<strong>INIS Liaison Officer<br />
+</strong>Ms. Nahla Nasr<br />
+Division of Science and Technology, Arab Atomic Energy Agency (AAEA)<br />
+7, Rue de L'assistance, Cité ElKhadhra, 1003 Tunis, Tunisia<br />
+Telephone: +216 71 808 400<br />
+Facsimile: +216 71 808 450<br />
+Facsimile: +216 71 781 820<br />
+Email: aaea@aaea.org.tn""",
     'Argentina': 'ARG',
     'Armenia': 'ARM',
     'Australia': 'AUS',
@@ -50,7 +79,22 @@ CFG_MEMBERS_DICT = {
     'Bosnia and Herzegovina': 'BIH',
     'Botswana': 'BWA',
     'Brazil': 'BRA',
-    'Brazilian-Argentine Agency for Accounting and Control of Nuclear Materials (ABACC)': 'ABACC',
+    'Brazilian-Argentine Agency for Accounting and Control of Nuclear Materials (ABACC)': """<strong>INIS Liaison Officer<br />
+</strong>Ms. Selma Chi-Barreiro<br />
+Institutional Relations Officer of ABACC<br />
+Av. Rio Branco, 123, Centro, 20040-005 Rio de Janeiro-RJ, Brazil<br />
+Telephone: +55 21 3171 1200<br />
+Facsimile: +55 21 3171 1248<br />
+Email: selmachi@abacc.org.br<br />
+URL: <a href="http://www.abacc.org">http://www.abacc.org</a><br />
+<br />
+<b>Alternate INIS Liaison Officer</b><br />
+Mr. José Orpet Marques Peixoto<br />
+Institutional Relations Officer of ABACC<br />
+Av. Rio Branco, 123, Centro, 20040-005 Rio de Janeiro-RJ, Brazil<br />
+Telephone: +55 21 3171 1200<br />
+Facsimile: +55 21 3171 1248<br />
+Email: orpet@abacc.org.br""",
     'Bulgaria': 'BGR',
     'Burkina Faso': 'BFA',
     'Cameroon': 'CMR',
@@ -74,7 +118,20 @@ CFG_MEMBERS_DICT = {
     'Estonia': 'EST',
     'Ethiopia': 'ETH',
     'European Commission (EC)': 'EC',
-    'European Organization for Nuclear Research (CERN)': 'CERN',
+    'European Organization for Nuclear Research (CERN)': """<strong>INIS Liaison Officer<br />
+</strong>Mr. Jens Vigen<br />
+Scientific Information Service, European Organization for Nuclear Research (CERN)<br />
+CH-1211 Geneva 23, Switzerland<br />
+Telephone: +41 (22) 7672410<br />
+Telex: 419000 CER<br />
+Facsimile: +41 (22) 7828611<br />
+Email: Jens.Vigen@cern.ch<br />
+URL: <a href="http://www.cern.ch">http://www.cern.ch</a><br />
+Document delivery point of contact: Corrado Pettenati<br />
+Email: Corrado.Pettenati@cern.ch<br />
+Delivery services: electronic via http<br />
+Request services: e-mail, web<br />
+Cost: free of charge""",
     'Finland': 'FIN',
     'Food and Agricultural Organization of the United Nations (FAO)': 'FAO',
     'France': 'FRA',
@@ -88,7 +145,12 @@ CFG_MEMBERS_DICT = {
     'Hungary': 'HUN',
     'India': 'IND',
     'Indonesia': 'IDN',
-    'International Atomic Energy Agency (IAEA)': 'IAEA',
+    'International Atomic Energy Agency (IAEA)': """International Nuclear Information System (INIS)</br>
+Department of Nuclear Energy</br>
+International Atomic Energy Agency (IAEA)</br>
+P.O. Box 100. A-1400 Vienna, Austria</br>
+Tel: +43 1 2600 22842</br>
+Fax: +43 1 2600 7""",
     'International Centre for Scientific and Technical Information (ICSTI)': 'ICSTI',
     'International Commission on Radiological Protection (ICRP)': 'ICRP',
     'International Institute for Applied Systems Analysis (IIASA)': 'IIASA',
@@ -187,4 +249,3 @@ CFG_MEMBERS_DICT = {
 
 
 CFG_MEMBERS_NAMES = CFG_MEMBERS_DICT.keys()
-CFG_MEMBERS_CODES = CFG_MEMBERS_DICT.values()
