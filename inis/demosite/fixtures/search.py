@@ -107,8 +107,6 @@ for d, s, t, scr in coll_coll_data:
 class CollectiondetailedrecordpagetabsData(DataSet):
     pass
 
-coll_ids = [1] + [x[0] for x in colls]
-
 for cid in coll_ids:
     class obj(object):
         id_collection = cid

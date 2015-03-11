@@ -26,7 +26,6 @@ from urllib2 import urlopen
 
 from flask import current_app
 
-from invenio.legacy.search_engine import perform_request_search
 from invenio.modules.deposit.models import Deposition
 
 
@@ -141,6 +140,7 @@ def trn_exists(trn):
 
 def file_names_not_in_TRNs(sip):
     from invenio.config import CFG_SITE_NAME
+    from invenio.legacy.search_engine import perform_request_search
 
     files = sip.metadata['fft']
     TRNs = set(sip.metadata['trns'])

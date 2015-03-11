@@ -64,12 +64,6 @@
       </div>
       <h4 class="list-group-item-heading"><i class="fa fa-group fa-fw"></i>
           {{ group }}</h4>
-          <small class="list-group-item-text">
-            {% autoescape false %}
-              {{ usergroup.description
-                 if not is_external else _('External') }}
-            {% endautoescape %}
-          </small>
     </li>
   {% endfor %}
   </ul>
