@@ -26,8 +26,10 @@ def process_recjson(deposition, recjson):
             sip = deposition.create_sip()
 
         user = UserInfo(deposition.user_id)
-        #if not user.is_admin:
-        recjson['member'] = user.info['group']
+        if not user.is_admin:
+            recjson['member'] = user.info['group']
+        else:
+            recjson['member'] = ["International Atomic Energy Agency (IAEA)"]
         recjson['errors'] = []
 
         TRNs = get_TRNs(sip)

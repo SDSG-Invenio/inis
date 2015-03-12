@@ -1,5 +1,6 @@
 from flask import Blueprint, current_app, render_template
 from flask.ext.breadcrumbs import register_breadcrumb
+from flask.ext.login import current_user
 from flask.ext.menu import current_menu, register_menu
 
 from invenio.base.i18n import _
@@ -19,6 +20,11 @@ def register_menu_items():
     item = current_menu.submenu('breadcrumbs.inis')
     item.register('', '')
 
+    item = current_menu.submenu("settings.groups")
+    item.register(
+        'settings.groups', _('INIS Members'), order=1,
+        visible_when=lambda: current_user.is_admin
+        )
     # item = current_menu.submenu('main')
     # item.register(
     #     'deposit.create', _('Input'), order=2,
@@ -43,6 +49,9 @@ def register_menu_items():
         item.hide()
         item = current_menu.submenu("settings.oauthclient")
         item.hide()
+
+        # item = current_menu.submenu("settings.groups")
+        # item._text = "INIS Members"
 
         # Append function to end of before first request functions, to ensure
         # all menu items have been loaded.
