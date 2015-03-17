@@ -16,6 +16,7 @@ PACKAGES = [
     "inis.base",
     "inis.demosite",
     "inis.modules.deposit",
+    "inis.modules.stats",
     "invenio.modules.*",
     "invenio.base",
 ]
@@ -27,36 +28,43 @@ try:
 except ImportError:
     pass
 
+CFG_ERROR_MESSAGES = {
+    0: 'Fulltext files have names that do not correspond to any known TRN',
+    1: 'Files do not contain TTF metadata (or TRN tag "001" is missing)',
+}
+
 CFG_SUMBISSION_ERRORS = {
     0: 'The following fulltext files have names that do not correspond to any known TRN:',
     1: 'The following files do not contain TTF metadata (or TRN tag "001" is missing):',
 }
 
-# name of the role giving superadmin rights
-SUPERADMINROLE = 'superadmin'
+CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"
 
-# name of the webaccess webadmin role
-WEBACCESSADMINROLE = 'webaccessadmin'
+# # name of the role giving superadmin rights
+# SUPERADMINROLE = 'superadmin'
 
-DEF_ROLES = (
-    (SUPERADMINROLE, 'superuser with all rights', 'deny any'),
-    (WEBACCESSADMINROLE, 'WebAccess administrator', 'deny any'),
-    ('anyuser', 'Any user', 'allow any'),
-    ('basketusers', 'Users who can use baskets', 'allow any'),
-    ('loanusers', 'Users who can use loans', 'allow any'),
-    ('groupusers', 'Users who can use groups', 'deny any'),
-    ('alertusers', 'Users who can use alerts', 'allow any'),
-    ('messageusers', 'Users who can use messages', 'allow any'),
-    ('holdingsusers', 'Users who can view holdings', 'allow any'),
-    ('statisticsusers', 'Users who can view statistics', 'allow any'),
-    ('claimpaperusers', 'Users who can perform changes to their own paper attributions without the need for an operator\'s approval', 'allow any'),
-    ('claimpaperoperators', 'Users who can perform changes to _all_ paper attributions without the need for an operator\'s approval', 'deny any'),
-    ('paperclaimviewers', 'Users who can view "claim my paper" facilities.', 'allow all'),
-    ('paperattributionviewers', 'Users who can view "attribute this paper" facilities', 'allow all'),
-    ('paperattributionlinkviewers', 'Users who can see attribution links in the search', 'allow all'),
-    ('authorlistusers', 'Users who can user Authorlist tools', 'deny all'),
-    ('holdingpenusers', 'Users who can view Holding Pen', 'deny all'),
-)
+# # name of the webaccess webadmin role
+# WEBACCESSADMINROLE = 'webaccessadmin'
+
+# DEF_ROLES = (
+#     (SUPERADMINROLE, 'superuser with all rights', 'deny any'),
+#     (WEBACCESSADMINROLE, 'WebAccess administrator', 'deny any'),
+#     ('anyuser', 'Any user', 'allow any'),
+#     ('basketusers', 'Users who can use baskets', 'allow any'),
+#     ('loanusers', 'Users who can use loans', 'allow any'),
+#     ('groupusers', 'Users who can use groups', 'deny any'),
+#     ('alertusers', 'Users who can use alerts', 'allow any'),
+#     ('messageusers', 'Users who can use messages', 'allow any'),
+#     ('holdingsusers', 'Users who can view holdings', 'allow any'),
+#     ('statisticsusers', 'Users who can view statistics', 'allow any'),
+#     ('claimpaperusers', 'Users who can perform changes to their own paper attributions without the need for an operator\'s approval', 'allow any'),
+#     ('claimpaperoperators', 'Users who can perform changes to _all_ paper attributions without the need for an operator\'s approval', 'deny any'),
+#     ('paperclaimviewers', 'Users who can view "claim my paper" facilities.', 'allow all'),
+#     ('paperattributionviewers', 'Users who can view "attribute this paper" facilities', 'allow all'),
+#     ('paperattributionlinkviewers', 'Users who can see attribution links in the search', 'allow all'),
+#     ('authorlistusers', 'Users who can user Authorlist tools', 'deny all'),
+#     ('holdingpenusers', 'Users who can view Holding Pen', 'deny all'),
+# )
 
 
 CFG_MEMBERS_DICT = {
