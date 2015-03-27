@@ -8,7 +8,7 @@ from invenio.base.i18n import _
 blueprint = Blueprint(
     "inis",
     __name__,
-    url_prefix="/",
+    url_prefix="",
     template_folder="templates",  # where your custom templates will go
     static_folder="static"        # where the assets go
 )
@@ -60,6 +60,6 @@ def register_menu_items():
 
 @blueprint.route('/instructions', methods=['GET', ])
 @register_menu(blueprint, 'main.instructions', _('Instructions'), order=4)
-@register_breadcrumb(blueprint, 'breadcrumbs.instructions', _("instructions"))
+@register_breadcrumb(blueprint, 'breadcrumbs.instructions', _("Instructions"))
 def instructions():
     return render_template('deposit/instructions.html')
