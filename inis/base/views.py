@@ -58,8 +58,8 @@ def register_menu_items():
     current_app.before_first_request_funcs.append(menu_fixup)
 
 
-@blueprint.route('/instructions', methods=['GET', ])
-@register_menu(blueprint, 'main.instructions', _('Instructions'), order=4)
-@register_breadcrumb(blueprint, 'breadcrumbs.instructions', _("Instructions"))
-def instructions():
-    return render_template('deposit/instructions.html')
+@blueprint.route('/help', methods=['GET', ])
+@register_menu(blueprint, 'main.help', _('Help'), order=4)
+@register_breadcrumb(blueprint, 'breadcrumbs.help', _("Help"))
+def help():
+    return render_template('inis/help.html')
