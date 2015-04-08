@@ -53,6 +53,8 @@ class UploadForm(WebDepositForm):
                 if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
                     raise ValidationError("All files must have one of the following extensions :" +
                                           ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
+                if '-' in f.name:
+                    raise ValidationError("The character '-' is forbidden in the file name")
 
     _title = _("Upload")
 

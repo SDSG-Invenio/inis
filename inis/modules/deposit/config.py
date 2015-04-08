@@ -23,8 +23,7 @@
 
 DEPOSIT_ACCEPTED_MD_EXTENSIONS = [
     '.ttf',
-    '.txt',
-    '.text',
+    '.inp',
 ]
 
 DEPOSIT_ACCEPTED_FULLTEXT_EXTENSIONS = [
