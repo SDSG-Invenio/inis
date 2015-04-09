@@ -27,20 +27,19 @@ from invenio.ext.sqlalchemy import db
 @with_app_context(new_context=True)
 def post_handler_database_create(sender, default_data='', *args, **kwargs):
     """Load data after demosite creation."""
-    from inis.config import CFG_MEMBERS_NAMES, CFG_MEMBERS_DICT
+    from inis.config import CFG_MEMBERS_NAMES  # , CFG_MEMBERS_DICT
 
     print(">>> Adding user groups.")
 
     from invenio.modules.accounts.models import Usergroup, UserUsergroup
     for member_name in CFG_MEMBERS_NAMES:
-        ug = Usergroup(name=member_name, join_policy='VM', description=CFG_MEMBERS_DICT[member_name])
+        ug = Usergroup(name=member_name, join_policy='VM', description='Submissions from ' + member_name)
         ug.users.append(UserUsergroup(id_user=1, user_status=UserUsergroup.USER_STATUS['ADMIN']))
         db.session.add(ug)
 
     print(">>> Fixing dbquery for root collection.")
 
-    from invenio.modules.search.models import Collection
-
-    c = Collection.query.filter_by(id=1).first()
-    c.dbquery = '980__a:0->Z AND NOT 980__a:Rejected'
+    # from invenio.modules.search.models import Collection
+    # c = Collection.query.filter_by(id=1).first()
+    # c.dbquery = '980__a:0->Z AND NOT 980__a:Rejected'
     db.session.commit()

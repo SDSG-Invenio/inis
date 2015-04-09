@@ -22,7 +22,7 @@
 
 from fixture import DataSet
 
-from inis.config import CFG_MEMBERS_NAMES
+from inis.config import CFG_MEMBERS_CODES, CFG_MEMBERS_DICT
 
 from invenio.modules.search import fixtures
 
@@ -34,13 +34,15 @@ class CollectionData(DataSet):
     pass
 
 colls = []
-colls.append((2, 'Rejected', 'Rejected', '980__a:Rejected'))
+colls.append((2, 'Accepted', 'Accepted', '980__a:Accepted'))
+colls.append((3, 'Rejected', 'Rejected', '980__a:Rejected'))
 
-i = 3
-for name in CFG_MEMBERS_NAMES:
-    colls.append((i, name, name, '980__a:"'+name + '"', ))
+i = 4
+for code in CFG_MEMBERS_CODES:
+    name = CFG_MEMBERS_DICT[code]
+    colls.append((i, name, code, '980__a:"Accepted" AND 913__a:"' + code + '"', ))
     i = i + 1
-    colls.append((i, name, 'r-'+name, '980__b:"'+name + '"', ))
+    colls.append((i, name, 'r-'+code, '980__a:"Rejected" AND 913__a:"' + code + '"', ))
     i = i + 1
 
 idx = 2
@@ -75,11 +77,11 @@ for cid in coll_ids:
 # ===============
 order = 1
 coll_coll_data = []
-for i, t, n, q in colls[1:]:  # we exclude 'Rejected' from the tree
+for i, t, n, q in colls[2:]:  # we exclude 'Accepted' and 'Rejected' from the tree
     if n.startswith('r-'):
-        father = 2
+        father = 3
     else:
-        father = 1
+        father = 2
     coll_coll_data.append((father, i, 'r', order))
     order = order + 1
 coll_coll_data = tuple(coll_coll_data)

@@ -1,5 +1,7 @@
 # from datetime import datetime
 
+from inis.config import CFG_MEMBERS_INV
+
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
     notify_rejection, validate
@@ -27,9 +29,9 @@ def process_recjson(deposition, recjson):
 
         user = UserInfo(deposition.user_id)
         if not user.is_admin:
-            recjson['member'] = user.info['group']
+            recjson['member'] = [CFG_MEMBERS_INV[user.info['group'][0]]]
         else:
-            recjson['member'] = ["International Atomic Energy Agency (IAEA)"]
+            recjson['member'] = [CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]]
         recjson['errors'] = []
 
         TRNs = get_TRNs(sip)
@@ -41,9 +43,11 @@ def process_recjson(deposition, recjson):
             sip.metadata['errors'].append({'code': 0, 'list': missing_trns})
 
         if recjson['errors']:
-            recjson['collections'] = [{'primary': 'Rejected', 'secondary': recjson['member']}, ]
+            primary = 'Rejected'
         else:
-            recjson['collections'] = [{'primary': recjson['member']}, ]
+            primary = 'Accepted'
+
+        recjson['collections'] = [{'primary': primary, 'secondary': recjson['member']}, ]
 
     except TypeError:
         # Happens on re-run
