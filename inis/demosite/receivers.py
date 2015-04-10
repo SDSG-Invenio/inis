@@ -27,19 +27,26 @@ from invenio.ext.sqlalchemy import db
 @with_app_context(new_context=True)
 def post_handler_database_create(sender, default_data='', *args, **kwargs):
     """Load data after demosite creation."""
-    from inis.config import CFG_MEMBERS_NAMES  # , CFG_MEMBERS_DICT
+    from inis.config import CFG_MEMBERS_NAMES, CFG_ILOS
 
-    print(">>> Adding user groups.")
+    from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
 
-    from invenio.modules.accounts.models import Usergroup, UserUsergroup
+    print(">>> Adding user accounts for ILOs.")
+    users = {}
+    i = 2
+    for ilo in CFG_ILOS:
+        u = User(id=i, email=ilo['email'], nickname=ilo['name'], password='')
+        db.session.add(u)
+        users[ilo['country']] = i
+        i = i + 1
+    db.session.commit()
+
+    print(">>> Adding user groups for INIS members.")
     for member_name in CFG_MEMBERS_NAMES:
         ug = Usergroup(name=member_name, join_policy='VM', description='Submissions from ' + member_name)
         ug.users.append(UserUsergroup(id_user=1, user_status=UserUsergroup.USER_STATUS['ADMIN']))
+        if member_name in users:
+            ug.users.append(UserUsergroup(id_user=users[member_name]))
         db.session.add(ug)
 
-    print(">>> Fixing dbquery for root collection.")
-
-    # from invenio.modules.search.models import Collection
-    # c = Collection.query.filter_by(id=1).first()
-    # c.dbquery = '980__a:0->Z AND NOT 980__a:Rejected'
     db.session.commit()
