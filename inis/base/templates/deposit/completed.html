@@ -22,8 +22,23 @@
 <div class="row">
     <div class="col-md-7">
 
-    <div class="well">
-        <span class="pull-right">
+    <div class="progress" style="height: inherit;">
+        <div class="progress-bar progress-bar-success" style="width: 100%;">
+            <h4>{{ _('Submitted') }}</h4>
+        </div>
+    </div>
+    <small class="text-muted">
+        {{ _('This is a preview of your upload. The uploaded files are available on %(x_link)s. '
+             'If you want to remove your upload, please contact %(x_contact)s',
+             x_link='<a href="{url}">{url}</a>'.format(
+                url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
+             )|safe,
+             x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }}
+             </br></br>
+    </small>
+
+    <div class="">
+        <span class="center-block">
             {%- if deposition.type.editable -%}
             <a href="{{url_for('webdeposit.edit', deposition_type=deposition_type, uuid=deposition.id)}}" class="btn btn-default{{ ' disabled' if deposition.state != 'done' else ''}}" data-toggle="tooltip" title="{{ 'Editing is only possible after your upload have been fully integrated. Please wait a few moments, then try to reload the page.' if deposition.state != 'done' else ''}}" ><i class="fa fa-pencil"></i> {{ _('Edit') }}</a> &nbsp;
             {%- endif -%}
@@ -31,20 +46,6 @@
         </span>
         <span class="clearfix"></span>
     </div>
-
-    <div class="progress progress-striped" style="height: inherit;">
-        <div class="progress-bar progress-bar-warning" style="width: 100%;">
-            <h4>{{ _('Preview') }}</h4>
-        </div>
-    </div>
-    <small class="text-muted">
-        {{ _('This is a preview of your upload. The public version is available on %(x_link)s. '
-             'If you want to remove your upload, please contact %(x_contact)s',
-             x_link='<a href="{url}">{url}</a>'.format(
-                url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
-             )|safe,
-             x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }}
-    </small>
     <hr />
     {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hd')|safe}}
     {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hdinfo')|safe}}

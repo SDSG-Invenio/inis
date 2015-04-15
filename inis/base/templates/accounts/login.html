@@ -1,0 +1,58 @@
+{#
+# This file is part of Invenio.
+# Copyright (C) 2014 CERN.
+#
+# Invenio is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# Invenio is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+{%- extends "accounts/login_base.html" -%}
+
+{%- block form_header_message scoped -%}
+<div class="col-md-8 col-md-offset-2">
+  {% set x_url_open = '<a href="%s">'|format(url_for('webaccount.register')) %}
+  <p class="lead text-center">{{ _("If you already have an account, please login using the form below.") }}</p>
+  <p class="text-center">{{ _("If you don't own an account yet, please contact your ILO.") }}</p>
+
+  <hr/>
+</div>
+{%- endblock form_header_message -%}
+
+{%- block form_auth_internal_form scoped -%}
+{%- block form_auth_internal_title scoped -%}<legend>{{ _('Please Sign In') }}</legend>{% endblock %}
+<form class="form-signin" action="{{ url_for('webaccount.login', _external=True, _scheme='https') }}" method="POST">
+{{ form.referer }}
+{{ form.login_method }}
+<div class="form-group{% if form.nickname.errors%} has-error{% endif %}">
+{{ form.nickname(placeholder=_('Email'), class_="form-control", type="text") }}
+{%- if form.nickname.errors %}{% for error in form.nickname.errors %}
+    <span class="help-block">{{ error }}</span>
+{%- endfor %}{% endif %}
+</div>
+<div class="form-group{% if form.password.errors%} has-error{% endif %}">
+{{ form.password(placeholder=_('Password'), class_="form-control", type="password") }}
+{%- if form.password.errors %}{% for error in form.password.errors %}
+    <span class="help-block">{{ error }}</span>
+{%- endfor %}{% endif %}
+
+  <label class="checkbox">
+    {{ form.remember(class_="checkbox") }} Remember me
+  </label>
+  {{ form.submit(class_="btn btn-info btn-block") }}
+</form>
+<p class="text-center"><small>
+  <a href="{{ url_for('webaccount.lost') }}">
+    {{ _('Lost your password?') }}
+  </a>
+</small></p>
+{%- endblock form_auth_internal_form -%}

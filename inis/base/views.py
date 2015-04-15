@@ -40,7 +40,7 @@ def register_menu_items():
         # Remove items
         item = current_menu.submenu("main")
         item._child_entries.pop('deposit', None)
-        #item._child_entries.pop('search', None)
+        item._child_entries.pop('search', None)
         item._child_entries.pop('documentation', None)
 
         item = current_menu.submenu("settings.workflows")
