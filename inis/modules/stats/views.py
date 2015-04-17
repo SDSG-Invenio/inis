@@ -138,18 +138,19 @@ def get_group_stats(group_name):
         if not u.is_admin() or group_name == "International Atomic Energy Agency (IAEA)":
             depositions = Deposition.get_depositions(UserInfo(u.id_user))
             for d in depositions:
-                s = d.get_latest_sip()
-                if s.metadata['errors'] == []:
-                    info['trns'] += len(s.metadata['trns'])
-                    info['files'] += len([f for f in s.metadata['fft']
-                                          if os.path.splitext(f['path'])[1]
-                                          in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
-                else:
-                    for e in s.metadata['errors']:
-                        if e['code'] in info['errors']:
-                            info['errors'][e['code']] += 1
-                        else:
-                            info['errors'][e['code']] = 1
+                if d.has_sip() and d.state == 'done':
+                    s = d.get_latest_sip()
+                    if s.metadata['errors'] == []:
+                        info['trns'] += len(s.metadata['trns'])
+                        info['files'] += len([f for f in s.metadata['fft']
+                                              if os.path.splitext(f['path'])[1]
+                                              in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
+                    else:
+                        for e in s.metadata['errors']:
+                            if e['code'] in info['errors']:
+                                info['errors'][e['code']] += 1
+                            else:
+                                info['errors'][e['code']] = 1
 
     info['errors'] = info['errors'].items()
     info['errors'].sort(key=lambda tup: tup[1], reverse=True)
