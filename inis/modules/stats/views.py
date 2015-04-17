@@ -24,6 +24,8 @@ from flask.ext.breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask.ext.login import current_user, login_required
 from flask.ext.menu import register_menu
 
+from inis.config import CFG_MEMBERS_INV
+
 from invenio.base.i18n import _
 from invenio.ext.login import UserInfo
 from invenio.modules.accounts.models import Usergroup
@@ -54,10 +56,7 @@ default_breadcrumb_root(blueprint, '.settings.stats')
 # @permission_required('usegroups')
 def index():
     """List all user groups."""
-    import os
-    from invenio.legacy.search_engine import perform_request_search
     from operator import itemgetter
-    from invenio.modules.deposit.models import Deposition
     from inis.config import CFG_ERROR_MESSAGES
 
     uid = current_user.get_id()
@@ -65,83 +64,97 @@ def index():
     # user = User.query.get(uid)
 
     user = UserInfo(uid)
+
     if not user.is_admin and user.info['group']:
         user_group_name = user.info['group'][0]
+        info = get_group_stats(user_group_name)
+        return render_template('stats/member.html', info=info, error_messages=CFG_ERROR_MESSAGES)
+
     else:
         user_group_name = ["International Atomic Energy Agency (IAEA)"]
-    current_user_group = None
-    groups = Usergroup.query.filter().all()
-    stats = []
-    totals = {}
-    totals['total'] = 0
-    totals['accepted'] = 0
-    totals['rejected'] = 0
-    totals['trns'] = 0
-    totals['files'] = 0
-    totals['errors'] = {}
 
-    for g in groups:
-        info = {}
-        info['name'] = g.name
-        info['users'] = [u.user.nickname for u in g.users if not u.user.has_super_admin_role]
-        if len(info['users']):
-            info['trns'] = 0
-            info['files'] = 0
-            info['errors'] = {}
-            for u in g.users:
-                depositions = Deposition.get_depositions(UserInfo(u.id_user))
-                for d in depositions:
-                    s = d.get_latest_sip()
-                    if s.metadata['errors'] == []:
-                        info['trns'] += len(s.metadata['trns'])
-                        info['files'] += len([f for f in s.metadata['fft']
-                                              if os.path.splitext(f['path'])[1]
-                                              in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
+        groups = Usergroup.query.filter().all()
+        stats = []
+        totals = {}
+        totals['total'] = 0
+        totals['accepted'] = 0
+        totals['rejected'] = 0
+        totals['trns'] = 0
+        totals['files'] = 0
+        totals['errors'] = {}
+
+        for g in groups:
+            info = get_group_stats(g.name)
+            if info['accepted'] or info['rejected']:
+                stats.append(info)
+                totals['files'] += info['files']
+                totals['trns'] += info['trns']
+                errors = dict(info['errors'])
+                for i in errors.keys():
+                    if i in totals['errors']:
+                        totals['errors'][i] += errors[i]
                     else:
-                        for e in s.metadata['errors']:
-                            if e['code'] in info['errors']:
-                                info['errors'][e['code']] += 1
-                            else:
-                                info['errors'][e['code']] = 1
+                        totals['errors'][i] = errors[i]
 
-            totals['files'] += info['files']
-            totals['trns'] += info['trns']
-            for i in info['errors'].keys():
-                if i in totals['errors']:
-                    totals['errors'][i] += info['errors'][i]
+                totals['accepted'] += info['accepted']
+                totals['rejected'] += info['rejected']
+                totals['total'] += info['total']
+
+        totals['errors'] = totals['errors'].items()
+        totals['errors'].sort(key=lambda tup: tup[1], reverse=True)
+
+        stats = sorted(stats, key=itemgetter('name'), reverse=False)
+
+        return render_template('stats/global.html', stats=stats, totals=totals, error_messages=CFG_ERROR_MESSAGES)
+
+
+@blueprint.route('/<int:id_usergroup>')
+@login_required
+# @permission_required('usegroups')
+def member_stats(id_usergroup):
+    """Display statistics for one member."""
+    from inis.config import CFG_ERROR_MESSAGES
+
+    g = Usergroup.query.filter_by(id=id_usergroup).first()
+    info = get_group_stats(g.name)
+
+    return render_template('stats/member.html', info=info, error_messages=CFG_ERROR_MESSAGES)
+
+
+def get_group_stats(group_name):
+    import os
+    from invenio.legacy.search_engine import perform_request_search
+    from invenio.modules.deposit.models import Deposition
+
+    g = Usergroup.query.filter_by(name=group_name).first()
+    info = {}
+    info['name'] = group_name
+    info['id'] = str(g.id)
+    info['users'] = [u.user.nickname for u in g.users if not u.user.has_super_admin_role]
+    info['trns'] = 0
+    info['files'] = 0
+    info['errors'] = {}
+    for u in g.users:
+        if not u.is_admin() or group_name == "International Atomic Energy Agency (IAEA)":
+            depositions = Deposition.get_depositions(UserInfo(u.id_user))
+            for d in depositions:
+                s = d.get_latest_sip()
+                if s.metadata['errors'] == []:
+                    info['trns'] += len(s.metadata['trns'])
+                    info['files'] += len([f for f in s.metadata['fft']
+                                          if os.path.splitext(f['path'])[1]
+                                          in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
                 else:
-                    totals['errors'][i] = info['errors'][i]
+                    for e in s.metadata['errors']:
+                        if e['code'] in info['errors']:
+                            info['errors'][e['code']] += 1
+                        else:
+                            info['errors'][e['code']] = 1
 
-            info['errors'] = info['errors'].items()
-            info['errors'].sort(key=lambda tup: tup[1], reverse=True)
+    info['errors'] = info['errors'].items()
+    info['errors'].sort(key=lambda tup: tup[1], reverse=True)
+    info['accepted'] = len(perform_request_search(cc=CFG_MEMBERS_INV[g.name]))
+    info['rejected'] = len(perform_request_search(cc='r-' + CFG_MEMBERS_INV[g.name]))
+    info['total'] = info['rejected'] + info['accepted']
 
-            info['accepted'] = len(perform_request_search(cc=g.name))
-            totals['accepted'] += info['accepted']
-
-            info['rejected'] = len(perform_request_search(cc='r-' + g.name))
-            totals['rejected'] += info['rejected']
-
-            info['total'] = info['rejected'] + info['accepted']
-            totals['total'] += info['total']
-
-            # if info['accepted'] or info['rejected']:
-            stats.append(info)
-
-            if g.name == user_group_name:
-                current_user_group = info
-
-    totals['errors'] = totals['errors'].items()
-    totals['errors'].sort(key=lambda tup: tup[1], reverse=True)
-
-    stats = sorted(stats, key=itemgetter('trns'), reverse=True)
-    top_submitter = stats[0]['trns']
-    for g in stats:
-        g['activity'] = (g['trns'] * 100) / top_submitter
-
-    for g in stats:
-        if g['name'] == user_group_name:
-            current_user_group = g
-            stats.remove(g)
-
-    return render_template('stats/index.html', stats=stats, totals=totals,
-                           current_user_group=current_user_group, error_messages=CFG_ERROR_MESSAGES)
+    return info

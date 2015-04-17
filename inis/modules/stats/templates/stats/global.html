@@ -1,0 +1,78 @@
+{%- extends "page.html" -%}
+{%- block body -%}
+
+<div class="well">
+<h1><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Totals</h1>
+    <div class="row" style="padding: 12px;">
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item active">Total Submissions <span class="badge">{{ totals['total'] }}</span></li>
+        </div>
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item">Accepted <span class="badge">{{ totals['accepted'] }}</span></li>
+        </div>
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item">Rejected <span class="badge">{{ totals['rejected'] }}</span></li>
+        </div>
+    </div>
+    <div class="row" style="padding: 12px;">
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item active">Records submitted <span class="badge">{{ totals['trns'] }}</span></li>
+        </div>
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item">Fulltext files <span class="badge">{{ totals['files'] }}</span></li>
+        </div>
+    </div>
+    <div class="row" style="padding: 12px;">
+        {% if totals['errors'] %}
+        <div class="col-sm-8 col-md-8">
+            <li class="list-group-item"><p>Most common errors</p>
+                <ul>
+                {%- for e in totals['errors'] %}
+                    <li class="list-group-item">{{ error_messages[e[0]] }}<span class="badge">{{ e[1] }}</span></li>
+                {%- endfor %}
+                </ul>
+            </li>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-condensed table-hover">
+    <th>
+        <td class='text-center'><li class="list-group-item active">Records submitted</li></td>
+        <td class='text-center'><li class="list-group-item">Fulltext files</td>
+        <td class='text-center'><li class="list-group-item active">Total submissions</td>
+        <td class='text-center'><li class="list-group-item">Accepted</td>
+        <td class='text-center'><li class="list-group-item">Rejected</td>
+    </th>
+    {%- for g in stats %}
+        <tr>
+            <td><a href="{{ url_for("stats."+ g['id']) }}"><i class="fa fa-group fa-fw"></i>&nbsp;{{ g['name'] }}</a></td>
+            <td class='text-center'><span class="badge">{{ g['trns'] }}</span</td>
+            <td class='text-center'><span class="badge">{{ g['files'] }}</span</td>
+            <td class='text-center'><span class="badge">{{ g['total'] }}</span</td>
+            <td class='text-center'><span class="badge">{{ g['accepted'] }}</span</td>
+            <td class='text-center'><span class="badge">{{ g['rejected'] }}</span</td>
+<!--             {% if g['accepted'] > 0 %}
+                {% if (g['rejected'] * 100) /  g['total'] > 10 %}
+                    <li class="list-group-item list-group-item-danger" role="alert">Rejection rate
+                        <span class="badge progress-bar-danger">{{ ((g['rejected']*100)/g['total'])|round }}%</span>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li class="list-group-item list-group-item-danger" role="alert">No accepted submissions</li>
+            {% endif %} -->
+            <!-- <li class="list-group-item">Submitters:
+            <ul>
+            {% for user in g['users'] %}
+                <li>{{ user }}</li>
+            {% endfor %}
+            </ul>
+            </li> -->
+        </tr>
+    {%- endfor %}
+</table>
+</div>
+
+{%- endblock body -%}

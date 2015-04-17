@@ -1,0 +1,63 @@
+{%- extends "page.html" -%}
+{%- block body -%}
+
+    <div class="well">
+    <h1><i class="fa fa-group fa-fw"></i>&nbsp;{{ info['name'] }}</h1>
+        <div class="row" style="padding: 12px;">
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item active">Total Submissions <span class="badge">{{ info['total'] }}</span></li>
+            </div>
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item">Accepted <span class="badge">{{ info['accepted'] }}</span></li>
+            </div>
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item">Rejected <span class="badge">{{ info['rejected'] }}</span></li>
+            </div>
+        </div>
+        <div class="row" style="padding: 12px;">
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item active">Records submitted <span class="badge">{{ info['trns'] }}</span></li>
+            </div>
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item">Fulltext files <span class="badge">{{ info['files'] }}</span></li>
+            </div>
+            {% if info['accepted'] > 0 %}
+                {% if (info['rejected'] * 100) /  info['total'] > 10 %}
+                <div class="col-sm-8 col-md-4">
+                    <li class="list-group-item list-group-item-danger">Rejection rate
+                        <span class="badge progress-bar-danger">{{ ((info['rejected']*100)/info['total'])|round }}%</span>
+                    </li>
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="col-sm-8 col-md-4">
+                    <li class="list-group-item list-group-item-danger" role="alert">No accepted submissions</li>
+                </div>
+            {% endif %}
+        </div>
+        <div class="row" style="padding: 12px;">
+            {% if info['errors'] %}
+            <div class="col-sm-8 col-md-8">
+                <li class="list-group-item"><p>Most common errors</p>
+                    <ul>
+                    {%- for e in info['errors'] %}
+                        <li class="list-group-item">{{ error_messages[e[0]] }}<span class="badge">{{ e[1] }}</span></li>
+                    {%- endfor %}
+                    </ul>
+                </li>
+            </div>
+            {% endif %}
+            {% if info['users'] %}
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item"><p>Submitters</p>
+                    <ul>
+                    {%- for u in info['users'] %}
+                        <li class="list-group-item">{{ u }}</li>
+                    {%- endfor %}
+                    </ul>
+                </li>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{%- endblock body -%}
