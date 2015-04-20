@@ -24,11 +24,13 @@ from flask.ext.breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask.ext.login import current_user, login_required
 from flask.ext.menu import register_menu
 
-from inis.config import CFG_MEMBERS_INV
+from inis.config import CFG_MEMBERS_DICT, CFG_MEMBERS_INV
 
 from invenio.base.i18n import _
 from invenio.ext.login import UserInfo
+from invenio.ext.principal import permission_required
 from invenio.modules.accounts.models import Usergroup
+from invenio.modules.deposit.models import Deposition
 
 
 blueprint = Blueprint(
@@ -53,7 +55,7 @@ default_breadcrumb_root(blueprint, '.settings.stats')
 # )
 @register_breadcrumb(blueprint, '.', _('Statistics'))
 @login_required
-# @permission_required('usegroups')
+@permission_required('usegroups')
 def index():
     """List all user groups."""
     from operator import itemgetter
@@ -73,7 +75,12 @@ def index():
     else:
         user_group_name = ["International Atomic Energy Agency (IAEA)"]
 
-        groups = Usergroup.query.filter().all()
+        depositions = [d for d in Deposition.get_depositions() if d.state == 'done']
+        members = set()
+        for d in depositions:
+            s = d.get_latest_sip()
+            members.add(s.metadata['member'][0])
+
         stats = []
         totals = {}
         totals['total'] = 0
@@ -83,8 +90,8 @@ def index():
         totals['files'] = 0
         totals['errors'] = {}
 
-        for g in groups:
-            info = get_group_stats(g.name)
+        for code in members:
+            info = get_group_stats(CFG_MEMBERS_DICT[code])
             if info['accepted'] or info['rejected']:
                 stats.append(info)
                 totals['files'] += info['files']
@@ -110,7 +117,7 @@ def index():
 
 @blueprint.route('/<int:id_usergroup>')
 @login_required
-# @permission_required('usegroups')
+@permission_required('usegroups')
 def member_stats(id_usergroup):
     """Display statistics for one member."""
     from inis.config import CFG_ERROR_MESSAGES
@@ -124,7 +131,6 @@ def member_stats(id_usergroup):
 def get_group_stats(group_name):
     import os
     from invenio.legacy.search_engine import perform_request_search
-    from invenio.modules.deposit.models import Deposition
 
     g = Usergroup.query.filter_by(name=group_name).first()
     info = {}
