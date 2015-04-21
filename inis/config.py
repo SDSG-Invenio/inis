@@ -31,11 +31,13 @@ except ImportError:
 CFG_ERROR_MESSAGES = {
     0: 'Fulltext files have names that do not correspond to any known TRN',
     1: 'Files do not contain TTF metadata (or TRN tag "001" is missing)',
+    2: 'Wrong country code in TRNs',
 }
 
 CFG_SUMBISSION_ERRORS = {
     0: 'The following fulltext files have names that do not correspond to any known TRN:',
     1: 'The following files do not contain TTF metadata (or TRN tag "001" is missing):',
+    2: 'The following TRNs have the wrong country code:',
 }
 
 CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"
@@ -319,17 +321,6 @@ CFG_MEMBERS_CODES.sort()
 CFG_MEMBERS_INV = {v: k for k, v in CFG_MEMBERS_DICT.items()}
 
 CFG_ILOS = [
-    {'country': CFG_MEMBERS_DICT['XC'], 'name': 'Jens Vigen', 'email': 'jens.vigen@cern.ch',
-     'description': """Scientific Information Service, European Organization for Nuclear Research (CERN)<br>
-CH-1211 Geneva 23, Switzerland<br>
-Telephone: +41 (22) 7672410<br>
-Telex: 419000 CER<br>
-Facsimile: +41 (22) 7828611<br>
-URL: <a href="http://www.cern.ch">http://www.cern.ch</a><br>
-Document delivery point of contact: Corrado Pettenati<br>
-Email: Corrado.Pettenati@cern.ch<br>
-Delivery services: electronic via http<br>
-Request services: e-mail, web<br>
-Cost: free of charge"""},
-    {'country': CFG_MEMBERS_DICT['ES'], 'name': 'Jaime García', 'email': 'jaime@fake.com'},
+    {'country': CFG_MEMBERS_DICT['XA'], 'name': 'Alexander Anastassov', 'email': 'a.Anastassov@iaea.org'},
+    {'country': CFG_MEMBERS_DICT['ES'], 'name': 'Jaime García', 'email': 'j.garcia-llopis@iaea.org'},
 ]
