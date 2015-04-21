@@ -20,6 +20,8 @@
 # granted to it by virtue of its status as an Intergovernmental Organization
 # or submit itself to any jurisdiction.
 
+from inis.utils import id_generator, set_password
+
 from invenio.base.factory import with_app_context
 from invenio.ext.sqlalchemy import db
 
@@ -35,7 +37,7 @@ def post_handler_database_create(sender, default_data='', *args, **kwargs):
     users = {}
     i = 2
     for ilo in CFG_ILOS:
-        u = User(id=i, email=ilo['email'], nickname=ilo['name'], password='')
+        u = User(id=i, email=ilo['email'], nickname=ilo['name'], password=id_generator())
         db.session.add(u)
         users[ilo['country']] = i
         i = i + 1
@@ -50,3 +52,7 @@ def post_handler_database_create(sender, default_data='', *args, **kwargs):
         db.session.add(ug)
 
     db.session.commit()
+
+    print(">>> Sending password reset to ILOs.")
+    for ilo in CFG_ILOS:
+        set_password(ilo['email'])
