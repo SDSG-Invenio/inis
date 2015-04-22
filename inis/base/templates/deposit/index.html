@@ -25,24 +25,29 @@
 
 <div class="row">
   <div class="col-sm-6 col-md-7">
+
     <div class="well">
-      <h1>Choose an option</h1>
-      <p>Select the type of sumbission</p>
-      <br>
-      <div id="uploader-uploaders" class="row text-center">
-        <div class="col-md-5" id="local">
-          <a class="btn btn-primary btn-lg fa fa-upload fa-2x" href="/deposit/upload/create">
-            Upload
-          </a>
+      <h1>INIS Input Management</h1></br>
+      {% include "deposit/inis_info.html" %}
+      </br>
+      <h4>Choose the type of sumbission</h4>
+      <div class="well" style="background-color:white;">
+        <div id="uploader-uploaders" class="row text-center">
+          <div class="col-md-5" id="local">
+            <a class="btn btn-primary btn-lg fa fa-upload fa-2x" href="/deposit/upload/create">
+              Upload
+            </a>
+          </div>
+  <!--         <div class="col-md-5" id="local">
+            <a class="btn btn-primary btn-lg fa fa-edit fa-2x disabled" href="/deposit/upload/create">
+              Input
+            </a>
+          </div> -->
         </div>
-<!--         <div class="col-md-5" id="local">
-          <a class="btn btn-primary btn-lg fa fa-edit fa-2x disabled" href="/deposit/upload/create">
-            Input
-          </a>
-        </div> -->
       </div>
     </div>
-  {% include "deposit/instructions.html" %}
+    <!--     {% include "deposit/inis_info.html" %}-->
+  
   </div>
 
   <div class="col-sm-6 col-md-5">

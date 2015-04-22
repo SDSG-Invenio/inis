@@ -33,9 +33,9 @@ def register_menu_items():
 
     def menu_fixup():
         item = current_menu.submenu("main.webdeposit")
-        item._text = "Upload"
+        item._text = "Submit"
         item = current_menu.submenu("breadcrumbs.webdeposit")
-        item._text = "Upload"
+        item._text = "Submit"
 
         # Remove items
         item = current_menu.submenu("main")

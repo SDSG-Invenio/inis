@@ -18,9 +18,9 @@
 #}
 
 <div class="well">
-    <h2>{{ _('My uploads') }}</h2>
+    <h2>{{ _('My submissions') }}</h2>
     {% if not my_depositions %}
-    <p class="text-muted">{{ _('You currently have no uploads.') }}</p>
+    <p class="text-muted">{{ _('You currently have no submissions.') }}</p>
     {% else %}
     {% for dep in my_depositions if not dep.has_sip() %}
     {%- set deposition_type = None if dep.type.is_default() else dep.type.get_identifier() -%}
@@ -29,7 +29,7 @@
     <table class="table table-striped">
     {%- endif %}
     <tr>
-        <td><a href="{{ url_for('webdeposit.delete', deposition_type=deposition_type, uuid=dep.id) }}" class="rmlink" rel="tooltip" title="Delete upload"><i class="glyphicon glyphicon-trash"></i></a></td>
+        <td><a href="{{ url_for('webdeposit.delete', deposition_type=deposition_type, uuid=dep.id) }}" class="rmlink" rel="tooltip" title="Delete submission"><i class="glyphicon glyphicon-trash"></i></a></td>
         <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}">{% if dep.title %}
                   {{ dep.title }}
               {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
