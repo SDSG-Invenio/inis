@@ -10,6 +10,7 @@ CFG_SITE_NAME_INTL = {
 
 DEPOSIT_TYPES = [
     "inis.modules.deposit.workflows.upload:upload",
+    "inis.modules.deposit.workflows.input:input",
 ]
 
 PACKAGES = [

@@ -34,28 +34,31 @@
       <h4>Choose an action</h4>
       <div class="well" style="background-color:white;">
         <div id="uploader-uploaders" class="row text-center">
+
           <div class="col-md-5" id="local">
             <a class="btn btn-primary btn-lg fa fa-upload fa-2x" href="/upload/create">
               Upload
             </a>
+            <p class='text-muted'>Send batch files and fulltexts</p>
+          </div>
+
+          <div class="col-md-5" id="local">
+            <a class="btn btn-primary btn-lg fa fa-edit fa-2x" href="/input/create">
+              Input
+            </a>
+            <p class='text-muted'>Create a new record</p>
           </div>
           {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
-            <div class="col-md-5" id="local">
+            <div class="col-md-7" id="local">
               <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
                 <small>{{ _('See latest uploads') }}</small>
               </a>
             </div>
           {% endif %}
-  <!--         <div class="col-md-5" id="local">
-            <a class="btn btn-primary btn-lg fa fa-edit fa-2x disabled" href="/upload/create">
-              Input
-            </a>
-          </div> -->
         </div>
       </div>
     </div>
     <!--     {% include "deposit/inis_info.html" %}-->
-  
   </div>
 
   <div class="col-sm-6 col-md-5">

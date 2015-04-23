@@ -19,8 +19,40 @@
 
 import string
 
+from flask import current_app
+
 from invenio.config import CFG_SITE_NAME, CFG_SITE_SECURE_URL, \
     CFG_SITE_SUPPORT_EMAIL, CFG_WEBSESSION_RESET_PASSWORD_EXPIRE_IN_DAYS
+
+from invenio.legacy.dbquery import run_sql
+
+
+def create_doi(recid=None):
+    """ Generate a new DOI """
+    if recid is None:
+        recid = run_sql("INSERT INTO bibrec (creation_date, modification_date)"
+                        " VALUES (NOW(), NOW())")
+
+    return dict(
+        doi='%s/zenodo.%s' % (
+            current_app.config['CFG_DATACITE_DOI_PREFIX'],
+            recid
+        ),
+        recid=recid,
+    )
+
+
+def filter_empty_helper(keys=None):
+    """ Remove empty elements from a list"""
+    def _inner(elem):
+        if isinstance(elem, dict):
+            for k, v in elem.items():
+                if (keys is None or k in keys) and v:
+                    return True
+            return False
+        else:
+            return bool(elem)
+    return _inner
 
 
 def id_generator(size=8, chars=string.ascii_uppercase + string.digits):
