@@ -2,6 +2,8 @@
 
 import os
 
+from datetime import datetime
+
 from flask import current_app, request
 
 from invenio.base.i18n import _
@@ -19,8 +21,9 @@ class UploadForm(WebDepositForm):
     """INIS record upload form fields."""
 
     title = fields.TitleField(
-        label=_('Title'),
+        label=_('Upload name'),
         widget_classes="form-control",
+        default='Upload of ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         icon='fa fa-book fa-fw',
         validators=[validators.DataRequired()],
         export_key='title.title',
