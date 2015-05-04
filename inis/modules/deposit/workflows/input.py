@@ -1,5 +1,7 @@
 # from datetime import datetime
 
+from datetime import date
+
 from inis.config import CFG_MEMBERS_INV
 
 from inis.modules.deposit.forms import InputForm
@@ -7,6 +9,7 @@ from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
     notify_rejection, validate
 
 from invenio.ext.login import UserInfo
+# from invenio.ext.restful import ISODate
 
 from invenio.modules.deposit.tasks import create_recid, \
     finalize_record_sip, \
@@ -22,22 +25,32 @@ from workflow import patterns as p
 
 
 def process_recjson(deposition, recjson):
+
     try:
+
+        # ================
+        # ISO format dates
+        # ================
+        for k in recjson.keys():
+            if isinstance(recjson[k], date):
+                recjson[k] = recjson[k].isoformat()
+
         sip = deposition.get_latest_sip(sealed=False)
         if sip is None:
             sip = deposition.create_sip()
 
         user = UserInfo(deposition.user_id)
         if not user.is_admin:
-            recjson['member'] = [CFG_MEMBERS_INV[user.info['group'][0]]]
+            recjson['member'] = CFG_MEMBERS_INV[user.info['group'][0]]
         else:
-            recjson['member'] = [CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]]
+            recjson['member'] = CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]
         recjson['errors'] = []
 
         TRNs = get_TRNs(sip)
         recjson['trns'] = TRNs
+        recjson['trns'].append(recjson['trn'])
 
-        wrong_cc = [trn for trn in TRNs if trn[:2] != recjson['member']]
+        wrong_cc = [trn for trn in recjson['trns'] if trn[:2] != recjson['member']]
         if wrong_cc != []:
             sip.metadata['errors'].append({'code': 2, 'list': wrong_cc})
 

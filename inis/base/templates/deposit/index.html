@@ -48,15 +48,26 @@
             </a>
             <p class='text-muted'>Create a new record</p>
           </div>
-          {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
-            <div class="col-md-7" id="local">
-              <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
-                <small>{{ _('See latest uploads') }}</small>
-              </a>
-            </div>
-          {% endif %}
+
         </div>
       </div>
+      {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
+      <h4>Admin</h4>
+      <div class="well" style="background-color:white;">
+        <div id="uploader-uploaders" class="row text-center">
+          <div class="col-md-7" id="local">
+            <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
+              <small>{{ _('See latest uploads') }}</small>
+            </a>
+          </div>
+          <div class="col-md-5" id="local">
+            <a class="btn btn-primary btn-lg fa fa-cogs fa-2x" href="{{ url_for('bibsched') }}">
+              <small>{{ _('Task queue') }}</small>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
     </div>
     <!--     {% include "deposit/inis_info.html" %}-->
   </div>

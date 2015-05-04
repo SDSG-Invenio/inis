@@ -72,15 +72,24 @@
               {%- endif %}
           {%- endif %}
           </td>
+          <td>
+          {%- if dep.type.name %}
+              {%- if dep.type.name == 'Upload' %}
+                  <div class="fa fa-upload"></div>
+              {%- elif dep.type.name == 'Input' %}
+                  <div class="fa fa-edit"></div>
+              {%- endif %}
+          {%- endif %}
+          </td>
           <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
                  title="{{ dep.title }}">
                 {% if dep.title %}
-                    {{ dep.title | truncate(30, killwords=True) }}
+                    {{ dep.title | truncate(34, killwords=True) }}
                 {% else %}
                     {{ _('Untitled') }}
                 {% endif %}</a>
           </td>
-          <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
+          <td>{{ dep.modified | string | truncate(10, killwords=True, end='') }}</td>
           <td>
       </tr>
       {%- endfor %}
