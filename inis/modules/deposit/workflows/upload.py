@@ -29,9 +29,9 @@ def process_recjson(deposition, recjson):
 
         user = UserInfo(deposition.user_id)
         if not user.is_admin:
-            recjson['member'] = [CFG_MEMBERS_INV[user.info['group'][0]]]
+            recjson['member'] = CFG_MEMBERS_INV[user.info['group'][0]]
         else:
-            recjson['member'] = [CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]]
+            recjson['member'] = CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]
         recjson['errors'] = []
 
         TRNs = get_TRNs(sip)

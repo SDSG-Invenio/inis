@@ -79,7 +79,7 @@ def index():
         members = set()
         for d in depositions:
             s = d.get_latest_sip()
-            members.add(s.metadata['member'][0])
+            members.add(s.metadata['member'])
 
         stats = []
         totals = {}

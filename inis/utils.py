@@ -47,7 +47,7 @@ def tmpl_set_password_email_body(email, reset_key):
 %(outro2)s""" % {
         'intro': "We have created an account for you at %(x_sitename)s (%(x_siteurl)s)\nfor "
                  "the account \"%(x_email)s\"." % {'x_sitename': CFG_SITE_NAME, 'x_siteurl': CFG_SITE_SECURE_URL, 'x_email': email},
-        'intro2': "Please set you password following this link:",
+        'intro2': "Please set your password following this link:",
         'link': "%s/youraccount/resetpassword%s" %
                 (CFG_SITE_SECURE_URL, make_canonical_urlargd({
                     'ln': 'en',
@@ -66,5 +66,5 @@ def set_password(email):
     from datetime import timedelta
     reset_key = mail_cookie_create_pw_reset(email, cookie_timeout=timedelta(days=CFG_WEBSESSION_RESET_PASSWORD_EXPIRE_IN_DAYS))
     send_email(CFG_SITE_SUPPORT_EMAIL, email,
-               "%s %s" % ("Set you password for", CFG_SITE_NAME),
+               "%s %s" % ("Set your password for", CFG_SITE_NAME),
                tmpl_set_password_email_body(email, reset_key))

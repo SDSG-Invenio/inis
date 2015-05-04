@@ -73,7 +73,7 @@ def notify_rejection():
         errors += "</ul>"
 
         try:
-            member = sip.metadata['member'][0]
+            member = sip.metadata['member']
         except IndexError:
             member = ''
 

@@ -49,6 +49,8 @@ class UploadForm(WebDepositForm):
         """Ensure attached files have valid extensions."""
         if not getattr(request, 'is_api_request', False):
             # Tested in API by a separate workflow task.
+            if len(form.files) == 0:
+                raise ValidationError("You must provide minumim one file")
             for f in form.files:
                 if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
                     raise ValidationError("All files must have one of the following extensions :" +
