@@ -43,12 +43,25 @@
           </div>
 
           <div class="col-md-5" id="local">
-            <a class="btn btn-primary btn-lg fa fa-edit fa-2x" href="/input/create">
-              Input
-            </a>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-lg fa fa-edit fa-2x">
+                Input
+              </button>
+              <button type="button" class="btn btn-primary btn-lg fa fa-2x dropdown-toggle"
+                      data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="disabled"><a href="#">Type 1</a></li>
+                <li><a href="/input/create">Monograph</a></li>
+                <li class="disabled"><a href="#">Type 3</a></li>
+                <li class="divider"></li>
+                <li class="disabled"><a href="#">Type 4</a></li>
+              </ul>
+            </div>
             <p class='text-muted'>Create a new record</p>
           </div>
-
         </div>
       </div>
       {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
