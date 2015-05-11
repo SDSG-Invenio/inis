@@ -4,7 +4,7 @@ from datetime import date
 
 from inis.config import CFG_MEMBERS_INV
 
-from inis.modules.deposit.forms import InputForm
+from inis.modules.deposit.forms import BookForm
 from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
     notify_rejection, validate
 
@@ -95,7 +95,7 @@ def process_recjson_new(deposition, recjson):
     return recjson
 
 
-class input(SimpleRecordDeposition):
+class book(SimpleRecordDeposition):
 
     """Upload of batch files  deposit submission."""
 
@@ -130,9 +130,9 @@ class input(SimpleRecordDeposition):
         ),
     ]
 
-    name = "Input"
-    name_plural = "Inputs"
+    name = "Book or Monograph"
+    name_plural = "Books or Monographs"
     group = "INIS Submissions"
     draft_definitions = {
-        'default': InputForm,
+        'default': BookForm,
     }

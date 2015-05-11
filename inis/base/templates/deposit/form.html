@@ -18,26 +18,21 @@
 #}
 {%- extends "deposit/form_base.html" -%}
 
-{% block form_header scoped %}{% endblock form_header%}
 
 {% block form_group scoped %}
     {% if grouploop.first %}
         <div class="">
             <span class="badge" style="font-size: 28px">1</span>      
             <span class="fa fa-edit fa-2x"></span>
-            <strong>Fill in the form</strong>
+            <strong>Fill the form</strong>
         </div>
         <div id="webdeposit_form_accordion">
     {% elif grouploop.last %}
-        <div class="">
+<!--         <div class="">
             <span class="badge" style="font-size: 28px">2</span>      
             <span class="fa fa-files-o fa-2x"></span>
             <strong>Choose the files</strong>
-<!--             &nbsp;&nbsp;&nbsp;AND&nbsp;&nbsp;&nbsp;
-            <span class="badge" style="font-size: 28px">3</span> 
-            <span class="fa fa-upload fa-2x"></span>
-            <strong>Start upload</strong> -->
-        </div>
+        </div> -->
     {% endif %}
     {% block form_group_header scoped %}
         {% if group %}
@@ -71,7 +66,7 @@
 
 {% block form_footer scoped %}
 <div class="">
-    <span class="badge" style="font-size: 28px">3</span>
+    <span class="badge" style="font-size: 28px">2</span>
     <span class="fa fa-arrow-up fa-2x"></span>
     <strong>Submit</strong>
 </div>

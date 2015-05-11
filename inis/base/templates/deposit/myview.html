@@ -29,18 +29,31 @@
     <table class="table table-striped">
     {%- endif %}
     <tr>
-        <td><a href="{{ url_for('webdeposit.delete', deposition_type=deposition_type, uuid=dep.id) }}" class="rmlink" rel="tooltip" title="Delete submission"><i class="glyphicon glyphicon-trash"></i></a></td>
-        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
-               title="{{ dep.title }}">
-              {% if dep.title %}
-                  {{ dep.title | truncate(30, killwords=True) }}
+
+        <td><a href="{{ url_for('webdeposit.delete', deposition_type=deposition_type, uuid=dep.id) }}" class="rmlink"
+               rel="tooltip" title="Delete submission">
+               <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </td>
+        <td>
+        {%- if dep.type.name %}
+            {%- if dep.type.name == 'Upload' %}
+                <div class="fa fa-upload"></div>
+            {%- else %}
+                <div class="fa fa-edit"></div>
+            {%- endif %}
+        {%- endif %}
+        </td>
+        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}">{% if dep.title %}
+                  {{ dep.title | truncate(34, killwords=True) }}
+
               {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
                 {{ dep.get_latest_sip().metadata['title']  }}
               {% else %}
                   {{ _('Untitled') }}
               {% endif %}</a>
         </td>
-        <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
+        <td>{{ dep.modified | string | truncate(10, killwords=True, end='') }}</td>
     </tr>
     {%- if loop.last %}
     </table>
