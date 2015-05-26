@@ -161,3 +161,33 @@ class FieldTag_228_46:
     id_tag = fixtures.TagData.Tag_228.id
     id_field = fixtures.FieldData.Field_46.id
 fixtures.FieldTagData.FieldTag_228_46 = FieldTag_228_46
+
+
+class Format_31:
+    code = u'ttf'
+    last_updated = None
+    description = u'TTF'
+    content_type = u'text/html'
+    visibility = 1
+    name = u'TTF'
+fixtures.FormatData.Format_31 = Format_31
+
+
+class Format_32:
+    code = u'xttf'
+    last_updated = None
+    description = u'XML TTF'
+    content_type = u'text/xml'
+    visibility = 1
+    name = u'TTFXML'
+fixtures.FormatData.Format_32 = Format_32
+
+
+class Format_33:
+    code = u'xoaittf'
+    last_updated = None
+    description = u'OAI XML TTF'
+    content_type = u'text/xml'
+    visibility = 1
+    name = u'OAI TTF'
+fixtures.FormatData.Format_33 = Format_33

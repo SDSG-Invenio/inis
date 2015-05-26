@@ -231,3 +231,134 @@ def get_file_links(recid):
             files.append([f[0], '.'.join([f[1], f[2]])])
 
     return files
+
+
+def record_get_ttf(recID, mode='text', on_the_fly=False):
+    """
+    Returns an XML string of the record given by recID.
+
+    The function builds the XML directly from the database,
+    without using the standard formatting process.
+
+    'format' allows to define the flavour of XML:
+        - 'xm' for standard XML
+        - 'marcxml' for MARC XML
+        - 'oai_dc' for OAI Dublin Core
+        - 'xd' for XML Dublin Core
+
+    If record does not exist, returns empty string.
+    If the record is deleted, returns an empty MARCXML (with recid
+    controlfield, OAI ID fields and 980__c=DELETED)
+
+    @param recID: the id of the record to retrieve
+    @param format: the format to use
+    @param on_the_fly: if False, try to fetch precreated one in database
+    @param decompress: the library to use to decompress cache from DB
+    @return: the xml string of the record
+    """
+    from invenio.legacy.search_engine import record_exists
+    from xml.sax.saxutils import escape as encode_for_xml
+
+    def get_creation_date(recID, fmt="%Y-%m-%d"):
+        "Returns the creation date of the record 'recID'."
+        out = ""
+        res = run_sql("SELECT DATE_FORMAT(creation_date,%s) FROM bibrec WHERE id=%s", (fmt, recID), 1)
+        if res:
+            out = res[0][0]
+        return out
+
+    def get_modification_date(recID, fmt="%Y-%m-%d"):
+        "Returns the date of last modification for the record 'recID'."
+        out = ""
+        res = run_sql("SELECT DATE_FORMAT(modification_date,%s) FROM bibrec WHERE id=%s", (fmt, recID), 1)
+        if res:
+            out = res[0][0]
+        return out
+
+    skip_tags = set(['856', '980', '911'])
+    replace_tag = {'911': '001', }
+
+    out = ""
+    prefix = "%s^"
+    postfix = "\n"
+
+    if mode == 'xml':
+        out += '<inisrecord>\n'
+        prefix = "<tag name='%s'>"
+        postfix = "</tag>"
+
+    # sanity check:
+    record_exist_p = record_exists(recID)
+    if record_exist_p == 0:  # doesn't exist
+        return out
+
+    # record 'recID' is not formatted in 'format' -- they are
+    # not in "bibfmt" table; so fetch all the data from
+    # "bibXXx" tables:
+    # out += "001^%d\n" % int(recID)
+    if record_exist_p == -1:
+        # deleted record, so display only 980:
+        out += "<datafield tag=\"980\" ind1=\" \" ind2=\" \"><subfield code=\"c\">DELETED</subfield></datafield>\n"
+        from invenio.legacy.search_engine import get_merged_recid
+        merged_recid = get_merged_recid(recID)
+        if merged_recid:  # record was deleted but merged to other record, so display this information:
+            out += "<datafield tag=\"970\" ind1=\" \" ind2=\" \"><subfield code=\"d\">%d</subfield></datafield>\n" % merged_recid
+    else:
+        # controlfields
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib91x AS b, bibrec_bib91x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '911%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+        for row in res:
+            field, value = row[0], row[1]
+            value = encode_for_xml(value)
+            if mode == 'xml':
+                out += """<tag name='001'>%s</tag>""" % (value, )
+            else:
+                out += """001^%s\n""" % (value, )
+
+        # datafields
+        i = 1
+        # Do not process bib00x and bibrec_bib00x, as
+        # they are controlfields. So start at bib01x and
+        # bibrec_bib00x (and set i = 0 at the end of
+        # first loop)
+
+        for digit1 in range(0, 10):
+            for digit2 in range(i, 10):
+                bx = "bib%d%dx" % (digit1, digit2)
+                bibx = "bibrec_bib%d%dx" % (digit1, digit2)
+                query = "SELECT b.tag,b.value,bb.field_number FROM %s AS b, %s AS bb "\
+                        "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag LIKE '%s%%' "\
+                        "ORDER BY bb.field_number, b.tag ASC" % (bx,
+                                                                 bibx,
+                                                                 recID,
+                                                                 str(digit1)+str(digit2))
+                res = run_sql(query)
+                field_old = ""
+                for row in res:
+                    field, value = row[0], row[1]
+                    if field[:3] not in skip_tags:
+                        # print field tag
+                        if field != field_old:
+                            tag = replace_tag[field[:3]] if field[:3] in replace_tag else field[:3]
+                            out += prefix % (encode_for_xml(tag), )
+                        else:
+                            out += ";"
+
+                        field_old = field
+                        # print subfield value
+                        value = encode_for_xml(value)
+                        out += "%s" % (value, )
+                        if field == field_old:
+                            out += postfix
+
+                # all fields/subfields printed in this run, so close the tag:
+                # if field_old != -999:
+                #     out += """\n"""
+            i = 0  # Next loop should start looking at bib%0 and bibrec_bib00x
+    # we are at the end of printing the record
+    if mode == 'xml':
+        out += '</inisrecord>\n'
+
+    return out.strip()

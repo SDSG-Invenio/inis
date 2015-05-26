@@ -321,22 +321,22 @@ class BookForm(WebDepositForm):
     #
     # File upload field
     #
-    plupload_file = fields.FileUploadField(
-        label="",
-        widget=plupload_widget,
-        export_key=False
-    )
+    # plupload_file = fields.FileUploadField(
+    #     label="",
+    #     widget=plupload_widget,
+    #     export_key=False
+    # )
 
-    def validate_plupload_file(form, field):
-        """Ensure attached files have valid extensions."""
-        if not getattr(request, 'is_api_request', False):
-            # Tested in API by a separate workflow task.
-            for f in form.files:
-                if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
-                    raise ValidationError("All files must have one of the following extensions :" +
-                                          ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
-                if '-' in f.name:
-                    raise ValidationError("The character '-' is forbidden in the file name")
+    # def validate_plupload_file(form, field):
+    #     """Ensure attached files have valid extensions."""
+    #     if not getattr(request, 'is_api_request', False):
+    #         # Tested in API by a separate workflow task.
+    #         for f in form.files:
+    #             if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
+    #                 raise ValidationError("All files must have one of the following extensions :" +
+    #                                       ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
+    #             if '-' in f.name:
+    #                 raise ValidationError("The character '-' is forbidden in the file name")
 
     #
     # Form configuration

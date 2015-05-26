@@ -48,6 +48,15 @@ CFG_NOTIFY_SUBMISSION = ['d.mironov@iaea.org', 'j.garcia-llopis@iaea.org']
 
 CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"
 
+CFG_OAI_METADATA_FORMATS = {
+    'oai_dc': ('XOAIDC', 'http://www.openarchives.org/OAI/1.1/dc.xsd',
+                         'http://purl.org/dc/elements/1.1/'),
+    'oai_ttf': ('XOAITTF', '', ''),
+    'marcxml': ('XOAIMARC',
+                'http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd',
+                'http://www.loc.gov/MARC21/slim'),
+    }
+
 # # name of the role giving superadmin rights
 # SUPERADMINROLE = 'superadmin'
 
