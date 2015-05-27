@@ -317,6 +317,18 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             else:
                 out += """001^%s\n""" % (value, )
 
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib00x AS b, bibrec_bib00x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '009%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+        for row in res:
+            field, value = row[0], row[1]
+            value = encode_for_xml(value)
+            if mode == 'xml':
+                out += """<tag name='009'>%s</tag>""" % (value, )
+            else:
+                out += """009^%s\n""" % (value, )
+
         # datafields
         i = 1
         # Do not process bib00x and bibrec_bib00x, as

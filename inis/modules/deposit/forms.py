@@ -86,6 +86,12 @@ class BookForm(WebDepositForm):
     #
     # Basic information
     #
+
+    record_type = fields.HiddenField(
+        label='',
+        default="B",
+    )
+
     trn = fields.StringField(
         label=_("TRN"),
         default='',
