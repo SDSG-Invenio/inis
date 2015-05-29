@@ -27,50 +27,99 @@ lang_codes_list.sort(key=lambda tup: tup[1])
 
 
 class CreatorForm(WebDepositForm):
-    name = fields.StringField(
-        placeholder="Family name, First name",
+    givennames = fields.StringField(
+        placeholder="Given names",
         widget_classes='form-control',
         widget=ColumnInput(class_="col-xs-10"),
         validators=[
             required_if(
-                'collaboration',
+                'familyname',
                 [lambda x: bool(x.strip()), ],  # non-empty
-                message="Creator name is required if you specify collaboration."
+                message="Given name is required if you specify family names."
             ),
             required_if(
-                'organization',
+                'email',
                 [lambda x: bool(x.strip()), ],  # non-empty
-                message="Creator name is required if you specify funding organization."
+                message="Given name is required if you specify the email."
             ),
             required_if(
-                'corporate_entry',
+                'affiliation',
                 [lambda x: bool(x.strip()), ],  # non-empty
-                message="Creator name is required if you specify corporate entry."
+                message="Given name is required if you specify affiliation."
             ),
             required_if(
-                'degree',
+                'city',
                 [lambda x: bool(x.strip()), ],  # non-empty
-                message="Creator name is required if you specify academic degree."
+                message="Given name is required if you specify affiliation city."
+            ),
+            required_if(
+                'country',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Given name is required if you specify affiliation country."
             ),
         ],
     )
-    collaboration = fields.StringField(
-        placeholder="Collaboration",
+    familyname = fields.StringField(
+        placeholder="Family names",
+        widget_classes='form-control',
+        widget=ColumnInput(class_="col-xs-10"),
+        validators=[
+            required_if(
+                'givennames',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Family name is required if you specify given names."
+            ),
+            required_if(
+                'email',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Family name is required if you specify the email."
+            ),
+            required_if(
+                'affiliation',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Family name is required if you specify affiliation."
+            ),
+            required_if(
+                'city',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Family name is required if you specify affiliation city."
+            ),
+            required_if(
+                'country',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Family name is required if you specify affiliation country."
+            ),
+        ],
+    )
+    email = fields.StringField(
+        placeholder="user@domain.com",
         widget_classes='form-control',
         widget=ColumnInput(class_="col-xs-8"),
     )
-    organization = fields.StringField(
-        placeholder="Funding Organization",
+    affiliation = fields.StringField(
+        placeholder="Affiliation",
+        widget_classes='form-control',
+        widget=ColumnInput(class_="col-xs-8"),
+        validators=[
+            required_if(
+                'city',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Affiliation is required if you specify affiliation city."
+            ),
+            required_if(
+                'country',
+                [lambda x: bool(x.strip()), ],  # non-empty
+                message="Affiliation is required if you specify affiliation country."
+            ),
+        ],
+    )
+    city = fields.StringField(
+        placeholder="Affiliation city",
         widget_classes='form-control',
         widget=ColumnInput(class_="col-xs-8"),
     )
-    corporate_entry = fields.StringField(
-        placeholder="Corporate Entry",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-8"),
-    )
-    degree = fields.StringField(
-        placeholder="Academic degree",
+    country = fields.StringField(
+        placeholder="Affiliation country",
         widget_classes='form-control',
         widget=ColumnInput(class_="col-xs-8"),
     )
@@ -122,17 +171,22 @@ class BookForm(WebDepositForm):
         widget_classes='form-control',
     )
 
-    language = fields.SelectField(
+    language = fields.DynamicFieldList(
+        fields.SelectField(
+            validators=[validators.DataRequired()],
+            filters=[
+                strip_string,
+            ],
+            default=0,
+            choices=[('', ''), ('EN', 'English'), ('FR', 'French'), ('DE', 'German'),
+                     ('', '------'), ] + lang_codes_list,
+        ),
+        add_label='Add another language',
         label=_('Publication Language'),
-        validators=[validators.DataRequired()],
-        # description='Required.',
-        filters=[
-            strip_string,
-        ],
-        default=0,
-        choices=[('', ''), ('EN', 'English'), ('FR', 'French'), ('DE', 'German'),
-                 ('', '------'), ] + lang_codes_list,
         icon='fa fa-flag fa-fw',
+        validators=[validators.DataRequired()],
+        widget_classes='',
+        min_entries=1,
     )
 
     description = fields.TextAreaField(
@@ -323,26 +377,6 @@ class BookForm(WebDepositForm):
         ],
         widget_classes='form-control',
     )
-
-    #
-    # File upload field
-    #
-    # plupload_file = fields.FileUploadField(
-    #     label="",
-    #     widget=plupload_widget,
-    #     export_key=False
-    # )
-
-    # def validate_plupload_file(form, field):
-    #     """Ensure attached files have valid extensions."""
-    #     if not getattr(request, 'is_api_request', False):
-    #         # Tested in API by a separate workflow task.
-    #         for f in form.files:
-    #             if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
-    #                 raise ValidationError("All files must have one of the following extensions :" +
-    #                                       ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
-    #             if '-' in f.name:
-    #                 raise ValidationError("The character '-' is forbidden in the file name")
 
     #
     # Form configuration

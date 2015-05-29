@@ -233,6 +233,31 @@ def get_file_links(recid):
     return files
 
 
+def create_authors_ttf(d):
+    out = ''
+    for tag in d:
+        affiliation = " (%(aff)s%(city)s%(country)s)" % {'aff': d[tag]['n'] if 'n' in d[tag] else '',
+                                                         'city': ", " + d[tag]['k'] if 'k' in d[tag] else '',
+                                                         'country': " (" + d[tag]['l'] + ')' if 'l' in d[tag] else '',
+                                                         }
+
+        author = """%(familyname)s, %(firstname)s%(affiliation)s%(email)s; """
+
+        out += author % {'firstname': d[tag]['b'],
+                         'familyname': d[tag]['a'],
+                         'affiliation': affiliation if 'n' in d[tag] else '',
+                         'email': ', ' + d[tag]['e'] if 'e' in d[tag] else '',
+                         }
+    return out.strip(' ;')
+
+
+def create_languages_ttf(res):
+    out = '('
+    for tag in res:
+        out += tag[1] + ', '
+    return out.strip(' ,') + ')'
+
+
 def record_get_ttf(recID, mode='text', on_the_fly=False):
     """
     Returns an XML string of the record given by recID.
@@ -244,7 +269,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
         - 'xm' for standard XML
         - 'marcxml' for MARC XML
         - 'oai_dc' for OAI Dublin Core
-        - 'xd' for XML Dublin Core
+        - 'xd' for XML Dublin copy_reg
 
     If record does not exist, returns empty string.
     If the record is deleted, returns an empty MARCXML (with recid
@@ -275,8 +300,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             out = res[0][0]
         return out
 
-    skip_tags = set(['856', '980', '911'])
-    replace_tag = {'911': '001', }
+    skip_tags = set(['100', '856', '600', '980', '911'])
 
     out = ""
     prefix = "%s^"
@@ -313,7 +337,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             field, value = row[0], row[1]
             value = encode_for_xml(value)
             if mode == 'xml':
-                out += """<tag name='001'>%s</tag>""" % (value, )
+                out += """<tag name='001'>%s</tag>""" % (encode_for_xml(value), )
             else:
                 out += """001^%s\n""" % (value, )
 
@@ -325,9 +349,9 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             field, value = row[0], row[1]
             value = encode_for_xml(value)
             if mode == 'xml':
-                out += """<tag name='009'>%s</tag>""" % (value, )
+                out += """<tag name='009'>%s</tag>""" % (encode_for_xml(value), )
             else:
-                out += """009^%s\n""" % (value, )
+                out += """009^%s\n""" % (encode_for_xml(value), )
 
         # datafields
         i = 1
@@ -335,6 +359,34 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
         # they are controlfields. So start at bib01x and
         # bibrec_bib00x (and set i = 0 at the end of
         # first loop)
+
+        # authors
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib10x AS b, bibrec_bib10x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '100%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+
+        d = {}
+        for row in res:
+            field, value, tag = row[0][-1], row[1], row[2]
+            if tag not in d:
+                d[tag] = {}
+            d[tag][field] = value
+
+        value = create_authors_ttf(d)
+
+        out += prefix % ('100', ) + encode_for_xml(value) + postfix if value != '' else ''
+
+        # languages
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib60x AS b, bibrec_bib60x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '600%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+
+        out += prefix % ('600', )
+        value = create_languages_ttf(res)
+        out += "%s" % (encode_for_xml(value), )
+        out += postfix
 
         for digit1 in range(0, 10):
             for digit2 in range(i, 10):
@@ -353,17 +405,14 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
                     if field[:3] not in skip_tags:
                         # print field tag
                         if field != field_old:
-                            tag = replace_tag[field[:3]] if field[:3] in replace_tag else field[:3]
-                            out += prefix % (encode_for_xml(tag), )
+                            out += prefix % (field[:3], )
                         else:
                             out += ";"
 
                         field_old = field
                         # print subfield value
-                        value = encode_for_xml(value)
-                        out += "%s" % (value, )
-                        if field == field_old:
-                            out += postfix
+                        out += "%s" % (encode_for_xml(value), )
+                        out += postfix
 
                 # all fields/subfields printed in this run, so close the tag:
                 # if field_old != -999:
