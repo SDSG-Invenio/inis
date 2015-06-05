@@ -50,6 +50,20 @@ def process_recjson(deposition, recjson):
         recjson['trns'] = TRNs
         recjson['trns'].append(recjson['trn'])
 
+        # if recjson['publication_date']['month'] in ['Spr', 'Sum', 'Aut', 'Win']:
+        #     publication_date = ' '.join([recjson['publication_date']['month'],
+        #                                  recjson['publication_date']['year']])
+        # else:
+        #     publication_date = ' '.join([recjson['publication_date']['day'],
+        #                                 recjson['publication_date']['month'],
+        #                                 recjson['publication_date']['year']])
+
+        if 'publication_date' in recjson and 'month' in recjson['publication_date']:
+            if recjson['publication_date']['month'] in ['Spr', 'Sum', 'Aut', 'Win']:
+                recjson['publication_date']['season'] = recjson['publication_date']['month']
+                recjson['publication_date']['month'] = None
+                recjson['publication_date']['day'] = None
+
         wrong_cc = [trn for trn in recjson['trns'] if trn[:2] != recjson['member']]
         if wrong_cc != []:
             sip.metadata['errors'].append({'code': 2, 'list': wrong_cc})

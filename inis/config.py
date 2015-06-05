@@ -57,34 +57,7 @@ CFG_OAI_METADATA_FORMATS = {
                 'http://www.loc.gov/MARC21/slim'),
     }
 
-# # name of the role giving superadmin rights
-# SUPERADMINROLE = 'superadmin'
-
-# # name of the webaccess webadmin role
-# WEBACCESSADMINROLE = 'webaccessadmin'
-
-# DEF_ROLES = (
-#     (SUPERADMINROLE, 'superuser with all rights', 'deny any'),
-#     (WEBACCESSADMINROLE, 'WebAccess administrator', 'deny any'),
-#     ('anyuser', 'Any user', 'allow any'),
-#     ('basketusers', 'Users who can use baskets', 'allow any'),
-#     ('loanusers', 'Users who can use loans', 'allow any'),
-#     ('groupusers', 'Users who can use groups', 'deny any'),
-#     ('alertusers', 'Users who can use alerts', 'allow any'),
-#     ('messageusers', 'Users who can use messages', 'allow any'),
-#     ('holdingsusers', 'Users who can view holdings', 'allow any'),
-#     ('statisticsusers', 'Users who can view statistics', 'allow any'),
-#     ('claimpaperusers', 'Users who can perform changes to their own paper attributions without the need for an operator\'s approval', 'allow any'),
-#     ('claimpaperoperators', 'Users who can perform changes to _all_ paper attributions without the need for an operator\'s approval', 'deny any'),
-#     ('paperclaimviewers', 'Users who can view "claim my paper" facilities.', 'allow all'),
-#     ('paperattributionviewers', 'Users who can view "attribute this paper" facilities', 'allow all'),
-#     ('paperattributionlinkviewers', 'Users who can see attribution links in the search', 'allow all'),
-#     ('authorlistusers', 'Users who can user Authorlist tools', 'deny all'),
-#     ('holdingpenusers', 'Users who can view Holding Pen', 'deny all'),
-# )
-
-CFG_MEMBERS_DICT = {
-    'AA': 'International Organisation without Location',
+CFG_COUNTRIES_DICT = {
     'AD': 'Andorra',
     'AE': 'United Arab Emirates',
     'AF': 'Afghanistan',
@@ -139,7 +112,6 @@ CFG_MEMBERS_DICT = {
     'EC': 'Ecuador',
     'EE': 'Estonia',
     'EG': 'Egypt',
-    'EP': 'European Patent Office',
     'ER': 'Eritrea',
     'ES': 'Spain',
     'ET': 'Ethiopia',
@@ -205,7 +177,7 @@ CFG_MEMBERS_DICT = {
     'ME': 'Montenegro',
     'MG': 'Madagascar',
     'MH': 'Marshall Islands',
-    'MK': 'Macedonia, The Former Yugoslav Republic of',
+    'MK': 'Macedonia (FYROM)',
     'ML': 'Mali',
     'MM': 'Myanmar',
     'MN': 'Mongolia',
@@ -242,13 +214,6 @@ CFG_MEMBERS_DICT = {
     'PW': 'Palau',
     'PY': 'Paraguay',
     'QA': 'Qatar',
-    'QM': 'World Nuclear Association (WNA)',
-    'QN': 'World Nuclear University (WNU)',
-    'QP': 'Brazilian-Argentine Agency for Accounting and Control of Nuclear Materials (ABACC)',
-    'QQ': 'Middle Eastern Radioisotope Centre for the Arab Countries (MERRCAC)',
-    'QR': 'Synchrotron-light for Experimental Science and Applications in the Middle East (SESAME)',
-    'QS': 'Information Service in Physics, Electrotechnology and Control (INSPEC)',
-    'QZ': 'International Patent Document Centre (INPADOC)',
     'RO': 'Romania',
     'RS': 'Serbia',
     'RU': 'Russian Federation',
@@ -292,8 +257,26 @@ CFG_MEMBERS_DICT = {
     'VE': 'Venezuela, Bolivarian Republic of',
     'VN': 'Viet Nam',
     'VU': 'Vanuatu',
-    'WO': 'World Intellectual Property Organization (WIPO)',
     'WS': 'Samoa',
+    'YE': 'Yemen',
+    'YU': 'Yugoslavia',
+    'ZA': 'South Africa',
+    'ZM': 'Zambia',
+    'ZW': 'Zimbabwe',
+    'ZZ': 'Country Unknown',
+}
+
+CFG_ORGANIZATIONS_DICT = {
+    'AA': 'International Organisation without Location',
+    'EP': 'European Patent Office',
+    'QM': 'World Nuclear Association (WNA)',
+    'QN': 'World Nuclear University (WNU)',
+    'QP': 'Brazilian-Argentine Agency for Accounting and Control of Nuclear Materials (ABACC)',
+    'QQ': 'Middle Eastern Radioisotope Centre for the Arab Countries (MERRCAC)',
+    'QR': 'Synchrotron-light for Experimental Science and Applications in the Middle East (SESAME)',
+    'QS': 'Information Service in Physics, Electrotechnology and Control (INSPEC)',
+    'QZ': 'International Patent Document Centre (INPADOC)',
+    'WO': 'World Intellectual Property Organization (WIPO)',
     'XA': 'International Atomic Energy Agency (IAEA)',
     'XB': 'United Nations Scientific Committee on the Effects of Atomic Radiation (UNSCEAR)',
     'XC': 'European Organization for Nuclear Research (CERN)',
@@ -319,13 +302,11 @@ CFG_MEMBERS_DICT = {
     'XX': 'World Energy Council (WEC)',
     'XY': 'International Energy Agency (IEA)',
     'XZ': 'European Space Agency (ESA)',
-    'YE': 'Yemen',
-    'YU': 'Yugoslavia',
-    'ZA': 'South Africa',
-    'ZM': 'Zambia',
-    'ZW': 'Zimbabwe',
-    'ZZ': 'Country Unknown',
 }
+
+CFG_MEMBERS_DICT = {}
+CFG_MEMBERS_DICT.update(CFG_ORGANIZATIONS_DICT)
+CFG_MEMBERS_DICT.update(CFG_COUNTRIES_DICT)
 
 CFG_MEMBERS_NAMES = CFG_MEMBERS_DICT.values()
 CFG_MEMBERS_NAMES.sort()
@@ -338,6 +319,26 @@ CFG_MEMBERS_INV = {v: k for k, v in CFG_MEMBERS_DICT.items()}
 CFG_ILOS = [
     {'country': CFG_MEMBERS_DICT['XA'], 'name': 'Alexander Anastassov', 'email': 'a.Anastassov@iaea.org'},
     {'country': CFG_MEMBERS_DICT['ES'], 'name': 'Jaime García', 'email': 'j.garcia-llopis@iaea.org'},
+]
+
+CFG_MONTH_CODES = [
+    ('Jan', 'January'),
+    ('Feb', 'February'),
+    ('Mar', 'March'),
+    ('Apr', 'April'),
+    ('Jun', 'June'),
+    ('Jul', 'July'),
+    ('Aug', 'August'),
+    ('Sep', 'September'),
+    ('Oct', 'October'),
+    ('Nov', 'November'),
+    ('Dec', 'December'),
+]
+CFG_SEASON_CODES = [
+    ('Spr', 'Spring'),
+    ('Sum', 'Summer'),
+    ('Aut', 'Autum'),
+    ('Win', 'Winter'),
 ]
 
 CFG_LANG_CODES = {

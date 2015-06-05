@@ -258,6 +258,27 @@ def create_languages_ttf(res):
     return out.strip(' ,') + ')'
 
 
+def create_place_ttf(d):
+    out = ''
+    for tag in d:
+        out += "%(city)s (%(country)s), " % {'city': d[tag]['a'] if 'a' in d[tag] else '',
+                                             'country': d[tag]['b'] if 'b' in d[tag] else ''}
+    return out.strip(' ,')
+
+
+def create_date_ttf(d):
+    out = ''
+    for tag in d:
+        if 'c' in d[tag]:
+            out += "%(season)s %(year)s" % {'season': d[tag]['c'] if 'c' in d[tag] else '',
+                                            'year': d[tag]['d'] if 'd' in d[tag] else '', }
+        else:
+            out += "%(day)s %(month)s %(year)s" % {'day': d[tag]['a'] if 'a' in d[tag] else '',
+                                                   'month': d[tag]['b'] if 'b' in d[tag] else '',
+                                                   'year': d[tag]['d'] if 'd' in d[tag] else ''}
+    return out.strip(' ,')
+
+
 def record_get_ttf(recID, mode='text', on_the_fly=False):
     """
     Returns an XML string of the record given by recID.
@@ -300,7 +321,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             out = res[0][0]
         return out
 
-    skip_tags = set(['100', '856', '600', '980', '911'])
+    skip_tags = set(['100', '401', '403', '856', '600', '980', '911'])
 
     out = ""
     prefix = "%s^"
@@ -388,6 +409,43 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
         out += "%s" % (encode_for_xml(value), )
         out += postfix
 
+        # place
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '401%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+
+        d = {}
+        for row in res:
+            field, value, tag = row[0][-1], row[1], row[2]
+            if tag not in d:
+                d[tag] = {}
+            d[tag][field] = value
+
+        out += prefix % ('401', )
+        value = create_place_ttf(d)
+        out += "%s" % (encode_for_xml(value), )
+        out += postfix
+
+        # date
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '403%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+
+        d = {}
+        for row in res:
+            field, value, tag = row[0][-1], row[1], row[2]
+            if tag not in d:
+                d[tag] = {}
+            d[tag][field] = value
+
+        out += prefix % ('403', )
+        value = create_date_ttf(d)
+        out += "%s" % (encode_for_xml(value), )
+        out += postfix
+
+        # other tags
         for digit1 in range(0, 10):
             for digit2 in range(i, 10):
                 bx = "bib%d%dx" % (digit1, digit2)
