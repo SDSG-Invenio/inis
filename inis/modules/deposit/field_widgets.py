@@ -119,4 +119,4 @@ class BooleanInput(WrappedCheckbox):
             return ('<div class="%(class_)s">%(field)s'
                     '<p class="text-muted field-desc">'
                     '<small>%(description)s</small></p></div>')
-        return '<div class="%(class_)s">%(field)s</div>'
+        return '<div class="%(class_)s">%(field)s&nbspRange</div>'

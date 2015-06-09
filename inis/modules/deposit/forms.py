@@ -2,227 +2,31 @@
 
 import os
 
-from datetime import date
+# from datetime import date
 
 from datetime import datetime
 
 from flask import current_app, request
 
-from inis.config import CFG_COUNTRIES_DICT, CFG_LANG_CODES, CFG_MONTH_CODES, CFG_SEASON_CODES
-from inis.modules.deposit.field_widgets import BooleanInput, SelectInput
+from inis.config import CFG_LANG_CODES
+
+from inis.modules.deposit.field_widgets import SelectInput
+from inis.modules.deposit.fields.inis_fields import CreatorForm, DateMandatoryForm, DateOptionalForm, LocationForm
 
 from invenio.base.i18n import _
 
 from invenio.modules.deposit import fields
-from invenio.modules.deposit.field_widgets import ColumnInput, ExtendedListWidget, ItemWidget, plupload_widget
+from invenio.modules.deposit.field_widgets import ExtendedListWidget, ItemWidget, plupload_widget
 
 from invenio.modules.deposit.filter_utils import strip_string
 from invenio.modules.deposit.form import WebDepositForm
-from invenio.modules.deposit.validation_utils import required_if
+# from invenio.modules.deposit.validation_utils import required_if
 
 from wtforms import validators
 from wtforms.validators import ValidationError
 
-
-#from . import fields as inisfields
-
 lang_codes_list = CFG_LANG_CODES.items()
 lang_codes_list.sort(key=lambda tup: tup[1])
-
-country_codes_list = CFG_COUNTRIES_DICT.items()
-country_codes_list.sort(key=lambda tup: tup[1])
-
-
-class SingleDateForm(WebDepositForm):
-
-    year = fields.SelectField(
-        # validators=[validators.DataRequired(message='Publication year is required')],
-        default='',
-        choices=[('', 'year'), ] + [(str(i), i) for i in reversed(xrange(1900, date.today().year + 1))],
-        widget=SelectInput(class_="col-xs-3"),
-    )
-    month = fields.SelectField(
-        label=_("Month or season"),
-        validators=[
-            required_if(
-                'day',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Month is required if you specify the day."
-            ),
-        ],
-        default='',
-        choices=[('', 'month/season'), (' ', '------'), ] + CFG_SEASON_CODES +
-                [(' ', '------'), ] + CFG_MONTH_CODES,
-        widget=SelectInput(class_="col-xs-5"),
-    )
-    day = fields.SelectField(
-        default='',
-        choices=[('', 'day'), ] + [(str(i), i) for i in xrange(1, 32)],
-        widget=SelectInput(class_="col-xs-2"),
-    )
-
-
-class DateForm(WebDepositForm):
-    date_from = fields.FormField(
-        SingleDateForm,
-        widget=ExtendedListWidget(
-            item_widget=ItemWidget(),
-            html_tag='div'
-        ),
-        label='',
-        widget_classes='',
-    )
-    date_range = fields.BooleanField(
-        widget=BooleanInput(class_="col-xs-2"),
-        default=False,
-    )
-    date_to = fields.FormField(
-        SingleDateForm,
-        widget=ExtendedListWidget(
-            item_widget=ItemWidget(),
-            html_tag='div'
-        ),
-        label='',
-        widget_classes='',
-        hidden=True,
-        disabled=True,
-    )
-
-
-class LocationForm(WebDepositForm):
-    city = fields.StringField(
-        label='City',
-        placeholder="City",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-4"),
-    )
-    country = fields.SelectField(
-        label=_("Country"),
-        validators=[
-            required_if(
-                'city',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Country is required if you specify the city."
-            ),
-        ],
-        default='',
-        choices=[('', ''), ] + country_codes_list,
-        widget=SelectInput(class_="col-xs-5"),
-    )
-
-
-class CreatorForm(WebDepositForm):
-    givennames = fields.StringField(
-        placeholder="Given names",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-10"),
-        validators=[
-            required_if(
-                'familyname',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Given name is required if you specify family names."
-            ),
-            required_if(
-                'email',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Given name is required if you specify the email."
-            ),
-            required_if(
-                'affiliation',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Given name is required if you specify affiliation."
-            ),
-            required_if(
-                'city',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Given name is required \
-                         if you specify affiliation city."
-            ),
-            required_if(
-                'country',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Given name is required \
-                         if you specify affiliation country."
-            ),
-        ],
-    )
-    familyname = fields.StringField(
-        placeholder="Family names",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-10"),
-        validators=[
-            required_if(
-                'givennames',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Family name is required if \
-                         you specify given names."
-            ),
-            required_if(
-                'email',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Family name is required if \
-                         you specify the email."
-            ),
-            required_if(
-                'affiliation',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Family name is required \
-                         if you specify affiliation."
-            ),
-            required_if(
-                'city',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Family name is required \
-                         if you specify affiliation city."
-            ),
-            required_if(
-                'country',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Family name is required \
-                         if you specify affiliation country."
-            ),
-        ],
-    )
-    email = fields.StringField(
-        placeholder="user@domain.com",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-8"),
-        validators=[validators.email(), validators.Optional()],
-    )
-    affiliation = fields.StringField(
-        placeholder="Affiliation",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-8"),
-        validators=[
-            required_if(
-                'city',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Affiliation is required \
-                         if you specify affiliation city."
-            ),
-            required_if(
-                'country',
-                [lambda x: bool(x.strip()), ],  # non-empty
-                message="Affiliation is required \
-                         if you specify affiliation country."
-            ),
-        ],
-    )
-    city = fields.StringField(
-        placeholder="Affiliation city",
-        widget_classes='form-control',
-        widget=ColumnInput(class_="col-xs-8"),
-    )
-    # country = fields.StringField(
-    #     placeholder="Affiliation country",
-    #     widget_classes='form-control',
-    #     widget=ColumnInput(class_="col-xs-8"),
-    # )
-    country = fields.SelectField(
-        default='',
-        widget=SelectInput(class_="col-xs-8"),
-        choices=[('', ''), ] + country_codes_list,
-    )
 
 
 class BookForm(WebDepositForm):
@@ -245,9 +49,7 @@ class BookForm(WebDepositForm):
         label="TRN",
         default='',
         validators=[validators.DataRequired(), ],
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
         icon='fa fa-barcode fa-fw',
         export_key='trn',
@@ -256,27 +58,21 @@ class BookForm(WebDepositForm):
     title = fields.TitleField(
         validators=[validators.DataRequired()],
         # description='Required.',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         icon='fa fa-book fa-fw',
     )
 
     original_title = fields.StringField(
         label=_("Original title"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
     language = fields.DynamicFieldList(
         fields.SelectField(
             validators=[validators.DataRequired()],
-            filters=[
-                strip_string,
-            ],
+            filters=[strip_string, ],
             default='',
             choices=[('', ''), ('EN', 'English'),
                      ('FR', 'French'), ('DE', 'German'),
@@ -296,9 +92,7 @@ class BookForm(WebDepositForm):
         label=_("Physical description"),
         validators=[validators.DataRequired()],
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
         icon='fa fa-pencil fa-fw',
     )
@@ -306,24 +100,6 @@ class BookForm(WebDepositForm):
     #
     # Publication information
     #
-
-    # place = fields.StringField(
-    #     label=_("Place of Publication"),
-    #     default='',
-    #     icon='fa fa-globe fa-fw',
-    #     validators=[
-    #         required_if(
-    #             'familyname',
-    #             [lambda x: bool(x.strip()), ],  # non-empty
-    #             message="Publication place is required
-    #                      if you specify a publisher."
-    #         ),
-    #     ],
-    #     filters=[
-    #         strip_string,
-    #     ],
-    #     widget_classes='form-control',
-    # )
 
     place = fields.FormField(
         LocationForm,
@@ -340,47 +116,21 @@ class BookForm(WebDepositForm):
         label=_("Publisher"),
         default='',
         validators=[validators.DataRequired()],
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
     publication_date = fields.FormField(
-        DateForm,
+        DateMandatoryForm,
         label=_('Publication date'),
         icon='fa fa-calendar fa-fw',
         widget_classes='',
     )
 
-    # publication_date = fields.SelectField(
-    #     label=_('Publication date'),
-    #     icon='fa fa-calendar fa-fw',
-    #     validators=[validators.DataRequired()],
-    #     filters=[
-    #         strip_string,
-    #     ],
-    #     default=0,
-    #     choices=[('', ''), ] + CFG_SEASON_CODES +
-    #             [(' ', '------'), ] + CFG_MONTH_CODES
-    # )
-
-    # publication_date = fields.Date(
-    #     label=_('Publication date'),
-    #     icon='fa fa-calendar fa-fw',
-    #     description='Format: YYYY-MM-DD.',
-    #     validators=[validators.DataRequired()],
-    #     default=date.today(),
-    #     widget=date_widget,
-    #     widget_classes='input-sm',
-    # )
-
     edition = fields.StringField(
         label=_("Edition"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
@@ -411,17 +161,13 @@ class BookForm(WebDepositForm):
     conference_title = fields.StringField(
         label=_("Conference title"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     original_conference_title = fields.StringField(
         label=_("Original conference title"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
@@ -437,7 +183,7 @@ class BookForm(WebDepositForm):
     )
 
     conference_date = fields.FormField(
-        DateForm,
+        DateOptionalForm,
         label=_('Conference date'),
         icon='fa fa-calendar fa-fw',
         widget_classes='',
@@ -450,25 +196,19 @@ class BookForm(WebDepositForm):
     secondary_number = fields.StringField(
         label=_("Secondary numbers"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     isbn = fields.StringField(
         label=_("ISBN/ISSN"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     contract_number = fields.StringField(
         label=_("Contract/Project number"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
@@ -480,42 +220,32 @@ class BookForm(WebDepositForm):
         label=_("General notes"),
         # description='Optional.',
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
         icon='fa fa-pencil fa-fw',
     )
     availability = fields.StringField(
         label=_("Availability"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     title_augmentation = fields.StringField(
         label=_("Title Augmentation"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     funding_organization_code = fields.StringField(
         label=_("Funding Organization code"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
     corporate_entry_code = fields.StringField(
         label=_("Corporate Entry code"),
         default='',
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
     )
 
@@ -594,9 +324,7 @@ class UploadForm(WebDepositForm):
         description='Optional.',
         default='',
         validators=[validators.optional()],
-        filters=[
-            strip_string,
-        ],
+        filters=[strip_string, ],
         widget_classes='form-control',
         icon='fa fa-pencil fa-fw',
         export_key='notes',
