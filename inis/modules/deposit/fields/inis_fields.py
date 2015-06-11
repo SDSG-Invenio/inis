@@ -79,8 +79,9 @@ class SingleDateForm(WebDepositForm):
             ),
         ],
         default='',
-        choices=[('', 'month/season'), (' ', '------'), ] + CFG_SEASON_CODES +
-                [(' ', '------'), ] + CFG_MONTH_CODES,
+        choices=[('', 'month/season'), (' ', '------'), ] +
+                [(str(i+21), CFG_SEASON_CODES[i][1]) for i in xrange(0, len(CFG_SEASON_CODES))] +
+                [(' ', '------'), ] + [(str(i+1), CFG_MONTH_CODES[i][1]) for i in xrange(0, len(CFG_MONTH_CODES))],
         widget=SelectInput(class_="col-xs-5"),
     )
     day = fields.SelectField(

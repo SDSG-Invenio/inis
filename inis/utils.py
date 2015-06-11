@@ -21,6 +21,8 @@ import string
 
 from flask import current_app
 
+from inis.config import CFG_MONTH_CODES, CFG_SEASON_CODES
+
 from invenio.config import CFG_SITE_NAME, CFG_SITE_SECURE_URL, \
     CFG_SITE_SUPPORT_EMAIL, CFG_WEBSESSION_RESET_PASSWORD_EXPIRE_IN_DAYS
 
@@ -270,10 +272,13 @@ def create_date_ttf(d):
 
     d1 = str(d['a']).strip() if 'a' in d else ''
     d2 = str(d['e']).strip() if 'e' in d else ''
-    m1 = str(d['b']).strip() if 'b' in d else ''
-    m2 = str(d['f']).strip() if 'f' in d else ''
-    s1 = str(d['c']).strip() if 'c' in d else ''
-    s2 = str(d['g']).strip() if 'g' in d else ''
+
+    s1 = CFG_SEASON_CODES[int(d['c'])][0] if 'c' in d else ''
+    s2 = CFG_SEASON_CODES[int(d['g'])][0] if 'g' in d else ''
+
+    m1 = CFG_MONTH_CODES[int(d['b'])][0] if 'b' in d else s1
+    m2 = CFG_MONTH_CODES[int(d['f'])][0] if 'f' in d else s2
+
     y1 = str(d['d']).strip() if 'd' in d else ''
     y2 = str(d['h']).strip() if 'h' in d else ''
 
@@ -303,20 +308,20 @@ def create_date_ttf(d):
     else:  # y1 != y2 -> "dd mmm yyyy - dd mmm yyyy"
         date_from = "%(day)s%(separator_d)s%(month)s%(separator_m)s%(year)s" % \
                     {'day': d1 if m1 else '',
-                     'month': m1 if m1 else s1,
+                     'month': m1,
                      'year': y1,
                      'separator_d': ' ' if d1 else '',
                      'separator_m': ' ' if m1 else ''}
 
         date_to = "%(day)s%(separator_d)s%(month)s%(separator_m)s%(year)s" % \
                   {'day': d2 if m2 else '',
-                   'month': m2 if y2 != y1 or (y1 == y2 and m1 != m2) else '',
-                   'year': y2 if y2 != y1 else '',
+                   'month': m2,
+                   'year': y2,
                    'separator_d': ' ' if d2 else '',
                    'separator_m': ' ' if m2 else ''}
         z = "%(from)s%(separator)s%(to)s" % {'from': date_from,
                                              'to': date_to,
-                                             'separator': ' - ' if m2 or s2 else ('-' if date_to else '')}
+                                             'separator': ' - ' if m2 else ('-' if date_to else '')}
 
     return z.strip(' ,')
 

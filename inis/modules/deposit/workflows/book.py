@@ -59,14 +59,30 @@ def process_recjson(deposition, recjson):
         if 'publication_date' in recjson:
             if 'date_from' in recjson['publication_date']:
                 recjson['publication_date_from'] = recjson['publication_date']['date_from']
+                if 'month' in recjson['publication_date_from'] and int(recjson['publication_date_from']['month']) > 20:
+                    recjson['publication_date_from']['season'] = int(recjson['publication_date_from']['month']) - 20
+                    recjson['publication_date_from'].pop('month')
+                    recjson['publication_date_from'].pop('day')
             if 'date_to' in recjson['publication_date']:
                 recjson['publication_date_to'] = recjson['publication_date']['date_to']
+                if 'month' in recjson['publication_date_to'] and int(recjson['publication_date_to']['month']) > 20:
+                    recjson['publication_date_to']['season'] = int(recjson['publication_date_to']['month']) - 20
+                    recjson['publication_date_to'].pop('month')
+                    recjson['publication_date_to'].pop('day')
 
         if 'conference_date' in recjson:
             if 'date_from' in recjson['conference_date']:
                 recjson['conference_date_from'] = recjson['conference_date']['date_from']
+                if 'month' in recjson['conference_date_from'] and int(recjson['conference_date_from']['month']) > 20:
+                    recjson['conference_date_from']['season'] = int(recjson['conference_date_from']['month']) - 20
+                    recjson['conference_date_from'].pop('month')
+                    recjson['conference_date_from'].pop('day')
             if 'date_to' in recjson['conference_date']:
                 recjson['conference_date_to'] = recjson['conference_date']['date_to']
+                if 'month' in recjson['conference_date_to'] and int(recjson['conference_date_to']['month']) > 20:
+                    recjson['conference_date_to']['season'] = int(recjson['conference_date_to']['month']) - 20
+                    recjson['conference_date_to'].pop('month')
+                    recjson['conference_date_to'].pop('day')
 
         wrong_cc = [trn for trn in recjson['trns'] if trn[:2] != recjson['member']]
         if wrong_cc != []:

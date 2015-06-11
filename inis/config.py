@@ -326,6 +326,7 @@ CFG_MONTH_CODES = [
     ('Feb', 'February'),
     ('Mar', 'March'),
     ('Apr', 'April'),
+    ('May', 'May'),
     ('Jun', 'June'),
     ('Jul', 'July'),
     ('Aug', 'August'),
