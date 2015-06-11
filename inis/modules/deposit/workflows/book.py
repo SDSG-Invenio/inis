@@ -50,19 +50,23 @@ def process_recjson(deposition, recjson):
         recjson['trns'] = TRNs
         recjson['trns'].append(recjson['trn'])
 
-        # if recjson['publication_date']['month'] in ['Spr', 'Sum', 'Aut', 'Win']:
-        #     publication_date = ' '.join([recjson['publication_date']['month'],
-        #                                  recjson['publication_date']['year']])
-        # else:
-        #     publication_date = ' '.join([recjson['publication_date']['day'],
-        #                                 recjson['publication_date']['month'],
-        #                                 recjson['publication_date']['year']])
+        # if 'publication_date' in recjson and 'month' in recjson['publication_date']:
+        #     if recjson['publication_date']['month'] in ['Spr', 'Sum', 'Aut', 'Win']:
+        #         recjson['publication_date']['season'] = recjson['publication_date']['month']
+        #         recjson['publication_date']['month'] = None
+        #         recjson['publication_date']['day'] = None
 
-        if 'publication_date' in recjson and 'month' in recjson['publication_date']:
-            if recjson['publication_date']['month'] in ['Spr', 'Sum', 'Aut', 'Win']:
-                recjson['publication_date']['season'] = recjson['publication_date']['month']
-                recjson['publication_date']['month'] = None
-                recjson['publication_date']['day'] = None
+        if 'publication_date' in recjson:
+            if 'date_from' in recjson['publication_date']:
+                recjson['publication_date_from'] = recjson['publication_date']['date_from']
+            if 'date_to' in recjson['publication_date']:
+                recjson['publication_date_to'] = recjson['publication_date']['date_to']
+
+        if 'conference_date' in recjson:
+            if 'date_from' in recjson['conference_date']:
+                recjson['conference_date_from'] = recjson['conference_date']['date_from']
+            if 'date_to' in recjson['conference_date']:
+                recjson['conference_date_to'] = recjson['conference_date']['date_to']
 
         wrong_cc = [trn for trn in recjson['trns'] if trn[:2] != recjson['member']]
         if wrong_cc != []:

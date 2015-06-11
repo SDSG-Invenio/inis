@@ -267,16 +267,58 @@ def create_place_ttf(d):
 
 
 def create_date_ttf(d):
-    out = ''
-    for tag in d:
-        if 'c' in d[tag]:
-            out += "%(season)s %(year)s" % {'season': d[tag]['c'] if 'c' in d[tag] else '',
-                                            'year': d[tag]['d'] if 'd' in d[tag] else '', }
-        else:
-            out += "%(day)s %(month)s %(year)s" % {'day': d[tag]['a'] if 'a' in d[tag] else '',
-                                                   'month': d[tag]['b'] if 'b' in d[tag] else '',
-                                                   'year': d[tag]['d'] if 'd' in d[tag] else ''}
-    return out.strip(' ,')
+
+    d1 = str(d['a']).strip() if 'a' in d else ''
+    d2 = str(d['e']).strip() if 'e' in d else ''
+    m1 = str(d['b']).strip() if 'b' in d else ''
+    m2 = str(d['f']).strip() if 'f' in d else ''
+    s1 = str(d['c']).strip() if 'c' in d else ''
+    s2 = str(d['g']).strip() if 'g' in d else ''
+    y1 = str(d['d']).strip() if 'd' in d else ''
+    y2 = str(d['h']).strip() if 'h' in d else ''
+
+    if y1 == y2:
+        if m1 == m2:  # -> "dd-dd mmm yyyy"
+            z = "%(from)s%(separator)s%(to)s %(m)s %(y)s" % \
+                {'y': y1,
+                 'm': m1,
+                 'from': d1,
+                 'to': d2,
+                 'separator': '-' if d1 and d2 else ''}
+
+        else:  # m1 != m2  -> "dd mmm - dd mmm yyyy"
+            month_from = "%(day)s%(separator)s%(month)s" % {'day': d1,
+                                                            'separator': ' ' if d1 else '',
+                                                            'month': m1}
+            month_to = "%(day)s%(separator)s%(month)s" % {'day': d2,
+                                                          'separator': ' ' if d2 else '',
+                                                          'month': m2}
+            z = "%(from)s%(separator)s%(to)s %(y)s" % \
+                {'y': y1,
+                 'm': m1,
+                 'from': month_from,
+                 'to': month_to,
+                 'separator': ' - ' if d2 else ('-' if month_to else '')}
+
+    else:  # y1 != y2 -> "dd mmm yyyy - dd mmm yyyy"
+        date_from = "%(day)s%(separator_d)s%(month)s%(separator_m)s%(year)s" % \
+                    {'day': d1 if m1 else '',
+                     'month': m1 if m1 else s1,
+                     'year': y1,
+                     'separator_d': ' ' if d1 else '',
+                     'separator_m': ' ' if m1 else ''}
+
+        date_to = "%(day)s%(separator_d)s%(month)s%(separator_m)s%(year)s" % \
+                  {'day': d2 if m2 else '',
+                   'month': m2 if y2 != y1 or (y1 == y2 and m1 != m2) else '',
+                   'year': y2 if y2 != y1 else '',
+                   'separator_d': ' ' if d2 else '',
+                   'separator_m': ' ' if m2 else ''}
+        z = "%(from)s%(separator)s%(to)s" % {'from': date_from,
+                                             'to': date_to,
+                                             'separator': ' - ' if m2 or s2 else ('-' if date_to else '')}
+
+    return z.strip(' ,')
 
 
 def record_get_ttf(recID, mode='text', on_the_fly=False):
@@ -321,7 +363,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             out = res[0][0]
         return out
 
-    skip_tags = set(['100', '401', '403', '856', '600', '980', '911'])
+    skip_tags = set(['100', '213', '401', '403', '856', '600', '980', '911'])
 
     out = ""
     prefix = "%s^"
@@ -427,7 +469,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
         out += "%s" % (encode_for_xml(value), )
         out += postfix
 
-        # date
+        # dates
         query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
                 "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '403%%' "\
                 "ORDER BY bb.field_number, b.tag ASC" % recID
@@ -435,12 +477,25 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
 
         d = {}
         for row in res:
-            field, value, tag = row[0][-1], row[1], row[2]
-            if tag not in d:
-                d[tag] = {}
-            d[tag][field] = value
+            field, value = row[0][-1], row[1]
+            d[field] = value
 
         out += prefix % ('403', )
+        value = create_date_ttf(d)
+        out += "%s" % (encode_for_xml(value), )
+        out += postfix
+
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib21x AS b, bibrec_bib21x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '213%%' "\
+                "ORDER BY bb.field_number, b.tag ASC" % recID
+        res = run_sql(query)
+
+        d = {}
+        for row in res:
+            field, value = row[0][-1], row[1]
+            d[field] = value
+
+        out += prefix % ('213', )
         value = create_date_ttf(d)
         out += "%s" % (encode_for_xml(value), )
         out += postfix

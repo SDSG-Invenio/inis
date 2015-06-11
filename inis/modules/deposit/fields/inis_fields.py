@@ -46,15 +46,15 @@ country_codes_list = CFG_COUNTRIES_DICT.items()
 country_codes_list.sort(key=lambda tup: tup[1])
 
 
-def data_range_processor(form, field, submit=False, fields=None):
-    form.publication_date.date_range.date_to.flags.hidden = True
-    form.publication_date.date_range.date_to.flags.disabled = True
-    if field.data:
-        form.publication_date.date_range.date_to.flags.hidden = False
-        form.publication_date.date_range.date_to.flags.disabled = False
-    else:
-        form.publication_date.date_range.date_to.flags.hidden = True
-        form.publication_date.date_range.date_to.flags.disabled = True
+# def data_range_processor(form, field, submit=False, fields=None):
+#     form.publication_date.date_range.date_to.flags.hidden = True
+#     form.publication_date.date_range.date_to.flags.disabled = True
+#     if field.data:
+#         form.publication_date.date_range.date_to.flags.hidden = False
+#         form.publication_date.date_range.date_to.flags.disabled = False
+#     else:
+#         form.publication_date.date_range.date_to.flags.hidden = True
+#         form.publication_date.date_range.date_to.flags.disabled = True
 
 
 class SingleDateForm(WebDepositForm):
@@ -66,7 +66,7 @@ class SingleDateForm(WebDepositForm):
                     ],
         default='',
         choices=[('', 'year'), ] + [(str(i), i) for i in reversed(xrange(1900, date.today().year + 1))],
-        widget=SelectInput(class_="col-xs-2"),
+        widget=SelectInput(class_="col-xs-3"),
     )
     month = fields.SelectField(
         label='',
@@ -81,7 +81,7 @@ class SingleDateForm(WebDepositForm):
         default='',
         choices=[('', 'month/season'), (' ', '------'), ] + CFG_SEASON_CODES +
                 [(' ', '------'), ] + CFG_MONTH_CODES,
-        widget=SelectInput(class_="col-xs-4"),
+        widget=SelectInput(class_="col-xs-5"),
     )
     day = fields.SelectField(
         label='',
@@ -111,7 +111,7 @@ class SingleDateMandatoryForm(SingleDateForm):
         validators=[validators.DataRequired(message='Publication year is required'), ],
         default='',
         choices=[('', 'year'), ] + [(str(i), i) for i in reversed(xrange(1900, date.today().year + 1))],
-        widget=SelectInput(class_="col-xs-2"),
+        widget=SelectInput(class_="col-xs-3"),
     )
     date_range = fields.BooleanField(
         label='',
@@ -119,7 +119,7 @@ class SingleDateMandatoryForm(SingleDateForm):
         widget=BooleanInput(class_="col-xs-3"),
         default=False,
     )
-    fields_order = ('year', 'month', 'day', 'date_range')
+    fields_order = ('year', 'month', 'day', )  # 'date_range')
 
 
 class DateMandatoryForm(WebDepositForm):
@@ -141,14 +141,14 @@ class DateMandatoryForm(WebDepositForm):
         ),
         label='',
         widget_classes='',
-        hidden=True,
-        disabled=True,
+        # hidden=True,
+        # disabled=True,
     )
 
 
 class DateOptionalForm(WebDepositForm):
     date_from = fields.FormField(
-        SingleDateRangeForm,
+        SingleDateForm,
         widget=ExtendedListWidget(
             item_widget=ItemWidget(),
             html_tag='div'
@@ -165,8 +165,8 @@ class DateOptionalForm(WebDepositForm):
         ),
         label='',
         widget_classes='',
-        hidden=True,
-        disabled=True,
+        # hidden=True,
+        # disabled=True,
     )
 
 
