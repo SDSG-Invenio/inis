@@ -541,3 +541,37 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
         out += '</inisrecord>\n'
 
     return out.strip()
+
+
+# def process_date(d):
+#     if 'publication_date' in d:
+#         if 'date_from' in d['publication_date']:
+#             d['publication_date_from'] = d['publication_date']['date_from']
+#             if 'month' in d['publication_date_from'] and int(d['publication_date_from']['month']) > 20:
+#                 d['publication_date_from']['season'] = int(d['publication_date_from']['month']) - 20
+#                 d['publication_date_from'].pop('month')
+#                 d['publication_date_from'].pop('day')
+#         if 'date_to' in d['publication_date']:
+#             d['publication_date_to'] = d['publication_date']['date_to']
+#             if 'month' in d['publication_date_to'] and int(d['publication_date_to']['month']) > 20:
+#                 d['publication_date_to']['season'] = int(d['publication_date_to']['month']) - 20
+#                 d['publication_date_to'].pop('month')
+#                 d['publication_date_to'].pop('day')
+#     return d
+
+
+def must_switch(d1, d2):
+    if 'year' not in d2:
+        return False
+    if d1['year'] != d2['year']:
+        return int(d1['year']) > int(d2['year'])
+
+    if 'month' in d1 and 'month' in d2:
+        if d1['month'] != d2['month']:
+            return int(d1['month']) > int(d2['month'])
+        if 'day' in d1 and 'day' in d2:
+            return d1['day'] > d2['day']
+    elif 'season' in d1 and 'season' in d2:
+        return int(d1['season']) > int(d2['season'])
+
+    return False
