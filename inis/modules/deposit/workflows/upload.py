@@ -38,7 +38,7 @@ def process_recjson(deposition, recjson):
         recjson['trns'] = TRNs
 
         wrong_cc = [trn for trn in TRNs if trn[:2] != recjson['member']]
-        if wrong_cc != []:
+        if wrong_cc != [] and recjson['member'] != 'XA':
             sip.metadata['errors'].append({'code': 2, 'list': wrong_cc})
 
         missing_trns = file_names_not_in_TRNs(sip)
