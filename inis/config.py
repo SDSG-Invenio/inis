@@ -32,12 +32,14 @@ CFG_ERROR_MESSAGES = {
     0: 'Fulltext files have names that do not correspond to any known TRN',
     1: 'Files do not contain TTF metadata (or TRN tag "001" is missing)',
     2: 'Wrong country code in TRNs',
+    3: 'Duplicated TRNs',
 }
 
 CFG_SUMBISSION_ERRORS = {
     0: 'The following fulltext files have names that do not correspond to any known TRN:',
     1: 'The following files do not contain TTF metadata (or TRN tag "001" is missing):',
     2: 'The following TRNs have the wrong country code:',
+    3: 'The following TRNs are duplicated (or tag "009" is nor "C" for change record):',
 }
 
 CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"

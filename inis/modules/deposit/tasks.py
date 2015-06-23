@@ -107,6 +107,7 @@ def find_all(a_str, sub):
 
 def get_TRNs(sip):
     TRNs = []
+    change_records = []
     files = sip.metadata['fft']
     files_without_records = []
     for submitted_file in files:
@@ -116,11 +117,24 @@ def get_TRNs(sip):
             f = open(path, 'r')
             ttf = f.read()
             f.close()
-            TRNs_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '001^'))]
+            records = [r.strip() for r in ttf.split('001^') if r.strip() != '']
+            TRNs_this_file = []
+            change_records_this_file = []
+            for record in records:
+                lines = [r.strip() for r in record.splitlines() if r.strip() != '']
+                TRNs_this_file.append(lines[0])
+                for l in lines:
+                    if l.startswith('004^') and l[4] == 'C':
+                        change_records_this_file.append(lines[0])
+
+            # TRNs_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '001^'))]
+            # change_records_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '004^'))]
             if len(TRNs_this_file) == 0:
                 files_without_records.append(submitted_file['name'])
             TRNs += TRNs_this_file
+            change_records += change_records_this_file
 
+    sip.metadata['change_records'] = change_records
     sip.metadata['empty_md_files'] = files_without_records
     if files_without_records != []:
         sip.metadata['errors'].append({'code': 1, 'list': files_without_records})
@@ -157,3 +171,14 @@ def file_names_not_in_TRNs(sip):
                 missing.append(trn)
 
     return missing
+
+
+def get_duplicated_trns(sip):
+    TRNs = set(sip.metadata['trns'])
+    change_records = set(sip.metadata['change_records'])
+    duplicated_trns = []
+    for trn in list(TRNs - change_records):
+        if trn_exists(trn):
+            duplicated_trns.append(trn)
+
+    return duplicated_trns

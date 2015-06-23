@@ -4,7 +4,7 @@ from inis.config import CFG_MEMBERS_INV
 
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
-    notify_rejection, validate
+    get_duplicated_trns, notify_rejection, validate
 
 from invenio.ext.login import UserInfo
 
@@ -45,6 +45,11 @@ def process_recjson(deposition, recjson):
         recjson['missing_trns'] = missing_trns
         if missing_trns != []:
             sip.metadata['errors'].append({'code': 0, 'list': missing_trns})
+
+        duplicated_trns = get_duplicated_trns(sip)
+        recjson['duplicated_trns'] = duplicated_trns
+        if duplicated_trns != []:
+            sip.metadata['errors'].append({'code': 3, 'list': duplicated_trns})
 
         if recjson['errors']:
             primary = 'Rejected'
