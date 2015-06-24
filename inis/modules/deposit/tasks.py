@@ -78,7 +78,6 @@ def notify_rejection():
             member = ''
 
         msg = """Title: %(title)s</br>
-                 Record: %(rec_link)s</br>
                  Submission: %(dep_link)s</br>
                  INIS Member: %(member)s</br></br>
                  Errors:</br>%(errors)s
@@ -89,7 +88,7 @@ def notify_rejection():
         subject = 'Failed Submission #%s' % sip.metadata['owner']['deposition_id']
         # write_message(message)
         #(subject, body) = generate_msg(recid, [message])
-        message_id = create_message(uid_from=1, users_to_str=sip.metadata['owner']['id'], msg_subject=subject, msg_body=msg)
+        message_id = create_message(uid_from=1, users_to_str=sip.metadata['owner']['username'], msg_subject=subject, msg_body=msg)
         send_message(sip.metadata['owner']['id'], message_id)
 
     return _notify_rejection
@@ -148,7 +147,7 @@ def trn_exists(trn):
         response = urlopen(url + trn)
         html = response.read()
         return html.find('<string xmlns="http://nis.iaea.org/webservices/">1') > -1
-    except TypeError:
+    except e:
         return False
 
 
