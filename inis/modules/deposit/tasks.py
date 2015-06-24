@@ -51,7 +51,6 @@ def notify_rejection():
     def _notify_rejection(obj, eng):
         from invenio.modules.messages.query import create_message, send_message
         from invenio.config import CFG_SITE_URL
-        from inis.config import CFG_SUMBISSION_ERRORS
 
         d = Deposition(obj)
         sip = d.get_latest_sip(sealed=False)
@@ -64,14 +63,6 @@ def notify_rejection():
         rec_url = CFG_SITE_URL + '/record/' + str(sip.metadata['recid'])
         rec_link = "<a href=%(url)s>%(url)s</a>" % {'url': rec_url, 'title': sip.metadata['title.title']}
 
-        errors = "<ul>"
-        for e in sip.metadata['errors']:
-            errors += "<li>" + CFG_SUMBISSION_ERRORS[e['code']]
-            if e['list']:
-                errors += "<ul><li>%s</li></ul>" % '</li><li>'.join(e['list'])
-            errors += "</li>"
-        errors += "</ul>"
-
         try:
             member = sip.metadata['member']
         except IndexError:
@@ -83,7 +74,7 @@ def notify_rejection():
                  Errors:</br>%(errors)s
               """ % {'title': sip.metadata['title.title'], 'recid': sip.metadata['recid'],
                      'dep_link': dep_link, 'member': member,
-                     'rec_link': rec_link, 'errors': errors}
+                     'rec_link': rec_link, 'errors': sip.metadata['error_message']}
 
         subject = 'Failed Submission #%s' % sip.metadata['owner']['deposition_id']
         # write_message(message)
@@ -181,3 +172,15 @@ def get_duplicated_trns(sip):
             duplicated_trns.append(trn)
 
     return duplicated_trns
+
+
+def create_error_message(sip):
+    from inis.config import CFG_SUMBISSION_ERRORS
+    errors = "<ul>"
+    for e in sip.metadata['errors']:
+        errors += "<li>" + CFG_SUMBISSION_ERRORS[e['code']]
+        if e['list']:
+            errors += "<ul><li>%s</li></ul>" % '</li><li>'.join(e['list'])
+        errors += "</li>"
+    errors += "</ul>"
+    return errors

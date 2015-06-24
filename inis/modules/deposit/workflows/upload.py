@@ -3,8 +3,9 @@
 from inis.config import CFG_MEMBERS_INV
 
 from inis.modules.deposit.forms import UploadForm
-from inis.modules.deposit.tasks import file_names_not_in_TRNs, get_TRNs, \
-    get_duplicated_trns, notify_rejection, validate
+from inis.modules.deposit.tasks import create_error_message, \
+    file_names_not_in_TRNs, get_TRNs, get_duplicated_trns, \
+    notify_rejection, validate
 
 from invenio.ext.login import UserInfo
 
@@ -57,6 +58,9 @@ def process_recjson(deposition, recjson):
             primary = 'Accepted'
 
         recjson['collections'] = [{'primary': primary, 'secondary': recjson['member']}, ]
+
+        error_message = create_error_message(sip)
+        sip.metadata['error_message'] = error_message
 
     except TypeError:
         # Happens on re-run

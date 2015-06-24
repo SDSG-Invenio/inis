@@ -22,38 +22,105 @@
 <div class="row">
     <div class="col-md-7">
 
-    <div class="progress" style="height: inherit;">
-        <div class="progress-bar progress-bar-success" style="width: 100%;">
-            <h4>{{ _('Submitted') }}</h4>
+        <div class="progress" style="height: inherit;">
+            <div class="progress-bar progress-bar-success" style="width: 100%;">
+                <h4>{{ _('Submitted') }}</h4>
+            </div>
         </div>
-    </div>
-    <small class="text-muted">
-        {{ _('This is a preview of your upload. The uploaded files are available on %(x_link)s. '
-             'If you want to remove your upload, please contact %(x_contact)s',
-             x_link='<a href="{url}">{url}</a>'.format(
-                url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
-             )|safe,
-             x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }}
-             </br></br>
-    </small>
+        <small class="text-muted">
+<!--             {{ _('This is a preview of your upload. The uploaded files are available on %(x_link)s. '
+                 'If you want to remove your upload, please contact %(x_contact)s',
+                 x_link='<a href="{url}">{url}</a>'.format(
+                    url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
+                 )|safe,
+                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }} -->
+            {{ _('If you want to remove your upload, please contact %(x_contact)s',
+                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }}
+                 </br></br>
+        </small>
 
-    <div class="">
-        <span class="center-block">
-            {%- if deposition.type.editable -%}
-            <a href="{{url_for('webdeposit.edit', deposition_type=deposition_type, uuid=deposition.id)}}" class="btn btn-default{{ ' disabled' if deposition.state != 'done' else ''}}" data-toggle="tooltip" title="{{ 'Editing is only possible after your upload have been fully integrated. Please wait a few moments, then try to reload the page.' if deposition.state != 'done' else ''}}" ><i class="fa fa-pencil"></i> {{ _('Edit') }}</a> &nbsp;
-            {%- endif -%}
-            <a href="{{url_for('record.metadata', recid=sip.metadata['recid'])}}" class="btn btn-default" data-toggle="tooltip" title=""><i class="fa fa-eye"></i> {{ _('View') }}</a>
-        </span>
-        <span class="clearfix"></span>
+        <div class="">
+            <span class="center-block">
+                {%- if deposition.type.editable -%}
+                <a href="{{url_for('webdeposit.edit', deposition_type=deposition_type, uuid=deposition.id)}}" class="btn btn-default{{ ' disabled' if deposition.state != 'done' else ''}}" data-toggle="tooltip" title="{{ 'Editing is only possible after your upload have been fully integrated. Please wait a few moments, then try to reload the page.' if deposition.state != 'done' else ''}}" ><i class="fa fa-pencil"></i> {{ _('Edit') }}</a> &nbsp;
+                {%- endif -%}
+                <!-- <a href="{{url_for('record.metadata', recid=sip.metadata['recid'])}}" class="btn btn-default" data-toggle="tooltip" title=""><i class="fa fa-eye"></i> {{ _('View') }}</a> -->
+            </span>
+            <span class="clearfix"></span>
+        </div>
+        <hr />
+        <!-- {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hd')|safe}} -->
+        <!--    {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hdinfo')|safe}} -->
+
+<!--         <div class="">
+            <strong>{{ sip.metadata['title.title'] }}</strong>
+            Number of records: {{ sip.metadata['trns']|length }}
+            Files: {{ sip.metadata['fft'][0]['name'] }}
+        </div> -->
+<div class="well">
+
+    <h4>
+    {%- if sip.metadata['collections'][0]['primary'] == 'Rejected' %}
+        <div class="fa fa-warning" style="color:red"></div>
+    {%- else %}
+        <div class="fa fa-check" style="color:green"></div>
+    {%- endif %}
+
+    {{ sip.metadata['title.title'] }}</h4>
+    <table class="table table-striped">
+    <tr>
+        <td width="40%">
+            <b>Total number of records:</b>
+        </td>
+        <td>
+            {{ sip.metadata['trns']|length }}
+        </td>
+    </tr>
+    <tr>
+        <td width="40%">
+            <b>Change records:</b>
+        </td>
+        <td>
+            {{ sip.metadata['change_records']|length }}
+        </td>
+    </tr>
+    <tr>
+        <td width="40%">
+            <b>Files:</b>
+        </td>
+        <td>
+            <ul style="list-style-type:circle; padding-left:15px">
+            {% for file in sip.metadata['fft'] %}
+                <li>{{ file['name'] }}</li>
+            {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    </table>
+   </div>
+    {% if sip.metadata['error_message'] %}
+
+
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+      This submission has been <b>rejected</b> and it will not be considered as input for INIS.
+      </br></br>
+      <b>Errors found:</b>
+      </div>
+      <div class="panel-body">
+        {% autoescape false %}
+        {{ sip.metadata['error_message'] }}
+        {% endautoescape %}
+      </div>
     </div>
-    <hr />
-    {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hd')|safe}}
-    {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hdinfo')|safe}}
+
+    {%- endif %}
+<!-- </div> -->
 
     </div>
     <div class="col-md-5">
         {% include "deposit/myview.html" %}
     </div>
-    </div>
+<!--     </div> -->
 </div>
 {% endblock %}
