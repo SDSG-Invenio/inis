@@ -1,0 +1,71 @@
+<div class="well">
+    <h4>
+    {%- if sip.metadata['collections'][0]['primary'] == 'Rejected' %}
+        <div class="fa fa-warning" style="color:red"></div>
+    {%- else %}
+        <div class="fa fa-check" style="color:green"></div>
+    {%- endif %}
+
+    {{ sip.metadata['title.title'] }}</h4>
+    <p>{{ sip.metadata['notes'] }}</p>
+    <table class="table table-striped">
+    <tr>
+        <td width="40%">
+            <b>Total number of records:</b>
+        </td>
+        <td>
+            {{ sip.metadata['trns']|length }}
+        </td>
+    </tr>
+    <tr>
+        <td width="40%">
+            <b>Change records:</b>
+        </td>
+        <td>
+            {{ sip.metadata['change_records']|length }}
+        </td>
+    </tr>
+    <tr>
+        <td width="40%">
+            <b>Files:</b>
+        </td>
+        <td>
+            {% with recid = sip.metadata['recid'] %}
+            {% with links = format_record(recid, 'FILELINKS', ln=g.ln)|safe %}
+            {% if links != '' %}
+                {{ links }}
+            {% else %}
+                <ul style="list-style-type:circle; padding-left:15px">
+                    {% for file in sip.metadata['fft'] %}
+                    <li>
+                        {{ file['name'] }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {%- endif %}
+            {% endwith %}
+            {% endwith %}
+ 
+
+
+        </td>
+    </tr>
+    </table>
+   </div>
+
+    {% if sip.metadata['collections'][0]['primary'] == 'Rejected' and sip.metadata['error_message'] %}
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+      This submission has been <b>rejected</b> and it will not be considered as input for INIS.
+      </br></br>
+      <b>Errors found:</b>
+      </div>
+      <div class="panel-body">
+        {% autoescape false %}
+        {{ sip.metadata['error_message'] }}
+        {% endautoescape %}
+      </div>
+    </div>
+
+    {%- endif %}
+</div>

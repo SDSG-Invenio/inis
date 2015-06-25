@@ -16,6 +16,7 @@ PACKAGES = [
     "inis.base",
     "inis.demosite",
     "inis.modules.deposit",
+    "inis.modules.formatter",
     "inis.modules.stats",
     "invenio.modules.*",
     "invenio.base",

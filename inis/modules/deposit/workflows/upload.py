@@ -60,7 +60,8 @@ def process_recjson(deposition, recjson):
         recjson['collections'] = [{'primary': primary, 'secondary': recjson['member']}, ]
 
         error_message = create_error_message(sip)
-        sip.metadata['error_message'] = error_message
+        if error_message != "":
+            sip.metadata['error_message'] = error_message
 
     except TypeError:
         # Happens on re-run
