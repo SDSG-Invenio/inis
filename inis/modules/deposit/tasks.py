@@ -57,7 +57,7 @@ def notify_rejection():
         if sip is None:
             sip = d.create_sip()
 
-        dep_url = CFG_SITE_URL + '/deposit/upload/' + str(sip.metadata['owner']['deposition_id'])
+        dep_url = CFG_SITE_URL + '/upload/' + str(sip.metadata['owner']['deposition_id'])
         dep_link = "<a href=%(url)s>%(url)s</a>" % {'url': dep_url, 'title': sip.metadata['title.title']}
 
         rec_url = CFG_SITE_URL + '/record/' + str(sip.metadata['recid'])
