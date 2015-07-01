@@ -135,6 +135,8 @@ def get_group_stats(group_name):
     from invenio.legacy.search_engine import perform_request_search
 
     g = Usergroup.query.filter_by(name=group_name).first()
+    iaea_group = Usergroup.query.filter_by(name='International Atomic Energy Agency (IAEA)').first()
+
     member = CFG_MEMBERS_INV[g.name]
     info = {}
     info['name'] = group_name
@@ -144,7 +146,8 @@ def get_group_stats(group_name):
     info['files'] = 0
     info['batches'] = 0
     info['errors'] = {}
-    for u in g.users:
+
+    for u in set(g.users + iaea_group.users):
         # if not u.is_admin() or group_name == "International Atomic Energy Agency (IAEA)":
         depositions = Deposition.get_depositions(UserInfo(u.id_user))
         for d in depositions:
