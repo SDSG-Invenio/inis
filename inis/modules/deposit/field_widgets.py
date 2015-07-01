@@ -20,34 +20,7 @@
 """Implement custom field widgets."""
 
 
-from wtforms.widgets import CheckboxInput, HTMLString, Select  # html_params,
-
-
-# def date_widget(field, **kwargs):
-#     """Create datepicker widget."""
-#     field_id = kwargs.pop('id', field.id)
-#     html = [u'<div class="row"><div class="col-xs-5 col-sm-4">'
-#             '<input class="datepicker form-control text-center" %s type="text"></div></div>'
-#             % html_params(id=field_id, name=field_id, value=field.data or '')]
-#     return HTMLString(u''.join(html))
-
-
-# def date_range(field, **kwargs):
-#     """Create date range widget."""
-#     field_id = kwargs.pop('id', field.id)
-#     html = [u"""<div class="row">
-#                   <div class="col-xs-3 col-sm-4">
-#                     <input class="form-control text-center" %s type="text">
-#                   </div>
-#                   <div class="col-xs-3 col-sm-4">
-#                     <input class="form-control text-center" %s type="text">
-#                   </div>
-#                   <div class="col-xs-3 col-sm-4">
-#                     <input class="form-control text-center" %s type="text">
-#                   </div>
-#                 </div>"""
-#             % html_params(id=field_id, name=field_id, value=field.data or '')]
-#     return HTMLString(u''.join(html))
+from wtforms.widgets import CheckboxInput, HTMLString, Select, TextInput
 
 
 class WrappedSelect(Select):
@@ -120,3 +93,35 @@ class BooleanInput(WrappedCheckbox):
                     '<p class="text-muted field-desc">'
                     '<small>%(description)s</small></p></div>')
         return '<div class="%(class_)s">%(field)s&nbspRange</div>'
+
+
+class WrappedTextInput(TextInput):
+
+    """Widget to wrap text input in further markup."""
+
+    wrapper = '<div>%(field)s</div>'
+    wrapped_widget = TextInput()
+
+    def __init__(self, widget=None, wrapper=None, **kwargs):
+        """Initialize wrapped input with widget and wrapper."""
+        self.wrapped_widget = widget or self.wrapped_widget
+        self.wrapper_args = kwargs
+        if wrapper is not None:
+            self.wrapper = wrapper
+
+    def __call__(self, field, **kwargs):
+        """Render wrapped input."""
+        return HTMLString(self.wrapper % dict(
+            field=self.wrapped_widget(field, **kwargs),
+            **self.wrapper_args
+        ))
+
+
+class INISInput(WrappedTextInput):
+
+    """Specialized column wrapped input."""
+
+    @property
+    def wrapper(self):
+        """Wrapper template with description support."""
+        return '<div class="%(class_)s">%(field)s</div>'

@@ -469,10 +469,11 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
                 d[tag] = {}
             d[tag][field] = value
 
-        out += prefix % ('401', )
         value = create_place_ttf(d)
-        out += "%s" % (encode_for_xml(value), )
-        out += postfix
+        if value.strip():
+            out += prefix % ('401', )
+            out += "%s" % (encode_for_xml(value), )
+            out += postfix
 
         # dates
         query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
@@ -485,10 +486,11 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             field, value = row[0][-1], row[1]
             d[field] = value
 
-        out += prefix % ('403', )
         value = create_date_ttf(d)
-        out += "%s" % (encode_for_xml(value), )
-        out += postfix
+        if value.strip():
+            out += prefix % ('403', )
+            out += "%s" % (encode_for_xml(value), )
+            out += postfix
 
         query = "SELECT b.tag,b.value,bb.field_number FROM bib21x AS b, bibrec_bib21x AS bb "\
                 "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '213%%' "\
@@ -500,12 +502,14 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             field, value = row[0][-1], row[1]
             d[field] = value
 
-        out += prefix % ('213', )
         value = create_date_ttf(d)
-        out += "%s" % (encode_for_xml(value), )
-        out += postfix
+        if value.strip():
+            out += prefix % ('213', )
+            out += "%s" % (encode_for_xml(value), )
+            out += postfix
 
         # other tags
+        printed = False
         for digit1 in range(0, 10):
             for digit2 in range(i, 10):
                 bx = "bib%d%dx" % (digit1, digit2)
@@ -525,16 +529,18 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
                         if field != field_old:
                             out += prefix % (field[:3], )
                         else:
-                            out += ";"
+                            out += "; "
 
                         field_old = field
                         # print subfield value
                         out += "%s" % (encode_for_xml(value), )
-                        out += postfix
+                        printed = True
+                        # out += postfix
 
                 # all fields/subfields printed in this run, so close the tag:
-                # if field_old != -999:
-                #     out += """\n"""
+                if printed:
+                    out += postfix
+                    printed = False
             i = 0  # Next loop should start looking at bib%0 and bibrec_bib00x
     # we are at the end of printing the record
     if mode == 'xml':

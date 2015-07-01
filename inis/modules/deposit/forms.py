@@ -1,5 +1,6 @@
 """Contains forms related to INIS submissions."""
 
+import copy
 import os
 
 # from datetime import date
@@ -11,98 +12,86 @@ from flask import current_app, request
 from inis.config import CFG_LANG_CODES
 
 from inis.modules.deposit.field_widgets import SelectInput
-from inis.modules.deposit.fields.inis_fields import CreatorForm, DateMandatoryForm, DateOptionalForm, LocationForm
+from inis.modules.deposit.fields.inis_fields import CreatorForm, date_factory, location_factory
 
 from invenio.base.i18n import _
 
 from invenio.modules.deposit import fields
-from invenio.modules.deposit.field_widgets import ExtendedListWidget, ItemWidget, plupload_widget
+from invenio.modules.deposit.autocomplete_utils import kb_autocomplete
+from invenio.modules.deposit.field_widgets import ExtendedListWidget, ItemWidget, \
+    TagInput, TagListWidget, plupload_widget
 
 from invenio.modules.deposit.filter_utils import strip_string
 from invenio.modules.deposit.form import WebDepositForm
-# from invenio.modules.deposit.validation_utils import required_if
+from invenio.modules.deposit.processor_utils import replace_field_data
 
-from wtforms import validators
+from invenio.modules.knowledge.api import get_kb_mapping
+# from invenio.modules.deposit.validation_utils import required_if
+# from invenio.utils.forms import AutocompleteField
+
+from wtforms import validators, widgets
 from wtforms.validators import ValidationError
+# from wtforms.widgets import TextInput
+
+# from .autocomplete import descriptor_autocomplete
+
 
 lang_codes_list = CFG_LANG_CODES.items()
 lang_codes_list.sort(key=lambda tup: tup[1])
 
 
-class BookForm(WebDepositForm):
-    """INIS record input form fields."""
-
-    #
-    # Fields
-    #
-
-    #
-    # Basic information
-    #
-
-    record_type = fields.HiddenField(
-        label='',
-        default="B",
-    )
-
-    trn = fields.StringField(
-        label="TRN",
-        default='',
-        validators=[validators.DataRequired(), ],
-        filters=[strip_string, ],
-        widget_classes='form-control',
-        icon='fa fa-barcode fa-fw',
-        export_key='trn',
-    )
-
-    title = fields.TitleField(
+trn = fields.StringField(
+    label="TRN",
+    default='',
+    validators=[validators.DataRequired(), ],
+    filters=[strip_string, ],
+    widget_classes='form-control',
+    icon='fa fa-barcode fa-fw',
+    export_key='trn',
+)
+title = fields.TitleField(
+    validators=[validators.DataRequired()],
+    # description='Required.',
+    filters=[strip_string, ],
+    icon='fa fa-book fa-fw',
+)
+original_title = fields.StringField(
+    label=_("Original title"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+language = fields.DynamicFieldList(
+    fields.SelectField(
         validators=[validators.DataRequired()],
-        # description='Required.',
         filters=[strip_string, ],
-        icon='fa fa-book fa-fw',
-    )
-
-    original_title = fields.StringField(
-        label=_("Original title"),
         default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
+        choices=[('', ''), ('EN', 'English'),
+                 ('FR', 'French'), ('DE', 'German'),
+                 ('', '------'), ] + lang_codes_list,
+        widget=SelectInput(class_="col-xs-3"),
+    ),
+    add_label='Add another language',
+    label=_('Publication Language'),
+    icon='fa fa-flag fa-fw',
+    validators=[validators.DataRequired()],
+    widget_classes='',
+    min_entries=1,
+    max_entries=8,
+)
+description = fields.TextAreaField(
+    label=_("Physical description"),
+    validators=[validators.DataRequired()],
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+    icon='fa fa-pencil fa-fw',
+)
 
-    language = fields.DynamicFieldList(
-        fields.SelectField(
-            validators=[validators.DataRequired()],
-            filters=[strip_string, ],
-            default='',
-            choices=[('', ''), ('EN', 'English'),
-                     ('FR', 'French'), ('DE', 'German'),
-                     ('', '------'), ] + lang_codes_list,
-            widget=SelectInput(class_="col-xs-3"),
-        ),
-        add_label='Add another language',
-        label=_('Publication Language'),
-        icon='fa fa-flag fa-fw',
-        validators=[validators.DataRequired()],
-        widget_classes='',
-        min_entries=1,
-        max_entries=8,
-    )
 
-    description = fields.TextAreaField(
-        label=_("Physical description"),
-        validators=[validators.DataRequired()],
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-        icon='fa fa-pencil fa-fw',
-    )
-
-    #
-    # Publication information
-    #
-
+def place_factory(mandatory=False):
     place = fields.FormField(
-        LocationForm,
+        location_factory(),
         widget=ExtendedListWidget(
             item_widget=ItemWidget(),
             html_tag='div'
@@ -111,189 +100,353 @@ class BookForm(WebDepositForm):
         icon='fa fa-globe fa-fw',
         widget_classes='',
     )
+    return place
+place = place_factory()
 
-    publisher = fields.StringField(
-        label=_("Publisher"),
-        default='',
-        validators=[validators.DataRequired()],
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
+publisher = fields.StringField(
+    label=_("Publisher"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
 
+
+def publication_date_factory(mandatory=False):
     publication_date = fields.FormField(
-        DateMandatoryForm,
+        date_factory(mandatory),
         label=_('Publication date'),
         icon='fa fa-calendar fa-fw',
         widget_classes='',
     )
+    return publication_date
+publication_date = publication_date_factory(False)
 
-    edition = fields.StringField(
-        label=_("Edition"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-
-    #
-    # Authors
-    #
-
-    creators = fields.DynamicFieldList(
-        fields.FormField(
-            CreatorForm,
-            widget=ExtendedListWidget(
-                item_widget=ItemWidget(),
-                html_tag='div'
-            ),
-        ),
-        label='Authors',
-        add_label='Add another author',
-        icon='fa fa-user fa-fw',
-        widget_classes='',
-        min_entries=1,
-        export_key='authors',
-    )
-
-    #
-    # Conference information
-    #
-
-    conference_title = fields.StringField(
-        label=_("Conference title"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    original_conference_title = fields.StringField(
-        label=_("Original conference title"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-
-    conference_place = fields.FormField(
-        LocationForm,
+edition = fields.StringField(
+    label=_("Edition"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+creators = fields.DynamicFieldList(
+    fields.FormField(
+        CreatorForm,
         widget=ExtendedListWidget(
             item_widget=ItemWidget(),
             html_tag='div'
         ),
-        label=_("Conference place"),
-        icon='fa fa-globe fa-fw',
-        widget_classes='',
+    ),
+    label='Authors',
+    add_label='Add another author',
+    icon='fa fa-user fa-fw',
+    widget_classes='',
+    min_entries=1,
+    export_key='authors',
+)
+conference_title = fields.StringField(
+    label=_("Conference title"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+original_conference_title = fields.StringField(
+    label=_("Original conference title"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+conference_place = fields.FormField(
+    location_factory(),
+    widget=ExtendedListWidget(
+        item_widget=ItemWidget(),
+        html_tag='div'
+    ),
+    label=_("Conference place"),
+    icon='fa fa-globe fa-fw',
+    widget_classes='',
+)
+conference_date = fields.FormField(
+    date_factory(False),
+    label=_('Conference date'),
+    icon='fa fa-calendar fa-fw',
+    widget_classes='',
+)
+secondary_number = fields.StringField(
+    label=_("Secondary numbers"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+isbn = fields.StringField(
+    label=_("ISBN/ISSN"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+contract_number = fields.StringField(
+    label=_("Contract/Project number"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+general_notes = fields.TextAreaField(
+    label=_("General notes"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+    icon='fa fa-pencil fa-fw',
+)
+availability = fields.StringField(
+    label=_("Availability"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+title_augmentation = fields.StringField(
+    label=_("Title Augmentation"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+funding_organization_code = fields.StringField(
+    label=_("Funding Organization code"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+corporate_entry_code = fields.StringField(
+    label=_("Corporate Entry code"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+)
+abstract = fields.TextAreaField(
+    label=_("Abstract"),
+    default='',
+    filters=[strip_string, ],
+    widget_classes='form-control',
+    icon='fa fa-pencil fa-fw',
+)
+
+
+# def grants_validator(form, field):
+#     if field.data:
+#         for item in field.data:
+#             val = get_kb_mapping('descriptors', str(item['id']))
+#             if val:
+#                 data = descriptors_kb_mapper(val)
+#                 item['acronym'] = data['fields']['acronym']
+#                 item['title'] = data['fields']['title']
+#                 continue
+#             raise ValidationError("Invalid grant identifier %s" % item['id'])
+
+
+def descriptor_kb_value(key_name):
+    def _getter(field):
+        if field.data:
+            val = get_kb_mapping('descriptors', str(field.data))
+            if val:
+                data = descriptors_kb_mapper(val)
+                return data['fields'][key_name]
+        return ''
+    return _getter
+
+
+def descriptors_kb_mapper(val):
+    data = val['value']
+    return {
+        'value': "%s" % (data),
+        'fields': {
+            'id': data,
+            'descriptor': data,
+        }
+    }
+
+
+class DescriptorForm(WebDepositForm):
+    id = fields.StringField(
+        widget=widgets.HiddenInput(),
+        processors=[
+            replace_field_data('descriptor', descriptor_kb_value('descriptor')),
+        ],
+    )
+    descriptor = fields.StringField(
+        placeholder="Start typing a descriptor...",
+        autocomplete_fn=kb_autocomplete(
+            'descriptors',
+            mapper=descriptors_kb_mapper
+        ),
+        widget=TagInput(),
+        widget_classes='form-control',
     )
 
-    conference_date = fields.FormField(
-        DateOptionalForm,
-        label=_('Conference date'),
-        icon='fa fa-calendar fa-fw',
-        widget_classes='',
-    )
 
-    #
-    # Identifying numbers
-    #
+proposed_descriptors = fields.DynamicFieldList(
+    fields.FormField(
+        DescriptorForm,
+        widget=ExtendedListWidget(html_tag='div', item_widget=ItemWidget()),
+        export_key='proposed_descriptors',
+        # lambda f: {
+        #     'identifier': f.data['id'],
+        #     'descriptor': f.data['descriptor'],
+        # }
+    ),
+    widget=TagListWidget(template="{{descriptor}}",
+                         html_tag='ul',
+                         class_='list-unstyled',
+                         ),
+    widget_classes=' dynamic-field-list',
+    icon='fa fa-tags fa-fw',
+    description="Add here the proposed descriptors",
+    #validators=[grants_validator],
+)
 
-    secondary_number = fields.StringField(
-        label=_("Secondary numbers"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    isbn = fields.StringField(
-        label=_("ISBN/ISSN"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    contract_number = fields.StringField(
-        label=_("Contract/Project number"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
 
-    #
-    # Extra information
-    #
+groups = [
+    ('Basic information', [
+        'trn', 'title', 'original_title', 'language', 'description',
+        'proposed_descriptors',
+    ], {'indication': 'required', }),
+    ('Publication information', [
+        'place', 'publisher', 'publication_date', 'edition',
+    ], {
+        'indication': 'required',
+    }),
+    ('Authors', [
+        'creators',
+    ], {
+        'classes': '',
+        'indication': 'recommended',
+    }),
+    ('Conference', [
+        'conference_title', 'original_conference_title',
+        'conference_place', 'conference_date',
+    ], {
+        'classes': '',
+        'indication': 'optional',
+    }),
+    ('Identifying numbers', [
+        'secondary_number', 'isbn', 'contract_number',
+    ], {
+        'classes': '',
+        'indication': 'optional',
+    }),
+    ('Extra information', [
+        'general_notes', 'availability', 'title_augmentation',
+        'funding_organization_code', 'corporate_entry_code',
+    ], {
+        'classes': '',
+        'indication': 'optional',
+    }),
+    ('Abstract', [
+        'abstract',
+    ], {
+        'classes': '',
+        'indication': 'recommended',
+    }),
+]
 
-    general_notes = fields.TextAreaField(
-        label=_("General notes"),
-        # description='Optional.',
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-        icon='fa fa-pencil fa-fw',
-    )
-    availability = fields.StringField(
-        label=_("Availability"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    title_augmentation = fields.StringField(
-        label=_("Title Augmentation"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    funding_organization_code = fields.StringField(
-        label=_("Funding Organization code"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
-    corporate_entry_code = fields.StringField(
-        label=_("Corporate Entry code"),
-        default='',
-        filters=[strip_string, ],
-        widget_classes='form-control',
-    )
 
-    #
+def mandatory(field):
+    field2 = copy.deepcopy(field)
+    field2.kwargs['validators'] = [validators.DataRequired()]
+    return field2
+
+
+######################
+#       Input        #
+######################
+
+
+class INISForm(WebDepositForm):
+    """INIS record input form fields."""
+
+    # Fields
+
+    # Basic information
+    record_type = fields.HiddenField(
+        label='',
+        default="",
+    )
+    trn = trn
+    title = title
+    original_title = original_title
+    language = language
+    description = description
+    proposed_descriptors = proposed_descriptors
+
+    # Publication information
+    place = place
+    publisher = publisher
+    publication_date = publication_date
+    edition = edition
+    creators = creators
+    conference_title = conference_title
+    original_conference_title = original_conference_title
+    conference_place = conference_place
+    conference_date = conference_date
+    secondary_number = secondary_number
+    isbn = isbn
+    contract_number = contract_number
+    general_notes = general_notes
+    availability = availability
+    title_augmentation = title_augmentation
+    funding_organization_code = funding_organization_code
+    corporate_entry_code = corporate_entry_code
+    abstract = abstract
+
     # Form configuration
-    #
-    _title = _('Book or Monograph')
+    _title = ''
     _drafting = True   # enable and disable drafting
+    groups = groups
 
-    #
-    # Grouping of fields
-    #
-    groups = [
-        ('Basic information', [
-            'trn', 'title', 'original_title', 'language', 'description',
-        ], {'indication': 'required', }),
-        ('Publication information', [
-            'place', 'publisher', 'publication_date', 'edition',
-        ], {
-            'indication': 'required',
-        }),
-        ('Authors', [
-            'creators',
-        ], {
-            'classes': '',
-            'indication': 'recommended',
-        }),
-        ('Conference', [
-            'conference_title', 'original_conference_title',
-            'conference_place', 'conference_date',
-        ], {
-            'classes': '',
-            'indication': 'optional',
-        }),
-        ('Identifying numbers', [
-            'secondary_number', 'isbn', 'contract_number',
-        ], {
-            'classes': '',
-            'indication': 'optional',
-        }),
-        ('Extra information', [
-            'general_notes', 'availability', 'title_augmentation',
-            'funding_organization_code', 'corporate_entry_code',
-        ], {
-            'classes': '',
-            'indication': 'optional',
-        }),
-    ]
+
+class BookForm(INISForm):
+    record_type = fields.HiddenField(label='', default="B", )
+    _title = _('Book or Monograph')
+    publisher = mandatory(publisher)
+
+
+class AudiovisualForm(INISForm):
+    record_type = fields.HiddenField(label='', default="F", )
+    _title = _('Audiovisual Material')
+
+
+class MiscellaneousForm(INISForm):
+    record_type = fields.HiddenField(label='', default="I", )
+    _title = _('Miscellaneous')
+
+
+class PatentForm(INISForm):
+    record_type = fields.HiddenField(label='', default="P", )
+    _title = _('Patent')
+    conference_title = None
+    conference_place = None
+    conference_date = None
+    original_conference_title = None
+    edition = None
+    groups = [e for e in groups if e[0] != 'Conference']
+
+
+class ReportForm(INISForm):
+    record_type = fields.HiddenField(label='', default="R", )
+    _title = _('Report')
+    edition = None
+    corporate_entry_code = mandatory(corporate_entry_code)
+
+
+class ComputerForm(INISForm):
+    record_type = fields.HiddenField(label='', default="T", )
+    _title = _('ComputerMedia')
+    conference_title = None
+    conference_place = None
+    conference_date = None
+    original_conference_title = None
+    groups = [e for e in groups if e[0] != 'Conference']
+
+
+######################
+#       Upload       #
+######################
 
 
 class UploadForm(WebDepositForm):

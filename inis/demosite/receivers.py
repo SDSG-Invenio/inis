@@ -56,3 +56,17 @@ def post_handler_database_create(sender, default_data='', *args, **kwargs):
     print(">>> Sending password reset to ILOs.")
     for ilo in CFG_ILOS:
         set_password(ilo['email'])
+
+    print(">>> Loading descriptors...")
+    print(">>> Relax, this will take a while")
+
+    from inis.demosite.descriptors_en import descriptors_en
+    import invenio.modules.knowledge.api as kb
+    kb.add_kb('descriptors')
+    t = float(len(descriptors_en))
+    i = 1
+    for d in descriptors_en:
+        kb.add_kb_mapping('descriptors', d, d)
+        print("\r%d%%" % (i*100/t))
+        i += 1
+    print(">>> Descriptors loaded successfully!!!")

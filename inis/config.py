@@ -11,6 +11,11 @@ CFG_SITE_NAME_INTL = {
 DEPOSIT_TYPES = [
     "inis.modules.deposit.workflows.upload:upload",
     "inis.modules.deposit.workflows.book:book",
+    "inis.modules.deposit.workflows.audiovisual:audiovisual",
+    "inis.modules.deposit.workflows.miscellaneous:miscellaneous",
+    "inis.modules.deposit.workflows.report:report",
+    "inis.modules.deposit.workflows.patent:patent",
+    "inis.modules.deposit.workflows.computer:computer",
 ]
 
 PACKAGES = [
