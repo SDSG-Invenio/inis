@@ -21,6 +21,9 @@
         <div class="col-sm-8 col-md-4">
             <li class="list-group-item">Fulltext files <span class="badge">{{ totals['files'] }}</span></li>
         </div>
+        <div class="col-sm-8 col-md-4">
+            <li class="list-group-item">Batches <span class="badge">{{ totals['batches'] }}</span></li>
+        </div>
     </div>
     <div class="row" style="padding: 12px;">
         {% if totals['errors'] %}
@@ -42,6 +45,7 @@
     <th>
         <td class='text-center'><li class="list-group-item active">Records submitted</li></td>
         <td class='text-center'><li class="list-group-item">Fulltext files</td>
+        <td class='text-center'><li class="list-group-item">Batches</td>
         <td class='text-center'><li class="list-group-item active">Total submissions</td>
         <td class='text-center'><li class="list-group-item">Accepted</td>
         <td class='text-center'><li class="list-group-item">Rejected</td>
@@ -51,6 +55,7 @@
             <td><a href="{{ url_for("stats."+ g['id']) }}"><i class="fa fa-group fa-fw"></i>&nbsp;{{ g['name'] }}</a></td>
             <td class='text-center'><span class="badge">{{ g['trns'] }}</span</td>
             <td class='text-center'><span class="badge">{{ g['files'] }}</span</td>
+            <td class='text-center'><span class="badge">{{ g['batches'] }}</span</td>
             <td class='text-center'><span class="badge">{{ g['total'] }}</span</td>
             <td class='text-center'><span class="badge">{{ g['accepted'] }}</span</td>
             <td class='text-center'><span class="badge">{{ g['rejected'] }}</span</td>

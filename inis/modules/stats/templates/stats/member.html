@@ -21,20 +21,28 @@
             <div class="col-sm-8 col-md-4">
                 <li class="list-group-item">Fulltext files <span class="badge">{{ info['files'] }}</span></li>
             </div>
-            {% if info['accepted'] > 0 %}
-                {% if (info['rejected'] * 100) /  info['total'] > 10 %}
-                <div class="col-sm-8 col-md-4">
-                    <li class="list-group-item list-group-item-danger">Rejection rate
+            <div class="col-sm-8 col-md-4">
+                <li class="list-group-item">Batches <span class="badge">{{ info['batches'] }}</span></li>
+            </div>
+        </div>
+        {% if info['accepted'] > 0 %}
+            {% if (info['rejected'] * 100) /  info['total'] > 10 %}
+            <div class="row" style="padding: 12px;">
+                <div class="col-sm-8 col-md-12">
+                    <li class="list-group-item list-group-item-danger text-center">Rejection rate
                         <span class="badge progress-bar-danger">{{ ((info['rejected']*100)/info['total'])|round }}%</span>
                     </li>
                 </div>
-                {% endif %}
-            {% else %}
-                <div class="col-sm-8 col-md-4">
-                    <li class="list-group-item list-group-item-danger" role="alert">No accepted submissions</li>
-                </div>
+            </div>
             {% endif %}
-        </div>
+        {% else %}
+            <div class="row" style="padding: 12px;">
+                <div class="col-sm-8 col-md-12">
+                    <li class="list-group-item list-group-item-danger text-center" role="alert">No accepted submissions</li>
+                </div>
+            </div>
+        {% endif %}
+
         <div class="row" style="padding: 12px;">
             {% if info['errors'] %}
             <div class="col-sm-8 col-md-8">

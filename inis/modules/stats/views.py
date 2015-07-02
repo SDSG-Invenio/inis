@@ -88,6 +88,7 @@ def index():
         totals['rejected'] = 0
         totals['trns'] = 0
         totals['files'] = 0
+        totals['batches'] = 0
         totals['errors'] = {}
 
         for code in members:
@@ -95,6 +96,7 @@ def index():
             if info['accepted'] or info['rejected']:
                 stats.append(info)
                 totals['files'] += info['files']
+                totals['batches'] += info['batches']
                 totals['trns'] += info['trns']
                 errors = dict(info['errors'])
                 for i in errors.keys():
@@ -133,24 +135,30 @@ def get_group_stats(group_name):
     from invenio.legacy.search_engine import perform_request_search
 
     g = Usergroup.query.filter_by(name=group_name).first()
+    member = CFG_MEMBERS_INV[g.name]
     info = {}
     info['name'] = group_name
     info['id'] = str(g.id)
     info['users'] = [u.user.nickname for u in g.users if not u.user.has_super_admin_role]
     info['trns'] = 0
     info['files'] = 0
+    info['batches'] = 0
     info['errors'] = {}
     for u in g.users:
-        if not u.is_admin() or group_name == "International Atomic Energy Agency (IAEA)":
-            depositions = Deposition.get_depositions(UserInfo(u.id_user))
-            for d in depositions:
-                if d.has_sip() and d.state == 'done':
-                    s = d.get_latest_sip()
+        # if not u.is_admin() or group_name == "International Atomic Energy Agency (IAEA)":
+        depositions = Deposition.get_depositions(UserInfo(u.id_user))
+        for d in depositions:
+            if d.has_sip() and d.state == 'done':
+                s = d.get_latest_sip()
+                if s.metadata['member'] == member:
                     if s.metadata['errors'] == []:
                         info['trns'] += len(s.metadata['trns'])
                         info['files'] += len([f for f in s.metadata['fft']
                                               if os.path.splitext(f['path'])[1]
-                                              in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
+                                              in current_app.config['DEPOSIT_ACCEPTED_FULLTEXT_EXTENSIONS']])
+                        info['batches'] += len([f for f in s.metadata['fft']
+                                                if os.path.splitext(f['path'])[1]
+                                                in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']])
                     else:
                         for e in s.metadata['errors']:
                             if e['code'] in info['errors']:
@@ -160,8 +168,8 @@ def get_group_stats(group_name):
 
     info['errors'] = info['errors'].items()
     info['errors'].sort(key=lambda tup: tup[1], reverse=True)
-    info['accepted'] = len(perform_request_search(cc=CFG_MEMBERS_INV[g.name]))
-    info['rejected'] = len(perform_request_search(cc='r-' + CFG_MEMBERS_INV[g.name]))
+    info['accepted'] = len(perform_request_search(cc=member))
+    info['rejected'] = len(perform_request_search(cc='r-' + member))
     info['total'] = info['rejected'] + info['accepted']
 
     return info
