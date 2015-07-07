@@ -67,7 +67,7 @@ def index():
 
     user = UserInfo(uid)
 
-    if not user.is_admin and user.info['group']:
+    if not user.is_authorized('viewstatistics') and user.info['group']:
         user_group_name = user.info['group'][0]
         info = get_group_stats(user_group_name)
         return render_template('stats/member.html', info=info, error_messages=CFG_ERROR_MESSAGES)
