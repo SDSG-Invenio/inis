@@ -36,7 +36,7 @@ def process_recjson(deposition, recjson):
             recjson['member'] = CFG_MEMBERS_INV[user.info['group'][0]]
         else:
             recjson['member'] = CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]
-        if recjson['member'] == 'XA' and recjson['trns'] is not []:
+        if recjson['member'] == 'XA' and recjson['trns'] != []:
             recjson['member'] = recjson['trns'][0][:2]
 
         recjson['errors'] = []
