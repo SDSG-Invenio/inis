@@ -19,11 +19,81 @@
 {% extends "page.html" %}
 {% set title = "Help" %}
 {% block body %}
+<div class="well">
+    <div class="page-header">
+        <h2>INIS Input Management</h2>
+    </div>
+    <p>The INIS Input Management system is an all-new application developed by the Nuclear Information Section (NIS) at the IAEA to allow Member States to submit bibliographic records (or batches) and full text documents through an easy-to-use web interface. The new application is slated to supersede traditional means of data transfer, e.g. FTP and is the result of INIS Secretariat’s continuous effort to improve services and user’s experience in human-computer interaction. It is possible to access immediately INIS Input Management system at the following address:</p>
+    <p><a href="http://imgm.iaea.org">http://imgm.iaea.org</a></p>
+</div>
+
 
 <div class="well">
-  <h2>INIS Input Management</h2><br>
-{% include "deposit/inis_info.html" %}
+    <h3>Accounts and logging-in</h3>
+    <p>NIS staff will create accounts for the ILOs using their email accounts. You will receive an email asking you to reset your passwords. Once you have done this you will be able to log in using your email address as user name.</p>
 </div>
-{% include "deposit/instructions.html" %}
 
+
+<div class="well">
+    <h3>Submitting files</h3>
+    <p>Click the <strong>Upload</strong> button to create a new submission draft. You will see a form in the left-hand side of the screen:</p>
+    <ul>
+        <li><p><strong>Upload name:</strong> You can modify the Upload name and use any name you can use to identify the submission. Following a naming convention is recommended.</p></li>
+        <li><p><strong>Notes:</strong> Optionally you can add notes to your submission.</p></li>
+        <li><p><strong>Files:</strong> Select one or more files. You can add metadata text files in TTF format containing one or many records. You can also add full-text files.</p></li>
+    </ul>
+    <p>You don’t need to add them one by one. When you click on <strong>Choose files</strong> you can select multiple files (see how here). You can also just drag-and-drop the files into the <strong>Files</strong> box.</p>
+    <p>The following restrictions apply:</p>
+    <ul>
+        <li>Only '.ttf', '.inp' and '.pdf' are accepted.</li>
+        <li>The max size per file is 2GiB.</li>
+        <li>The file name should not contain any dashes (“-“)</li>
+    </ul>
+    <p>You can click <strong>Save</strong> to save the draft. You will see it in the <strong>Unsubmitted</strong> section in the right-hand side. <strong>Unsubmitted</strong> submissions are just drafts for you to work on them. They are not stored in any database. You can create and delete them as you please. When you have finished adding files to the submission, click <strong>Submit</strong>.</p>
+</div>
+
+
+<div class="well">
+    <h3>Validation and feedback</h3>
+    Once the submission actually happens, it comes to the <strong>Submitted</strong> section and the content is validated. This is just a first level of validation and only most obvious errors are checked.
+    <ul style="list-style-type:none">
+        <li><p><div class="fa fa-check" style="color:green"></div> If the submission passes the validation, <u>it will be sent to INIS database</u>. You will see a green tick.</p></li>
+        <li><p><div class="fa fa-warning" style="color:red"></div> If the submission does <u>not</u> pass the validation, you will see the reason (the red area in your snapshot). You will also receive a message (see the envelope in the upper left part of your screen) that you can reply and in case you have questions about it. This submission will be simply ignored in <u>all</u> aspects and you should start a new submission. It will be marked with a red danger icon.</p></li>
+    </ul>
+    The current implementation validates the following aspects:
+    <ol>
+        <li><strong>Full-text file names should match a known TRN</strong> which can be found:
+            <ul>
+                <li>in batches within the same upload</li>
+                <li>OR in batches in previously <u>accepted</u> submissions</li>
+                <li>OR in INIS database</li>
+            </ul>
+        </li>
+        <li><strong>Batches should contain TTF metadata</strong>
+            </br>The file should contain at least one 001 tag with a TRN.</li>
+        <li><strong>Wrong country code in TRN</strong>
+            </br>The country code of the submitter and the TRN must be the same for every record.
+        <li><strong>Duplicated TRNs</strong>
+            </br>The application will reject the submission if a TRN already exists:
+            <ul>
+                <li>Within the same submission</li>
+                <li>OR in previously <u>accepted</u> submissions, unless they are change records</li>
+                <li>OR in INIS database, unless they are change records</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+
+
+<div class="well">
+    <h3>More about the interface</h3>
+    <h5>Top menu</h5>
+    Clicking on both <strong>Submit</strong> and the <strong>IAEA logo</strong> will take you to the front page.
+    <h5>User menu</h5>
+    Click on your name on the upper right part of the screen to open the <strong>User Menu</strong>.
+    <ul>
+        <li><strong>Profile</strong> displays some information about your account and lets you change your password.</li>
+        <li><strong>Statistics</strong> displays a summary of your submissions.</li>
+        <li><strong>Logout</strong></li>
+</div>
 {% endblock %}
