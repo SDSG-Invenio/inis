@@ -133,17 +133,21 @@ def get_TRNs(sip):
 
 
 def trn_exists(trn):
+    from invenio.legacy.search_engine import perform_request_search
+
     url = 'http://nkp.iaea.org/changerecord/inischangerecord.asmx/ProcRecords?list='
-    try:
-        response = urlopen(url + trn)
-        html = response.read()
-        return html.find('<string xmlns="http://nis.iaea.org/webservices/">1') > -1
-    except e:
-        return False
+    if perform_request_search(p=trn, cc=trn[:2].upper()) == []:
+        try:
+            response = urlopen(url + trn)
+            html = response.read()
+            return html.find('<string xmlns="http://nis.iaea.org/webservices/">1') > -1
+        except e:
+            return False
+    else:
+        return True
 
 
 def file_names_not_in_TRNs(sip):
-    from invenio.config import CFG_SITE_NAME
     from invenio.legacy.search_engine import perform_request_search
 
     files = sip.metadata['fft']
@@ -156,7 +160,7 @@ def file_names_not_in_TRNs(sip):
     diff = list(names - TRNs)  # not in current upload
     missing = []
     for trn in diff:
-        if perform_request_search(p=trn, cc=CFG_SITE_NAME, f='trn') == []:  # not in IIM
+        if perform_request_search(p=trn, cc=trn[:2].upper()) == []:  # not in IIM
             if not trn_exists(trn):  # not in INIS DB
                 missing.append(trn)
 
