@@ -68,3 +68,21 @@ def set_password(email):
     send_email(CFG_SITE_SUPPORT_EMAIL, email,
                "%s %s" % ("Set your password for", CFG_SITE_NAME),
                tmpl_set_password_email_body(email, reset_key))
+
+
+def create_user(name, email, country):
+
+    from invenio.ext.sqlalchemy import db
+    from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
+    from inis.config import CFG_MEMBERS_DICT
+
+    u = User(email=email, nickname=name, password=id_generator())
+    db.session.add(u)
+    db.session.commit()
+
+    ug = Usergroup.query.filter_by(name=CFG_MEMBERS_DICT[country]).first()
+    ug.users.append(UserUsergroup(id_user=u.id))
+    db.session.add(ug)
+    db.session.commit()
+
+    set_password(email)
