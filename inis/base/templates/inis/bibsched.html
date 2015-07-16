@@ -1,0 +1,65 @@
+{% extends "page.html" %}
+{% set title = "BibSched status" %}
+{% block body %}
+
+<div class="well">
+    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+
+      {% if bibsched_error %}
+         <button type="button" class="btn btn-warning">The queue contains errors
+      {% endif  %}
+      {% if not running or mode != 'AUTOMATIC' %}
+        <button type="button" class="btn btn-danger">
+          <span class="glyphicon glyphicon-exclamation-sign"></span>
+          Queue stopped
+      {% endif  %}
+      {% if running and not bibsched_error and mode == 'AUTOMATIC' %}
+        <button type="button" class="btn btn-success">BibSched is working without errors
+      {% endif  %}
+      </button>
+
+      <button type="button" class="btn btn-default">
+        {% if mode == 'AUTOMATIC' %}
+          <small>Queue mode</small> <span class="label label-success">{{ mode }}</span>
+        {% else %}
+          <small>Queue mode</small> <span class="label label-danger">{{ mode }}</span>
+        {% endif %}
+      </button>
+
+      <button type="button" class="btn btn-default">
+        {% if running %}
+          <small>Daemon status</small> <span class="label label-success">UP</span>
+        {% else %}
+          <small>Daemon status</small> <span class="label label-danger">DOWN</span>
+        {% endif %}
+      </button>
+
+    </div>
+</div>
+<div class="table-responsive">
+<table class="table table-striped table-condensed table-hover">
+    <thead>
+        <tr>
+            <th class='text-center'><li class="list-group-item active">Task ID</li></th>
+            <th class='text-center'><li class="list-group-item active">Name</th>
+            <th class='text-center'><li class="list-group-item active">Status</th>
+            <th class='text-center'><li class="list-group-item active">Will run at</th>
+            <th class='text-center'><li class="list-group-item active">Info</th>
+        </tr>
+    </thead>
+    {% for t in tasks %}
+        <tr>
+            <td class='text-center'><span class="badge">{{ t[0] }}</span</td>
+            <td class='text-left'>{{ t[1] }}</td>
+            {%  if 'ERROR' in t[5]  %}
+                <td class='text-center'><span class="label label-danger">{{ t[5] }}</span></td>
+            {% else %}
+                <td class='text-center'><span class="label label-default">{{ t[5] }}</span></td>
+            {% endif %}
+            <td class='text-center'>{{ t[4].time().isoformat() }}</td>
+            <td class='text-left'>{{ t[6] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

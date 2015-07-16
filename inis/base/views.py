@@ -3,6 +3,8 @@ from flask.ext.breadcrumbs import register_breadcrumb
 from flask.ext.login import current_user
 from flask.ext.menu import current_menu, register_menu
 
+from flask_login import login_required
+
 from invenio.base.i18n import _
 
 blueprint = Blueprint(
@@ -63,3 +65,26 @@ def register_menu_items():
 @register_breadcrumb(blueprint, 'breadcrumbs.help', _("Help"))
 def help():
     return render_template('inis/help.html')
+
+
+@blueprint.route('/bibsched', methods=['GET', ])
+@login_required
+@register_menu(blueprint, 'main.bibsched', _('Bibsched'), order=5,
+               visible_when=lambda: current_user.is_admin)
+@register_breadcrumb(blueprint, 'breadcrumbs.bibsched', _("Queue status"))
+def bibsched():
+
+    from invenio.legacy.bibsched.cli import server_pid
+    from invenio.legacy.bibsched.webapi import get_bibsched_mode, get_bibsched_tasks
+
+    running = bool(server_pid())
+
+    tasks = get_bibsched_tasks()
+    bibsched_error = False
+    for task in tasks:
+        tskid, proc, priority, user, runtime, st, progress = task
+        if 'ERROR' in st:
+            bibsched_error = True
+
+    return render_template('inis/bibsched.html', mode=get_bibsched_mode(),
+                           tasks=tasks, bibsched_error=bibsched_error, running=running)
