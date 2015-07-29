@@ -71,7 +71,6 @@ def set_password(email):
 
 
 def create_user(name, email, country):
-
     from invenio.ext.sqlalchemy import db
     from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
     from inis.config import CFG_MEMBERS_DICT
@@ -86,3 +85,37 @@ def create_user(name, email, country):
     db.session.commit()
 
     set_password(email)
+
+
+def delete_record(recid):
+    import os
+    import tempfile
+    from invenio.config import CFG_TMPDIR
+    from invenio.legacy.bibrecord import record_add_field, record_xml_output
+    from invenio.legacy.bibsched.bibtask import task_low_level_submission
+    from invenio.legacy.search_engine import get_record
+
+    r = get_record(recid)
+    record_add_field(r, '980', subfields=[('c', 'DELETED')])
+
+    fd, name = tempfile.mkstemp(suffix='.xml', prefix='deletion', dir=CFG_TMPDIR)
+
+    os.write(fd, """<collection>\n""")
+    os.write(fd, record_xml_output(r))
+    os.write(fd, """</collection>\n""")
+    os.close(fd)
+
+    task_low_level_submission('bibupload', 'admin', '-i', '-r', name, '-P5')
+
+
+def delete_submission(submission_id):
+    from invenio.modules.deposit.models import Deposition
+
+    depositions = Deposition.get_depositions()
+    d = [e for e in depositions if e.id == submission_id]
+    if d != []:
+        d = d[0]
+        s = d.get_latest_sip()
+        recid = s.metadata['recid']
+        d.delete()
+        delete_record(recid)
