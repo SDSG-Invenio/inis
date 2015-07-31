@@ -49,6 +49,7 @@ def notify_rejection():
     """Notify user that upload has failed."""
     @wraps(notify_rejection)
     def _notify_rejection(obj, eng):
+        from inis.config import CFG_MEMBERS_DICT
         from invenio.modules.messages.query import create_message, send_message
         from invenio.config import CFG_SITE_URL
 
@@ -65,6 +66,7 @@ def notify_rejection():
 
         try:
             member = sip.metadata['member']
+            member = CFG_MEMBERS_DICT[member]
         except IndexError:
             member = ''
 
@@ -83,6 +85,46 @@ def notify_rejection():
         send_message(sip.metadata['owner']['id'], message_id)
 
     return _notify_rejection
+
+
+def notify_submission():
+    @wraps(notify_rejection)
+    def _notify_submission(obj, eng):
+        from inis.config import CFG_MEMBERS_DICT, CFG_NOTIFY_SUBMISSION
+        from invenio.config import CFG_SITE_NAME, CFG_SITE_URL, CFG_SITE_SUPPORT_EMAIL
+        from invenio.ext.email import send_email
+
+        d = Deposition(obj)
+        sip = d.get_latest_sip(sealed=False)
+        if sip is None:
+            sip = d.create_sip()
+
+        dep_url = CFG_SITE_URL + '/upload/' + str(sip.metadata['owner']['deposition_id'])
+        dep_link = "<a href=%(url)s>%(url)s</a>" % {'url': dep_url, 'title': sip.metadata['title.title']}
+
+        try:
+            member = sip.metadata['member']
+            member = CFG_MEMBERS_DICT[member]
+        except IndexError:
+            member = ''
+
+        msg = """
+                 There is a new submission at %(sitename)s.
+
+                 Title: %(title)s</br>
+                 Submission: %(dep_link)s</br>
+                 INIS Member: %(member)s</br></br>
+                 Records: %(records)s</br>
+                 Files: %(files)s</br>
+              """ % {'title': sip.metadata['title.title'], 'recid': sip.metadata['recid'],
+                     'dep_link': dep_link, 'member': member, 'sitename': CFG_SITE_NAME,
+                     'records': len(sip.metadata['trns']),
+                     'files': len(sip.metadata['fft'])}
+
+        for recipient in CFG_NOTIFY_SUBMISSION:
+            send_email(CFG_SITE_SUPPORT_EMAIL, recipient, "%s %s" % ("New upload at", CFG_SITE_NAME), msg)
+
+    return _notify_submission
 
 
 def find_all(a_str, sub):

@@ -5,7 +5,7 @@ from inis.config import CFG_MEMBERS_INV
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import create_error_message, \
     file_names_not_in_TRNs, get_TRNs, get_duplicated_trns, \
-    notify_rejection, validate
+    notify_rejection, notify_submission, validate
 
 from invenio.ext.login import UserInfo
 
@@ -121,13 +121,13 @@ class upload(SimpleRecordDeposition):
         p.IF_ELSE(
             validate(),
             [
-                upload_record_sip(),
+                notify_submission(),
             ],
             [
                 notify_rejection(),
-                upload_record_sip(),
             ]
         ),
+        upload_record_sip(),
     ]
 
     name = "Upload"
