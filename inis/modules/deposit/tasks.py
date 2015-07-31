@@ -88,7 +88,7 @@ def notify_rejection():
 
 
 def notify_submission():
-    @wraps(notify_rejection)
+    @wraps(notify_submission)
     def _notify_submission(obj, eng):
         from inis.config import CFG_MEMBERS_DICT, CFG_NOTIFY_SUBMISSION
         from invenio.config import CFG_SITE_NAME, CFG_SITE_URL, CFG_SITE_SUPPORT_EMAIL
@@ -125,6 +125,18 @@ def notify_submission():
             send_email(CFG_SITE_SUPPORT_EMAIL, recipient, "%s %s" % ("New upload at", CFG_SITE_NAME), msg)
 
     return _notify_submission
+
+
+def launch_bibsched_tasks():
+    @wraps(launch_bibsched_tasks)
+    def _launch_bibsched_tasks(obj, eng):
+        from invenio.legacy.bibsched.bibtask import task_low_level_submission
+
+        task_low_level_submission('bibindex', 'admin')
+        task_low_level_submission('webcoll', 'admin')
+        task_low_level_submission('oairepositoryupdater', 'admin')
+
+    return _launch_bibsched_tasks
 
 
 def find_all(a_str, sub):

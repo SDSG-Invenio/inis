@@ -5,7 +5,8 @@ from inis.config import CFG_MEMBERS_INV
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import create_error_message, \
     file_names_not_in_TRNs, get_TRNs, get_duplicated_trns, \
-    notify_rejection, notify_submission, validate
+    launch_bibsched_tasks, notify_rejection, \
+    notify_submission, validate
 
 from invenio.ext.login import UserInfo
 
@@ -128,6 +129,7 @@ class upload(SimpleRecordDeposition):
             ]
         ),
         upload_record_sip(),
+        launch_bibsched_tasks(),
     ]
 
     name = "Upload"
