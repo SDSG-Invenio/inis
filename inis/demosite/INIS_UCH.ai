@@ -1,0 +1,9400 @@
+001^00A0
+002^#No-Break Space#
+003^#00A0
+
+001^00A1
+002^#Inverted Exclamation Mark#
+003^#00A1
+
+001^00A2
+002^#Cent Sign#
+003^#00A2
+
+001^00A3
+002^#Pound Sign#
+003^#00A3
+
+001^00A4
+002^#Currency Sign#
+003^#00A4
+
+001^00A5
+002^#Yen Sign#
+003^#00A5
+
+001^00A6
+002^#Broken Bar#
+003^#00A6
+
+001^00A7
+002^#Section Sign#
+003^#00A7
+
+001^00A8
+002^#Diaeresis#
+003^#00A8
+
+001^00A9
+002^#Copyright Sign#
+003^#00A9
+
+001^00AA
+002^#Feminine Ordinal Indicator#
+003^#00AA
+
+001^00AB
+002^#Left-Pointing Double Angle Quotation Mark#
+003^#00AB
+
+001^00AC
+002^#Not Sign#
+003^#00AC
+
+001^00AE
+002^#Registered Sign#
+003^#00AE
+
+001^00AF
+002^#Macron#
+003^#00AF
+
+001^00B0
+002^#Degree Sign#
+003^#00B0
+
+001^00B1
+002^#Plus-Minus Sign#
+003^#00B1
+
+001^00B2
+002^#Superscript Two#
+003^#00B2
+
+001^00B3
+002^#Superscript Three#
+003^#00B3
+
+001^00B4
+002^#Acute Accent#
+003^#00B4
+
+001^00B5
+002^#Micro Sign#
+003^#00B5
+
+001^00B6
+002^#Pilcrow Sign#
+003^#00B6
+
+001^00B7
+002^#Middle Dot#
+003^#00B7
+
+001^00B8
+002^#Cedilla#
+003^#00B8
+
+001^00B9
+002^#Superscript One#
+003^#00B9
+
+001^00BA
+002^#Masculine Ordinal Indicator#
+003^#00BA
+
+001^00BB
+002^#Right-Pointing Double Angle Quotation Mark#
+003^#00BB
+
+001^00BC
+002^#Vulgar Fraction One Quarter#
+003^#00BC
+
+001^00BD
+002^#Vulgar Fraction One Half#
+003^#00BD
+
+001^00BE
+002^#Vulgar Fraction Three Quarters#
+003^#00BE
+
+001^00BF
+002^#Inverted Question Mark#
+003^#00BF
+
+001^00C0
+002^#Latin Capital Letter A With Grave#
+003^#00C0
+
+001^00C1
+002^#Latin Capital Letter A With Acute#
+003^#00C1
+
+001^00C2
+002^#Latin Capital Letter A With Circumflex#
+003^#00C2
+
+001^00C3
+002^#Latin Capital Letter A With Tilde#
+003^#00C3
+
+001^00C4
+002^#Latin Capital Letter A With Diaeresis#
+003^#00C4
+
+001^00C5
+002^#Latin Capital Letter A With Ring Above#
+003^#00C5
+
+001^00C6
+002^#Latin Capital Letter Ae#
+003^#00C6
+
+001^00C7
+002^#Latin Capital Letter C With Cedilla#
+003^#00C7
+
+001^00C8
+002^#Latin Capital Letter E With Grave#
+003^#00C8
+
+001^00C9
+002^#Latin Capital Letter E With Acute#
+003^#00C9
+
+001^00CA
+002^#Latin Capital Letter E With Circumflex#
+003^#00CA
+
+001^00CB
+002^#Latin Capital Letter E With Diaeresis#
+003^#00CB
+
+001^00CC
+002^#Latin Capital Letter I With Grave#
+003^#00CC
+
+001^00CD
+002^#Latin Capital Letter I With Acute#
+003^#00CD
+
+001^00CE
+002^#Latin Capital Letter I With Circumflex#
+003^#00CE
+
+001^00CF
+002^#Latin Capital Letter I With Diaeresis#
+003^#00CF
+
+001^00D0
+002^#Latin Capital Letter Eth#
+003^#00D0
+
+001^00D1
+002^#Latin Capital Letter N With Tilde#
+003^#00D1
+
+001^00D2
+002^#Latin Capital Letter O With Grave#
+003^#00D2
+
+001^00D3
+002^#Latin Capital Letter O With Acute#
+003^#00D3
+
+001^00D4
+002^#Latin Capital Letter O With Circumflex#
+003^#00D4
+
+001^00D5
+002^#Latin Capital Letter O With Tilde#
+003^#00D5
+
+001^00D6
+002^#Latin Capital Letter O With Diaeresis#
+003^#00D6
+
+001^00D7
+002^#Multiplication Sign#
+003^#00D7
+
+001^00D8
+002^#Latin Capital Letter O With Stroke#
+003^#00D8
+
+001^00D9
+002^#Latin Capital Letter U With Grave#
+003^#00D9
+
+001^00DA
+002^#Latin Capital Letter U With Acute#
+003^#00DA
+
+001^00DB
+002^#Latin Capital Letter U With Circumflex#
+003^#00DB
+
+001^00DC
+002^#Latin Capital Letter U With Diaeresis#
+003^#00DC
+
+001^00DD
+002^#Latin Capital Letter Y With Acute#
+003^#00DD
+
+001^00DE
+002^#Latin Capital Letter Thorn#
+003^#00DE
+
+001^00DF
+002^#Latin Small Letter Sharp S#
+003^#00DF
+
+001^00E0
+002^#Latin Small Letter A With Grave#
+003^#00E0
+
+001^00E1
+002^#Latin Small Letter A With Acute#
+003^#00E1
+
+001^00E2
+002^#Latin Small Letter A With Circumflex#
+003^#00E2
+
+001^00E3
+002^#Latin Small Letter A With Tilde#
+003^#00E3
+
+001^00E4
+002^#Latin Small Letter A With Diaeresis#
+003^#00E4
+
+001^00E5
+002^#Latin Small Letter A With Ring Above#
+003^#00E5
+
+001^00E6
+002^#Latin Small Letter Ae#
+003^#00E6
+
+001^00E7
+002^#Latin Small Letter C With Cedilla#
+003^#00E7
+
+001^00E8
+002^#Latin Small Letter E With Grave#
+003^#00E8
+
+001^00E9
+002^#Latin Small Letter E With Acute#
+003^#00E9
+
+001^00EA
+002^#Latin Small Letter E With Circumflex#
+003^#00EA
+
+001^00EB
+002^#Latin Small Letter E With Diaeresis#
+003^#00EB
+
+001^00EC
+002^#Latin Small Letter I With Grave#
+003^#00EC
+
+001^00ED
+002^#Latin Small Letter I With Acute#
+003^#00ED
+
+001^00EE
+002^#Latin Small Letter I With Circumflex#
+003^#00EE
+
+001^00EF
+002^#Latin Small Letter I With Diaeresis#
+003^#00EF
+
+001^00F0
+002^#Latin Small Letter Eth#
+003^#00F0
+
+001^00F1
+002^#Latin Small Letter N With Tilde#
+003^#00F1
+
+001^00F2
+002^#Latin Small Letter O With Grave#
+003^#00F2
+
+001^00F3
+002^#Latin Small Letter O With Acute#
+003^#00F3
+
+001^00F4
+002^#Latin Small Letter O With Circumflex#
+003^#00F4
+
+001^00F5
+002^#Latin Small Letter O With Tilde#
+003^#00F5
+
+001^00F6
+002^#Latin Small Letter O With Diaeresis#
+003^#00F6
+
+001^00F7
+002^#Division Sign#
+003^#00F7
+
+001^00F8
+002^#Latin Small Letter O With Stroke#
+003^#00F8
+
+001^00F9
+002^#Latin Small Letter U With Grave#
+003^#00F9
+
+001^00FA
+002^#Latin Small Letter U With Acute#
+003^#00FA
+
+001^00FB
+002^#Latin Small Letter U With Circumflex#
+003^#00FB
+
+001^00FC
+002^#Latin Small Letter U With Diaeresis#
+003^#00FC
+
+001^00FD
+002^#Latin Small Letter Y With Acute#
+003^#00FD
+
+001^00FE
+002^#Latin Small Letter Thorn#
+003^#00FE
+
+001^00FF
+002^#Latin Small Letter Y With Diaeresis#
+003^#00FF
+
+001^0100
+002^#Latin Capital Letter A With Macron#
+003^#0100
+
+001^0101
+002^#Latin Small Letter A With Macron#
+003^#0101
+
+001^0102
+002^#Latin Capital Letter A With Breve#
+003^#0102
+
+001^0103
+002^#Latin Small Letter A With Breve#
+003^#0103
+
+001^0104
+002^#Latin Capital Letter A With Ogonek#
+003^#0104
+
+001^0105
+002^#Latin Small Letter A With Ogonek#
+003^#0105
+
+001^0106
+002^#Latin Capital Letter C With Acute#
+003^#0106
+
+001^0107
+002^#Latin Small Letter C With Acute#
+003^#0107
+
+001^0108
+002^#Latin Capital Letter C With Circumflex#
+003^#0108
+
+001^0109
+002^#Latin Small Letter C With Circumflex#
+003^#0109
+
+001^010A
+002^#Latin Capital Letter C With Dot Above#
+003^#010A
+
+001^010B
+002^#Latin Small Letter C With Dot Above#
+003^#010B
+
+001^010C
+002^#Latin Capital Letter C With Caron#
+003^#010C
+
+001^010D
+002^#Latin Small Letter C With Caron#
+003^#010D
+
+001^010E
+002^#Latin Capital Letter D With Caron#
+003^#010E
+
+001^010F
+002^#Latin Small Letter D With Caron#
+003^#010F
+
+001^0110
+002^#Latin Capital Letter D With Stroke#
+003^#0110
+
+001^0111
+002^#Latin Small Letter D With Stroke#
+003^#0111
+
+001^0112
+002^#Latin Capital Letter E With Macron#
+003^#0112
+
+001^0113
+002^#Latin Small Letter E With Macron#
+003^#0113
+
+001^0114
+002^#Latin Capital Letter E With Breve#
+003^#0114
+
+001^0115
+002^#Latin Small Letter E With Breve#
+003^#0115
+
+001^0116
+002^#Latin Capital Letter E With Dot Above#
+003^#0116
+
+001^0117
+002^#Latin Small Letter E With Dot Above#
+003^#0117
+
+001^0118
+002^#Latin Capital Letter E With Ogonek#
+003^#0118
+
+001^0119
+002^#Latin Small Letter E With Ogonek#
+003^#0119
+
+001^011A
+002^#Latin Capital Letter E With Caron#
+003^#011A
+
+001^011B
+002^#Latin Small Letter E With Caron#
+003^#011B
+
+001^011C
+002^#Latin Capital Letter G With Circumflex#
+003^#011C
+
+001^011D
+002^#Latin Small Letter G With Circumflex#
+003^#011D
+
+001^011E
+002^#Latin Capital Letter G With Breve#
+003^#011E
+
+001^011F
+002^#Latin Small Letter G With Breve#
+003^#011F
+
+001^0120
+002^#Latin Capital Letter G With Dot Above#
+003^#0120
+
+001^0121
+002^#Latin Small Letter G With Dot Above#
+003^#0121
+
+001^0122
+002^#Latin Capital Letter G With Cedilla#
+003^#0122
+
+001^0123
+002^#Latin Small Letter G With Cedilla#
+003^#0123
+
+001^0124
+002^#Latin Capital Letter H With Circumflex#
+003^#0124
+
+001^0125
+002^#Latin Small Letter H With Circumflex#
+003^#0125
+
+001^0126
+002^#Latin Capital Letter H With Stroke#
+003^#0126
+
+001^0127
+002^#Latin Small Letter H With Stroke#
+003^#0127
+
+001^0128
+002^#Latin Capital Letter I With Tilde#
+003^#0128
+
+001^0129
+002^#Latin Small Letter I With Tilde#
+003^#0129
+
+001^012A
+002^#Latin Capital Letter I With Macron#
+003^#012A
+
+001^012B
+002^#Latin Small Letter I With Macron#
+003^#012B
+
+001^012C
+002^#Latin Capital Letter I With Breve#
+003^#012C
+
+001^012D
+002^#Latin Small Letter I With Breve#
+003^#012D
+
+001^012E
+002^#Latin Capital Letter I With Ogonek#
+003^#012E
+
+001^012F
+002^#Latin Small Letter I With Ogonek#
+003^#012F
+
+001^0130
+002^#Latin Capital Letter I With Dot Above#
+003^#0130
+
+001^0131
+002^#Latin Small Letter Dotless I#
+003^#0131
+
+001^0132
+002^#Latin Capital Ligature Ij#
+003^#0132
+
+001^0133
+002^#Latin Small Ligature Ij#
+003^#0133
+
+001^0134
+002^#Latin Capital Letter J With Circumflex#
+003^#0134
+
+001^0135
+002^#Latin Small Letter J With Circumflex#
+003^#0135
+
+001^0136
+002^#Latin Capital Letter K With Cedilla#
+003^#0136
+
+001^0137
+002^#Latin Small Letter K With Cedilla#
+003^#0137
+
+001^0138
+002^#Latin Small Letter Kra#
+003^#0138
+
+001^0139
+002^#Latin Capital Letter L With Acute#
+003^#0139
+
+001^013A
+002^#Latin Small Letter L With Acute#
+003^#013A
+
+001^013B
+002^#Latin Capital Letter L With Cedilla#
+003^#013B
+
+001^013C
+002^#Latin Small Letter L With Cedilla#
+003^#013C
+
+001^013D
+002^#Latin Capital Letter L With Caron#
+003^#013D
+
+001^013E
+002^#Latin Small Letter L With Caron#
+003^#013E
+
+001^013F
+002^#Latin Capital Letter L With Middle Dot#
+003^#013F
+
+001^0140
+002^#Latin Small Letter L With Middle Dot#
+003^#0140
+
+001^0141
+002^#Latin Capital Letter L With Stroke#
+003^#0141
+
+001^0142
+002^#Latin Small Letter L With Stroke#
+003^#0142
+
+001^0143
+002^#Latin Capital Letter N With Acute#
+003^#0143
+
+001^0144
+002^#Latin Small Letter N With Acute#
+003^#0144
+
+001^0145
+002^#Latin Capital Letter N With Cedilla#
+003^#0145
+
+001^0146
+002^#Latin Small Letter N With Cedilla#
+003^#0146
+
+001^0147
+002^#Latin Capital Letter N With Caron#
+003^#0147
+
+001^0148
+002^#Latin Small Letter N With Caron#
+003^#0148
+
+001^0149
+002^#Latin Small Letter N Preceded By Apostrophe#
+003^#0149
+
+001^014A
+002^#Latin Capital Letter Eng#
+003^#014A
+
+001^014B
+002^#Latin Small Letter Eng#
+003^#014B
+
+001^014C
+002^#Latin Capital Letter O With Macron#
+003^#014C
+
+001^014D
+002^#Latin Small Letter O With Macron#
+003^#014D
+
+001^014E
+002^#Latin Capital Letter O With Breve#
+003^#014E
+
+001^014F
+002^#Latin Small Letter O With Breve#
+003^#014F
+
+001^0150
+002^#Latin Capital Letter O With Double Acute#
+003^#0150
+
+001^0151
+002^#Latin Small Letter O With Double Acute#
+003^#0151
+
+001^0152
+002^#Latin Capital Ligature Oe#
+003^#0152
+
+001^0153
+002^#Latin Small Ligature Oe#
+003^#0153
+
+001^0154
+002^#Latin Capital Letter R With Acute#
+003^#0154
+
+001^0155
+002^#Latin Small Letter R With Acute#
+003^#0155
+
+001^0156
+002^#Latin Capital Letter R With Cedilla#
+003^#0156
+
+001^0157
+002^#Latin Small Letter R With Cedilla#
+003^#0157
+
+001^0158
+002^#Latin Capital Letter R With Caron#
+003^#0158
+
+001^0159
+002^#Latin Small Letter R With Caron#
+003^#0159
+
+001^015A
+002^#Latin Capital Letter S With Acute#
+003^#015A
+
+001^015B
+002^#Latin Small Letter S With Acute#
+003^#015B
+
+001^015C
+002^#Latin Capital Letter S With Circumflex#
+003^#015C
+
+001^015D
+002^#Latin Small Letter S With Circumflex#
+003^#015D
+
+001^015E
+002^#Latin Capital Letter S With Cedilla#
+003^#015E
+
+001^015F
+002^#Latin Small Letter S With Cedilla#
+003^#015F
+
+001^0160
+002^#Latin Capital Letter S With Caron#
+003^#0160
+
+001^0161
+002^#Latin Small Letter S With Caron#
+003^#0161
+
+001^0162
+002^#Latin Capital Letter T With Cedilla#
+003^#0162
+
+001^0163
+002^#Latin Small Letter T With Cedilla#
+003^#0163
+
+001^0164
+002^#Latin Capital Letter T With Caron#
+003^#0164
+
+001^0165
+002^#Latin Small Letter T With Caron#
+003^#0165
+
+001^0166
+002^#Latin Capital Letter T With Stroke#
+003^#0166
+
+001^0167
+002^#Latin Small Letter T With Stroke#
+003^#0167
+
+001^0168
+002^#Latin Capital Letter U With Tilde#
+003^#0168
+
+001^0169
+002^#Latin Small Letter U With Tilde#
+003^#0169
+
+001^016A
+002^#Latin Capital Letter U With Macron#
+003^#016A
+
+001^016B
+002^#Latin Small Letter U With Macron#
+003^#016B
+
+001^016C
+002^#Latin Capital Letter U With Breve#
+003^#016C
+
+001^016D
+002^#Latin Small Letter U With Breve#
+003^#016D
+
+001^016E
+002^#Latin Capital Letter U With Ring Above#
+003^#016E
+
+001^016F
+002^#Latin Small Letter U With Ring Above#
+003^#016F
+
+001^0170
+002^#Latin Capital Letter U With Double Acute#
+003^#0170
+
+001^0171
+002^#Latin Small Letter U With Double Acute#
+003^#0171
+
+001^0172
+002^#Latin Capital Letter U With Ogonek#
+003^#0172
+
+001^0173
+002^#Latin Small Letter U With Ogonek#
+003^#0173
+
+001^0174
+002^#Latin Capital Letter W With Circumflex#
+003^#0174
+
+001^0175
+002^#Latin Small Letter W With Circumflex#
+003^#0175
+
+001^0176
+002^#Latin Capital Letter Y With Circumflex#
+003^#0176
+
+001^0177
+002^#Latin Small Letter Y With Circumflex#
+003^#0177
+
+001^0178
+002^#Latin Capital Letter Y With Diaeresis#
+003^#0178
+
+001^0179
+002^#Latin Capital Letter Z With Acute#
+003^#0179
+
+001^017A
+002^#Latin Small Letter Z With Acute#
+003^#017A
+
+001^017B
+002^#Latin Capital Letter Z With Dot Above#
+003^#017B
+
+001^017C
+002^#Latin Small Letter Z With Dot Above#
+003^#017C
+
+001^017D
+002^#Latin Capital Letter Z With Caron#
+003^#017D
+
+001^017E
+002^#Latin Small Letter Z With Caron#
+003^#017E
+
+001^017F
+002^#Latin Small Letter Long S#
+003^#017F
+
+001^0180
+002^#Latin Small Letter B With Stroke#
+003^#0180
+
+001^0181
+002^#Latin Capital Letter B With Hook#
+003^#0181
+
+001^0182
+002^#Latin Capital Letter B With Topbar#
+003^#0182
+
+001^0183
+002^#Latin Small Letter B With Topbar#
+003^#0183
+
+001^0184
+002^#Latin Capital Letter Tone Six#
+003^#0184
+
+001^0185
+002^#Latin Small Letter Tone Six#
+003^#0185
+
+001^0186
+002^#Latin Capital Letter Open O#
+003^#0186
+
+001^0187
+002^#Latin Capital Letter C With Hook#
+003^#0187
+
+001^0188
+002^#Latin Small Letter C With Hook#
+003^#0188
+
+001^0189
+002^#Latin Capital Letter African D#
+003^#0189
+
+001^018A
+002^#Latin Capital Letter D With Hook#
+003^#018A
+
+001^018B
+002^#Latin Capital Letter D With Topbar#
+003^#018B
+
+001^018C
+002^#Latin Small Letter D With Topbar#
+003^#018C
+
+001^018D
+002^#Latin Small Letter Turned Delta#
+003^#018D
+
+001^018E
+002^#Latin Capital Letter Reversed E#
+003^#018E
+
+001^018F
+002^#Latin Capital Letter Schwa#
+003^#018F
+
+001^0190
+002^#Latin Capital Letter Open E#
+003^#0190
+
+001^0191
+002^#Latin Capital Letter F With Hook#
+003^#0191
+
+001^0192
+002^#Latin Small Letter F With Hook#
+003^#0192
+
+001^0193
+002^#Latin Capital Letter G With Hook#
+003^#0193
+
+001^0194
+002^#Latin Capital Letter Gamma#
+003^#0194
+
+001^0195
+002^#Latin Small Letter Hv#
+003^#0195
+
+001^0196
+002^#Latin Capital Letter Iota#
+003^#0196
+
+001^0197
+002^#Latin Capital Letter I With Stroke#
+003^#0197
+
+001^0198
+002^#Latin Capital Letter K With Hook#
+003^#0198
+
+001^0199
+002^#Latin Small Letter K With Hook#
+003^#0199
+
+001^019A
+002^#Latin Small Letter L With Bar#
+003^#019A
+
+001^019B
+002^#Latin Small Letter Lambda With Stroke#
+003^#019B
+
+001^019C
+002^#Latin Capital Letter Turned M#
+003^#019C
+
+001^019D
+002^#Latin Capital Letter N With Left Hook#
+003^#019D
+
+001^019E
+002^#Latin Small Letter N With Long Right Leg#
+003^#019E
+
+001^019F
+002^#Latin Capital Letter O With Middle Tilde#
+003^#019F
+
+001^01A0
+002^#Latin Capital Letter O With Horn#
+003^#01A0
+
+001^01A1
+002^#Latin Small Letter O With Horn#
+003^#01A1
+
+001^01A2
+002^#Latin Capital Letter Oi#
+003^#01A2
+
+001^01A3
+002^#Latin Small Letter Oi#
+003^#01A3
+
+001^01A4
+002^#Latin Capital Letter P With Hook#
+003^#01A4
+
+001^01A5
+002^#Latin Small Letter P With Hook#
+003^#01A5
+
+001^01A6
+002^#Latin Letter Yr#
+003^#01A6
+
+001^01A7
+002^#Latin Capital Letter Tone Two#
+003^#01A7
+
+001^01A8
+002^#Latin Small Letter Tone Two#
+003^#01A8
+
+001^01A9
+002^#Latin Capital Letter Esh#
+003^#01A9
+
+001^01AA
+002^#Latin Letter Reversed Esh Loop#
+003^#01AA
+
+001^01AB
+002^#Latin Small Letter T With Palatal Hook#
+003^#01AB
+
+001^01AC
+002^#Latin Capital Letter T With Hook#
+003^#01AC
+
+001^01AD
+002^#Latin Small Letter T With Hook#
+003^#01AD
+
+001^01AE
+002^#Latin Capital Letter T With Retroflex Hook#
+003^#01AE
+
+001^01AF
+002^#Latin Capital Letter U With Horn#
+003^#01AF
+
+001^01B0
+002^#Latin Small Letter U With Horn#
+003^#01B0
+
+001^01B1
+002^#Latin Capital Letter Upsilon#
+003^#01B1
+
+001^01B2
+002^#Latin Capital Letter V With Hook#
+003^#01B2
+
+001^01B3
+002^#Latin Capital Letter Y With Hook#
+003^#01B3
+
+001^01B4
+002^#Latin Small Letter Y With Hook#
+003^#01B4
+
+001^01B5
+002^#Latin Capital Letter Z With Stroke#
+003^#01B5
+
+001^01B6
+002^#Latin Small Letter Z With Stroke#
+003^#01B6
+
+001^01B7
+002^#Latin Capital Letter Ezh#
+003^#01B7
+
+001^01B8
+002^#Latin Capital Letter Ezh Reversed#
+003^#01B8
+
+001^01B9
+002^#Latin Small Letter Ezh Reversed#
+003^#01B9
+
+001^01BA
+002^#Latin Small Letter Ezh With Tail#
+003^#01BA
+
+001^01BB
+002^#Latin Letter Two With Stroke#
+003^#01BB
+
+001^01BC
+002^#Latin Capital Letter Tone Five#
+003^#01BC
+
+001^01BD
+002^#Latin Small Letter Tone Five#
+003^#01BD
+
+001^01BE
+002^#Latin Letter Inverted Glottal Stop With Stroke#
+003^#01BE
+
+001^01BF
+002^#Latin Letter Wynn#
+003^#01BF
+
+001^01C0
+002^#Latin Letter Dental Click#
+003^#01C0
+
+001^01C1
+002^#Latin Letter Lateral Click#
+003^#01C1
+
+001^01C2
+002^#Latin Letter Alveolar Click#
+003^#01C2
+
+001^01C3
+002^#Latin Letter Retroflex Click#
+003^#01C3
+
+001^01C4
+002^#Latin Capital Letter Dz With Caron#
+003^#01C4
+
+001^01C5
+002^#Latin Capital Letter D With Small Letter Z With Caron#
+003^#01C5
+
+001^01C6
+002^#Latin Small Letter Dz With Caron#
+003^#01C6
+
+001^01C7
+002^#Latin Capital Letter Lj#
+003^#01C7
+
+001^01C8
+002^#Latin Capital Letter L With Small Letter J#
+003^#01C8
+
+001^01C9
+002^#Latin Small Letter Lj#
+003^#01C9
+
+001^01CA
+002^#Latin Capital Letter Nj#
+003^#01CA
+
+001^01CB
+002^#Latin Capital Letter N With Small Letter J#
+003^#01CB
+
+001^01CC
+002^#Latin Small Letter Nj#
+003^#01CC
+
+001^01CD
+002^#Latin Capital Letter A With Caron#
+003^#01CD
+
+001^01CE
+002^#Latin Small Letter A With Caron#
+003^#01CE
+
+001^01CF
+002^#Latin Capital Letter I With Caron#
+003^#01CF
+
+001^01D0
+002^#Latin Small Letter I With Caron#
+003^#01D0
+
+001^01D1
+002^#Latin Capital Letter O With Caron#
+003^#01D1
+
+001^01D2
+002^#Latin Small Letter O With Caron#
+003^#01D2
+
+001^01D3
+002^#Latin Capital Letter U With Caron#
+003^#01D3
+
+001^01D4
+002^#Latin Small Letter U With Caron#
+003^#01D4
+
+001^01D5
+002^#Latin Capital Letter U With Diaeresis And Macron#
+003^#01D5
+
+001^01D6
+002^#Latin Small Letter U With Diaeresis And Macron#
+003^#01D6
+
+001^01D7
+002^#Latin Capital Letter U With Diaeresis And Acute#
+003^#01D7
+
+001^01D8
+002^#Latin Small Letter U With Diaeresis And Acute#
+003^#01D8
+
+001^01D9
+002^#Latin Capital Letter U With Diaeresis And Caron#
+003^#01D9
+
+001^01DA
+002^#Latin Small Letter U With Diaeresis And Caron#
+003^#01DA
+
+001^01DB
+002^#Latin Capital Letter U With Diaeresis And Grave#
+003^#01DB
+
+001^01DC
+002^#Latin Small Letter U With Diaeresis And Grave#
+003^#01DC
+
+001^01DD
+002^#Latin Small Letter Turned E#
+003^#01DD
+
+001^01DE
+002^#Latin Capital Letter A With Diaeresis And Macron#
+003^#01DE
+
+001^01DF
+002^#Latin Small Letter A With Diaeresis And Macron#
+003^#01DF
+
+001^01E0
+002^#Latin Capital Letter A With Dot Above And Macron#
+003^#01E0
+
+001^01E1
+002^#Latin Small Letter A With Dot Above And Macron#
+003^#01E1
+
+001^01E2
+002^#Latin Capital Letter Ae With Macron#
+003^#01E2
+
+001^01E3
+002^#Latin Small Letter Ae With Macron#
+003^#01E3
+
+001^01E4
+002^#Latin Capital Letter G With Stroke#
+003^#01E4
+
+001^01E5
+002^#Latin Small Letter G With Stroke#
+003^#01E5
+
+001^01E6
+002^#Latin Capital Letter G With Caron#
+003^#01E6
+
+001^01E7
+002^#Latin Small Letter G With Caron#
+003^#01E7
+
+001^01E8
+002^#Latin Capital Letter K With Caron#
+003^#01E8
+
+001^01E9
+002^#Latin Small Letter K With Caron#
+003^#01E9
+
+001^01EA
+002^#Latin Capital Letter O With Ogonek#
+003^#01EA
+
+001^01EB
+002^#Latin Small Letter O With Ogonek#
+003^#01EB
+
+001^01EC
+002^#Latin Capital Letter O With Ogonek And Macron#
+003^#01EC
+
+001^01ED
+002^#Latin Small Letter O With Ogonek And Macron#
+003^#01ED
+
+001^01EE
+002^#Latin Capital Letter Ezh With Caron#
+003^#01EE
+
+001^01EF
+002^#Latin Small Letter Ezh With Caron#
+003^#01EF
+
+001^01F0
+002^#Latin Small Letter J With Caron#
+003^#01F0
+
+001^01F1
+002^#Latin Capital Letter Dz#
+003^#01F1
+
+001^01F2
+002^#Latin Capital Letter D With Small Letter Z#
+003^#01F2
+
+001^01F3
+002^#Latin Small Letter Dz#
+003^#01F3
+
+001^01F4
+002^#Latin Capital Letter G With Acute#
+003^#01F4
+
+001^01F5
+002^#Latin Small Letter G With Acute#
+003^#01F5
+
+001^01F6
+002^#Latin Capital Letter Hwair#
+003^#01F6
+
+001^01F7
+002^#Latin Capital Letter Wynn#
+003^#01F7
+
+001^01F8
+002^#Latin Capital Letter N With Grave#
+003^#01F8
+
+001^01F9
+002^#Latin Small Letter N With Grave#
+003^#01F9
+
+001^01FA
+002^#Latin Capital Letter A With Ring Above And Acute#
+003^#01FA
+
+001^01FB
+002^#Latin Small Letter A With Ring Above And Acute#
+003^#01FB
+
+001^01FC
+002^#Latin Capital Letter Ae With Acute#
+003^#01FC
+
+001^01FD
+002^#Latin Small Letter Ae With Acute#
+003^#01FD
+
+001^01FE
+002^#Latin Capital Letter O With Stroke And Acute#
+003^#01FE
+
+001^01FF
+002^#Latin Small Letter O With Stroke And Acute#
+003^#01FF
+
+001^0200
+002^#Latin Capital Letter A With Double Grave#
+003^#0200
+
+001^0201
+002^#Latin Small Letter A With Double Grave#
+003^#0201
+
+001^0202
+002^#Latin Capital Letter A With Inverted Breve#
+003^#0202
+
+001^0203
+002^#Latin Small Letter A With Inverted Breve#
+003^#0203
+
+001^0204
+002^#Latin Capital Letter E With Double Grave#
+003^#0204
+
+001^0205
+002^#Latin Small Letter E With Double Grave#
+003^#0205
+
+001^0206
+002^#Latin Capital Letter E With Inverted Breve#
+003^#0206
+
+001^0207
+002^#Latin Small Letter E With Inverted Breve#
+003^#0207
+
+001^0208
+002^#Latin Capital Letter I With Double Grave#
+003^#0208
+
+001^0209
+002^#Latin Small Letter I With Double Grave#
+003^#0209
+
+001^020A
+002^#Latin Capital Letter I With Inverted Breve#
+003^#020A
+
+001^020B
+002^#Latin Small Letter I With Inverted Breve#
+003^#020B
+
+001^020C
+002^#Latin Capital Letter O With Double Grave#
+003^#020C
+
+001^020D
+002^#Latin Small Letter O With Double Grave#
+003^#020D
+
+001^020E
+002^#Latin Capital Letter O With Inverted Breve#
+003^#020E
+
+001^020F
+002^#Latin Small Letter O With Inverted Breve#
+003^#020F
+
+001^0210
+002^#Latin Capital Letter R With Double Grave#
+003^#0210
+
+001^0211
+002^#Latin Small Letter R With Double Grave#
+003^#0211
+
+001^0212
+002^#Latin Capital Letter R With Inverted Breve#
+003^#0212
+
+001^0213
+002^#Latin Small Letter R With Inverted Breve#
+003^#0213
+
+001^0214
+002^#Latin Capital Letter U With Double Grave#
+003^#0214
+
+001^0215
+002^#Latin Small Letter U With Double Grave#
+003^#0215
+
+001^0216
+002^#Latin Capital Letter U With Inverted Breve#
+003^#0216
+
+001^0217
+002^#Latin Small Letter U With Inverted Breve#
+003^#0217
+
+001^0218
+002^#Latin Capital Letter S With Comma Below#
+003^#0218
+
+001^0219
+002^#Latin Small Letter S With Comma Below#
+003^#0219
+
+001^021A
+002^#Latin Capital Letter T With Comma Below#
+003^#021A
+
+001^021B
+002^#Latin Small Letter T With Comma Below#
+003^#021B
+
+001^021C
+002^#Latin Capital Letter Yogh#
+003^#021C
+
+001^021D
+002^#Latin Small Letter Yogh#
+003^#021D
+
+001^021E
+002^#Latin Capital Letter H With Caron#
+003^#021E
+
+001^021F
+002^#Latin Small Letter H With Caron#
+003^#021F
+
+001^0220
+002^#Latin Capital Letter N With Long Right Leg#
+003^#0220
+
+001^0221
+002^#Latin Small Letter D With Curl#
+003^#0221
+
+001^0222
+002^#Latin Capital Letter Ou#
+003^#0222
+
+001^0223
+002^#Latin Small Letter Ou#
+003^#0223
+
+001^0224
+002^#Latin Capital Letter Z With Hook#
+003^#0224
+
+001^0225
+002^#Latin Small Letter Z With Hook#
+003^#0225
+
+001^0226
+002^#Latin Capital Letter A With Dot Above#
+003^#0226
+
+001^0227
+002^#Latin Small Letter A With Dot Above#
+003^#0227
+
+001^0228
+002^#Latin Capital Letter E With Cedilla#
+003^#0228
+
+001^0229
+002^#Latin Small Letter E With Cedilla#
+003^#0229
+
+001^022A
+002^#Latin Capital Letter O With Diaeresis And Macron#
+003^#022A
+
+001^022B
+002^#Latin Small Letter O With Diaeresis And Macron#
+003^#022B
+
+001^022C
+002^#Latin Capital Letter O With Tilde And Macron#
+003^#022C
+
+001^022D
+002^#Latin Small Letter O With Tilde And Macron#
+003^#022D
+
+001^022E
+002^#Latin Capital Letter O With Dot Above#
+003^#022E
+
+001^022F
+002^#Latin Small Letter O With Dot Above#
+003^#022F
+
+001^0230
+002^#Latin Capital Letter O With Dot Above And Macron#
+003^#0230
+
+001^0231
+002^#Latin Small Letter O With Dot Above And Macron#
+003^#0231
+
+001^0232
+002^#Latin Capital Letter Y With Macron#
+003^#0232
+
+001^0233
+002^#Latin Small Letter Y With Macron#
+003^#0233
+
+001^0234
+002^#Latin Small Letter L With Curl#
+003^#0234
+
+001^0235
+002^#Latin Small Letter N With Curl#
+003^#0235
+
+001^0236
+002^#Latin Small Letter T With Curl#
+003^#0236
+
+001^0237
+002^#Latin Small Letter Dotless J#
+003^#0237
+
+001^0238
+002^#Latin Small Letter Db Digraph#
+003^#0238
+
+001^0239
+002^#Latin Small Letter Qp Digraph#
+003^#0239
+
+001^023A
+002^#Latin Capital Letter A With Stroke#
+003^#023A
+
+001^023B
+002^#Latin Capital Letter C With Stroke#
+003^#023B
+
+001^023C
+002^#Latin Small Letter C With Stroke#
+003^#023C
+
+001^023D
+002^#Latin Capital Letter L With Bar#
+003^#023D
+
+001^023E
+002^#Latin Capital Letter T With Diagonal Stroke#
+003^#023E
+
+001^023F
+002^#Latin Small Letter S With Swash Tail#
+003^#023F
+
+001^0240
+002^#Latin Small Letter Z With Swash Tail#
+003^#0240
+
+001^0241
+002^#Latin Capital Letter Glottal Stop#
+003^#0241
+
+001^0242
+002^#Latin Small Letter Glottal Stop#
+003^#0242
+
+001^0243
+002^#Latin Capital Letter B With Stroke#
+003^#0243
+
+001^0244
+002^#Latin Capital Letter U Bar#
+003^#0244
+
+001^0245
+002^#Latin Capital Letter Turned V#
+003^#0245
+
+001^0246
+002^#Latin Capital Letter E With Stroke#
+003^#0246
+
+001^0247
+002^#Latin Small Letter E With Stroke#
+003^#0247
+
+001^0248
+002^#Latin Capital Letter J With Stroke#
+003^#0248
+
+001^0249
+002^#Latin Small Letter J With Stroke#
+003^#0249
+
+001^024A
+002^#Latin Capital Letter Small Q With Hook Tail#
+003^#024A
+
+001^024B
+002^#Latin Small Letter Q With Hook Tail#
+003^#024B
+
+001^024C
+002^#Latin Capital Letter R With Stroke#
+003^#024C
+
+001^024D
+002^#Latin Small Letter R With Stroke#
+003^#024D
+
+001^024E
+002^#Latin Capital Letter Y With Stroke#
+003^#024E
+
+001^024F
+002^#Latin Small Letter Y With Stroke#
+003^#024F
+
+001^0370
+002^#Greek Capital Letter Heta#
+003^#0370
+
+001^0371
+002^#Greek Small Letter Heta#
+003^#0371
+
+001^0372
+002^#Greek Capital Letter Archaic Sampi#
+003^#0372
+
+001^0373
+002^#Greek Small Letter Archaic Sampi#
+003^#0373
+
+001^0374
+002^#Greek Numeral Sign#
+003^#0374
+
+001^0375
+002^#Greek Lower Numeral Sign#
+003^#0375
+
+001^0376
+002^#Greek Capital Letter Pamphylian Digamma#
+003^#0376
+
+001^0377
+002^#Greek Small Letter Pamphylian Digamma#
+003^#0377
+
+001^037A
+002^#Greek Ypogegrammeni#
+003^#037A
+
+001^037B
+002^#Greek Small Reversed Lunate Sigma Symbol#
+003^#037B
+
+001^037C
+002^#Greek Small Dotted Lunate Sigma Symbol#
+003^#037C
+
+001^037D
+002^#Greek Small Reversed Dotted Lunate Sigma Symbol#
+003^#037D
+
+001^037E
+002^#Greek Question Mark#
+003^#037E
+
+001^0384
+002^#Greek Tonos#
+003^#0384
+
+001^0385
+002^#Greek Dialytika Tonos#
+003^#0385
+
+001^0386
+002^#Greek Capital Letter Alpha With Tonos#
+003^#0386
+
+001^0387
+002^#Greek Ano Teleia#
+003^#0387
+
+001^0388
+002^#Greek Capital Letter Epsilon With Tonos#
+003^#0388
+
+001^0389
+002^#Greek Capital Letter Eta With Tonos#
+003^#0389
+
+001^038A
+002^#Greek Capital Letter Iota With Tonos#
+003^#038A
+
+001^038C
+002^#Greek Capital Letter Omicron With Tonos#
+003^#038C
+
+001^038E
+002^#Greek Capital Letter Upsilon With Tonos#
+003^#038E
+
+001^038F
+002^#Greek Capital Letter Omega With Tonos#
+003^#038F
+
+001^0390
+002^#Greek Small Letter Iota With Dialytika And Tonos#
+003^#0390
+
+001^0391
+002^#Greek Capital Letter Alpha#
+003^#0391
+
+001^0392
+002^#Greek Capital Letter Beta#
+003^#0392
+
+001^0393
+002^#Greek Capital Letter Gamma#
+003^#0393
+
+001^0394
+002^#Greek Capital Letter Delta#
+003^#0394
+
+001^0395
+002^#Greek Capital Letter Epsilon#
+003^#0395
+
+001^0396
+002^#Greek Capital Letter Zeta#
+003^#0396
+
+001^0397
+002^#Greek Capital Letter Eta#
+003^#0397
+
+001^0398
+002^#Greek Capital Letter Theta#
+003^#0398
+
+001^0399
+002^#Greek Capital Letter Iota#
+003^#0399
+
+001^039A
+002^#Greek Capital Letter Kappa#
+003^#039A
+
+001^039B
+002^#Greek Capital Letter Lamda#
+003^#039B
+
+001^039C
+002^#Greek Capital Letter Mu#
+003^#039C
+
+001^039D
+002^#Greek Capital Letter Nu#
+003^#039D
+
+001^039E
+002^#Greek Capital Letter Xi#
+003^#039E
+
+001^039F
+002^#Greek Capital Letter Omicron#
+003^#039F
+
+001^03A0
+002^#Greek Capital Letter Pi#
+003^#03A0
+
+001^03A1
+002^#Greek Capital Letter Rho#
+003^#03A1
+
+001^03A3
+002^#Greek Capital Letter Sigma#
+003^#03A3
+
+001^03A4
+002^#Greek Capital Letter Tau#
+003^#03A4
+
+001^03A5
+002^#Greek Capital Letter Upsilon#
+003^#03A5
+
+001^03A6
+002^#Greek Capital Letter Phi#
+003^#03A6
+
+001^03A7
+002^#Greek Capital Letter Chi#
+003^#03A7
+
+001^03A8
+002^#Greek Capital Letter Psi#
+003^#03A8
+
+001^03A9
+002^#Greek Capital Letter Omega#
+003^#03A9
+
+001^03AA
+002^#Greek Capital Letter Iota With Dialytika#
+003^#03AA
+
+001^03AB
+002^#Greek Capital Letter Upsilon With Dialytika#
+003^#03AB
+
+001^03AC
+002^#Greek Small Letter Alpha With Tonos#
+003^#03AC
+
+001^03AD
+002^#Greek Small Letter Epsilon With Tonos#
+003^#03AD
+
+001^03AE
+002^#Greek Small Letter Eta With Tonos#
+003^#03AE
+
+001^03AF
+002^#Greek Small Letter Iota With Tonos#
+003^#03AF
+
+001^03B0
+002^#Greek Small Letter Upsilon With Dialytika And Tonos#
+003^#03B0
+
+001^03B1
+002^#Greek Small Letter Alpha#
+003^#03B1
+
+001^03B2
+002^#Greek Small Letter Beta#
+003^#03B2
+
+001^03B3
+002^#Greek Small Letter Gamma#
+003^#03B3
+
+001^03B4
+002^#Greek Small Letter Delta#
+003^#03B4
+
+001^03B5
+002^#Greek Small Letter Epsilon#
+003^#03B5
+
+001^03B6
+002^#Greek Small Letter Zeta#
+003^#03B6
+
+001^03B7
+002^#Greek Small Letter Eta#
+003^#03B7
+
+001^03B8
+002^#Greek Small Letter Theta#
+003^#03B8
+
+001^03B9
+002^#Greek Small Letter Iota#
+003^#03B9
+
+001^03BA
+002^#Greek Small Letter Kappa#
+003^#03BA
+
+001^03BB
+002^#Greek Small Letter Lamda#
+003^#03BB
+
+001^03BC
+002^#Greek Small Letter Mu#
+003^#03BC
+
+001^03BD
+002^#Greek Small Letter Nu#
+003^#03BD
+
+001^03BE
+002^#Greek Small Letter Xi#
+003^#03BE
+
+001^03BF
+002^#Greek Small Letter Omicron#
+003^#03BF
+
+001^03C0
+002^#Greek Small Letter Pi#
+003^#03C0
+
+001^03C1
+002^#Greek Small Letter Rho#
+003^#03C1
+
+001^03C2
+002^#Greek Small Letter Final Sigma#
+003^#03C2
+
+001^03C3
+002^#Greek Small Letter Sigma#
+003^#03C3
+
+001^03C4
+002^#Greek Small Letter Tau#
+003^#03C4
+
+001^03C5
+002^#Greek Small Letter Upsilon#
+003^#03C5
+
+001^03C6
+002^#Greek Small Letter Phi#
+003^#03C6
+
+001^03C7
+002^#Greek Small Letter Chi#
+003^#03C7
+
+001^03C8
+002^#Greek Small Letter Psi#
+003^#03C8
+
+001^03C9
+002^#Greek Small Letter Omega#
+003^#03C9
+
+001^03CA
+002^#Greek Small Letter Iota With Dialytika#
+003^#03CA
+
+001^03CB
+002^#Greek Small Letter Upsilon With Dialytika#
+003^#03CB
+
+001^03CC
+002^#Greek Small Letter Omicron With Tonos#
+003^#03CC
+
+001^03CD
+002^#Greek Small Letter Upsilon With Tonos#
+003^#03CD
+
+001^03CE
+002^#Greek Small Letter Omega With Tonos#
+003^#03CE
+
+001^03CF
+002^#Greek Capital Kai Symbol#
+003^#03CF
+
+001^03D0
+002^#Greek Beta Symbol#
+003^#03D0
+
+001^03D1
+002^#Greek Theta Symbol#
+003^#03D1
+
+001^03D2
+002^#Greek Upsilon With Hook Symbol#
+003^#03D2
+
+001^03D3
+002^#Greek Upsilon With Acute And Hook Symbol#
+003^#03D3
+
+001^03D4
+002^#Greek Upsilon With Diaeresis And Hook Symbol#
+003^#03D4
+
+001^03D5
+002^#Greek Phi Symbol#
+003^#03D5
+
+001^03D6
+002^#Greek Pi Symbol#
+003^#03D6
+
+001^03D7
+002^#Greek Kai Symbol#
+003^#03D7
+
+001^03D8
+002^#Greek Letter Archaic Koppa#
+003^#03D8
+
+001^03D9
+002^#Greek Small Letter Archaic Koppa#
+003^#03D9
+
+001^03DA
+002^#Greek Letter Stigma#
+003^#03DA
+
+001^03DB
+002^#Greek Small Letter Stigma#
+003^#03DB
+
+001^03DC
+002^#Greek Letter Digamma#
+003^#03DC
+
+001^03DD
+002^#Greek Small Letter Digamma#
+003^#03DD
+
+001^03DE
+002^#Greek Letter Koppa#
+003^#03DE
+
+001^03DF
+002^#Greek Small Letter Koppa#
+003^#03DF
+
+001^03E0
+002^#Greek Letter Sampi#
+003^#03E0
+
+001^03E1
+002^#Greek Small Letter Sampi#
+003^#03E1
+
+001^03E2
+002^#Coptic Capital Letter Shei#
+003^#03E2
+
+001^03E3
+002^#Coptic Small Letter Shei#
+003^#03E3
+
+001^03E4
+002^#Coptic Capital Letter Fei#
+003^#03E4
+
+001^03E5
+002^#Coptic Small Letter Fei#
+003^#03E5
+
+001^03E6
+002^#Coptic Capital Letter Khei#
+003^#03E6
+
+001^03E7
+002^#Coptic Small Letter Khei#
+003^#03E7
+
+001^03E8
+002^#Coptic Capital Letter Hori#
+003^#03E8
+
+001^03E9
+002^#Coptic Small Letter Hori#
+003^#03E9
+
+001^03EA
+002^#Coptic Capital Letter Gangia#
+003^#03EA
+
+001^03EB
+002^#Coptic Small Letter Gangia#
+003^#03EB
+
+001^03EC
+002^#Coptic Capital Letter Shima#
+003^#03EC
+
+001^03ED
+002^#Coptic Small Letter Shima#
+003^#03ED
+
+001^03EE
+002^#Coptic Capital Letter Dei#
+003^#03EE
+
+001^03EF
+002^#Coptic Small Letter Dei#
+003^#03EF
+
+001^03F0
+002^#Greek Kappa Symbol#
+003^#03F0
+
+001^03F1
+002^#Greek Rho Symbol#
+003^#03F1
+
+001^03F2
+002^#Greek Lunate Sigma Symbol#
+003^#03F2
+
+001^03F3
+002^#Greek Letter Yot#
+003^#03F3
+
+001^03F4
+002^#Greek Capital Theta Symbol#
+003^#03F4
+
+001^03F5
+002^#Greek Lunate Epsilon Symbol#
+003^#03F5
+
+001^03F6
+002^#Greek Reversed Lunate Epsilon Symbol#
+003^#03F6
+
+001^03F7
+002^#Greek Capital Letter Sho#
+003^#03F7
+
+001^03F8
+002^#Greek Small Letter Sho#
+003^#03F8
+
+001^03F9
+002^#Greek Capital Lunate Sigma Symbol#
+003^#03F9
+
+001^03FA
+002^#Greek Capital Letter San#
+003^#03FA
+
+001^03FB
+002^#Greek Small Letter San#
+003^#03FB
+
+001^03FC
+002^#Greek Rho With Stroke Symbol#
+003^#03FC
+
+001^03FD
+002^#Greek Capital Reversed Lunate Sigma Symbol#
+003^#03FD
+
+001^03FE
+002^#Greek Capital Dotted Lunate Sigma Symbol#
+003^#03FE
+
+001^03FF
+002^#Greek Capital Reversed Dotted Lunate Sigma Symbol#
+003^#03FF
+
+001^2000
+002^#En Quad#
+003^#2000
+
+001^2001
+002^#Em Quad#
+003^#2001
+
+001^2002
+002^#En Space#
+003^#2002
+
+001^2003
+002^#Em Space#
+003^#2003
+
+001^2004
+002^#Three-Per-Em Space#
+003^#2004
+
+001^2005
+002^#Four-Per-Em Space#
+003^#2005
+
+001^2006
+002^#Six-Per-Em Space#
+003^#2006
+
+001^2007
+002^#Figure Space#
+003^#2007
+
+001^2008
+002^#Punctuation Space#
+003^#2008
+
+001^2009
+002^#Thin Space#
+003^#2009
+
+001^200A
+002^#Hair Space#
+003^#200A
+
+001^200B
+002^#Zero Width Space#
+003^#200B
+
+001^200C
+002^#Zero Width Non-Joiner#
+003^#200C
+
+001^200D
+002^#Zero Width Joiner#
+003^#200D
+
+001^200E
+002^#Left-To-Right Mark#
+003^#200E
+
+001^200F
+002^#Right-To-Left Mark#
+003^#200F
+
+001^2010
+002^#Hyphen#
+003^#2010
+
+001^2011
+002^#Non-Breaking Hyphen#
+003^#2011
+
+001^2012
+002^#Figure Dash#
+003^#2012
+
+001^2013
+002^#En Dash#
+003^#2013
+
+001^2014
+002^#Em Dash#
+003^#2014
+
+001^2015
+002^#Horizontal Bar#
+003^#2015
+
+001^2016
+002^#Double Vertical Line#
+003^#2016
+
+001^2017
+002^#Double Low Line#
+003^#2017
+
+001^2018
+002^#Left Single Quotation Mark#
+003^#2018
+
+001^2019
+002^#Right Single Quotation Mark#
+003^#2019
+
+001^201A
+002^#Single Low-9 Quotation Mark#
+003^#201A
+
+001^201B
+002^#Single High-Reversed-9 Quotation Mark#
+003^#201B
+
+001^201C
+002^#Left Double Quotation Mark#
+003^#201C
+
+001^201D
+002^#Right Double Quotation Mark#
+003^#201D
+
+001^201E
+002^#Double Low-9 Quotation Mark#
+003^#201E
+
+001^201F
+002^#Double High-Reversed-9 Quotation Mark#
+003^#201F
+
+001^2020
+002^#Dagger#
+003^#2020
+
+001^2021
+002^#Double Dagger#
+003^#2021
+
+001^2022
+002^#Bullet#
+003^#2022
+
+001^2023
+002^#Triangular Bullet#
+003^#2023
+
+001^2024
+002^#One Dot Leader#
+003^#2024
+
+001^2025
+002^#Two Dot Leader#
+003^#2025
+
+001^2026
+002^#Horizontal Ellipsis#
+003^#2026
+
+001^2027
+002^#Hyphenation Point#
+003^#2027
+
+001^2028
+002^#Line Separator#
+003^#2028
+
+001^2029
+002^#Paragraph Separator#
+003^#2029
+
+001^202A
+002^#Left-To-Right Embedding#
+003^#202A
+
+001^202B
+002^#Right-To-Left Embedding#
+003^#202B
+
+001^202C
+002^#Pop Directional Formatting#
+003^#202C
+
+001^202D
+002^#Left-To-Right Override#
+003^#202D
+
+001^202E
+002^#Right-To-Left Override#
+003^#202E
+
+001^202F
+002^#Narrow No-Break Space#
+003^#202F
+
+001^2030
+002^#Per Mille Sign#
+003^#2030
+
+001^2031
+002^#Per Ten Thousand Sign#
+003^#2031
+
+001^2032
+002^#Prime#
+003^#2032
+
+001^2033
+002^#Double Prime#
+003^#2033
+
+001^2034
+002^#Triple Prime#
+003^#2034
+
+001^2035
+002^#Reversed Prime#
+003^#2035
+
+001^2036
+002^#Reversed Double Prime#
+003^#2036
+
+001^2037
+002^#Reversed Triple Prime#
+003^#2037
+
+001^2038
+002^#Caret#
+003^#2038
+
+001^2039
+002^#Single Left-Pointing Angle Quotation Mark#
+003^#2039
+
+001^203A
+002^#Single Right-Pointing Angle Quotation Mark#
+003^#203A
+
+001^203B
+002^#Reference Mark#
+003^#203B
+
+001^203C
+002^#Double Exclamation Mark#
+003^#203C
+
+001^203D
+002^#Interrobang#
+003^#203D
+
+001^203E
+002^#Overline#
+003^#203E
+
+001^203F
+002^#Undertie#
+003^#203F
+
+001^2040
+002^#Character Tie#
+003^#2040
+
+001^2041
+002^#Caret Insertion Point#
+003^#2041
+
+001^2042
+002^#Asterism#
+003^#2042
+
+001^2043
+002^#Hyphen Bullet#
+003^#2043
+
+001^2044
+002^#Fraction Slash#
+003^#2044
+
+001^2045
+002^#Left Square Bracket With Quill#
+003^#2045
+
+001^2046
+002^#Right Square Bracket With Quill#
+003^#2046
+
+001^2047
+002^#Double Question Mark#
+003^#2047
+
+001^2048
+002^#Question Exclamation Mark#
+003^#2048
+
+001^2049
+002^#Exclamation Question Mark#
+003^#2049
+
+001^204A
+002^#Tironian Sign Et#
+003^#204A
+
+001^204B
+002^#Reversed Pilcrow Sign#
+003^#204B
+
+001^204C
+002^#Black Leftwards Bullet#
+003^#204C
+
+001^204D
+002^#Black Rightwards Bullet#
+003^#204D
+
+001^204E
+002^#Low Asterisk#
+003^#204E
+
+001^204F
+002^#Reversed Semicolon#
+003^#204F
+
+001^2050
+002^#Close Up#
+003^#2050
+
+001^2051
+002^#Two Asterisks Aligned Vertically#
+003^#2051
+
+001^2052
+002^#Commercial Minus Sign#
+003^#2052
+
+001^2053
+002^#Swung Dash#
+003^#2053
+
+001^2054
+002^#Inverted Undertie#
+003^#2054
+
+001^2055
+002^#Flower Punctuation Mark#
+003^#2055
+
+001^2056
+002^#Three Dot Punctuation#
+003^#2056
+
+001^2057
+002^#Quadruple Prime#
+003^#2057
+
+001^2058
+002^#Four Dot Punctuation#
+003^#2058
+
+001^2059
+002^#Five Dot Punctuation#
+003^#2059
+
+001^205A
+002^#Two Dot Punctuation#
+003^#205A
+
+001^205B
+002^#Four Dot Mark#
+003^#205B
+
+001^205C
+002^#Dotted Cross#
+003^#205C
+
+001^205D
+002^#Tricolon#
+003^#205D
+
+001^205E
+002^#Vertical Four Dots#
+003^#205E
+
+001^205F
+002^#Medium Mathematical Space#
+003^#205F
+
+001^2060
+002^#Word Joiner#
+003^#2060
+
+001^2061
+002^#Function Application#
+003^#2061
+
+001^2062
+002^#Invisible Times#
+003^#2062
+
+001^2063
+002^#Invisible Separator#
+003^#2063
+
+001^2064
+002^#Invisible Plus#
+003^#2064
+
+001^206A
+002^#Inhibit Symmetric Swapping#
+003^#206A
+
+001^206B
+002^#Activate Symmetric Swapping#
+003^#206B
+
+001^206C
+002^#Inhibit Arabic Form Shaping#
+003^#206C
+
+001^206D
+002^#Activate Arabic Form Shaping#
+003^#206D
+
+001^206E
+002^#National Digit Shapes#
+003^#206E
+
+001^206F
+002^#Nominal Digit Shapes#
+003^#206F
+
+001^20A0
+002^#Euro-Currency Sign#
+003^#20A0
+
+001^20A1
+002^#Colon Sign#
+003^#20A1
+
+001^20A2
+002^#Cruzeiro Sign#
+003^#20A2
+
+001^20A3
+002^#French Franc Sign#
+003^#20A3
+
+001^20A4
+002^#Lira Sign#
+003^#20A4
+
+001^20A5
+002^#Mill Sign#
+003^#20A5
+
+001^20A6
+002^#Naira Sign#
+003^#20A6
+
+001^20A7
+002^#Peseta Sign#
+003^#20A7
+
+001^20A8
+002^#Rupee Sign#
+003^#20A8
+
+001^20A9
+002^#Won Sign#
+003^#20A9
+
+001^20AA
+002^#New Sheqel Sign#
+003^#20AA
+
+001^20AB
+002^#Dong Sign#
+003^#20AB
+
+001^20AC
+002^#Euro Sign#
+003^#20AC
+
+001^20AD
+002^#Kip Sign#
+003^#20AD
+
+001^20AE
+002^#Tugrik Sign#
+003^#20AE
+
+001^20AF
+002^#Drachma Sign#
+003^#20AF
+
+001^20B0
+002^#German Penny Sign#
+003^#20B0
+
+001^20B1
+002^#Peso Sign#
+003^#20B1
+
+001^20B2
+002^#Guarani Sign#
+003^#20B2
+
+001^20B3
+002^#Austral Sign#
+003^#20B3
+
+001^20B4
+002^#Hryvnia Sign#
+003^#20B4
+
+001^20B5
+002^#Cedi Sign#
+003^#20B5
+
+001^20B6
+002^#Livre Tournois Sign#
+003^#20B6
+
+001^20B7
+002^#Spesmilo Sign#
+003^#20B7
+
+001^20B8
+002^#Tenge Sign#
+003^#20B8
+
+001^20B9
+002^#Indian Rupee Sign#
+003^#20B9
+
+001^2100
+002^#Account Of#
+003^#2100
+
+001^2101
+002^#Addressed To The Subject#
+003^#2101
+
+001^2102
+002^#Double-Struck Capital C#
+003^#2102
+
+001^2103
+002^#Degree Celsius#
+003^#2103
+
+001^2104
+002^#Centre Line Symbol#
+003^#2104
+
+001^2105
+002^#Care Of#
+003^#2105
+
+001^2106
+002^#Cada Una#
+003^#2106
+
+001^2107
+002^#Euler Constant#
+003^#2107
+
+001^2108
+002^#Scruple#
+003^#2108
+
+001^2109
+002^#Degree Fahrenheit#
+003^#2109
+
+001^210A
+002^#Script Small G#
+003^#210A
+
+001^210B
+002^#Script Capital H#
+003^#210B
+
+001^210C
+002^#Black-Letter Capital H#
+003^#210C
+
+001^210D
+002^#Double-Struck Capital H#
+003^#210D
+
+001^210E
+002^#Planck Constant#
+003^#210E
+
+001^210F
+002^#Planck Constant Over Two Pi#
+003^#210F
+
+001^2110
+002^#Script Capital I#
+003^#2110
+
+001^2111
+002^#Black-Letter Capital I#
+003^#2111
+
+001^2112
+002^#Script Capital L#
+003^#2112
+
+001^2113
+002^#Script Small L#
+003^#2113
+
+001^2114
+002^#L B Bar Symbol#
+003^#2114
+
+001^2115
+002^#Double-Struck Capital N#
+003^#2115
+
+001^2116
+002^#Numero Sign#
+003^#2116
+
+001^2117
+002^#Sound Recording Copyright#
+003^#2117
+
+001^2118
+002^#Script Capital P#
+003^#2118
+
+001^2119
+002^#Double-Struck Capital P#
+003^#2119
+
+001^211A
+002^#Double-Struck Capital Q#
+003^#211A
+
+001^211B
+002^#Script Capital R#
+003^#211B
+
+001^211C
+002^#Black-Letter Capital R#
+003^#211C
+
+001^211D
+002^#Double-Struck Capital R#
+003^#211D
+
+001^211E
+002^#Prescription Take#
+003^#211E
+
+001^211F
+002^#Response#
+003^#211F
+
+001^2120
+002^#Service Mark#
+003^#2120
+
+001^2121
+002^#Telephone Sign#
+003^#2121
+
+001^2122
+002^#Trade Mark Sign#
+003^#2122
+
+001^2123
+002^#Versicle#
+003^#2123
+
+001^2124
+002^#Double-Struck Capital Z#
+003^#2124
+
+001^2125
+002^#Ounce Sign#
+003^#2125
+
+001^2126
+002^#Ohm Sign#
+003^#2126
+
+001^2127
+002^#Inverted Ohm Sign#
+003^#2127
+
+001^2128
+002^#Black-Letter Capital Z#
+003^#2128
+
+001^2129
+002^#Turned Greek Small Letter Iota#
+003^#2129
+
+001^212A
+002^#Kelvin Sign#
+003^#212A
+
+001^212B
+002^#Angstrom Sign#
+003^#212B
+
+001^212C
+002^#Script Capital B#
+003^#212C
+
+001^212D
+002^#Black-Letter Capital C#
+003^#212D
+
+001^212E
+002^#Estimated Symbol#
+003^#212E
+
+001^212F
+002^#Script Small E#
+003^#212F
+
+001^2130
+002^#Script Capital E#
+003^#2130
+
+001^2131
+002^#Script Capital F#
+003^#2131
+
+001^2132
+002^#Turned Capital F#
+003^#2132
+
+001^2133
+002^#Script Capital M#
+003^#2133
+
+001^2134
+002^#Script Small O#
+003^#2134
+
+001^2135
+002^#Alef Symbol#
+003^#2135
+
+001^2136
+002^#Bet Symbol#
+003^#2136
+
+001^2137
+002^#Gimel Symbol#
+003^#2137
+
+001^2138
+002^#Dalet Symbol#
+003^#2138
+
+001^2139
+002^#Information Source#
+003^#2139
+
+001^213A
+002^#Rotated Capital Q#
+003^#213A
+
+001^213B
+002^#Facsimile Sign#
+003^#213B
+
+001^213C
+002^#Double-Struck Small Pi#
+003^#213C
+
+001^213D
+002^#Double-Struck Small Gamma#
+003^#213D
+
+001^213E
+002^#Double-Struck Capital Gamma#
+003^#213E
+
+001^213F
+002^#Double-Struck Capital Pi#
+003^#213F
+
+001^2140
+002^#Double-Struck N-Ary Summation#
+003^#2140
+
+001^2141
+002^#Turned Sans-Serif Capital G#
+003^#2141
+
+001^2142
+002^#Turned Sans-Serif Capital L#
+003^#2142
+
+001^2143
+002^#Reversed Sans-Serif Capital L#
+003^#2143
+
+001^2144
+002^#Turned Sans-Serif Capital Y#
+003^#2144
+
+001^2145
+002^#Double-Struck Italic Capital D#
+003^#2145
+
+001^2146
+002^#Double-Struck Italic Small D#
+003^#2146
+
+001^2147
+002^#Double-Struck Italic Small E#
+003^#2147
+
+001^2148
+002^#Double-Struck Italic Small I#
+003^#2148
+
+001^2149
+002^#Double-Struck Italic Small J#
+003^#2149
+
+001^214A
+002^#Property Line#
+003^#214A
+
+001^214B
+002^#Turned Ampersand#
+003^#214B
+
+001^214C
+002^#Per Sign#
+003^#214C
+
+001^214D
+002^#Aktieselskab#
+003^#214D
+
+001^214E
+002^#Turned Small F#
+003^#214E
+
+001^214F
+002^#Symbol For Samaritan Source#
+003^#214F
+
+001^2150
+002^#Vulgar Fraction One Seventh#
+003^#2150
+
+001^2151
+002^#Vulgar Fraction One Ninth#
+003^#2151
+
+001^2152
+002^#Vulgar Fraction One Tenth#
+003^#2152
+
+001^2153
+002^#Vulgar Fraction One Third#
+003^#2153
+
+001^2154
+002^#Vulgar Fraction Two Thirds#
+003^#2154
+
+001^2155
+002^#Vulgar Fraction One Fifth#
+003^#2155
+
+001^2156
+002^#Vulgar Fraction Two Fifths#
+003^#2156
+
+001^2157
+002^#Vulgar Fraction Three Fifths#
+003^#2157
+
+001^2158
+002^#Vulgar Fraction Four Fifths#
+003^#2158
+
+001^2159
+002^#Vulgar Fraction One Sixth#
+003^#2159
+
+001^215A
+002^#Vulgar Fraction Five Sixths#
+003^#215A
+
+001^215B
+002^#Vulgar Fraction One Eighth#
+003^#215B
+
+001^215C
+002^#Vulgar Fraction Three Eighths#
+003^#215C
+
+001^215D
+002^#Vulgar Fraction Five Eighths#
+003^#215D
+
+001^215E
+002^#Vulgar Fraction Seven Eighths#
+003^#215E
+
+001^215F
+002^#Fraction Numerator One#
+003^#215F
+
+001^2160
+002^#Roman Numeral One#
+003^#2160
+
+001^2161
+002^#Roman Numeral Two#
+003^#2161
+
+001^2162
+002^#Roman Numeral Three#
+003^#2162
+
+001^2163
+002^#Roman Numeral Four#
+003^#2163
+
+001^2164
+002^#Roman Numeral Five#
+003^#2164
+
+001^2165
+002^#Roman Numeral Six#
+003^#2165
+
+001^2166
+002^#Roman Numeral Seven#
+003^#2166
+
+001^2167
+002^#Roman Numeral Eight#
+003^#2167
+
+001^2168
+002^#Roman Numeral Nine#
+003^#2168
+
+001^2169
+002^#Roman Numeral Ten#
+003^#2169
+
+001^216A
+002^#Roman Numeral Eleven#
+003^#216A
+
+001^216B
+002^#Roman Numeral Twelve#
+003^#216B
+
+001^216C
+002^#Roman Numeral Fifty#
+003^#216C
+
+001^216D
+002^#Roman Numeral One Hundred#
+003^#216D
+
+001^216E
+002^#Roman Numeral Five Hundred#
+003^#216E
+
+001^216F
+002^#Roman Numeral One Thousand#
+003^#216F
+
+001^2170
+002^#Small Roman Numeral One#
+003^#2170
+
+001^2171
+002^#Small Roman Numeral Two#
+003^#2171
+
+001^2172
+002^#Small Roman Numeral Three#
+003^#2172
+
+001^2173
+002^#Small Roman Numeral Four#
+003^#2173
+
+001^2174
+002^#Small Roman Numeral Five#
+003^#2174
+
+001^2175
+002^#Small Roman Numeral Six#
+003^#2175
+
+001^2176
+002^#Small Roman Numeral Seven#
+003^#2176
+
+001^2177
+002^#Small Roman Numeral Eight#
+003^#2177
+
+001^2178
+002^#Small Roman Numeral Nine#
+003^#2178
+
+001^2179
+002^#Small Roman Numeral Ten#
+003^#2179
+
+001^217A
+002^#Small Roman Numeral Eleven#
+003^#217A
+
+001^217B
+002^#Small Roman Numeral Twelve#
+003^#217B
+
+001^217C
+002^#Small Roman Numeral Fifty#
+003^#217C
+
+001^217D
+002^#Small Roman Numeral One Hundred#
+003^#217D
+
+001^217E
+002^#Small Roman Numeral Five Hundred#
+003^#217E
+
+001^217F
+002^#Small Roman Numeral One Thousand#
+003^#217F
+
+001^2180
+002^#Roman Numeral One Thousand C D#
+003^#2180
+
+001^2181
+002^#Roman Numeral Five Thousand#
+003^#2181
+
+001^2182
+002^#Roman Numeral Ten Thousand#
+003^#2182
+
+001^2183
+002^#Roman Numeral Reversed One Hundred#
+003^#2183
+
+001^2184
+002^#Latin Small Letter Reversed C#
+003^#2184
+
+001^2185
+002^#Roman Numeral Six Late Form#
+003^#2185
+
+001^2186
+002^#Roman Numeral Fifty Early Form#
+003^#2186
+
+001^2187
+002^#Roman Numeral Fifty Thousand#
+003^#2187
+
+001^2188
+002^#Roman Numeral One Hundred Thousand#
+003^#2188
+
+001^2189
+002^#Vulgar Fraction Zero Thirds#
+003^#2189
+
+001^2190
+002^#Leftwards Arrow#
+003^#2190
+
+001^2191
+002^#Upwards Arrow#
+003^#2191
+
+001^2192
+002^#Rightwards Arrow#
+003^#2192
+
+001^2193
+002^#Downwards Arrow#
+003^#2193
+
+001^2194
+002^#Left Right Arrow#
+003^#2194
+
+001^2195
+002^#Up Down Arrow#
+003^#2195
+
+001^2196
+002^#North West Arrow#
+003^#2196
+
+001^2197
+002^#North East Arrow#
+003^#2197
+
+001^2198
+002^#South East Arrow#
+003^#2198
+
+001^2199
+002^#South West Arrow#
+003^#2199
+
+001^219A
+002^#Leftwards Arrow With Stroke#
+003^#219A
+
+001^219B
+002^#Rightwards Arrow With Stroke#
+003^#219B
+
+001^219C
+002^#Leftwards Wave Arrow#
+003^#219C
+
+001^219D
+002^#Rightwards Wave Arrow#
+003^#219D
+
+001^219E
+002^#Leftwards Two Headed Arrow#
+003^#219E
+
+001^219F
+002^#Upwards Two Headed Arrow#
+003^#219F
+
+001^21A0
+002^#Rightwards Two Headed Arrow#
+003^#21A0
+
+001^21A1
+002^#Downwards Two Headed Arrow#
+003^#21A1
+
+001^21A2
+002^#Leftwards Arrow With Tail#
+003^#21A2
+
+001^21A3
+002^#Rightwards Arrow With Tail#
+003^#21A3
+
+001^21A4
+002^#Leftwards Arrow From Bar#
+003^#21A4
+
+001^21A5
+002^#Upwards Arrow From Bar#
+003^#21A5
+
+001^21A6
+002^#Rightwards Arrow From Bar#
+003^#21A6
+
+001^21A7
+002^#Downwards Arrow From Bar#
+003^#21A7
+
+001^21A8
+002^#Up Down Arrow With Base#
+003^#21A8
+
+001^21A9
+002^#Leftwards Arrow With Hook#
+003^#21A9
+
+001^21AA
+002^#Rightwards Arrow With Hook#
+003^#21AA
+
+001^21AB
+002^#Leftwards Arrow With Loop#
+003^#21AB
+
+001^21AC
+002^#Rightwards Arrow With Loop#
+003^#21AC
+
+001^21AD
+002^#Left Right Wave Arrow#
+003^#21AD
+
+001^21AE
+002^#Left Right Arrow With Stroke#
+003^#21AE
+
+001^21AF
+002^#Downwards Zigzag Arrow#
+003^#21AF
+
+001^21B0
+002^#Upwards Arrow With Tip Leftwards#
+003^#21B0
+
+001^21B1
+002^#Upwards Arrow With Tip Rightwards#
+003^#21B1
+
+001^21B2
+002^#Downwards Arrow With Tip Leftwards#
+003^#21B2
+
+001^21B3
+002^#Downwards Arrow With Tip Rightwards#
+003^#21B3
+
+001^21B4
+002^#Rightwards Arrow With Corner Downwards#
+003^#21B4
+
+001^21B5
+002^#Downwards Arrow With Corner Leftwards#
+003^#21B5
+
+001^21B6
+002^#Anticlockwise Top Semicircle Arrow#
+003^#21B6
+
+001^21B7
+002^#Clockwise Top Semicircle Arrow#
+003^#21B7
+
+001^21B8
+002^#North West Arrow To Long Bar#
+003^#21B8
+
+001^21B9
+002^#Leftwards Arrow To Bar Over Rightwards Arrow To Bar#
+003^#21B9
+
+001^21BA
+002^#Anticlockwise Open Circle Arrow#
+003^#21BA
+
+001^21BB
+002^#Clockwise Open Circle Arrow#
+003^#21BB
+
+001^21BC
+002^#Leftwards Harpoon With Barb Upwards#
+003^#21BC
+
+001^21BD
+002^#Leftwards Harpoon With Barb Downwards#
+003^#21BD
+
+001^21BE
+002^#Upwards Harpoon With Barb Rightwards#
+003^#21BE
+
+001^21BF
+002^#Upwards Harpoon With Barb Leftwards#
+003^#21BF
+
+001^21C0
+002^#Rightwards Harpoon With Barb Upwards#
+003^#21C0
+
+001^21C1
+002^#Rightwards Harpoon With Barb Downwards#
+003^#21C1
+
+001^21C2
+002^#Downwards Harpoon With Barb Rightwards#
+003^#21C2
+
+001^21C3
+002^#Downwards Harpoon With Barb Leftwards#
+003^#21C3
+
+001^21C4
+002^#Rightwards Arrow Over Leftwards Arrow#
+003^#21C4
+
+001^21C5
+002^#Upwards Arrow Leftwards Of Downwards Arrow#
+003^#21C5
+
+001^21C6
+002^#Leftwards Arrow Over Rightwards Arrow#
+003^#21C6
+
+001^21C7
+002^#Leftwards Paired Arrows#
+003^#21C7
+
+001^21C8
+002^#Upwards Paired Arrows#
+003^#21C8
+
+001^21C9
+002^#Rightwards Paired Arrows#
+003^#21C9
+
+001^21CA
+002^#Downwards Paired Arrows#
+003^#21CA
+
+001^21CB
+002^#Leftwards Harpoon Over Rightwards Harpoon#
+003^#21CB
+
+001^21CC
+002^#Rightwards Harpoon Over Leftwards Harpoon#
+003^#21CC
+
+001^21CD
+002^#Leftwards Double Arrow With Stroke#
+003^#21CD
+
+001^21CE
+002^#Left Right Double Arrow With Stroke#
+003^#21CE
+
+001^21CF
+002^#Rightwards Double Arrow With Stroke#
+003^#21CF
+
+001^21D0
+002^#Leftwards Double Arrow#
+003^#21D0
+
+001^21D1
+002^#Upwards Double Arrow#
+003^#21D1
+
+001^21D2
+002^#Rightwards Double Arrow#
+003^#21D2
+
+001^21D3
+002^#Downwards Double Arrow#
+003^#21D3
+
+001^21D4
+002^#Left Right Double Arrow#
+003^#21D4
+
+001^21D5
+002^#Up Down Double Arrow#
+003^#21D5
+
+001^21D6
+002^#North West Double Arrow#
+003^#21D6
+
+001^21D7
+002^#North East Double Arrow#
+003^#21D7
+
+001^21D8
+002^#South East Double Arrow#
+003^#21D8
+
+001^21D9
+002^#South West Double Arrow#
+003^#21D9
+
+001^21DA
+002^#Leftwards Triple Arrow#
+003^#21DA
+
+001^21DB
+002^#Rightwards Triple Arrow#
+003^#21DB
+
+001^21DC
+002^#Leftwards Squiggle Arrow#
+003^#21DC
+
+001^21DD
+002^#Rightwards Squiggle Arrow#
+003^#21DD
+
+001^21DE
+002^#Upwards Arrow With Double Stroke#
+003^#21DE
+
+001^21DF
+002^#Downwards Arrow With Double Stroke#
+003^#21DF
+
+001^21E0
+002^#Leftwards Dashed Arrow#
+003^#21E0
+
+001^21E1
+002^#Upwards Dashed Arrow#
+003^#21E1
+
+001^21E2
+002^#Rightwards Dashed Arrow#
+003^#21E2
+
+001^21E3
+002^#Downwards Dashed Arrow#
+003^#21E3
+
+001^21E4
+002^#Leftwards Arrow To Bar#
+003^#21E4
+
+001^21E5
+002^#Rightwards Arrow To Bar#
+003^#21E5
+
+001^21E6
+002^#Leftwards White Arrow#
+003^#21E6
+
+001^21E7
+002^#Upwards White Arrow#
+003^#21E7
+
+001^21E8
+002^#Rightwards White Arrow#
+003^#21E8
+
+001^21E9
+002^#Downwards White Arrow#
+003^#21E9
+
+001^21EA
+002^#Upwards White Arrow From Bar#
+003^#21EA
+
+001^21EB
+002^#Upwards White Arrow On Pedestal#
+003^#21EB
+
+001^21EC
+002^#Upwards White Arrow On Pedestal With Horizontal Bar#
+003^#21EC
+
+001^21ED
+002^#Upwards White Arrow On Pedestal With Vertical Bar#
+003^#21ED
+
+001^21EE
+002^#Upwards White Double Arrow#
+003^#21EE
+
+001^21EF
+002^#Upwards White Double Arrow On Pedestal#
+003^#21EF
+
+001^21F0
+002^#Rightwards White Arrow From Wall#
+003^#21F0
+
+001^21F1
+002^#North West Arrow To Corner#
+003^#21F1
+
+001^21F2
+002^#South East Arrow To Corner#
+003^#21F2
+
+001^21F3
+002^#Up Down White Arrow#
+003^#21F3
+
+001^21F4
+002^#Right Arrow With Small Circle#
+003^#21F4
+
+001^21F5
+002^#Downwards Arrow Leftwards Of Upwards Arrow#
+003^#21F5
+
+001^21F6
+002^#Three Rightwards Arrows#
+003^#21F6
+
+001^21F7
+002^#Leftwards Arrow With Vertical Stroke#
+003^#21F7
+
+001^21F8
+002^#Rightwards Arrow With Vertical Stroke#
+003^#21F8
+
+001^21F9
+002^#Left Right Arrow With Vertical Stroke#
+003^#21F9
+
+001^21FA
+002^#Leftwards Arrow With Double Vertical Stroke#
+003^#21FA
+
+001^21FB
+002^#Rightwards Arrow With Double Vertical Stroke#
+003^#21FB
+
+001^21FC
+002^#Left Right Arrow With Double Vertical Stroke#
+003^#21FC
+
+001^21FD
+002^#Leftwards Open-Headed Arrow#
+003^#21FD
+
+001^21FE
+002^#Rightwards Open-Headed Arrow#
+003^#21FE
+
+001^21FF
+002^#Left Right Open-Headed Arrow#
+003^#21FF
+
+001^2200
+002^#For All#
+003^#2200
+
+001^2201
+002^#Complement#
+003^#2201
+
+001^2202
+002^#Partial Differential#
+003^#2202
+
+001^2203
+002^#There Exists#
+003^#2203
+
+001^2204
+002^#There Does Not Exist#
+003^#2204
+
+001^2205
+002^#Empty Set#
+003^#2205
+
+001^2206
+002^#Increment#
+003^#2206
+
+001^2207
+002^#Nabla#
+003^#2207
+
+001^2208
+002^#Element Of#
+003^#2208
+
+001^2209
+002^#Not An Element Of#
+003^#2209
+
+001^220A
+002^#Small Element Of#
+003^#220A
+
+001^220B
+002^#Contains As Member#
+003^#220B
+
+001^220C
+002^#Does Not Contain As Member#
+003^#220C
+
+001^220D
+002^#Small Contains As Member#
+003^#220D
+
+001^220E
+002^#End Of Proof#
+003^#220E
+
+001^220F
+002^#N-Ary Product#
+003^#220F
+
+001^2210
+002^#N-Ary Coproduct#
+003^#2210
+
+001^2211
+002^#N-Ary Summation#
+003^#2211
+
+001^2212
+002^#Minus Sign#
+003^#2212
+
+001^2213
+002^#Minus-Or-Plus Sign#
+003^#2213
+
+001^2214
+002^#Dot Plus#
+003^#2214
+
+001^2215
+002^#Division Slash#
+003^#2215
+
+001^2216
+002^#Set Minus#
+003^#2216
+
+001^2217
+002^#Asterisk Operator#
+003^#2217
+
+001^2218
+002^#Ring Operator#
+003^#2218
+
+001^2219
+002^#Bullet Operator#
+003^#2219
+
+001^221A
+002^#Square Root#
+003^#221A
+
+001^221B
+002^#Cube Root#
+003^#221B
+
+001^221C
+002^#Fourth Root#
+003^#221C
+
+001^221D
+002^#Proportional To#
+003^#221D
+
+001^221E
+002^#Infinity#
+003^#221E
+
+001^221F
+002^#Right Angle#
+003^#221F
+
+001^2220
+002^#Angle#
+003^#2220
+
+001^2221
+002^#Measured Angle#
+003^#2221
+
+001^2222
+002^#Spherical Angle#
+003^#2222
+
+001^2223
+002^#Divides#
+003^#2223
+
+001^2224
+002^#Does Not Divide#
+003^#2224
+
+001^2225
+002^#Parallel To#
+003^#2225
+
+001^2226
+002^#Not Parallel To#
+003^#2226
+
+001^2227
+002^#Logical And#
+003^#2227
+
+001^2228
+002^#Logical Or#
+003^#2228
+
+001^2229
+002^#Intersection#
+003^#2229
+
+001^222A
+002^#Union#
+003^#222A
+
+001^222B
+002^#Integral#
+003^#222B
+
+001^222C
+002^#Double Integral#
+003^#222C
+
+001^222D
+002^#Triple Integral#
+003^#222D
+
+001^222E
+002^#Contour Integral#
+003^#222E
+
+001^222F
+002^#Surface Integral#
+003^#222F
+
+001^2230
+002^#Volume Integral#
+003^#2230
+
+001^2231
+002^#Clockwise Integral#
+003^#2231
+
+001^2232
+002^#Clockwise Contour Integral#
+003^#2232
+
+001^2233
+002^#Anticlockwise Contour Integral#
+003^#2233
+
+001^2234
+002^#Therefore#
+003^#2234
+
+001^2235
+002^#Because#
+003^#2235
+
+001^2236
+002^#Ratio#
+003^#2236
+
+001^2237
+002^#Proportion#
+003^#2237
+
+001^2238
+002^#Dot Minus#
+003^#2238
+
+001^2239
+002^#Excess#
+003^#2239
+
+001^223A
+002^#Geometric Proportion#
+003^#223A
+
+001^223B
+002^#Homothetic#
+003^#223B
+
+001^223C
+002^#Tilde Operator#
+003^#223C
+
+001^223D
+002^#Reversed Tilde#
+003^#223D
+
+001^223E
+002^#Inverted Lazy S#
+003^#223E
+
+001^223F
+002^#Sine Wave#
+003^#223F
+
+001^2240
+002^#Wreath Product#
+003^#2240
+
+001^2241
+002^#Not Tilde#
+003^#2241
+
+001^2242
+002^#Minus Tilde#
+003^#2242
+
+001^2243
+002^#Asymptotically Equal To#
+003^#2243
+
+001^2244
+002^#Not Asymptotically Equal To#
+003^#2244
+
+001^2245
+002^#Approximately Equal To#
+003^#2245
+
+001^2246
+002^#Approximately But Not Actually Equal To#
+003^#2246
+
+001^2247
+002^#Neither Approximately Nor Actually Equal To#
+003^#2247
+
+001^2248
+002^#Almost Equal To#
+003^#2248
+
+001^2249
+002^#Not Almost Equal To#
+003^#2249
+
+001^224A
+002^#Almost Equal Or Equal To#
+003^#224A
+
+001^224B
+002^#Triple Tilde#
+003^#224B
+
+001^224C
+002^#All Equal To#
+003^#224C
+
+001^224D
+002^#Equivalent To#
+003^#224D
+
+001^224E
+002^#Geometrically Equivalent To#
+003^#224E
+
+001^224F
+002^#Difference Between#
+003^#224F
+
+001^2250
+002^#Approaches The Limit#
+003^#2250
+
+001^2251
+002^#Geometrically Equal To#
+003^#2251
+
+001^2252
+002^#Approximately Equal To Or The Image Of#
+003^#2252
+
+001^2253
+002^#Image Of Or Approximately Equal To#
+003^#2253
+
+001^2254
+002^#Colon Equals#
+003^#2254
+
+001^2255
+002^#Equals Colon#
+003^#2255
+
+001^2256
+002^#Ring In Equal To#
+003^#2256
+
+001^2257
+002^#Ring Equal To#
+003^#2257
+
+001^2258
+002^#Corresponds To#
+003^#2258
+
+001^2259
+002^#Estimates#
+003^#2259
+
+001^225A
+002^#Equiangular To#
+003^#225A
+
+001^225B
+002^#Star Equals#
+003^#225B
+
+001^225C
+002^#Delta Equal To#
+003^#225C
+
+001^225D
+002^#Equal To By Definition#
+003^#225D
+
+001^225E
+002^#Measured By#
+003^#225E
+
+001^225F
+002^#Questioned Equal To#
+003^#225F
+
+001^2260
+002^#Not Equal To#
+003^#2260
+
+001^2261
+002^#Identical To#
+003^#2261
+
+001^2262
+002^#Not Identical To#
+003^#2262
+
+001^2263
+002^#Strictly Equivalent To#
+003^#2263
+
+001^2264
+002^#Less-Than Or Equal To#
+003^#2264
+
+001^2265
+002^#Greater-Than Or Equal To#
+003^#2265
+
+001^2266
+002^#Less-Than Over Equal To#
+003^#2266
+
+001^2267
+002^#Greater-Than Over Equal To#
+003^#2267
+
+001^2268
+002^#Less-Than But Not Equal To#
+003^#2268
+
+001^2269
+002^#Greater-Than But Not Equal To#
+003^#2269
+
+001^226A
+002^#Much Less-Than#
+003^#226A
+
+001^226B
+002^#Much Greater-Than#
+003^#226B
+
+001^226C
+002^#Between#
+003^#226C
+
+001^226D
+002^#Not Equivalent To#
+003^#226D
+
+001^226E
+002^#Not Less-Than#
+003^#226E
+
+001^226F
+002^#Not Greater-Than#
+003^#226F
+
+001^2270
+002^#Neither Less-Than Nor Equal To#
+003^#2270
+
+001^2271
+002^#Neither Greater-Than Nor Equal To#
+003^#2271
+
+001^2272
+002^#Less-Than Or Equivalent To#
+003^#2272
+
+001^2273
+002^#Greater-Than Or Equivalent To#
+003^#2273
+
+001^2274
+002^#Neither Less-Than Nor Equivalent To#
+003^#2274
+
+001^2275
+002^#Neither Greater-Than Nor Equivalent To#
+003^#2275
+
+001^2276
+002^#Less-Than Or Greater-Than#
+003^#2276
+
+001^2277
+002^#Greater-Than Or Less-Than#
+003^#2277
+
+001^2278
+002^#Neither Less-Than Nor Greater-Than#
+003^#2278
+
+001^2279
+002^#Neither Greater-Than Nor Less-Than#
+003^#2279
+
+001^227A
+002^#Precedes#
+003^#227A
+
+001^227B
+002^#Succeeds#
+003^#227B
+
+001^227C
+002^#Precedes Or Equal To#
+003^#227C
+
+001^227D
+002^#Succeeds Or Equal To#
+003^#227D
+
+001^227E
+002^#Precedes Or Equivalent To#
+003^#227E
+
+001^227F
+002^#Succeeds Or Equivalent To#
+003^#227F
+
+001^2280
+002^#Does Not Precede#
+003^#2280
+
+001^2281
+002^#Does Not Succeed#
+003^#2281
+
+001^2282
+002^#Subset Of#
+003^#2282
+
+001^2283
+002^#Superset Of#
+003^#2283
+
+001^2284
+002^#Not A Subset Of#
+003^#2284
+
+001^2285
+002^#Not A Superset Of#
+003^#2285
+
+001^2286
+002^#Subset Of Or Equal To#
+003^#2286
+
+001^2287
+002^#Superset Of Or Equal To#
+003^#2287
+
+001^2288
+002^#Neither A Subset Of Nor Equal To#
+003^#2288
+
+001^2289
+002^#Neither A Superset Of Nor Equal To#
+003^#2289
+
+001^228A
+002^#Subset Of With Not Equal To#
+003^#228A
+
+001^228B
+002^#Superset Of With Not Equal To#
+003^#228B
+
+001^228C
+002^#Multiset#
+003^#228C
+
+001^228D
+002^#Multiset Multiplication#
+003^#228D
+
+001^228E
+002^#Multiset Union#
+003^#228E
+
+001^228F
+002^#Square Image Of#
+003^#228F
+
+001^2290
+002^#Square Original Of#
+003^#2290
+
+001^2291
+002^#Square Image Of Or Equal To#
+003^#2291
+
+001^2292
+002^#Square Original Of Or Equal To#
+003^#2292
+
+001^2293
+002^#Square Cap#
+003^#2293
+
+001^2294
+002^#Square Cup#
+003^#2294
+
+001^2295
+002^#Circled Plus#
+003^#2295
+
+001^2296
+002^#Circled Minus#
+003^#2296
+
+001^2297
+002^#Circled Times#
+003^#2297
+
+001^2298
+002^#Circled Division Slash#
+003^#2298
+
+001^2299
+002^#Circled Dot Operator#
+003^#2299
+
+001^229A
+002^#Circled Ring Operator#
+003^#229A
+
+001^229B
+002^#Circled Asterisk Operator#
+003^#229B
+
+001^229C
+002^#Circled Equals#
+003^#229C
+
+001^229D
+002^#Circled Dash#
+003^#229D
+
+001^229E
+002^#Squared Plus#
+003^#229E
+
+001^229F
+002^#Squared Minus#
+003^#229F
+
+001^22A0
+002^#Squared Times#
+003^#22A0
+
+001^22A1
+002^#Squared Dot Operator#
+003^#22A1
+
+001^22A2
+002^#Right Tack#
+003^#22A2
+
+001^22A3
+002^#Left Tack#
+003^#22A3
+
+001^22A4
+002^#Down Tack#
+003^#22A4
+
+001^22A5
+002^#Up Tack#
+003^#22A5
+
+001^22A6
+002^#Assertion#
+003^#22A6
+
+001^22A7
+002^#Models#
+003^#22A7
+
+001^22A8
+002^#True#
+003^#22A8
+
+001^22A9
+002^#Forces#
+003^#22A9
+
+001^22AA
+002^#Triple Vertical Bar Right Turnstile#
+003^#22AA
+
+001^22AB
+002^#Double Vertical Bar Double Right Turnstile#
+003^#22AB
+
+001^22AC
+002^#Does Not Prove#
+003^#22AC
+
+001^22AD
+002^#Not True#
+003^#22AD
+
+001^22AE
+002^#Does Not Force#
+003^#22AE
+
+001^22AF
+002^#Negated Double Vertical Bar Double Right Turnstile#
+003^#22AF
+
+001^22B0
+002^#Precedes Under Relation#
+003^#22B0
+
+001^22B1
+002^#Succeeds Under Relation#
+003^#22B1
+
+001^22B2
+002^#Normal Subgroup Of#
+003^#22B2
+
+001^22B3
+002^#Contains As Normal Subgroup#
+003^#22B3
+
+001^22B4
+002^#Normal Subgroup Of Or Equal To#
+003^#22B4
+
+001^22B5
+002^#Contains As Normal Subgroup Or Equal To#
+003^#22B5
+
+001^22B6
+002^#Original Of#
+003^#22B6
+
+001^22B7
+002^#Image Of#
+003^#22B7
+
+001^22B8
+002^#Multimap#
+003^#22B8
+
+001^22B9
+002^#Hermitian Conjugate Matrix#
+003^#22B9
+
+001^22BA
+002^#Intercalate#
+003^#22BA
+
+001^22BB
+002^#Xor#
+003^#22BB
+
+001^22BC
+002^#Nand#
+003^#22BC
+
+001^22BD
+002^#Nor#
+003^#22BD
+
+001^22BE
+002^#Right Angle With Arc#
+003^#22BE
+
+001^22BF
+002^#Right Triangle#
+003^#22BF
+
+001^22C0
+002^#N-Ary Logical And#
+003^#22C0
+
+001^22C1
+002^#N-Ary Logical Or#
+003^#22C1
+
+001^22C2
+002^#N-Ary Intersection#
+003^#22C2
+
+001^22C3
+002^#N-Ary Union#
+003^#22C3
+
+001^22C4
+002^#Diamond Operator#
+003^#22C4
+
+001^22C5
+002^#Dot Operator#
+003^#22C5
+
+001^22C6
+002^#Star Operator#
+003^#22C6
+
+001^22C7
+002^#Division Times#
+003^#22C7
+
+001^22C8
+002^#Bowtie#
+003^#22C8
+
+001^22C9
+002^#Left Normal Factor Semidirect Product#
+003^#22C9
+
+001^22CA
+002^#Right Normal Factor Semidirect Product#
+003^#22CA
+
+001^22CB
+002^#Left Semidirect Product#
+003^#22CB
+
+001^22CC
+002^#Right Semidirect Product#
+003^#22CC
+
+001^22CD
+002^#Reversed Tilde Equals#
+003^#22CD
+
+001^22CE
+002^#Curly Logical Or#
+003^#22CE
+
+001^22CF
+002^#Curly Logical And#
+003^#22CF
+
+001^22D0
+002^#Double Subset#
+003^#22D0
+
+001^22D1
+002^#Double Superset#
+003^#22D1
+
+001^22D2
+002^#Double Intersection#
+003^#22D2
+
+001^22D3
+002^#Double Union#
+003^#22D3
+
+001^22D4
+002^#Pitchfork#
+003^#22D4
+
+001^22D5
+002^#Equal And Parallel To#
+003^#22D5
+
+001^22D6
+002^#Less-Than With Dot#
+003^#22D6
+
+001^22D7
+002^#Greater-Than With Dot#
+003^#22D7
+
+001^22D8
+002^#Very Much Less-Than#
+003^#22D8
+
+001^22D9
+002^#Very Much Greater-Than#
+003^#22D9
+
+001^22DA
+002^#Less-Than Equal To Or Greater-Than#
+003^#22DA
+
+001^22DB
+002^#Greater-Than Equal To Or Less-Than#
+003^#22DB
+
+001^22DC
+002^#Equal To Or Less-Than#
+003^#22DC
+
+001^22DD
+002^#Equal To Or Greater-Than#
+003^#22DD
+
+001^22DE
+002^#Equal To Or Precedes#
+003^#22DE
+
+001^22DF
+002^#Equal To Or Succeeds#
+003^#22DF
+
+001^22E0
+002^#Does Not Precede Or Equal#
+003^#22E0
+
+001^22E1
+002^#Does Not Succeed Or Equal#
+003^#22E1
+
+001^22E2
+002^#Not Square Image Of Or Equal To#
+003^#22E2
+
+001^22E3
+002^#Not Square Original Of Or Equal To#
+003^#22E3
+
+001^22E4
+002^#Square Image Of Or Not Equal To#
+003^#22E4
+
+001^22E5
+002^#Square Original Of Or Not Equal To#
+003^#22E5
+
+001^22E6
+002^#Less-Than But Not Equivalent To#
+003^#22E6
+
+001^22E7
+002^#Greater-Than But Not Equivalent To#
+003^#22E7
+
+001^22E8
+002^#Precedes But Not Equivalent To#
+003^#22E8
+
+001^22E9
+002^#Succeeds But Not Equivalent To#
+003^#22E9
+
+001^22EA
+002^#Not Normal Subgroup Of#
+003^#22EA
+
+001^22EB
+002^#Does Not Contain As Normal Subgroup#
+003^#22EB
+
+001^22EC
+002^#Not Normal Subgroup Of Or Equal To#
+003^#22EC
+
+001^22ED
+002^#Does Not Contain As Normal Subgroup Or Equal#
+003^#22ED
+
+001^22EE
+002^#Vertical Ellipsis#
+003^#22EE
+
+001^22EF
+002^#Midline Horizontal Ellipsis#
+003^#22EF
+
+001^22F0
+002^#Up Right Diagonal Ellipsis#
+003^#22F0
+
+001^22F1
+002^#Down Right Diagonal Ellipsis#
+003^#22F1
+
+001^22F2
+002^#Element Of With Long Horizontal Stroke#
+003^#22F2
+
+001^22F3
+002^#Element Of With Vertical Bar At End Of Horizontal Stroke#
+003^#22F3
+
+001^22F4
+002^#Small Element Of With Vertical Bar At End Of Horizontal Stroke#
+003^#22F4
+
+001^22F5
+002^#Element Of With Dot Above#
+003^#22F5
+
+001^22F6
+002^#Element Of With Overbar#
+003^#22F6
+
+001^22F7
+002^#Small Element Of With Overbar#
+003^#22F7
+
+001^22F8
+002^#Element Of With Underbar#
+003^#22F8
+
+001^22F9
+002^#Element Of With Two Horizontal Strokes#
+003^#22F9
+
+001^22FA
+002^#Contains With Long Horizontal Stroke#
+003^#22FA
+
+001^22FB
+002^#Contains With Vertical Bar At End Of Horizontal Stroke#
+003^#22FB
+
+001^22FC
+002^#Small Contains With Vertical Bar At End Of Horizontal Stroke#
+003^#22FC
+
+001^22FD
+002^#Contains With Overbar#
+003^#22FD
+
+001^22FE
+002^#Small Contains With Overbar#
+003^#22FE
+
+001^22FF
+002^#Z Notation Bag Membership#
+003^#22FF
+
+001^2300
+002^#Diameter Sign#
+003^#2300
+
+001^2301
+002^#Electric Arrow#
+003^#2301
+
+001^2302
+002^#House#
+003^#2302
+
+001^2303
+002^#Up Arrowhead#
+003^#2303
+
+001^2304
+002^#Down Arrowhead#
+003^#2304
+
+001^2305
+002^#Projective#
+003^#2305
+
+001^2306
+002^#Perspective#
+003^#2306
+
+001^2307
+002^#Wavy Line#
+003^#2307
+
+001^2308
+002^#Left Ceiling#
+003^#2308
+
+001^2309
+002^#Right Ceiling#
+003^#2309
+
+001^230A
+002^#Left Floor#
+003^#230A
+
+001^230B
+002^#Right Floor#
+003^#230B
+
+001^230C
+002^#Bottom Right Crop#
+003^#230C
+
+001^230D
+002^#Bottom Left Crop#
+003^#230D
+
+001^230E
+002^#Top Right Crop#
+003^#230E
+
+001^230F
+002^#Top Left Crop#
+003^#230F
+
+001^2310
+002^#Reversed Not Sign#
+003^#2310
+
+001^2311
+002^#Square Lozenge#
+003^#2311
+
+001^2312
+002^#Arc#
+003^#2312
+
+001^2313
+002^#Segment#
+003^#2313
+
+001^2314
+002^#Sector#
+003^#2314
+
+001^2315
+002^#Telephone Recorder#
+003^#2315
+
+001^2316
+002^#Position Indicator#
+003^#2316
+
+001^2317
+002^#Viewdata Square#
+003^#2317
+
+001^2318
+002^#Place Of Interest Sign#
+003^#2318
+
+001^2319
+002^#Turned Not Sign#
+003^#2319
+
+001^231A
+002^#Watch#
+003^#231A
+
+001^231B
+002^#Hourglass#
+003^#231B
+
+001^231C
+002^#Top Left Corner#
+003^#231C
+
+001^231D
+002^#Top Right Corner#
+003^#231D
+
+001^231E
+002^#Bottom Left Corner#
+003^#231E
+
+001^231F
+002^#Bottom Right Corner#
+003^#231F
+
+001^2320
+002^#Top Half Integral#
+003^#2320
+
+001^2321
+002^#Bottom Half Integral#
+003^#2321
+
+001^2322
+002^#Frown#
+003^#2322
+
+001^2323
+002^#Smile#
+003^#2323
+
+001^2324
+002^#Up Arrowhead Between Two Horizontal Bars#
+003^#2324
+
+001^2325
+002^#Option Key#
+003^#2325
+
+001^2326
+002^#Erase To The Right#
+003^#2326
+
+001^2327
+002^#X In A Rectangle Box#
+003^#2327
+
+001^2328
+002^#Keyboard#
+003^#2328
+
+001^2329
+002^#Left-Pointing Angle Bracket#
+003^#2329
+
+001^232A
+002^#Right-Pointing Angle Bracket#
+003^#232A
+
+001^232B
+002^#Erase To The Left#
+003^#232B
+
+001^232C
+002^#Benzene Ring#
+003^#232C
+
+001^232D
+002^#Cylindricity#
+003^#232D
+
+001^232E
+002^#All Around-Profile#
+003^#232E
+
+001^232F
+002^#Symmetry#
+003^#232F
+
+001^2330
+002^#Total Runout#
+003^#2330
+
+001^2331
+002^#Dimension Origin#
+003^#2331
+
+001^2332
+002^#Conical Taper#
+003^#2332
+
+001^2333
+002^#Slope#
+003^#2333
+
+001^2334
+002^#Counterbore#
+003^#2334
+
+001^2335
+002^#Countersink#
+003^#2335
+
+001^2336
+002^#Apl Functional Symbol I-Beam#
+003^#2336
+
+001^2337
+002^#Apl Functional Symbol Squish Quad#
+003^#2337
+
+001^2338
+002^#Apl Functional Symbol Quad Equal#
+003^#2338
+
+001^2339
+002^#Apl Functional Symbol Quad Divide#
+003^#2339
+
+001^233A
+002^#Apl Functional Symbol Quad Diamond#
+003^#233A
+
+001^233B
+002^#Apl Functional Symbol Quad Jot#
+003^#233B
+
+001^233C
+002^#Apl Functional Symbol Quad Circle#
+003^#233C
+
+001^233D
+002^#Apl Functional Symbol Circle Stile#
+003^#233D
+
+001^233E
+002^#Apl Functional Symbol Circle Jot#
+003^#233E
+
+001^233F
+002^#Apl Functional Symbol Slash Bar#
+003^#233F
+
+001^2340
+002^#Apl Functional Symbol Backslash Bar#
+003^#2340
+
+001^2341
+002^#Apl Functional Symbol Quad Slash#
+003^#2341
+
+001^2342
+002^#Apl Functional Symbol Quad Backslash#
+003^#2342
+
+001^2343
+002^#Apl Functional Symbol Quad Less-Than#
+003^#2343
+
+001^2344
+002^#Apl Functional Symbol Quad Greater-Than#
+003^#2344
+
+001^2345
+002^#Apl Functional Symbol Leftwards Vane#
+003^#2345
+
+001^2346
+002^#Apl Functional Symbol Rightwards Vane#
+003^#2346
+
+001^2347
+002^#Apl Functional Symbol Quad Leftwards Arrow#
+003^#2347
+
+001^2348
+002^#Apl Functional Symbol Quad Rightwards Arrow#
+003^#2348
+
+001^2349
+002^#Apl Functional Symbol Circle Backslash#
+003^#2349
+
+001^234A
+002^#Apl Functional Symbol Down Tack Underbar#
+003^#234A
+
+001^234B
+002^#Apl Functional Symbol Delta Stile#
+003^#234B
+
+001^234C
+002^#Apl Functional Symbol Quad Down Caret#
+003^#234C
+
+001^234D
+002^#Apl Functional Symbol Quad Delta#
+003^#234D
+
+001^234E
+002^#Apl Functional Symbol Down Tack Jot#
+003^#234E
+
+001^234F
+002^#Apl Functional Symbol Upwards Vane#
+003^#234F
+
+001^2350
+002^#Apl Functional Symbol Quad Upwards Arrow#
+003^#2350
+
+001^2351
+002^#Apl Functional Symbol Up Tack Overbar#
+003^#2351
+
+001^2352
+002^#Apl Functional Symbol Del Stile#
+003^#2352
+
+001^2353
+002^#Apl Functional Symbol Quad Up Caret#
+003^#2353
+
+001^2354
+002^#Apl Functional Symbol Quad Del#
+003^#2354
+
+001^2355
+002^#Apl Functional Symbol Up Tack Jot#
+003^#2355
+
+001^2356
+002^#Apl Functional Symbol Downwards Vane#
+003^#2356
+
+001^2357
+002^#Apl Functional Symbol Quad Downwards Arrow#
+003^#2357
+
+001^2358
+002^#Apl Functional Symbol Quote Underbar#
+003^#2358
+
+001^2359
+002^#Apl Functional Symbol Delta Underbar#
+003^#2359
+
+001^235A
+002^#Apl Functional Symbol Diamond Underbar#
+003^#235A
+
+001^235B
+002^#Apl Functional Symbol Jot Underbar#
+003^#235B
+
+001^235C
+002^#Apl Functional Symbol Circle Underbar#
+003^#235C
+
+001^235D
+002^#Apl Functional Symbol Up Shoe Jot#
+003^#235D
+
+001^235E
+002^#Apl Functional Symbol Quote Quad#
+003^#235E
+
+001^235F
+002^#Apl Functional Symbol Circle Star#
+003^#235F
+
+001^2360
+002^#Apl Functional Symbol Quad Colon#
+003^#2360
+
+001^2361
+002^#Apl Functional Symbol Up Tack Diaeresis#
+003^#2361
+
+001^2362
+002^#Apl Functional Symbol Del Diaeresis#
+003^#2362
+
+001^2363
+002^#Apl Functional Symbol Star Diaeresis#
+003^#2363
+
+001^2364
+002^#Apl Functional Symbol Jot Diaeresis#
+003^#2364
+
+001^2365
+002^#Apl Functional Symbol Circle Diaeresis#
+003^#2365
+
+001^2366
+002^#Apl Functional Symbol Down Shoe Stile#
+003^#2366
+
+001^2367
+002^#Apl Functional Symbol Left Shoe Stile#
+003^#2367
+
+001^2368
+002^#Apl Functional Symbol Tilde Diaeresis#
+003^#2368
+
+001^2369
+002^#Apl Functional Symbol Greater-Than Diaeresis#
+003^#2369
+
+001^236A
+002^#Apl Functional Symbol Comma Bar#
+003^#236A
+
+001^236B
+002^#Apl Functional Symbol Del Tilde#
+003^#236B
+
+001^236C
+002^#Apl Functional Symbol Zilde#
+003^#236C
+
+001^236D
+002^#Apl Functional Symbol Stile Tilde#
+003^#236D
+
+001^236E
+002^#Apl Functional Symbol Semicolon Underbar#
+003^#236E
+
+001^236F
+002^#Apl Functional Symbol Quad Not Equal#
+003^#236F
+
+001^2370
+002^#Apl Functional Symbol Quad Question#
+003^#2370
+
+001^2371
+002^#Apl Functional Symbol Down Caret Tilde#
+003^#2371
+
+001^2372
+002^#Apl Functional Symbol Up Caret Tilde#
+003^#2372
+
+001^2373
+002^#Apl Functional Symbol Iota#
+003^#2373
+
+001^2374
+002^#Apl Functional Symbol Rho#
+003^#2374
+
+001^2375
+002^#Apl Functional Symbol Omega#
+003^#2375
+
+001^2376
+002^#Apl Functional Symbol Alpha Underbar#
+003^#2376
+
+001^2377
+002^#Apl Functional Symbol Epsilon Underbar#
+003^#2377
+
+001^2378
+002^#Apl Functional Symbol Iota Underbar#
+003^#2378
+
+001^2379
+002^#Apl Functional Symbol Omega Underbar#
+003^#2379
+
+001^237A
+002^#Apl Functional Symbol Alpha#
+003^#237A
+
+001^237B
+002^#Not Check Mark#
+003^#237B
+
+001^237C
+002^#Right Angle With Downwards Zigzag Arrow#
+003^#237C
+
+001^237D
+002^#Shouldered Open Box#
+003^#237D
+
+001^237E
+002^#Bell Symbol#
+003^#237E
+
+001^237F
+002^#Vertical Line With Middle Dot#
+003^#237F
+
+001^2380
+002^#Insertion Symbol#
+003^#2380
+
+001^2381
+002^#Continuous Underline Symbol#
+003^#2381
+
+001^2382
+002^#Discontinuous Underline Symbol#
+003^#2382
+
+001^2383
+002^#Emphasis Symbol#
+003^#2383
+
+001^2384
+002^#Composition Symbol#
+003^#2384
+
+001^2385
+002^#White Square With Centre Vertical Line#
+003^#2385
+
+001^2386
+002^#Enter Symbol#
+003^#2386
+
+001^2387
+002^#Alternative Key Symbol#
+003^#2387
+
+001^2388
+002^#Helm Symbol#
+003^#2388
+
+001^2389
+002^#Circled Horizontal Bar With Notch#
+003^#2389
+
+001^238A
+002^#Circled Triangle Down#
+003^#238A
+
+001^238B
+002^#Broken Circle With Northwest Arrow#
+003^#238B
+
+001^238C
+002^#Undo Symbol#
+003^#238C
+
+001^238D
+002^#Monostable Symbol#
+003^#238D
+
+001^238E
+002^#Hysteresis Symbol#
+003^#238E
+
+001^238F
+002^#Open-Circuit-Output H-Type Symbol#
+003^#238F
+
+001^2390
+002^#Open-Circuit-Output L-Type Symbol#
+003^#2390
+
+001^2391
+002^#Passive-Pull-Down-Output Symbol#
+003^#2391
+
+001^2392
+002^#Passive-Pull-Up-Output Symbol#
+003^#2392
+
+001^2393
+002^#Direct Current Symbol Form Two#
+003^#2393
+
+001^2394
+002^#Software-Function Symbol#
+003^#2394
+
+001^2395
+002^#Apl Functional Symbol Quad#
+003^#2395
+
+001^2396
+002^#Decimal Separator Key Symbol#
+003^#2396
+
+001^2397
+002^#Previous Page#
+003^#2397
+
+001^2398
+002^#Next Page#
+003^#2398
+
+001^2399
+002^#Print Screen Symbol#
+003^#2399
+
+001^239A
+002^#Clear Screen Symbol#
+003^#239A
+
+001^239B
+002^#Left Parenthesis Upper Hook#
+003^#239B
+
+001^239C
+002^#Left Parenthesis Extension#
+003^#239C
+
+001^239D
+002^#Left Parenthesis Lower Hook#
+003^#239D
+
+001^239E
+002^#Right Parenthesis Upper Hook#
+003^#239E
+
+001^239F
+002^#Right Parenthesis Extension#
+003^#239F
+
+001^23A0
+002^#Right Parenthesis Lower Hook#
+003^#23A0
+
+001^23A1
+002^#Left Square Bracket Upper Corner#
+003^#23A1
+
+001^23A2
+002^#Left Square Bracket Extension#
+003^#23A2
+
+001^23A3
+002^#Left Square Bracket Lower Corner#
+003^#23A3
+
+001^23A4
+002^#Right Square Bracket Upper Corner#
+003^#23A4
+
+001^23A5
+002^#Right Square Bracket Extension#
+003^#23A5
+
+001^23A6
+002^#Right Square Bracket Lower Corner#
+003^#23A6
+
+001^23A7
+002^#Left Curly Bracket Upper Hook#
+003^#23A7
+
+001^23A8
+002^#Left Curly Bracket Middle Piece#
+003^#23A8
+
+001^23A9
+002^#Left Curly Bracket Lower Hook#
+003^#23A9
+
+001^23AA
+002^#Curly Bracket Extension#
+003^#23AA
+
+001^23AB
+002^#Right Curly Bracket Upper Hook#
+003^#23AB
+
+001^23AC
+002^#Right Curly Bracket Middle Piece#
+003^#23AC
+
+001^23AD
+002^#Right Curly Bracket Lower Hook#
+003^#23AD
+
+001^23AE
+002^#Integral Extension#
+003^#23AE
+
+001^23AF
+002^#Horizontal Line Extension#
+003^#23AF
+
+001^23B0
+002^#Upper Left Or Lower Right Curly Bracket Section#
+003^#23B0
+
+001^23B1
+002^#Upper Right Or Lower Left Curly Bracket Section#
+003^#23B1
+
+001^23B2
+002^#Summation Top#
+003^#23B2
+
+001^23B3
+002^#Summation Bottom#
+003^#23B3
+
+001^23B4
+002^#Top Square Bracket#
+003^#23B4
+
+001^23B5
+002^#Bottom Square Bracket#
+003^#23B5
+
+001^23B6
+002^#Bottom Square Bracket Over Top Square Bracket#
+003^#23B6
+
+001^23B7
+002^#Radical Symbol Bottom#
+003^#23B7
+
+001^23B8
+002^#Left Vertical Box Line#
+003^#23B8
+
+001^23B9
+002^#Right Vertical Box Line#
+003^#23B9
+
+001^23BA
+002^#Horizontal Scan Line-1#
+003^#23BA
+
+001^23BB
+002^#Horizontal Scan Line-3#
+003^#23BB
+
+001^23BC
+002^#Horizontal Scan Line-7#
+003^#23BC
+
+001^23BD
+002^#Horizontal Scan Line-9#
+003^#23BD
+
+001^23BE
+002^#Dentistry Symbol Light Vertical And Top Right#
+003^#23BE
+
+001^23BF
+002^#Dentistry Symbol Light Vertical And Bottom Right#
+003^#23BF
+
+001^23C0
+002^#Dentistry Symbol Light Vertical With Circle#
+003^#23C0
+
+001^23C1
+002^#Dentistry Symbol Light Down And Horizontal With Circle#
+003^#23C1
+
+001^23C2
+002^#Dentistry Symbol Light Up And Horizontal With Circle#
+003^#23C2
+
+001^23C3
+002^#Dentistry Symbol Light Vertical With Triangle#
+003^#23C3
+
+001^23C4
+002^#Dentistry Symbol Light Down And Horizontal With Triangle#
+003^#23C4
+
+001^23C5
+002^#Dentistry Symbol Light Up And Horizontal With Triangle#
+003^#23C5
+
+001^23C6
+002^#Dentistry Symbol Light Vertical And Wave#
+003^#23C6
+
+001^23C7
+002^#Dentistry Symbol Light Down And Horizontal With Wave#
+003^#23C7
+
+001^23C8
+002^#Dentistry Symbol Light Up And Horizontal With Wave#
+003^#23C8
+
+001^23C9
+002^#Dentistry Symbol Light Down And Horizontal#
+003^#23C9
+
+001^23CA
+002^#Dentistry Symbol Light Up And Horizontal#
+003^#23CA
+
+001^23CB
+002^#Dentistry Symbol Light Vertical And Top Left#
+003^#23CB
+
+001^23CC
+002^#Dentistry Symbol Light Vertical And Bottom Left#
+003^#23CC
+
+001^23CD
+002^#Square Foot#
+003^#23CD
+
+001^23CE
+002^#Return Symbol#
+003^#23CE
+
+001^23CF
+002^#Eject Symbol#
+003^#23CF
+
+001^25A0
+002^#Black Square#
+003^#25A0
+
+001^25A1
+002^#White Square#
+003^#25A1
+
+001^25A2
+002^#White Square With Rounded Corners#
+003^#25A2
+
+001^25A3
+002^#White Square Containing Black Small Square#
+003^#25A3
+
+001^25A4
+002^#Square With Horizontal Fill#
+003^#25A4
+
+001^25A5
+002^#Square With Vertical Fill#
+003^#25A5
+
+001^25A6
+002^#Square With Orthogonal Crosshatch Fill#
+003^#25A6
+
+001^25A7
+002^#Square With Upper Left To Lower Right Fill#
+003^#25A7
+
+001^25A8
+002^#Square With Upper Right To Lower Left Fill#
+003^#25A8
+
+001^25A9
+002^#Square With Diagonal Crosshatch Fill#
+003^#25A9
+
+001^25AA
+002^#Black Small Square#
+003^#25AA
+
+001^25AB
+002^#White Small Square#
+003^#25AB
+
+001^25AC
+002^#Black Rectangle#
+003^#25AC
+
+001^25AD
+002^#White Rectangle#
+003^#25AD
+
+001^25AE
+002^#Black Vertical Rectangle#
+003^#25AE
+
+001^25AF
+002^#White Vertical Rectangle#
+003^#25AF
+
+001^25B0
+002^#Black Parallelogram#
+003^#25B0
+
+001^25B1
+002^#White Parallelogram#
+003^#25B1
+
+001^25B2
+002^#Black Up-Pointing Triangle#
+003^#25B2
+
+001^25B3
+002^#White Up-Pointing Triangle#
+003^#25B3
+
+001^25B4
+002^#Black Up-Pointing Small Triangle#
+003^#25B4
+
+001^25B5
+002^#White Up-Pointing Small Triangle#
+003^#25B5
+
+001^25B6
+002^#Black Right-Pointing Triangle#
+003^#25B6
+
+001^25B7
+002^#White Right-Pointing Triangle#
+003^#25B7
+
+001^25B8
+002^#Black Right-Pointing Small Triangle#
+003^#25B8
+
+001^25B9
+002^#White Right-Pointing Small Triangle#
+003^#25B9
+
+001^25BA
+002^#Black Right-Pointing Pointer#
+003^#25BA
+
+001^25BB
+002^#White Right-Pointing Pointer#
+003^#25BB
+
+001^25BC
+002^#Black Down-Pointing Triangle#
+003^#25BC
+
+001^25BD
+002^#White Down-Pointing Triangle#
+003^#25BD
+
+001^25BE
+002^#Black Down-Pointing Small Triangle#
+003^#25BE
+
+001^25BF
+002^#White Down-Pointing Small Triangle#
+003^#25BF
+
+001^25C0
+002^#Black Left-Pointing Triangle#
+003^#25C0
+
+001^25C1
+002^#White Left-Pointing Triangle#
+003^#25C1
+
+001^25C2
+002^#Black Left-Pointing Small Triangle#
+003^#25C2
+
+001^25C3
+002^#White Left-Pointing Small Triangle#
+003^#25C3
+
+001^25C4
+002^#Black Left-Pointing Pointer#
+003^#25C4
+
+001^25C5
+002^#White Left-Pointing Pointer#
+003^#25C5
+
+001^25C6
+002^#Black Diamond#
+003^#25C6
+
+001^25C7
+002^#White Diamond#
+003^#25C7
+
+001^25C8
+002^#White Diamond Containing Black Small Diamond#
+003^#25C8
+
+001^25C9
+002^#Fisheye#
+003^#25C9
+
+001^25CA
+002^#Lozenge#
+003^#25CA
+
+001^25CB
+002^#White Circle#
+003^#25CB
+
+001^25CC
+002^#Dotted Circle#
+003^#25CC
+
+001^25CD
+002^#Circle With Vertical Fill#
+003^#25CD
+
+001^25CE
+002^#Bullseye#
+003^#25CE
+
+001^25CF
+002^#Black Circle#
+003^#25CF
+
+001^25D0
+002^#Circle With Left Half Black#
+003^#25D0
+
+001^25D1
+002^#Circle With Right Half Black#
+003^#25D1
+
+001^25D2
+002^#Circle With Lower Half Black#
+003^#25D2
+
+001^25D3
+002^#Circle With Upper Half Black#
+003^#25D3
+
+001^25D4
+002^#Circle With Upper Right Quadrant Black#
+003^#25D4
+
+001^25D5
+002^#Circle With All But Upper Left Quadrant Black#
+003^#25D5
+
+001^25D6
+002^#Left Half Black Circle#
+003^#25D6
+
+001^25D7
+002^#Right Half Black Circle#
+003^#25D7
+
+001^25D8
+002^#Inverse Bullet#
+003^#25D8
+
+001^25D9
+002^#Inverse White Circle#
+003^#25D9
+
+001^25DA
+002^#Upper Half Inverse White Circle#
+003^#25DA
+
+001^25DB
+002^#Lower Half Inverse White Circle#
+003^#25DB
+
+001^25DC
+002^#Upper Left Quadrant Circular Arc#
+003^#25DC
+
+001^25DD
+002^#Upper Right Quadrant Circular Arc#
+003^#25DD
+
+001^25DE
+002^#Lower Right Quadrant Circular Arc#
+003^#25DE
+
+001^25DF
+002^#Lower Left Quadrant Circular Arc#
+003^#25DF
+
+001^25E0
+002^#Upper Half Circle#
+003^#25E0
+
+001^25E1
+002^#Lower Half Circle#
+003^#25E1
+
+001^25E2
+002^#Black Lower Right Triangle#
+003^#25E2
+
+001^25E3
+002^#Black Lower Left Triangle#
+003^#25E3
+
+001^25E4
+002^#Black Upper Left Triangle#
+003^#25E4
+
+001^25E5
+002^#Black Upper Right Triangle#
+003^#25E5
+
+001^25E6
+002^#White Bullet#
+003^#25E6
+
+001^25E7
+002^#Square With Left Half Black#
+003^#25E7
+
+001^25E8
+002^#Square With Right Half Black#
+003^#25E8
+
+001^25E9
+002^#Square With Upper Left Diagonal Half Black#
+003^#25E9
+
+001^25EA
+002^#Square With Lower Right Diagonal Half Black#
+003^#25EA
+
+001^25EB
+002^#White Square With Vertical Bisecting Line#
+003^#25EB
+
+001^25EC
+002^#White Up-Pointing Triangle With Dot#
+003^#25EC
+
+001^25ED
+002^#Up-Pointing Triangle With Left Half Black#
+003^#25ED
+
+001^25EE
+002^#Up-Pointing Triangle With Right Half Black#
+003^#25EE
+
+001^25EF
+002^#Large Circle#
+003^#25EF
+
+001^25F0
+002^#White Square With Upper Left Quadrant#
+003^#25F0
+
+001^25F1
+002^#White Square With Lower Left Quadrant#
+003^#25F1
+
+001^25F2
+002^#White Square With Lower Right Quadrant#
+003^#25F2
+
+001^25F3
+002^#White Square With Upper Right Quadrant#
+003^#25F3
+
+001^25F4
+002^#White Circle With Upper Left Quadrant#
+003^#25F4
+
+001^25F5
+002^#White Circle With Lower Left Quadrant#
+003^#25F5
+
+001^25F6
+002^#White Circle With Lower Right Quadrant#
+003^#25F6
+
+001^25F7
+002^#White Circle With Upper Right Quadrant#
+003^#25F7
+
+001^25F8
+002^#Upper Left Triangle#
+003^#25F8
+
+001^25F9
+002^#Upper Right Triangle#
+003^#25F9
+
+001^25FA
+002^#Lower Left Triangle#
+003^#25FA
+
+001^25FB
+002^#White Medium Square#
+003^#25FB
+
+001^25FC
+002^#Black Medium Square#
+003^#25FC
+
+001^25FD
+002^#White Medium Small Square#
+003^#25FD
+
+001^25FE
+002^#Black Medium Small Square#
+003^#25FE
+
+001^25FF
+002^#Lower Right Triangle#
+003^#25FF
+
+001^2600
+002^#Black Sun With Rays#
+003^#2600
+
+001^2601
+002^#Cloud#
+003^#2601
+
+001^2602
+002^#Umbrella#
+003^#2602
+
+001^2603
+002^#Snowman#
+003^#2603
+
+001^2604
+002^#Comet#
+003^#2604
+
+001^2605
+002^#Black Star#
+003^#2605
+
+001^2606
+002^#White Star#
+003^#2606
+
+001^2607
+002^#Lightning#
+003^#2607
+
+001^2608
+002^#Thunderstorm#
+003^#2608
+
+001^2609
+002^#Sun#
+003^#2609
+
+001^260A
+002^#Ascending Node#
+003^#260A
+
+001^260B
+002^#Descending Node#
+003^#260B
+
+001^260C
+002^#Conjunction#
+003^#260C
+
+001^260D
+002^#Opposition#
+003^#260D
+
+001^260E
+002^#Black Telephone#
+003^#260E
+
+001^260F
+002^#White Telephone#
+003^#260F
+
+001^2610
+002^#Ballot Box#
+003^#2610
+
+001^2611
+002^#Ballot Box With Check#
+003^#2611
+
+001^2612
+002^#Ballot Box With X#
+003^#2612
+
+001^2613
+002^#Saltire#
+003^#2613
+
+001^2614
+002^#Umbrella With Rain Drops#
+003^#2614
+
+001^2615
+002^#Hot Beverage#
+003^#2615
+
+001^2616
+002^#White Shogi Piece#
+003^#2616
+
+001^2617
+002^#Black Shogi Piece#
+003^#2617
+
+001^2618
+002^#Shamrock#
+003^#2618
+
+001^2619
+002^#Reversed Rotated Floral Heart Bullet#
+003^#2619
+
+001^261A
+002^#Black Left Pointing Index#
+003^#261A
+
+001^261B
+002^#Black Right Pointing Index#
+003^#261B
+
+001^261C
+002^#White Left Pointing Index#
+003^#261C
+
+001^261D
+002^#White Up Pointing Index#
+003^#261D
+
+001^261E
+002^#White Right Pointing Index#
+003^#261E
+
+001^261F
+002^#White Down Pointing Index#
+003^#261F
+
+001^2620
+002^#Skull And Crossbones#
+003^#2620
+
+001^2621
+002^#Caution Sign#
+003^#2621
+
+001^2622
+002^#Radioactive Sign#
+003^#2622
+
+001^2623
+002^#Biohazard Sign#
+003^#2623
+
+001^2624
+002^#Caduceus#
+003^#2624
+
+001^2625
+002^#Ankh#
+003^#2625
+
+001^2626
+002^#Orthodox Cross#
+003^#2626
+
+001^2627
+002^#Chi Rho#
+003^#2627
+
+001^2628
+002^#Cross Of Lorraine#
+003^#2628
+
+001^2629
+002^#Cross Of Jerusalem#
+003^#2629
+
+001^262A
+002^#Star And Crescent#
+003^#262A
+
+001^262B
+002^#Farsi Symbol#
+003^#262B
+
+001^262C
+002^#Adi Shakti#
+003^#262C
+
+001^262D
+002^#Hammer And Sickle#
+003^#262D
+
+001^262E
+002^#Peace Symbol#
+003^#262E
+
+001^262F
+002^#Yin Yang#
+003^#262F
+
+001^2630
+002^#Trigram For Heaven#
+003^#2630
+
+001^2631
+002^#Trigram For Lake#
+003^#2631
+
+001^2632
+002^#Trigram For Fire#
+003^#2632
+
+001^2633
+002^#Trigram For Thunder#
+003^#2633
+
+001^2634
+002^#Trigram For Wind#
+003^#2634
+
+001^2635
+002^#Trigram For Water#
+003^#2635
+
+001^2636
+002^#Trigram For Mountain#
+003^#2636
+
+001^2637
+002^#Trigram For Earth#
+003^#2637
+
+001^2638
+002^#Wheel Of Dharma#
+003^#2638
+
+001^2639
+002^#White Frowning Face#
+003^#2639
+
+001^263A
+002^#White Smiling Face#
+003^#263A
+
+001^263B
+002^#Black Smiling Face#
+003^#263B
+
+001^263C
+002^#White Sun With Rays#
+003^#263C
+
+001^263D
+002^#First Quarter Moon#
+003^#263D
+
+001^263E
+002^#Last Quarter Moon#
+003^#263E
+
+001^263F
+002^#Mercury#
+003^#263F
+
+001^2640
+002^#Female Sign#
+003^#2640
+
+001^2641
+002^#Earth#
+003^#2641
+
+001^2642
+002^#Male Sign#
+003^#2642
+
+001^2643
+002^#Jupiter#
+003^#2643
+
+001^2644
+002^#Saturn#
+003^#2644
+
+001^2645
+002^#Uranus#
+003^#2645
+
+001^2646
+002^#Neptune#
+003^#2646
+
+001^2647
+002^#Pluto#
+003^#2647
+
+001^2648
+002^#Aries#
+003^#2648
+
+001^2649
+002^#Taurus#
+003^#2649
+
+001^264A
+002^#Gemini#
+003^#264A
+
+001^264B
+002^#Cancer#
+003^#264B
+
+001^264C
+002^#Leo#
+003^#264C
+
+001^264D
+002^#Virgo#
+003^#264D
+
+001^264E
+002^#Libra#
+003^#264E
+
+001^264F
+002^#Scorpius#
+003^#264F
+
+001^2650
+002^#Sagittarius#
+003^#2650
+
+001^2651
+002^#Capricorn#
+003^#2651
+
+001^2652
+002^#Aquarius#
+003^#2652
+
+001^2653
+002^#Pisces#
+003^#2653
+
+001^2654
+002^#White Chess King#
+003^#2654
+
+001^2655
+002^#White Chess Queen#
+003^#2655
+
+001^2656
+002^#White Chess Rook#
+003^#2656
+
+001^2657
+002^#White Chess Bishop#
+003^#2657
+
+001^2658
+002^#White Chess Knight#
+003^#2658
+
+001^2659
+002^#White Chess Pawn#
+003^#2659
+
+001^265A
+002^#Black Chess King#
+003^#265A
+
+001^265B
+002^#Black Chess Queen#
+003^#265B
+
+001^265C
+002^#Black Chess Rook#
+003^#265C
+
+001^265D
+002^#Black Chess Bishop#
+003^#265D
+
+001^265E
+002^#Black Chess Knight#
+003^#265E
+
+001^265F
+002^#Black Chess Pawn#
+003^#265F
+
+001^2660
+002^#Black Spade Suit#
+003^#2660
+
+001^2661
+002^#White Heart Suit#
+003^#2661
+
+001^2662
+002^#White Diamond Suit#
+003^#2662
+
+001^2663
+002^#Black Club Suit#
+003^#2663
+
+001^2664
+002^#White Spade Suit#
+003^#2664
+
+001^2665
+002^#Black Heart Suit#
+003^#2665
+
+001^2666
+002^#Black Diamond Suit#
+003^#2666
+
+001^2667
+002^#White Club Suit#
+003^#2667
+
+001^2668
+002^#Hot Springs#
+003^#2668
+
+001^2669
+002^#Quarter Note#
+003^#2669
+
+001^266A
+002^#Eighth Note#
+003^#266A
+
+001^266B
+002^#Beamed Eighth Notes#
+003^#266B
+
+001^266C
+002^#Beamed Sixteenth Notes#
+003^#266C
+
+001^266D
+002^#Music Flat Sign#
+003^#266D
+
+001^266E
+002^#Music Natural Sign#
+003^#266E
+
+001^266F
+002^#Music Sharp Sign#
+003^#266F
+
+001^2670
+002^#West Syriac Cross#
+003^#2670
+
+001^2671
+002^#East Syriac Cross#
+003^#2671
+
+001^2672
+002^#Universal Recycling Symbol#
+003^#2672
+
+001^2673
+002^#Recycling Symbol For Type-1 Plastics#
+003^#2673
+
+001^2674
+002^#Recycling Symbol For Type-2 Plastics#
+003^#2674
+
+001^2675
+002^#Recycling Symbol For Type-3 Plastics#
+003^#2675
+
+001^2676
+002^#Recycling Symbol For Type-4 Plastics#
+003^#2676
+
+001^2677
+002^#Recycling Symbol For Type-5 Plastics#
+003^#2677
+
+001^2678
+002^#Recycling Symbol For Type-6 Plastics#
+003^#2678
+
+001^2679
+002^#Recycling Symbol For Type-7 Plastics#
+003^#2679
+
+001^267A
+002^#Recycling Symbol For Generic Materials#
+003^#267A
+
+001^267B
+002^#Black Universal Recycling Symbol#
+003^#267B
+
+001^267C
+002^#Recycled Paper Symbol#
+003^#267C
+
+001^267D
+002^#Partially-Recycled Paper Symbol#
+003^#267D
+
+001^267E
+002^#Permanent Paper Sign#
+003^#267E
+
+001^267F
+002^#Wheelchair Symbol#
+003^#267F
+
+001^2680
+002^#Die Face-1#
+003^#2680
+
+001^2681
+002^#Die Face-2#
+003^#2681
+
+001^2682
+002^#Die Face-3#
+003^#2682
+
+001^2683
+002^#Die Face-4#
+003^#2683
+
+001^2684
+002^#Die Face-5#
+003^#2684
+
+001^2685
+002^#Die Face-6#
+003^#2685
+
+001^2686
+002^#White Circle With Dot Right#
+003^#2686
+
+001^2687
+002^#White Circle With Two Dots#
+003^#2687
+
+001^2688
+002^#Black Circle With White Dot Right#
+003^#2688
+
+001^2689
+002^#Black Circle With Two White Dots#
+003^#2689
+
+001^268A
+002^#Monogram For Yang#
+003^#268A
+
+001^268B
+002^#Monogram For Yin#
+003^#268B
+
+001^268C
+002^#Digram For Greater Yang#
+003^#268C
+
+001^268D
+002^#Digram For Lesser Yin#
+003^#268D
+
+001^268E
+002^#Digram For Lesser Yang#
+003^#268E
+
+001^268F
+002^#Digram For Greater Yin#
+003^#268F
+
+001^2690
+002^#White Flag#
+003^#2690
+
+001^2691
+002^#Black Flag#
+003^#2691
+
+001^2692
+002^#Hammer And Pick#
+003^#2692
+
+001^2693
+002^#Anchor#
+003^#2693
+
+001^2694
+002^#Crossed Swords#
+003^#2694
+
+001^2695
+002^#Staff Of Aesculapius#
+003^#2695
+
+001^2696
+002^#Scales#
+003^#2696
+
+001^2697
+002^#Alembic#
+003^#2697
+
+001^2698
+002^#Flower#
+003^#2698
+
+001^2699
+002^#Gear#
+003^#2699
+
+001^269A
+002^#Staff Of Hermes#
+003^#269A
+
+001^269B
+002^#Atom Symbol#
+003^#269B
+
+001^269C
+002^#Fleur-De-Lis#
+003^#269C
+
+001^269D
+002^#Outlined White Star#
+003^#269D
+
+001^269E
+002^#Three Lines Converging Right#
+003^#269E
+
+001^269F
+002^#Three Lines Converging Left#
+003^#269F
+
+001^26A0
+002^#Warning Sign#
+003^#26A0
+
+001^26A1
+002^#High Voltage Sign#
+003^#26A1
+
+001^26A2
+002^#Doubled Female Sign#
+003^#26A2
+
+001^26A3
+002^#Doubled Male Sign#
+003^#26A3
+
+001^26A4
+002^#Interlocked Female And Male Sign#
+003^#26A4
+
+001^26A5
+002^#Male And Female Sign#
+003^#26A5
+
+001^26A6
+002^#Male With Stroke Sign#
+003^#26A6
+
+001^26A7
+002^#Male With Stroke And Male And Female Sign#
+003^#26A7
+
+001^26A8
+002^#Vertical Male With Stroke Sign#
+003^#26A8
+
+001^26A9
+002^#Horizontal Male With Stroke Sign#
+003^#26A9
+
+001^26AA
+002^#Medium White Circle#
+003^#26AA
+
+001^26AB
+002^#Medium Black Circle#
+003^#26AB
+
+001^26AC
+002^#Medium Small White Circle#
+003^#26AC
+
+001^26AD
+002^#Marriage Symbol#
+003^#26AD
+
+001^26AE
+002^#Divorce Symbol#
+003^#26AE
+
+001^26AF
+002^#Unmarried Partnership Symbol#
+003^#26AF
+
+001^26B0
+002^#Coffin#
+003^#26B0
+
+001^26B1
+002^#Funeral Urn#
+003^#26B1
+
+001^26B2
+002^#Neuter#
+003^#26B2
+
+001^26B3
+002^#Ceres#
+003^#26B3
+
+001^26B4
+002^#Pallas#
+003^#26B4
+
+001^26B5
+002^#Juno#
+003^#26B5
+
+001^26B6
+002^#Vesta#
+003^#26B6
+
+001^26B7
+002^#Chiron#
+003^#26B7
+
+001^26B8
+002^#Black Moon Lilith#
+003^#26B8
+
+001^26B9
+002^#Sextile#
+003^#26B9
+
+001^26BA
+002^#Semisextile#
+003^#26BA
+
+001^26BB
+002^#Quincunx#
+003^#26BB
+
+001^26BC
+002^#Sesquiquadrate#
+003^#26BC
+
+001^26BD
+002^#Soccer Ball#
+003^#26BD
+
+001^26BE
+002^#Baseball#
+003^#26BE
+
+001^26BF
+002^#Squared Key#
+003^#26BF
+
+001^26C0
+002^#White Draughts Man#
+003^#26C0
+
+001^26C1
+002^#White Draughts King#
+003^#26C1
+
+001^26C2
+002^#Black Draughts Man#
+003^#26C2
+
+001^26C3
+002^#Black Draughts King#
+003^#26C3
+
+001^26C4
+002^#Snowman Without Snow#
+003^#26C4
+
+001^26C5
+002^#Sun Behind Cloud#
+003^#26C5
+
+001^26C6
+002^#Rain#
+003^#26C6
+
+001^26C7
+002^#Black Snowman#
+003^#26C7
+
+001^26C8
+002^#Thunder Cloud And Rain#
+003^#26C8
+
+001^26C9
+002^#Turned White Shogi Piece#
+003^#26C9
+
+001^26CA
+002^#Turned Black Shogi Piece#
+003^#26CA
+
+001^26CB
+002^#White Diamond In Square#
+003^#26CB
+
+001^26CC
+002^#Crossing Lanes#
+003^#26CC
+
+001^26CD
+002^#Disabled Car#
+003^#26CD
+
+001^26CE
+002^#Ophiuchus#
+003^#26CE
+
+001^26CF
+002^#Pick#
+003^#26CF
+
+001^26D0
+002^#Car Sliding#
+003^#26D0
+
+001^26D1
+002^#Helmet With White Cross#
+003^#26D1
+
+001^26D2
+002^#Circled Crossing Lanes#
+003^#26D2
+
+001^26D3
+002^#Chains#
+003^#26D3
+
+001^26D4
+002^#No Entry#
+003^#26D4
+
+001^26D5
+002^#Alternate One-Way Left Way Traffic#
+003^#26D5
+
+001^26D6
+002^#Black Two-Way Left Way Traffic#
+003^#26D6
+
+001^26D7
+002^#White Two-Way Left Way Traffic#
+003^#26D7
+
+001^26D8
+002^#Black Left Lane Merge#
+003^#26D8
+
+001^26D9
+002^#White Left Lane Merge#
+003^#26D9
+
+001^26DA
+002^#Drive Slow Sign#
+003^#26DA
+
+001^26DB
+002^#Heavy White Down-Pointing Triangle#
+003^#26DB
+
+001^26DC
+002^#Left Closed Entry#
+003^#26DC
+
+001^26DD
+002^#Squared Saltire#
+003^#26DD
+
+001^26DE
+002^#Falling Diagonal In White Circle In Black Square#
+003^#26DE
+
+001^26DF
+002^#Black Truck#
+003^#26DF
+
+001^26E0
+002^#Restricted Left Entry-1#
+003^#26E0
+
+001^26E1
+002^#Restricted Left Entry-2#
+003^#26E1
+
+001^26E2
+002^#Astronomical Symbol For Uranus#
+003^#26E2
+
+001^26E3
+002^#Heavy Circle With Stroke And Two Dots Above#
+003^#26E3
+
+001^26E4
+002^#Pentagram#
+003^#26E4
+
+001^26E5
+002^#Right-Handed Interlaced Pentagram#
+003^#26E5
+
+001^26E6
+002^#Left-Handed Interlaced Pentagram#
+003^#26E6
+
+001^26E7
+002^#Inverted Pentagram#
+003^#26E7
+
+001^26E8
+002^#Black Cross On Shield#
+003^#26E8
+
+001^26E9
+002^#Shinto Shrine#
+003^#26E9
+
+001^26EA
+002^#Church#
+003^#26EA
+
+001^26EB
+002^#Castle#
+003^#26EB
+
+001^26EC
+002^#Historic Site#
+003^#26EC
+
+001^26ED
+002^#Gear Without Hub#
+003^#26ED
+
+001^26EE
+002^#Gear With Handles#
+003^#26EE
+
+001^26EF
+002^#Map Symbol For Lighthouse#
+003^#26EF
+
+001^26F0
+002^#Mountain#
+003^#26F0
+
+001^26F1
+002^#Umbrella On Ground#
+003^#26F1
+
+001^26F2
+002^#Fountain#
+003^#26F2
+
+001^26F3
+002^#Flag In Hole#
+003^#26F3
+
+001^26F4
+002^#Ferry#
+003^#26F4
+
+001^26F5
+002^#Sailboat#
+003^#26F5
+
+001^26F6
+002^#Square Four Corners#
+003^#26F6
+
+001^26F7
+002^#Skier#
+003^#26F7
+
+001^26F8
+002^#Ice Skate#
+003^#26F8
+
+001^26F9
+002^#Person With Ball#
+003^#26F9
+
+001^26FA
+002^#Tent#
+003^#26FA
+
+001^26FB
+002^#Japanese Bank Symbol#
+003^#26FB
+
+001^26FC
+002^#Headstone Graveyard Symbol#
+003^#26FC
+
+001^26FD
+002^#Fuel Pump#
+003^#26FD
+
+001^26FE
+002^#Cup On Black Square#
+003^#26FE
+
+001^26FF
+002^#White Flag With Horizontal Middle Black Stripe#
+003^#26FF
+
+001^27F0
+002^#Upwards Quadruple Arrow#
+003^#27F0
+
+001^27F1
+002^#Downwards Quadruple Arrow#
+003^#27F1
+
+001^27F2
+002^#Anticlockwise Gapped Circle Arrow#
+003^#27F2
+
+001^27F3
+002^#Clockwise Gapped Circle Arrow#
+003^#27F3
+
+001^27F4
+002^#Right Arrow With Circled Plus#
+003^#27F4
+
+001^27F5
+002^#Long Leftwards Arrow#
+003^#27F5
+
+001^27F6
+002^#Long Rightwards Arrow#
+003^#27F6
+
+001^27F7
+002^#Long Left Right Arrow#
+003^#27F7
+
+001^27F8
+002^#Long Leftwards Double Arrow#
+003^#27F8
+
+001^27F9
+002^#Long Rightwards Double Arrow#
+003^#27F9
+
+001^27FA
+002^#Long Left Right Double Arrow#
+003^#27FA
+
+001^27FB
+002^#Long Leftwards Arrow From Bar#
+003^#27FB
+
+001^27FC
+002^#Long Rightwards Arrow From Bar#
+003^#27FC
+
+001^27FD
+002^#Long Leftwards Double Arrow From Bar#
+003^#27FD
+
+001^27FE
+002^#Long Rightwards Double Arrow From Bar#
+003^#27FE
+
+001^27FF
+002^#Long Rightwards Squiggle Arrow#
+003^#27FF
+
+001^2900
+002^#Rightwards Two-Headed Arrow With Vertical Stroke#
+003^#2900
+
+001^2901
+002^#Rightwards Two-Headed Arrow With Double Vertical Stroke#
+003^#2901
+
+001^2902
+002^#Leftwards Double Arrow With Vertical Stroke#
+003^#2902
+
+001^2903
+002^#Rightwards Double Arrow With Vertical Stroke#
+003^#2903
+
+001^2904
+002^#Left Right Double Arrow With Vertical Stroke#
+003^#2904
+
+001^2905
+002^#Rightwards Two-Headed Arrow From Bar#
+003^#2905
+
+001^2906
+002^#Leftwards Double Arrow From Bar#
+003^#2906
+
+001^2907
+002^#Rightwards Double Arrow From Bar#
+003^#2907
+
+001^2908
+002^#Downwards Arrow With Horizontal Stroke#
+003^#2908
+
+001^2909
+002^#Upwards Arrow With Horizontal Stroke#
+003^#2909
+
+001^290A
+002^#Upwards Triple Arrow#
+003^#290A
+
+001^290B
+002^#Downwards Triple Arrow#
+003^#290B
+
+001^290C
+002^#Leftwards Double Dash Arrow#
+003^#290C
+
+001^290D
+002^#Rightwards Double Dash Arrow#
+003^#290D
+
+001^290E
+002^#Leftwards Triple Dash Arrow#
+003^#290E
+
+001^290F
+002^#Rightwards Triple Dash Arrow#
+003^#290F
+
+001^2910
+002^#Rightwards Two-Headed Triple Dash Arrow#
+003^#2910
+
+001^2911
+002^#Rightwards Arrow With Dotted Stem#
+003^#2911
+
+001^2912
+002^#Upwards Arrow To Bar#
+003^#2912
+
+001^2913
+002^#Downwards Arrow To Bar#
+003^#2913
+
+001^2914
+002^#Rightwards Arrow With Tail With Vertical Stroke#
+003^#2914
+
+001^2915
+002^#Rightwards Arrow With Tail With Double Vertical Stroke#
+003^#2915
+
+001^2916
+002^#Rightwards Two-Headed Arrow With Tail#
+003^#2916
+
+001^2917
+002^#Rightwards Two-Headed Arrow With Tail With Vertical Stroke#
+003^#2917
+
+001^2918
+002^#Rightwards Two-Headed Arrow With Tail With Double Vertical Stroke#
+003^#2918
+
+001^2919
+002^#Leftwards Arrow-Tail#
+003^#2919
+
+001^291A
+002^#Rightwards Arrow-Tail#
+003^#291A
+
+001^291B
+002^#Leftwards Double Arrow-Tail#
+003^#291B
+
+001^291C
+002^#Rightwards Double Arrow-Tail#
+003^#291C
+
+001^291D
+002^#Leftwards Arrow To Black Diamond#
+003^#291D
+
+001^291E
+002^#Rightwards Arrow To Black Diamond#
+003^#291E
+
+001^291F
+002^#Leftwards Arrow From Bar To Black Diamond#
+003^#291F
+
+001^2920
+002^#Rightwards Arrow From Bar To Black Diamond#
+003^#2920
+
+001^2921
+002^#North West And South East Arrow#
+003^#2921
+
+001^2922
+002^#North East And South West Arrow#
+003^#2922
+
+001^2923
+002^#North West Arrow With Hook#
+003^#2923
+
+001^2924
+002^#North East Arrow With Hook#
+003^#2924
+
+001^2925
+002^#South East Arrow With Hook#
+003^#2925
+
+001^2926
+002^#South West Arrow With Hook#
+003^#2926
+
+001^2927
+002^#North West Arrow And North East Arrow#
+003^#2927
+
+001^2928
+002^#North East Arrow And South East Arrow#
+003^#2928
+
+001^2929
+002^#South East Arrow And South West Arrow#
+003^#2929
+
+001^292A
+002^#South West Arrow And North West Arrow#
+003^#292A
+
+001^292B
+002^#Rising Diagonal Crossing Falling Diagonal#
+003^#292B
+
+001^292C
+002^#Falling Diagonal Crossing Rising Diagonal#
+003^#292C
+
+001^292D
+002^#South East Arrow Crossing North East Arrow#
+003^#292D
+
+001^292E
+002^#North East Arrow Crossing South East Arrow#
+003^#292E
+
+001^292F
+002^#Falling Diagonal Crossing North East Arrow#
+003^#292F
+
+001^2930
+002^#Rising Diagonal Crossing South East Arrow#
+003^#2930
+
+001^2931
+002^#North East Arrow Crossing North West Arrow#
+003^#2931
+
+001^2932
+002^#North West Arrow Crossing North East Arrow#
+003^#2932
+
+001^2933
+002^#Wave Arrow Pointing Directly Right#
+003^#2933
+
+001^2934
+002^#Arrow Pointing Rightwards Then Curving Upwards#
+003^#2934
+
+001^2935
+002^#Arrow Pointing Rightwards Then Curving Downwards#
+003^#2935
+
+001^2936
+002^#Arrow Pointing Downwards Then Curving Leftwards#
+003^#2936
+
+001^2937
+002^#Arrow Pointing Downwards Then Curving Rightwards#
+003^#2937
+
+001^2938
+002^#Right-Side Arc Clockwise Arrow#
+003^#2938
+
+001^2939
+002^#Left-Side Arc Anticlockwise Arrow#
+003^#2939
+
+001^293A
+002^#Top Arc Anticlockwise Arrow#
+003^#293A
+
+001^293B
+002^#Bottom Arc Anticlockwise Arrow#
+003^#293B
+
+001^293C
+002^#Top Arc Clockwise Arrow With Minus#
+003^#293C
+
+001^293D
+002^#Top Arc Anticlockwise Arrow With Plus#
+003^#293D
+
+001^293E
+002^#Lower Right Semicircular Clockwise Arrow#
+003^#293E
+
+001^293F
+002^#Lower Left Semicircular Anticlockwise Arrow#
+003^#293F
+
+001^2940
+002^#Anticlockwise Closed Circle Arrow#
+003^#2940
+
+001^2941
+002^#Clockwise Closed Circle Arrow#
+003^#2941
+
+001^2942
+002^#Rightwards Arrow Above Short Leftwards Arrow#
+003^#2942
+
+001^2943
+002^#Leftwards Arrow Above Short Rightwards Arrow#
+003^#2943
+
+001^2944
+002^#Short Rightwards Arrow Above Leftwards Arrow#
+003^#2944
+
+001^2945
+002^#Rightwards Arrow With Plus Below#
+003^#2945
+
+001^2946
+002^#Leftwards Arrow With Plus Below#
+003^#2946
+
+001^2947
+002^#Rightwards Arrow Through X#
+003^#2947
+
+001^2948
+002^#Left Right Arrow Through Small Circle#
+003^#2948
+
+001^2949
+002^#Upwards Two-Headed Arrow From Small Circle#
+003^#2949
+
+001^294A
+002^#Left Barb Up Right Barb Down Harpoon#
+003^#294A
+
+001^294B
+002^#Left Barb Down Right Barb Up Harpoon#
+003^#294B
+
+001^294C
+002^#Up Barb Right Down Barb Left Harpoon#
+003^#294C
+
+001^294D
+002^#Up Barb Left Down Barb Right Harpoon#
+003^#294D
+
+001^294E
+002^#Left Barb Up Right Barb Up Harpoon#
+003^#294E
+
+001^294F
+002^#Up Barb Right Down Barb Right Harpoon#
+003^#294F
+
+001^2950
+002^#Left Barb Down Right Barb Down Harpoon#
+003^#2950
+
+001^2951
+002^#Up Barb Left Down Barb Left Harpoon#
+003^#2951
+
+001^2952
+002^#Leftwards Harpoon With Barb Up To Bar#
+003^#2952
+
+001^2953
+002^#Rightwards Harpoon With Barb Up To Bar#
+003^#2953
+
+001^2954
+002^#Upwards Harpoon With Barb Right To Bar#
+003^#2954
+
+001^2955
+002^#Downwards Harpoon With Barb Right To Bar#
+003^#2955
+
+001^2956
+002^#Leftwards Harpoon With Barb Down To Bar#
+003^#2956
+
+001^2957
+002^#Rightwards Harpoon With Barb Down To Bar#
+003^#2957
+
+001^2958
+002^#Upwards Harpoon With Barb Left To Bar#
+003^#2958
+
+001^2959
+002^#Downwards Harpoon With Barb Left To Bar#
+003^#2959
+
+001^295A
+002^#Leftwards Harpoon With Barb Up From Bar#
+003^#295A
+
+001^295B
+002^#Rightwards Harpoon With Barb Up From Bar#
+003^#295B
+
+001^295C
+002^#Upwards Harpoon With Barb Right From Bar#
+003^#295C
+
+001^295D
+002^#Downwards Harpoon With Barb Right From Bar#
+003^#295D
+
+001^295E
+002^#Leftwards Harpoon With Barb Down From Bar#
+003^#295E
+
+001^295F
+002^#Rightwards Harpoon With Barb Down From Bar#
+003^#295F
+
+001^2960
+002^#Upwards Harpoon With Barb Left From Bar#
+003^#2960
+
+001^2961
+002^#Downwards Harpoon With Barb Left From Bar#
+003^#2961
+
+001^2962
+002^#Leftwards Harpoon With Barb Up Above Leftwards Harpoon With Barb Down#
+003^#2962
+
+001^2963
+002^#Upwards Harpoon With Barb Left Beside Upwards Harpoon With Barb Right#
+003^#2963
+
+001^2964
+002^#Rightwards Harpoon With Barb Up Above Rightwards Harpoon With Barb Down#
+003^#2964
+
+001^2965
+002^#Downwards Harpoon With Barb Left Beside Downwards Harpoon With Barb Right#
+003^#2965
+
+001^2966
+002^#Leftwards Harpoon With Barb Up Above Rightwards Harpoon With Barb Up#
+003^#2966
+
+001^2967
+002^#Leftwards Harpoon With Barb Down Above Rightwards Harpoon With Barb Down#
+003^#2967
+
+001^2968
+002^#Rightwards Harpoon With Barb Up Above Leftwards Harpoon With Barb Up#
+003^#2968
+
+001^2969
+002^#Rightwards Harpoon With Barb Down Above Leftwards Harpoon With Barb Down#
+003^#2969
+
+001^296A
+002^#Leftwards Harpoon With Barb Up Above Long Dash#
+003^#296A
+
+001^296B
+002^#Leftwards Harpoon With Barb Down Below Long Dash#
+003^#296B
+
+001^296C
+002^#Rightwards Harpoon With Barb Up Above Long Dash#
+003^#296C
+
+001^296D
+002^#Rightwards Harpoon With Barb Down Below Long Dash#
+003^#296D
+
+001^296E
+002^#Upwards Harpoon With Barb Left Beside Downwards Harpoon With Barb Right#
+003^#296E
+
+001^296F
+002^#Downwards Harpoon With Barb Left Beside Upwards Harpoon With Barb Right#
+003^#296F
+
+001^2970
+002^#Right Double Arrow With Rounded Head#
+003^#2970
+
+001^2971
+002^#Equals Sign Above Rightwards Arrow#
+003^#2971
+
+001^2972
+002^#Tilde Operator Above Rightwards Arrow#
+003^#2972
+
+001^2973
+002^#Leftwards Arrow Above Tilde Operator#
+003^#2973
+
+001^2974
+002^#Rightwards Arrow Above Tilde Operator#
+003^#2974
+
+001^2975
+002^#Rightwards Arrow Above Almost Equal To#
+003^#2975
+
+001^2976
+002^#Less-Than Above Leftwards Arrow#
+003^#2976
+
+001^2977
+002^#Leftwards Arrow Through Less-Than#
+003^#2977
+
+001^2978
+002^#Greater-Than Above Rightwards Arrow#
+003^#2978
+
+001^2979
+002^#Subset Above Rightwards Arrow#
+003^#2979
+
+001^297A
+002^#Leftwards Arrow Through Subset#
+003^#297A
+
+001^297B
+002^#Superset Above Leftwards Arrow#
+003^#297B
+
+001^297C
+002^#Left Fish Tail#
+003^#297C
+
+001^297D
+002^#Right Fish Tail#
+003^#297D
+
+001^297E
+002^#Up Fish Tail#
+003^#297E
+
+001^297F
+002^#Down Fish Tail#
+003^#297F
+
+001^2980
+002^#Triple Vertical Bar Delimiter#
+003^#2980
+
+001^2981
+002^#Z Notation Spot#
+003^#2981
+
+001^2982
+002^#Z Notation Type Colon#
+003^#2982
+
+001^2983
+002^#Left White Curly Bracket#
+003^#2983
+
+001^2984
+002^#Right White Curly Bracket#
+003^#2984
+
+001^2985
+002^#Left White Parenthesis#
+003^#2985
+
+001^2986
+002^#Right White Parenthesis#
+003^#2986
+
+001^2987
+002^#Z Notation Left Image Bracket#
+003^#2987
+
+001^2988
+002^#Z Notation Right Image Bracket#
+003^#2988
+
+001^2989
+002^#Z Notation Left Binding Bracket#
+003^#2989
+
+001^298A
+002^#Z Notation Right Binding Bracket#
+003^#298A
+
+001^298B
+002^#Left Square Bracket With Underbar#
+003^#298B
+
+001^298C
+002^#Right Square Bracket With Underbar#
+003^#298C
+
+001^298D
+002^#Left Square Bracket With Tick In Top Corner#
+003^#298D
+
+001^298E
+002^#Right Square Bracket With Tick In Bottom Corner#
+003^#298E
+
+001^298F
+002^#Left Square Bracket With Tick In Bottom Corner#
+003^#298F
+
+001^2990
+002^#Right Square Bracket With Tick In Top Corner#
+003^#2990
+
+001^2991
+002^#Left Angle Bracket With Dot#
+003^#2991
+
+001^2992
+002^#Right Angle Bracket With Dot#
+003^#2992
+
+001^2993
+002^#Left Arc Less-Than Bracket#
+003^#2993
+
+001^2994
+002^#Right Arc Greater-Than Bracket#
+003^#2994
+
+001^2995
+002^#Double Left Arc Greater-Than Bracket#
+003^#2995
+
+001^2996
+002^#Double Right Arc Less-Than Bracket#
+003^#2996
+
+001^2997
+002^#Left Black Tortoise Shell Bracket#
+003^#2997
+
+001^2998
+002^#Right Black Tortoise Shell Bracket#
+003^#2998
+
+001^2999
+002^#Dotted Fence#
+003^#2999
+
+001^299A
+002^#Vertical Zigzag Line#
+003^#299A
+
+001^299B
+002^#Measured Angle Opening Left#
+003^#299B
+
+001^299C
+002^#Right Angle Variant With Square#
+003^#299C
+
+001^299D
+002^#Measured Right Angle With Dot#
+003^#299D
+
+001^299E
+002^#Angle With S Inside#
+003^#299E
+
+001^299F
+002^#Acute Angle#
+003^#299F
+
+001^29A0
+002^#Spherical Angle Opening Left#
+003^#29A0
+
+001^29A1
+002^#Spherical Angle Opening Up#
+003^#29A1
+
+001^29A2
+002^#Turned Angle#
+003^#29A2
+
+001^29A3
+002^#Reversed Angle#
+003^#29A3
+
+001^29A4
+002^#Angle With Underbar#
+003^#29A4
+
+001^29A5
+002^#Reversed Angle With Underbar#
+003^#29A5
+
+001^29A6
+002^#Oblique Angle Opening Up#
+003^#29A6
+
+001^29A7
+002^#Oblique Angle Opening Down#
+003^#29A7
+
+001^29A8
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Up And Right#
+003^#29A8
+
+001^29A9
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Up And Left#
+003^#29A9
+
+001^29AA
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Down And Right#
+003^#29AA
+
+001^29AB
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Down And Left#
+003^#29AB
+
+001^29AC
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Right And Up#
+003^#29AC
+
+001^29AD
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Left And Up#
+003^#29AD
+
+001^29AE
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Right And Down#
+003^#29AE
+
+001^29AF
+002^#Measured Angle With Open Arm Ending In Arrow Pointing Left And Down#
+003^#29AF
+
+001^29B0
+002^#Reversed Empty Set#
+003^#29B0
+
+001^29B1
+002^#Empty Set With Overbar#
+003^#29B1
+
+001^29B2
+002^#Empty Set With Small Circle Above#
+003^#29B2
+
+001^29B3
+002^#Empty Set With Right Arrow Above#
+003^#29B3
+
+001^29B4
+002^#Empty Set With Left Arrow Above#
+003^#29B4
+
+001^29B5
+002^#Circle With Horizontal Bar#
+003^#29B5
+
+001^29B6
+002^#Circled Vertical Bar#
+003^#29B6
+
+001^29B7
+002^#Circled Parallel#
+003^#29B7
+
+001^29B8
+002^#Circled Reverse Solidus#
+003^#29B8
+
+001^29B9
+002^#Circled Perpendicular#
+003^#29B9
+
+001^29BA
+002^#Circle Divided By Horizontal Bar And Top Half Divided By Vertical Bar#
+003^#29BA
+
+001^29BB
+002^#Circle With Superimposed X#
+003^#29BB
+
+001^29BC
+002^#Circled Anticlockwise-Rotated Division Sign#
+003^#29BC
+
+001^29BD
+002^#Up Arrow Through Circle#
+003^#29BD
+
+001^29BE
+002^#Circled White Bullet#
+003^#29BE
+
+001^29BF
+002^#Circled Bullet#
+003^#29BF
+
+001^29C0
+002^#Circled Less-Than#
+003^#29C0
+
+001^29C1
+002^#Circled Greater-Than#
+003^#29C1
+
+001^29C2
+002^#Circle With Small Circle To The Right#
+003^#29C2
+
+001^29C3
+002^#Circle With Two Horizontal Strokes To The Right#
+003^#29C3
+
+001^29C4
+002^#Squared Rising Diagonal Slash#
+003^#29C4
+
+001^29C5
+002^#Squared Falling Diagonal Slash#
+003^#29C5
+
+001^29C6
+002^#Squared Asterisk#
+003^#29C6
+
+001^29C7
+002^#Squared Small Circle#
+003^#29C7
+
+001^29C8
+002^#Squared Square#
+003^#29C8
+
+001^29C9
+002^#Two Joined Squares#
+003^#29C9
+
+001^29CA
+002^#Triangle With Dot Above#
+003^#29CA
+
+001^29CB
+002^#Triangle With Underbar#
+003^#29CB
+
+001^29CC
+002^#S In Triangle#
+003^#29CC
+
+001^29CD
+002^#Triangle With Serifs At Bottom#
+003^#29CD
+
+001^29CE
+002^#Right Triangle Above Left Triangle#
+003^#29CE
+
+001^29CF
+002^#Left Triangle Beside Vertical Bar#
+003^#29CF
+
+001^29D0
+002^#Vertical Bar Beside Right Triangle#
+003^#29D0
+
+001^29D1
+002^#Bowtie With Left Half Black#
+003^#29D1
+
+001^29D2
+002^#Bowtie With Right Half Black#
+003^#29D2
+
+001^29D3
+002^#Black Bowtie#
+003^#29D3
+
+001^29D4
+002^#Times With Left Half Black#
+003^#29D4
+
+001^29D5
+002^#Times With Right Half Black#
+003^#29D5
+
+001^29D6
+002^#White Hourglass#
+003^#29D6
+
+001^29D7
+002^#Black Hourglass#
+003^#29D7
+
+001^29D8
+002^#Left Wiggly Fence#
+003^#29D8
+
+001^29D9
+002^#Right Wiggly Fence#
+003^#29D9
+
+001^29DA
+002^#Left Double Wiggly Fence#
+003^#29DA
+
+001^29DB
+002^#Right Double Wiggly Fence#
+003^#29DB
+
+001^29DC
+002^#Incomplete Infinity#
+003^#29DC
+
+001^29DD
+002^#Tie Over Infinity#
+003^#29DD
+
+001^29DE
+002^#Infinity Negated With Vertical Bar#
+003^#29DE
+
+001^29DF
+002^#Double-Ended Multimap#
+003^#29DF
+
+001^29E0
+002^#Square With Contoured Outline#
+003^#29E0
+
+001^29E1
+002^#Increases As#
+003^#29E1
+
+001^29E2
+002^#Shuffle Product#
+003^#29E2
+
+001^29E3
+002^#Equals Sign And Slanted Parallel#
+003^#29E3
+
+001^29E4
+002^#Equals Sign And Slanted Parallel With Tilde Above#
+003^#29E4
+
+001^29E5
+002^#Identical To And Slanted Parallel#
+003^#29E5
+
+001^29E6
+002^#Gleich Stark#
+003^#29E6
+
+001^29E7
+002^#Thermodynamic#
+003^#29E7
+
+001^29E8
+002^#Down-Pointing Triangle With Left Half Black#
+003^#29E8
+
+001^29E9
+002^#Down-Pointing Triangle With Right Half Black#
+003^#29E9
+
+001^29EA
+002^#Black Diamond With Down Arrow#
+003^#29EA
+
+001^29EB
+002^#Black Lozenge#
+003^#29EB
+
+001^29EC
+002^#White Circle With Down Arrow#
+003^#29EC
+
+001^29ED
+002^#Black Circle With Down Arrow#
+003^#29ED
+
+001^29EE
+002^#Error-Barred White Square#
+003^#29EE
+
+001^29EF
+002^#Error-Barred Black Square#
+003^#29EF
+
+001^29F0
+002^#Error-Barred White Diamond#
+003^#29F0
+
+001^29F1
+002^#Error-Barred Black Diamond#
+003^#29F1
+
+001^29F2
+002^#Error-Barred White Circle#
+003^#29F2
+
+001^29F3
+002^#Error-Barred Black Circle#
+003^#29F3
+
+001^29F4
+002^#Rule-Delayed#
+003^#29F4
+
+001^29F5
+002^#Reverse Solidus Operator#
+003^#29F5
+
+001^29F6
+002^#Solidus With Overbar#
+003^#29F6
+
+001^29F7
+002^#Reverse Solidus With Horizontal Stroke#
+003^#29F7
+
+001^29F8
+002^#Big Solidus#
+003^#29F8
+
+001^29F9
+002^#Big Reverse Solidus#
+003^#29F9
+
+001^29FA
+002^#Double Plus#
+003^#29FA
+
+001^29FB
+002^#Triple Plus#
+003^#29FB
+
+001^29FC
+002^#Left-Pointing Curved Angle Bracket#
+003^#29FC
+
+001^29FD
+002^#Right-Pointing Curved Angle Bracket#
+003^#29FD
+
+001^29FE
+002^#Tiny#
+003^#29FE
+
+001^29FF
+002^#Miny#
+003^#29FF
+
+001^2A00
+002^#N-Ary Circled Dot Operator#
+003^#2A00
+
+001^2A01
+002^#N-Ary Circled Plus Operator#
+003^#2A01
+
+001^2A02
+002^#N-Ary Circled Times Operator#
+003^#2A02
+
+001^2A03
+002^#N-Ary Union Operator With Dot#
+003^#2A03
+
+001^2A04
+002^#N-Ary Union Operator With Plus#
+003^#2A04
+
+001^2A05
+002^#N-Ary Square Intersection Operator#
+003^#2A05
+
+001^2A06
+002^#N-Ary Square Union Operator#
+003^#2A06
+
+001^2A07
+002^#Two Logical And Operator#
+003^#2A07
+
+001^2A08
+002^#Two Logical Or Operator#
+003^#2A08
+
+001^2A09
+002^#N-Ary Times Operator#
+003^#2A09
+
+001^2A0A
+002^#Modulo Two Sum#
+003^#2A0A
+
+001^2A0B
+002^#Summation With Integral#
+003^#2A0B
+
+001^2A0C
+002^#Quadruple Integral Operator#
+003^#2A0C
+
+001^2A0D
+002^#Finite Part Integral#
+003^#2A0D
+
+001^2A0E
+002^#Integral With Double Stroke#
+003^#2A0E
+
+001^2A0F
+002^#Integral Average With Slash#
+003^#2A0F
+
+001^2A10
+002^#Circulation Function#
+003^#2A10
+
+001^2A11
+002^#Anticlockwise Integration#
+003^#2A11
+
+001^2A12
+002^#Line Integration With Rectangular Path Around Pole#
+003^#2A12
+
+001^2A13
+002^#Line Integration With Semicircular Path Around Pole#
+003^#2A13
+
+001^2A14
+002^#Line Integration Not Including The Pole#
+003^#2A14
+
+001^2A15
+002^#Integral Around A Point Operator#
+003^#2A15
+
+001^2A16
+002^#Quaternion Integral Operator#
+003^#2A16
+
+001^2A17
+002^#Integral With Leftwards Arrow With Hook#
+003^#2A17
+
+001^2A18
+002^#Integral With Times Sign#
+003^#2A18
+
+001^2A19
+002^#Integral With Intersection#
+003^#2A19
+
+001^2A1A
+002^#Integral With Union#
+003^#2A1A
+
+001^2A1B
+002^#Integral With Overbar#
+003^#2A1B
+
+001^2A1C
+002^#Integral With Underbar#
+003^#2A1C
+
+001^2A1D
+002^#Join#
+003^#2A1D
+
+001^2A1E
+002^#Large Left Triangle Operator#
+003^#2A1E
+
+001^2A1F
+002^#Z Notation Schema Composition#
+003^#2A1F
+
+001^2A20
+002^#Z Notation Schema Piping#
+003^#2A20
+
+001^2A21
+002^#Z Notation Schema Projection#
+003^#2A21
+
+001^2A22
+002^#Plus Sign With Small Circle Above#
+003^#2A22
+
+001^2A23
+002^#Plus Sign With Circumflex Accent Above#
+003^#2A23
+
+001^2A24
+002^#Plus Sign With Tilde Above#
+003^#2A24
+
+001^2A25
+002^#Plus Sign With Dot Below#
+003^#2A25
+
+001^2A26
+002^#Plus Sign With Tilde Below#
+003^#2A26
+
+001^2A27
+002^#Plus Sign With Subscript Two#
+003^#2A27
+
+001^2A28
+002^#Plus Sign With Black Triangle#
+003^#2A28
+
+001^2A29
+002^#Minus Sign With Comma Above#
+003^#2A29
+
+001^2A2A
+002^#Minus Sign With Dot Below#
+003^#2A2A
+
+001^2A2B
+002^#Minus Sign With Falling Dots#
+003^#2A2B
+
+001^2A2C
+002^#Minus Sign With Rising Dots#
+003^#2A2C
+
+001^2A2D
+002^#Plus Sign In Left Half Circle#
+003^#2A2D
+
+001^2A2E
+002^#Plus Sign In Right Half Circle#
+003^#2A2E
+
+001^2A2F
+002^#Vector Or Cross Product#
+003^#2A2F
+
+001^2A30
+002^#Multiplication Sign With Dot Above#
+003^#2A30
+
+001^2A31
+002^#Multiplication Sign With Underbar#
+003^#2A31
+
+001^2A32
+002^#Semidirect Product With Bottom Closed#
+003^#2A32
+
+001^2A33
+002^#Smash Product#
+003^#2A33
+
+001^2A34
+002^#Multiplication Sign In Left Half Circle#
+003^#2A34
+
+001^2A35
+002^#Multiplication Sign In Right Half Circle#
+003^#2A35
+
+001^2A36
+002^#Circled Multiplication Sign With Circumflex Accent#
+003^#2A36
+
+001^2A37
+002^#Multiplication Sign In Double Circle#
+003^#2A37
+
+001^2A38
+002^#Circled Division Sign#
+003^#2A38
+
+001^2A39
+002^#Plus Sign In Triangle#
+003^#2A39
+
+001^2A3A
+002^#Minus Sign In Triangle#
+003^#2A3A
+
+001^2A3B
+002^#Multiplication Sign In Triangle#
+003^#2A3B
+
+001^2A3C
+002^#Interior Product#
+003^#2A3C
+
+001^2A3D
+002^#Righthand Interior Product#
+003^#2A3D
+
+001^2A3E
+002^#Z Notation Relational Composition#
+003^#2A3E
+
+001^2A3F
+002^#Amalgamation Or Coproduct#
+003^#2A3F
+
+001^2A40
+002^#Intersection With Dot#
+003^#2A40
+
+001^2A41
+002^#Union With Minus Sign#
+003^#2A41
+
+001^2A42
+002^#Union With Overbar#
+003^#2A42
+
+001^2A43
+002^#Intersection With Overbar#
+003^#2A43
+
+001^2A44
+002^#Intersection With Logical And#
+003^#2A44
+
+001^2A45
+002^#Union With Logical Or#
+003^#2A45
+
+001^2A46
+002^#Union Above Intersection#
+003^#2A46
+
+001^2A47
+002^#Intersection Above Union#
+003^#2A47
+
+001^2A48
+002^#Union Above Bar Above Intersection#
+003^#2A48
+
+001^2A49
+002^#Intersection Above Bar Above Union#
+003^#2A49
+
+001^2A4A
+002^#Union Beside And Joined With Union#
+003^#2A4A
+
+001^2A4B
+002^#Intersection Beside And Joined With Intersection#
+003^#2A4B
+
+001^2A4C
+002^#Closed Union With Serifs#
+003^#2A4C
+
+001^2A4D
+002^#Closed Intersection With Serifs#
+003^#2A4D
+
+001^2A4E
+002^#Double Square Intersection#
+003^#2A4E
+
+001^2A4F
+002^#Double Square Union#
+003^#2A4F
+
+001^2A50
+002^#Closed Union With Serifs And Smash Product#
+003^#2A50
+
+001^2A51
+002^#Logical And With Dot Above#
+003^#2A51
+
+001^2A52
+002^#Logical Or With Dot Above#
+003^#2A52
+
+001^2A53
+002^#Double Logical And#
+003^#2A53
+
+001^2A54
+002^#Double Logical Or#
+003^#2A54
+
+001^2A55
+002^#Two Intersecting Logical And#
+003^#2A55
+
+001^2A56
+002^#Two Intersecting Logical Or#
+003^#2A56
+
+001^2A57
+002^#Sloping Large Or#
+003^#2A57
+
+001^2A58
+002^#Sloping Large And#
+003^#2A58
+
+001^2A59
+002^#Logical Or Overlapping Logical And#
+003^#2A59
+
+001^2A5A
+002^#Logical And With Middle Stem#
+003^#2A5A
+
+001^2A5B
+002^#Logical Or With Middle Stem#
+003^#2A5B
+
+001^2A5C
+002^#Logical And With Horizontal Dash#
+003^#2A5C
+
+001^2A5D
+002^#Logical Or With Horizontal Dash#
+003^#2A5D
+
+001^2A5E
+002^#Logical And With Double Overbar#
+003^#2A5E
+
+001^2A5F
+002^#Logical And With Underbar#
+003^#2A5F
+
+001^2A60
+002^#Logical And With Double Underbar#
+003^#2A60
+
+001^2A61
+002^#Small Vee With Underbar#
+003^#2A61
+
+001^2A62
+002^#Logical Or With Double Overbar#
+003^#2A62
+
+001^2A63
+002^#Logical Or With Double Underbar#
+003^#2A63
+
+001^2A64
+002^#Z Notation Domain Antirestriction#
+003^#2A64
+
+001^2A65
+002^#Z Notation Range Antirestriction#
+003^#2A65
+
+001^2A66
+002^#Equals Sign With Dot Below#
+003^#2A66
+
+001^2A67
+002^#Identical With Dot Above#
+003^#2A67
+
+001^2A68
+002^#Triple Horizontal Bar With Double Vertical Stroke#
+003^#2A68
+
+001^2A69
+002^#Triple Horizontal Bar With Triple Vertical Stroke#
+003^#2A69
+
+001^2A6A
+002^#Tilde Operator With Dot Above#
+003^#2A6A
+
+001^2A6B
+002^#Tilde Operator With Rising Dots#
+003^#2A6B
+
+001^2A6C
+002^#Similar Minus Similar#
+003^#2A6C
+
+001^2A6D
+002^#Congruent With Dot Above#
+003^#2A6D
+
+001^2A6E
+002^#Equals With Asterisk#
+003^#2A6E
+
+001^2A6F
+002^#Almost Equal To With Circumflex Accent#
+003^#2A6F
+
+001^2A70
+002^#Approximately Equal Or Equal To#
+003^#2A70
+
+001^2A71
+002^#Equals Sign Above Plus Sign#
+003^#2A71
+
+001^2A72
+002^#Plus Sign Above Equals Sign#
+003^#2A72
+
+001^2A73
+002^#Equals Sign Above Tilde Operator#
+003^#2A73
+
+001^2A74
+002^#Double Colon Equal#
+003^#2A74
+
+001^2A75
+002^#Two Consecutive Equals Signs#
+003^#2A75
+
+001^2A76
+002^#Three Consecutive Equals Signs#
+003^#2A76
+
+001^2A77
+002^#Equals Sign With Two Dots Above And Two Dots Below#
+003^#2A77
+
+001^2A78
+002^#Equivalent With Four Dots Above#
+003^#2A78
+
+001^2A79
+002^#Less-Than With Circle Inside#
+003^#2A79
+
+001^2A7A
+002^#Greater-Than With Circle Inside#
+003^#2A7A
+
+001^2A7B
+002^#Less-Than With Question Mark Above#
+003^#2A7B
+
+001^2A7C
+002^#Greater-Than With Question Mark Above#
+003^#2A7C
+
+001^2A7D
+002^#Less-Than Or Slanted Equal To#
+003^#2A7D
+
+001^2A7E
+002^#Greater-Than Or Slanted Equal To#
+003^#2A7E
+
+001^2A7F
+002^#Less-Than Or Slanted Equal To With Dot Inside#
+003^#2A7F
+
+001^2A80
+002^#Greater-Than Or Slanted Equal To With Dot Inside#
+003^#2A80
+
+001^2A81
+002^#Less-Than Or Slanted Equal To With Dot Above#
+003^#2A81
+
+001^2A82
+002^#Greater-Than Or Slanted Equal To With Dot Above#
+003^#2A82
+
+001^2A83
+002^#Less-Than Or Slanted Equal To With Dot Above Right#
+003^#2A83
+
+001^2A84
+002^#Greater-Than Or Slanted Equal To With Dot Above Left#
+003^#2A84
+
+001^2A85
+002^#Less-Than Or Approximate#
+003^#2A85
+
+001^2A86
+002^#Greater-Than Or Approximate#
+003^#2A86
+
+001^2A87
+002^#Less-Than And Single-Line Not Equal To#
+003^#2A87
+
+001^2A88
+002^#Greater-Than And Single-Line Not Equal To#
+003^#2A88
+
+001^2A89
+002^#Less-Than And Not Approximate#
+003^#2A89
+
+001^2A8A
+002^#Greater-Than And Not Approximate#
+003^#2A8A
+
+001^2A8B
+002^#Less-Than Above Double-Line Equal Above Greater-Than#
+003^#2A8B
+
+001^2A8C
+002^#Greater-Than Above Double-Line Equal Above Less-Than#
+003^#2A8C
+
+001^2A8D
+002^#Less-Than Above Similar Or Equal#
+003^#2A8D
+
+001^2A8E
+002^#Greater-Than Above Similar Or Equal#
+003^#2A8E
+
+001^2A8F
+002^#Less-Than Above Similar Above Greater-Than#
+003^#2A8F
+
+001^2A90
+002^#Greater-Than Above Similar Above Less-Than#
+003^#2A90
+
+001^2A91
+002^#Less-Than Above Greater-Than Above Double-Line Equal#
+003^#2A91
+
+001^2A92
+002^#Greater-Than Above Less-Than Above Double-Line Equal#
+003^#2A92
+
+001^2A93
+002^#Less-Than Above Slanted Equal Above Greater-Than Above Slanted Equal#
+003^#2A93
+
+001^2A94
+002^#Greater-Than Above Slanted Equal Above Less-Than Above Slanted Equal#
+003^#2A94
+
+001^2A95
+002^#Slanted Equal To Or Less-Than#
+003^#2A95
+
+001^2A96
+002^#Slanted Equal To Or Greater-Than#
+003^#2A96
+
+001^2A97
+002^#Slanted Equal To Or Less-Than With Dot Inside#
+003^#2A97
+
+001^2A98
+002^#Slanted Equal To Or Greater-Than With Dot Inside#
+003^#2A98
+
+001^2A99
+002^#Double-Line Equal To Or Less-Than#
+003^#2A99
+
+001^2A9A
+002^#Double-Line Equal To Or Greater-Than#
+003^#2A9A
+
+001^2A9B
+002^#Double-Line Slanted Equal To Or Less-Than#
+003^#2A9B
+
+001^2A9C
+002^#Double-Line Slanted Equal To Or Greater-Than#
+003^#2A9C
+
+001^2A9D
+002^#Similar Or Less-Than#
+003^#2A9D
+
+001^2A9E
+002^#Similar Or Greater-Than#
+003^#2A9E
+
+001^2A9F
+002^#Similar Above Less-Than Above Equals Sign#
+003^#2A9F
+
+001^2AA0
+002^#Similar Above Greater-Than Above Equals Sign#
+003^#2AA0
+
+001^2AA1
+002^#Double Nested Less-Than#
+003^#2AA1
+
+001^2AA2
+002^#Double Nested Greater-Than#
+003^#2AA2
+
+001^2AA3
+002^#Double Nested Less-Than With Underbar#
+003^#2AA3
+
+001^2AA4
+002^#Greater-Than Overlapping Less-Than#
+003^#2AA4
+
+001^2AA5
+002^#Greater-Than Beside Less-Than#
+003^#2AA5
+
+001^2AA6
+002^#Less-Than Closed By Curve#
+003^#2AA6
+
+001^2AA7
+002^#Greater-Than Closed By Curve#
+003^#2AA7
+
+001^2AA8
+002^#Less-Than Closed By Curve Above Slanted Equal#
+003^#2AA8
+
+001^2AA9
+002^#Greater-Than Closed By Curve Above Slanted Equal#
+003^#2AA9
+
+001^2AAA
+002^#Smaller Than#
+003^#2AAA
+
+001^2AAB
+002^#Larger Than#
+003^#2AAB
+
+001^2AAC
+002^#Smaller Than Or Equal To#
+003^#2AAC
+
+001^2AAD
+002^#Larger Than Or Equal To#
+003^#2AAD
+
+001^2AAE
+002^#Equals Sign With Bumpy Above#
+003^#2AAE
+
+001^2AAF
+002^#Precedes Above Single-Line Equals Sign#
+003^#2AAF
+
+001^2AB0
+002^#Succeeds Above Single-Line Equals Sign#
+003^#2AB0
+
+001^2AB1
+002^#Precedes Above Single-Line Not Equal To#
+003^#2AB1
+
+001^2AB2
+002^#Succeeds Above Single-Line Not Equal To#
+003^#2AB2
+
+001^2AB3
+002^#Precedes Above Equals Sign#
+003^#2AB3
+
+001^2AB4
+002^#Succeeds Above Equals Sign#
+003^#2AB4
+
+001^2AB5
+002^#Precedes Above Not Equal To#
+003^#2AB5
+
+001^2AB6
+002^#Succeeds Above Not Equal To#
+003^#2AB6
+
+001^2AB7
+002^#Precedes Above Almost Equal To#
+003^#2AB7
+
+001^2AB8
+002^#Succeeds Above Almost Equal To#
+003^#2AB8
+
+001^2AB9
+002^#Precedes Above Not Almost Equal To#
+003^#2AB9
+
+001^2ABA
+002^#Succeeds Above Not Almost Equal To#
+003^#2ABA
+
+001^2ABB
+002^#Double Precedes#
+003^#2ABB
+
+001^2ABC
+002^#Double Succeeds#
+003^#2ABC
+
+001^2ABD
+002^#Subset With Dot#
+003^#2ABD
+
+001^2ABE
+002^#Superset With Dot#
+003^#2ABE
+
+001^2ABF
+002^#Subset With Plus Sign Below#
+003^#2ABF
+
+001^2AC0
+002^#Superset With Plus Sign Below#
+003^#2AC0
+
+001^2AC1
+002^#Subset With Multiplication Sign Below#
+003^#2AC1
+
+001^2AC2
+002^#Superset With Multiplication Sign Below#
+003^#2AC2
+
+001^2AC3
+002^#Subset Of Or Equal To With Dot Above#
+003^#2AC3
+
+001^2AC4
+002^#Superset Of Or Equal To With Dot Above#
+003^#2AC4
+
+001^2AC5
+002^#Subset Of Above Equals Sign#
+003^#2AC5
+
+001^2AC6
+002^#Superset Of Above Equals Sign#
+003^#2AC6
+
+001^2AC7
+002^#Subset Of Above Tilde Operator#
+003^#2AC7
+
+001^2AC8
+002^#Superset Of Above Tilde Operator#
+003^#2AC8
+
+001^2AC9
+002^#Subset Of Above Almost Equal To#
+003^#2AC9
+
+001^2ACA
+002^#Superset Of Above Almost Equal To#
+003^#2ACA
+
+001^2ACB
+002^#Subset Of Above Not Equal To#
+003^#2ACB
+
+001^2ACC
+002^#Superset Of Above Not Equal To#
+003^#2ACC
+
+001^2ACD
+002^#Square Left Open Box Operator#
+003^#2ACD
+
+001^2ACE
+002^#Square Right Open Box Operator#
+003^#2ACE
+
+001^2ACF
+002^#Closed Subset#
+003^#2ACF
+
+001^2AD0
+002^#Closed Superset#
+003^#2AD0
+
+001^2AD1
+002^#Closed Subset Or Equal To#
+003^#2AD1
+
+001^2AD2
+002^#Closed Superset Or Equal To#
+003^#2AD2
+
+001^2AD3
+002^#Subset Above Superset#
+003^#2AD3
+
+001^2AD4
+002^#Superset Above Subset#
+003^#2AD4
+
+001^2AD5
+002^#Subset Above Subset#
+003^#2AD5
+
+001^2AD6
+002^#Superset Above Superset#
+003^#2AD6
+
+001^2AD7
+002^#Superset Beside Subset#
+003^#2AD7
+
+001^2AD8
+002^#Superset Beside And Joined By Dash With Subset#
+003^#2AD8
+
+001^2AD9
+002^#Element Of Opening Downwards#
+003^#2AD9
+
+001^2ADA
+002^#Pitchfork With Tee Top#
+003^#2ADA
+
+001^2ADB
+002^#Transversal Intersection#
+003^#2ADB
+
+001^2ADC
+002^#Forking#
+003^#2ADC
+
+001^2ADD
+002^#Nonforking#
+003^#2ADD
+
+001^2ADE
+002^#Short Left Tack#
+003^#2ADE
+
+001^2ADF
+002^#Short Down Tack#
+003^#2ADF
+
+001^2AE0
+002^#Short Up Tack#
+003^#2AE0
+
+001^2AE1
+002^#Perpendicular With S#
+003^#2AE1
+
+001^2AE2
+002^#Vertical Bar Triple Right Turnstile#
+003^#2AE2
+
+001^2AE3
+002^#Double Vertical Bar Left Turnstile#
+003^#2AE3
+
+001^2AE4
+002^#Vertical Bar Double Left Turnstile#
+003^#2AE4
+
+001^2AE5
+002^#Double Vertical Bar Double Left Turnstile#
+003^#2AE5
+
+001^2AE6
+002^#Long Dash From Left Member Of Double Vertical#
+003^#2AE6
+
+001^2AE7
+002^#Short Down Tack With Overbar#
+003^#2AE7
+
+001^2AE8
+002^#Short Up Tack With Underbar#
+003^#2AE8
+
+001^2AE9
+002^#Short Up Tack Above Short Down Tack#
+003^#2AE9
+
+001^2AEA
+002^#Double Down Tack#
+003^#2AEA
+
+001^2AEB
+002^#Double Up Tack#
+003^#2AEB
+
+001^2AEC
+002^#Double Stroke Not Sign#
+003^#2AEC
+
+001^2AED
+002^#Reversed Double Stroke Not Sign#
+003^#2AED
+
+001^2AEE
+002^#Does Not Divide With Reversed Negation Slash#
+003^#2AEE
+
+001^2AEF
+002^#Vertical Line With Circle Above#
+003^#2AEF
+
+001^2AF0
+002^#Vertical Line With Circle Below#
+003^#2AF0
+
+001^2AF1
+002^#Down Tack With Circle Below#
+003^#2AF1
+
+001^2AF2
+002^#Parallel With Horizontal Stroke#
+003^#2AF2
+
+001^2AF3
+002^#Parallel With Tilde Operator#
+003^#2AF3
+
+001^2AF4
+002^#Triple Vertical Bar Binary Relation#
+003^#2AF4
+
+001^2AF5
+002^#Triple Vertical Bar With Horizontal Stroke#
+003^#2AF5
+
+001^2AF6
+002^#Triple Colon Operator#
+003^#2AF6
+
+001^2AF7
+002^#Triple Nested Less-Than#
+003^#2AF7
+
+001^2AF8
+002^#Triple Nested Greater-Than#
+003^#2AF8
+
+001^2AF9
+002^#Double-Line Slanted Less-Than Or Equal To#
+003^#2AF9
+
+001^2AFA
+002^#Double-Line Slanted Greater-Than Or Equal To#
+003^#2AFA
+
+001^2AFB
+002^#Triple Solidus Binary Relation#
+003^#2AFB
+
+001^2AFC
+002^#Large Triple Vertical Bar Operator#
+003^#2AFC
+
+001^2AFD
+002^#Double Solidus Operator#
+003^#2AFD
+
+001^2AFE
+002^#White Vertical Bar#
+003^#2AFE
+
+001^2AFF
+002^#N-Ary White Vertical Bar#
+003^#2AFF
+
+001^#0391
+002^#ALPHA#
+003^#0391
+001^#0392
+002^#BETA#
+003^#0392
+001^#0393
+002^#GAMMA#
+003^#0393
+001^#0394
+002^#DELTA#
+003^#0394
+001^#0395
+002^#EPSILON#
+003^#0395
+001^#0396
+002^#ZETA#
+003^#0396
+001^#0397
+002^#ETA#
+003^#0397
+001^#0398
+002^#THETA#
+003^#0398
+001^#0399
+002^#IOTA#
+003^#0399
+001^#039A
+002^#KAPPA#
+003^#039A
+001^#039C
+002^#MU#
+003^#039C
+001^#039D
+002^#NU#
+003^#039D
+001^#039E
+002^#XI#
+003^#039E
+001^#039F
+002^#OMICRON#
+003^#039F
+001^#03A0
+002^#PI#
+003^#03A0
+001^#03A1
+002^#RHO#
+003^#03A1
+001^#03A3
+002^#SIGMA#
+003^#03A3
+001^#03A4
+002^#TAU#
+003^#03A4
+001^#03A5
+002^#UPSILON#
+003^#03A5
+001^#03A6
+002^#PHI#
+003^#03A6
+001^#03A7
+002^#CHI#
+003^#03A7
+001^#03A8
+002^#PSI#
+003^#03A8
+001^#03A9
+002^#OMEGA#
+003^#03A9
+001^#03B1
+002^#alpha#
+003^#03B1
+001^#03B2
+002^#beta#
+003^#03B2
+001^#03B3
+002^#gamma#
+003^#03B3
+001^#03B4
+002^#delta#
+003^#03B4
+001^#03B5
+002^#epsilon#
+003^#03B5
+001^#03B6
+002^#zeta#
+003^#03B6
+001^#03B7
+002^#eta#
+003^#03B7
+001^#03B8
+002^#theta#
+003^#03B8
+001^#03B9
+002^#iota#
+003^#03B9
+001^#03BA
+002^#kappa#
+003^#03BA
+001^#03BC
+002^#mu#
+003^#03BC
+001^#03BD
+002^#nu#
+003^#03BD
+001^#03BE
+002^#xi#
+003^#03BE
+001^#03BF
+002^#omicron#
+003^#03BF
+001^#03C0
+002^#pi#
+003^#03C0
+001^#03C1
+002^#rho#
+003^#03C1
+001^#03C3
+002^#sigma#
+003^#03C3
+001^#03C4
+002^#tau#
+003^#03C4
+001^#03C5
+002^#upsilon#
+003^#03C5
+001^#03C6
+002^#phi#
+003^#03C6
+001^#03C7
+002^#chi#
+003^#03C7
+001^#03C8
+002^#psi#
+003^#03C8
+001^#03C9
+002^#omega#
+003^#03C9
+001^D0001
+002^#+-#
+003^#00B1#
+001^D0002
+002^#->#
+003^#2192#
+001^D0003
+002^#<=#
+003^#2264#
+001^D0004
+002^#>=#
+003^#2265#
+001^D0005
+002^#approx =#
+003^#2245#
+001^D0006
+002^#approx#
+003^#223C#
+001^D0007
+002^#arrow down#
+003^#2193#
+001^D0008
+002^#arrow up#
+003^#2191#
+001^D0009
+002^#centre dot#
+003^#00B7#
+001^D0010
+002^#dagger#
+003^#2020#
+001^D0011
+002^#exclamation#
+003^#0021#
+001^D0012
+002^#ident to#
+003^#2261#
+001^D0013
+002^#infinity#
+003^#221E#
+001^D0014
+002^#integral#
+003^#222B#
+001^D0015
+002^#lambda#
+003^#03BB
+001^D0016
+002^#left brace#
+003^#007B#
+001^D0017
+002^#nabla#
+003^#2207#
+001^D0018
+002^#not =#
+003^#2260#
+001^D0019
+002^#partial deriv#
+003^#2202#
+001^D0020
+002^#Planck constant#
+003^#210E#
+001^D0021
+002^#propor to#
+003^#221D#
+001^D0022
+002^#reversible#
+003^#2194#
+001^D0023
+002^#right brace#
+003^#007D#
+001^D0024
+002^#sq root#
+003^#221A#
+001^D0025
+002^#square#
+003^#25A1#
+001^D0026
+002^#LAMBDA#
+003^#039B#
+001^#0022
+002^#Quotation Mark#
+003^#0022
+004^Quotation_Mark
+001^#0023
+002^#Number Sign#
+003^#0023
+004^Number_Sign
+001^#005E
+002^#Circumflex Accent#
+003^#005E
+004^Circumflex_Accent
+001^#005F
+002^#Low Line#
+003^#005F
+004^Low_Line

@@ -119,3 +119,60 @@ def delete_submission(submission_id):
         recid = s.metadata['recid']
         d.delete()
         delete_record(recid)
+
+
+def import_ttf(filename):
+
+    import os
+    import tempfile
+    from invenio.config import CFG_TMPDIR
+    from invenio.legacy.bibrecord import record_add_field, record_xml_output
+    from invenio.legacy.bibsched.bibtask import task_low_level_submission
+
+    separator = '001^'
+
+    f = open(filename, 'r')
+    raw_input = f.read()
+    f.close()
+
+    fd, name = tempfile.mkstemp(suffix='.xml', prefix='from_ttf', dir=CFG_TMPDIR)
+    os.write(fd, """<collection>\n""")
+
+    f = open('./inis/demosite/INIS_UCH.ai', 'r')
+    a = f.read()
+    b = [separator+e.strip() for e in a.split(separator) if e != ""]
+    c = [(e.splitlines()[1].strip()[4:], e.splitlines()[0].strip()[4:]) for e in b]
+    d = dict(c)
+
+    for rule in d:
+        raw_input = raw_input.replace(rule, unichr(int(d[rule].strip('#'), 16)).encode('utf-8'))
+
+    raw_records = [separator+e.strip() for e in raw_input.split(separator) if e != ""]
+
+    for raw_record in raw_records:
+        r = {}
+        ttf = dict([(l.split('^')[0], l.split('^')[1].strip()) for l in raw_record.splitlines()])
+        for tag in ttf:
+            value = ttf[tag].strip('(). \n\t')
+            if tag == '001':  # trn
+                record_add_field(r, '911', subfields=[('x', value)])
+            elif tag in ['100']:  # authors
+                for v in value.split(';'):
+                    record_add_field(r, tag, subfields=[('a', v.strip())])
+            elif tag == '800':  # keywords (descriptors)
+                for v in value.split(';'):
+                    record_add_field(r, '653', '1', subfields=[('a', v.strip())])
+            elif tag == '200':  # title
+                record_add_field(r, '245', subfields=[('a', value)])
+            elif tag == '860':  # abstract
+                record_add_field(r, '520', subfields=[('a', value)])
+            else:
+                record_add_field(r, tag, subfields=[('x', value)])
+
+        record_add_field(r, '980', subfields=[('a', 'FROM_TTF')])
+        os.write(fd, record_xml_output(r))
+
+    os.write(fd, """\n</collection>\n""")
+    os.close(fd)
+
+    task_low_level_submission('bibupload', 'admin', '-i', name)
