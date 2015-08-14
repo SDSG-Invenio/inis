@@ -29,6 +29,8 @@ def process_recjson(deposition, recjson):
         if sip is None:
             sip = deposition.create_sip()
 
+        recjson['errors'] = []
+
         TRNs = get_TRNs(sip)
         recjson['trns'] = TRNs
 
@@ -39,8 +41,6 @@ def process_recjson(deposition, recjson):
             recjson['member'] = CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]
         if recjson['member'] == 'XA' and recjson['trns'] != []:
             recjson['member'] = recjson['trns'][0][:2]
-
-        recjson['errors'] = []
 
         wrong_cc = [trn for trn in TRNs if trn[:2] != recjson['member']]
         if wrong_cc != [] and recjson['member'] != 'XA':

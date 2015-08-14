@@ -43,7 +43,7 @@ CFG_SUMBISSION_ERRORS = {
     3: 'The following TRNs are duplicated (or tag "009" is nor "C" for change record):',
 }
 
-CFG_NOTIFY_SUBMISSION = ['d.mironov@iaea', 'j.garcia-llopis@iaea.org']
+CFG_NOTIFY_SUBMISSION = ['d.mironov@iaea.org', 'j.garcia-llopis@iaea.org']
 
 CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"
 

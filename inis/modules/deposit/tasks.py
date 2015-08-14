@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2012, 2013, 2014 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -100,7 +100,6 @@ def notify_submission():
             sip = d.create_sip()
 
         dep_url = CFG_SITE_URL + '/upload/' + str(sip.metadata['owner']['deposition_id'])
-        dep_link = "<a href=%(url)s>%(url)s</a>" % {'url': dep_url, 'title': sip.metadata['title.title']}
 
         try:
             member = sip.metadata['member']
@@ -111,13 +110,13 @@ def notify_submission():
         msg = """
                  There is a new submission at %(sitename)s.
 
-                 Title: %(title)s</br>
-                 Submission: %(dep_link)s</br>
-                 INIS Member: %(member)s</br></br>
-                 Records: %(records)s</br>
-                 Files: %(files)s</br>
+                 Title: %(title)s
+                 Submission: %(dep_url)s
+                 INIS Member: %(member)s
+                 Records: %(records)s
+                 Files: %(files)s
               """ % {'title': sip.metadata['title.title'], 'recid': sip.metadata['recid'],
-                     'dep_link': dep_link, 'member': member, 'sitename': CFG_SITE_NAME,
+                     'dep_url': dep_url, 'member': member, 'sitename': CFG_SITE_NAME,
                      'records': len(sip.metadata['trns']),
                      'files': len(sip.metadata['fft'])}
 
@@ -195,7 +194,7 @@ def trn_exists(trn):
             response = urlopen(url + trn)
             html = response.read()
             return html.find('<string xmlns="http://nis.iaea.org/webservices/">1') > -1
-        except e:
+        except Exception:
             return False
     else:
         return True
