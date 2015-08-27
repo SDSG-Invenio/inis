@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Zenodo.
-# Copyright (C) 2012, 2013 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # Zenodo is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,9 +29,11 @@
 
 from datetime import date
 
-from inis.config import CFG_COUNTRIES_DICT, CFG_MONTH_CODES, CFG_SEASON_CODES
+from inis.config import CFG_MONTH_CODES, CFG_SEASON_CODES
 
 from inis.modules.deposit.field_widgets import SelectInput  # , BooleanInput
+
+from inis.utils import get_kb_items
 
 from invenio.base.i18n import _
 
@@ -42,7 +44,7 @@ from invenio.modules.deposit.validation_utils import required_if
 
 from wtforms import validators
 
-country_codes_list = CFG_COUNTRIES_DICT.items()
+country_codes_list = get_kb_items('countries')
 country_codes_list.sort(key=lambda tup: tup[1])
 
 

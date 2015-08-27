@@ -1,12 +1,12 @@
 # from datetime import datetime
 
-from inis.config import CFG_MEMBERS_INV
-
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import create_error_message, \
     file_names_not_in_TRNs, get_TRNs, get_duplicated_trns, \
     launch_bibsched_tasks, notify_rejection, \
     notify_submission, validate
+
+from inis.utils import get_kb_key
 
 from invenio.ext.login import UserInfo
 
@@ -36,9 +36,10 @@ def process_recjson(deposition, recjson):
 
         user = UserInfo(deposition.user_id)
         if not user.is_admin:
-            recjson['member'] = CFG_MEMBERS_INV[user.info['group'][0]]
+            recjson['member'] = get_kb_key('members', user.info['group'][0])
         else:
-            recjson['member'] = CFG_MEMBERS_INV["International Atomic Energy Agency (IAEA)"]
+            recjson['member'] = 'XA'
+
         if recjson['member'] == 'XA' and recjson['trns'] != []:
             recjson['member'] = recjson['trns'][0][:2]
 

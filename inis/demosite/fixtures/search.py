@@ -22,9 +22,11 @@
 
 from fixture import DataSet
 
-from inis.config import CFG_MEMBERS_CODES, CFG_MEMBERS_DICT
+from inis.utils import get_kb_items, load_knowledge_bases
 
 from invenio.modules.search import fixtures
+
+load_knowledge_bases()
 
 
 # ===========
@@ -38,12 +40,12 @@ colls.append((2, 'Accepted', 'Accepted', '980__a:Accepted'))
 colls.append((3, 'Rejected', 'Rejected', '980__a:Rejected'))
 colls.append((4, 'CAI', 'CAI', '914__a:CAI'))
 
+
 i = 5
-for code in CFG_MEMBERS_CODES:
-    name = CFG_MEMBERS_DICT[code]
-    colls.append((i, name, code, '980__a:"Accepted" AND 913__a:"' + code + '"', ))
+for (code, name) in get_kb_items('members'):
+    colls.append((i, name, code, '980__a:"Accepted" AND 913__a:"' + code + '"'), )
     i = i + 1
-    colls.append((i, name, 'r-'+code, '980__a:"Rejected" AND 913__a:"' + code + '"', ))
+    colls.append((i, name, 'r-'+code, '980__a:"Rejected" AND 913__a:"' + code + '"'), )
     i = i + 1
 
 idx = 2

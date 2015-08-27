@@ -20,7 +20,7 @@
 # granted to it by virtue of its status as an Intergovernmental Organization
 # or submit itself to any jurisdiction.
 
-from inis.utils import id_generator, set_password
+from inis.utils import get_kb_items, id_generator, set_password
 
 from invenio.base.factory import with_app_context
 from invenio.ext.sqlalchemy import db
@@ -29,9 +29,11 @@ from invenio.ext.sqlalchemy import db
 @with_app_context(new_context=True)
 def post_handler_database_create(sender, default_data='', *args, **kwargs):
     """Load data after demosite creation."""
-    from inis.config import CFG_MEMBERS_NAMES, CFG_ILOS
+    from inis.config import CFG_ILOS
 
     from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
+
+    # load_knowledge_bases()
 
     print(">>> Adding user accounts for ILOs.")
     users = {}
@@ -44,7 +46,7 @@ def post_handler_database_create(sender, default_data='', *args, **kwargs):
     db.session.commit()
 
     print(">>> Adding user groups for INIS members.")
-    for member_name in CFG_MEMBERS_NAMES:
+    for (_member_code, member_name) in get_kb_items('members'):
         ug = Usergroup(name=member_name, join_policy='VM', description='Submissions from ' + member_name)
         ug.users.append(UserUsergroup(id_user=1, user_status=UserUsergroup.USER_STATUS['ADMIN']))
         if member_name in users:
@@ -56,17 +58,3 @@ def post_handler_database_create(sender, default_data='', *args, **kwargs):
     print(">>> Sending password reset to ILOs.")
     for ilo in CFG_ILOS:
         set_password(ilo['email'])
-
-    print(">>> Loading descriptors...")
-    print(">>> Relax, this will take a while")
-
-    from inis.demosite.descriptors_en import descriptors_en
-    import invenio.modules.knowledge.api as kb
-    kb.add_kb('descriptors')
-    t = float(len(descriptors_en))
-    i = 1
-    for d in descriptors_en:
-        kb.add_kb_mapping('descriptors', d, d)
-        print("\r%d%%" % (i*100/t))
-        i += 1
-    print(">>> Descriptors loaded successfully!!!")

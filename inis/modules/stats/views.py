@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2012, 2013, 2014 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -24,7 +24,7 @@ from flask.ext.breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask.ext.login import current_user, login_required
 from flask.ext.menu import register_menu
 
-from inis.config import CFG_MEMBERS_DICT, CFG_MEMBERS_INV
+from inis.utils import get_kb_key, get_kb_value
 
 from invenio.base.i18n import _
 from invenio.ext.login import UserInfo
@@ -92,7 +92,7 @@ def index():
         totals['errors'] = {}
 
         for code in members:
-            info = get_group_stats(CFG_MEMBERS_DICT[code])
+            info = get_group_stats(get_kb_value('members', code))
             if info['accepted'] or info['rejected']:
                 stats.append(info)
                 totals['files'] += info['files']
@@ -137,7 +137,7 @@ def get_group_stats(group_name):
     g = Usergroup.query.filter_by(name=group_name).first()
     iaea_group = Usergroup.query.filter_by(name='International Atomic Energy Agency (IAEA)').first()
 
-    member = CFG_MEMBERS_INV[g.name]
+    member = get_kb_key('members', g.name)
     info = {}
     info['name'] = group_name
     info['id'] = str(g.id)

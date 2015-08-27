@@ -18,6 +18,7 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
 import string
+import sys
 
 from flask import current_app
 
@@ -102,23 +103,6 @@ def set_password(email):
     send_email(CFG_SITE_SUPPORT_EMAIL, email,
                "%s %s" % ("Set your password for", CFG_SITE_NAME),
                tmpl_set_password_email_body(email, reset_key))
-
-
-def create_user(name, email, country):
-    from invenio.ext.sqlalchemy import db
-    from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
-    from inis.config import CFG_MEMBERS_DICT
-
-    u = User(email=email, nickname=name, password=id_generator())
-    db.session.add(u)
-    db.session.commit()
-
-    ug = Usergroup.query.filter_by(name=CFG_MEMBERS_DICT[country]).first()
-    ug.users.append(UserUsergroup(id_user=u.id))
-    db.session.add(ug)
-    db.session.commit()
-
-    set_password(email)
 
 
 def delete_record(recid):
@@ -581,3 +565,90 @@ def must_switch(d1, d2):
         return int(d1['season']) > int(d2['season'])
 
     return False
+
+
+def update_progress(progress):
+    sys.stdout.write('\r[{0}{1}] {2}% '.format('#'*(int(progress)),
+                     ' '*(100-int(progress)),
+                     round(progress, 2)))
+    sys.stdout.flush()
+
+
+def load_knowledge_bases():
+    from inis.demosite.lang_codes import CFG_LANG_CODES
+    load_kb('languages', CFG_LANG_CODES)
+
+    from inis.demosite.descriptors_en import descriptors_en
+    load_kb('descriptors', descriptors_en)
+
+    from inis.demosite.members import CFG_COUNTRIES_DICT, CFG_MEMBERS_DICT, CFG_ORGANIZATIONS_DICT
+
+    load_kb('countries', CFG_COUNTRIES_DICT)
+    load_kb('organizations', CFG_ORGANIZATIONS_DICT)
+    load_kb('members', CFG_MEMBERS_DICT)
+
+
+def load_kb(name, terms):
+    import invenio.modules.knowledge.api as kb
+
+    print(">>> Loading %s..." % name)
+
+    if kb.kb_exists(name):
+        kb.delete_kb(name)
+    kb.add_kb(name)
+    knowledge_base = kb.get_kb_by_name(name)
+
+    is_dictionary = isinstance(terms, dict)
+    t = float(len(terms))
+    i = 1
+
+    for d in terms:
+        value = terms[d] if is_dictionary else d
+        knowledge_base.kbrvals.set(kb.models.KnwKBRVAL(m_key=d, m_value=value))
+        update_progress(i*100/t)
+        i += 1
+
+    print(" Done!!!")
+
+
+def get_kb_items(name, as_dictionary=False):
+    from invenio.modules.knowledge.api import get_kbr_items
+
+    try:
+        items = get_kbr_items(name)
+    except:
+        return []
+    items = [(i['key'], i['value']) for i in items]
+
+    if as_dictionary:
+        items = dict(items)
+
+    return items
+
+
+def get_kb_value(name, key):
+    from invenio.modules.knowledge.api import get_kb_mapping
+    mapping = get_kb_mapping(kb_name=name, key=key)
+    return mapping['value'] if mapping else None
+
+
+def get_kb_key(name, value):
+    from invenio.modules.knowledge.api import get_kb_mapping
+    mapping = get_kb_mapping(kb_name=name, value=value)
+    return mapping['key'] if mapping else None
+
+
+def create_user(name, email, country):
+    from invenio.ext.sqlalchemy import db
+    from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
+
+    u = User(email=email, nickname=name, password=id_generator())
+    db.session.add(u)
+    db.session.commit()
+
+    ug = Usergroup.query.filter_by(name=get_kb_value('members', country)).first()
+    ug.users.append(UserUsergroup(id_user=u.id))
+    db.session.add(ug)
+    db.session.commit()
+
+    set_password(email)

@@ -26,6 +26,8 @@ from urllib2 import urlopen
 
 from flask import current_app
 
+from inis.utils import get_kb_value
+
 from invenio.modules.deposit.models import Deposition
 
 
@@ -49,7 +51,6 @@ def notify_rejection():
     """Notify user that upload has failed."""
     @wraps(notify_rejection)
     def _notify_rejection(obj, eng):
-        from inis.config import CFG_MEMBERS_DICT
         from invenio.modules.messages.query import create_message, send_message
         from invenio.config import CFG_SITE_URL
 
@@ -66,7 +67,7 @@ def notify_rejection():
 
         try:
             member = sip.metadata['member']
-            member = CFG_MEMBERS_DICT[member]
+            member = get_kb_value('members', member)
         except IndexError:
             member = ''
 
@@ -90,7 +91,7 @@ def notify_rejection():
 def notify_submission():
     @wraps(notify_submission)
     def _notify_submission(obj, eng):
-        from inis.config import CFG_MEMBERS_DICT, CFG_NOTIFY_SUBMISSION
+        from inis.config import CFG_NOTIFY_SUBMISSION
         from invenio.config import CFG_SITE_NAME, CFG_SITE_URL, CFG_SITE_SUPPORT_EMAIL
         from invenio.ext.email import send_email
 
@@ -103,7 +104,7 @@ def notify_submission():
 
         try:
             member = sip.metadata['member']
-            member = CFG_MEMBERS_DICT[member]
+            member = get_kb_value('members', member)
         except IndexError:
             member = ''
 

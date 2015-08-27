@@ -9,10 +9,10 @@ from datetime import datetime
 
 from flask import current_app, request
 
-from inis.config import CFG_LANG_CODES
-
 from inis.modules.deposit.field_widgets import SelectInput
 from inis.modules.deposit.fields.inis_fields import CreatorForm, date_factory, location_factory
+
+from inis.utils import get_kb_items
 
 from invenio.base.i18n import _
 
@@ -36,7 +36,7 @@ from wtforms.validators import ValidationError
 # from .autocomplete import descriptor_autocomplete
 
 
-lang_codes_list = CFG_LANG_CODES.items()
+lang_codes_list = get_kb_items('languages')
 lang_codes_list.sort(key=lambda tup: tup[1])
 
 
