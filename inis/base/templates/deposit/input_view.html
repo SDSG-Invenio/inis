@@ -1,0 +1,69 @@
+
+
+<div class="well">
+<!--     <h4>
+    {{ sip.metadata['title.title'] }}</h4> -->
+            <div class="pull-right view-record hidden-sm">
+                <a href="{{url_for('record.metadata', recid=sip.metadata['recid'])}}"
+                   class="btn btn-default" data-toggle="tooltip" title="">
+                   <i class="fa fa-eye"></i> {{ _('Preview') }}</a>
+                   <span class="clearfix"></br></span>
+            </div>
+    <table class="table table-striped">
+    {% with width = "30%" %}
+    <tr>
+        <td width="{{ width }}">
+            <b>Title:</b>
+        </td>
+        <td>
+            <a href="{{ url_for('record.metadata', recid=sip.metadata['recid']) }}">
+                {{ sip.metadata['title.title'] }}
+            <a>
+        </td>
+    </tr>
+    <tr>
+        <td width="{{ width }}">
+            <b>Record type:</b>
+        </td>
+        <td>
+            {{ deposition.type.name }}
+        </td>
+    </tr>
+    <tr>
+        <td width="{{ width }}">
+            <b>TRN:</b>
+        </td>
+        <td>
+            {{ sip.metadata['trn'] }}
+        </td>
+    </tr>
+    <tr>
+        <td width="{{ width }}">
+            <b>Proposed descriptors:</b>
+        </td>
+        <td>
+        {% for d in sip.metadata['proposed_descriptors'] %}
+            <span class="label label-default"
+                  data-toggle="tooltip"
+                  title="proposed descriptor"
+                  style="display:inline-block;">
+                {{ d['descriptor'] }}
+            </span>
+        {% endfor %}
+        </td>
+        <td></td>
+    </tr>
+<!--     <tr>
+        <td width="{{ width }}">
+        </td>
+        <td>
+        <a href="{{ url_for('record.metadata', recid=sip.metadata['recid']) }}"
+           class="btn btn-default btn-lg">
+           Preview
+        </a>
+        </td>
+    </tr> -->
+    {% endwith %}
+    </table>
+   </div>
+</div>

@@ -636,19 +636,3 @@ def get_kb_key(name, value):
     from invenio.modules.knowledge.api import get_kb_mapping
     mapping = get_kb_mapping(kb_name=name, value=value)
     return mapping['key'] if mapping else None
-
-
-def create_user(name, email, country):
-    from invenio.ext.sqlalchemy import db
-    from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
-
-    u = User(email=email, nickname=name, password=id_generator())
-    db.session.add(u)
-    db.session.commit()
-
-    ug = Usergroup.query.filter_by(name=get_kb_value('members', country)).first()
-    ug.users.append(UserUsergroup(id_user=u.id))
-    db.session.add(ug)
-    db.session.commit()
-
-    set_password(email)
