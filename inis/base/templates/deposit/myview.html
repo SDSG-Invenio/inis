@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2014 CERN.
+# Copyright (C) 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -30,15 +30,17 @@
     {%- endif %}
     <tr>
         <td><a href="{{ url_for('webdeposit.delete', deposition_type=deposition_type, uuid=dep.id) }}" class="rmlink" rel="tooltip" title="Delete submission"><i class="glyphicon glyphicon-trash"></i></a></td>
-        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}">{% if dep.title %}
-                  {{ dep.title }}
+        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
+               title="{{ dep.title }}">
+              {% if dep.title %}
+                  {{ dep.title | truncate(32, killwords=True) }}
               {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
                 {{ dep.get_latest_sip().metadata['title']  }}
               {% else %}
                   {{ _('Untitled') }}
               {% endif %}</a>
         </td>
-        <td>{{ dep.modified|invenio_pretty_date }}</td>
+        <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
     </tr>
     {%- if loop.last %}
     </table>
@@ -63,13 +65,15 @@
             {%- endif %}
         {%- endif %}
         </td>
-        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}">{% if dep.title %}
-                  {{ dep.title }}
+        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
+               title="{{ dep.title }}">
+              {% if dep.title %}
+                  {{ dep.title | truncate(32, killwords=True) }}
               {% else %}
                   {{ _('Untitled') }}
               {% endif %}</a>
         </td>
-        <td>{{ dep.modified }}</td>
+        <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
     </tr>
     {%- if loop.last %}
     </table>
