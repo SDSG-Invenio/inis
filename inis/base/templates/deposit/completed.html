@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -49,13 +49,11 @@
             <span class="clearfix"></span>
         </div>
         <hr />
-        <!-- {{format_record(recID=sip.metadata['recid'], xml_record=sip.package, of='hd')|safe}} -->
         {%- if deposition.type.name == 'Upload' -%}
             {% include "deposit/upload_view.html" %}
         {%- else -%}
             {% include "deposit/input_view.html" %}
         {%- endif -%}
-
     <div class="col-md-5">
         {% include "deposit/myview.html" %}
     </div>

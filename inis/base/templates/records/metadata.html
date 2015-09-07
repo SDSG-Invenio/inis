@@ -1,0 +1,5 @@
+{%- extends "records/metadata_base.html" -%}
+
+{% block record_content %}
+  {{ format_record(recid, of=of, ln=g.ln)|safe }}
+{% endblock %}

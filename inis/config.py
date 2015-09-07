@@ -87,3 +87,12 @@ CFG_SEASON_CODES = [
     ('Aut', 'Autum'),
     ('Win', 'Winter'),
 ]
+
+CFG_RECORD_TYPES = {
+    'B': "Book or Monograph",
+    'F': "Audiovisual Material",
+    'I': "Miscellaneous",
+    'P': "Patent",
+    'R': "Report",
+    'T': "Computer Media",
+}
