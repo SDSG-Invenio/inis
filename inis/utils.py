@@ -237,6 +237,70 @@ def create_authors_ttf(d):
     return out.strip(' ;')
 
 
+def create_control_data(d, recid):
+    from invenio.modules.formatter.engine import BibFormatObject
+
+    bfo = BibFormatObject(recid)
+
+    abstracts_no = len(bfo.fields('860'))
+
+    indicators = ''
+    descriptors = bfo.fields('810__a')
+
+    if abstracts_no == 0:
+        indicators += 'E'
+
+    if len(bfo.fields('210')) > 0:
+        indicators += 'K'
+
+    for descriptor in ["COMPILED DATA", "EVALUATED DATA", "EXPERIMENTAL DATA",
+                       "NUMERICAL DATA", "STATISTICAL DATA", "THEORETICAL DATA"]:
+        if descriptor in descriptors:
+            indicators += 'N'
+
+    if "LEGISLATIVE TEXT" in descriptors:
+        indicators += 'Q'
+
+    if len(bfo.fields('610')) > 0:
+        indicators += 'T'
+
+    if len(bfo.fields('110')) > 0:
+        indicators += 'U'
+
+    if "COMPUTER PROGRAM DOCUMENTATION" in descriptors:
+        indicators += 'V'
+
+    if "STANDARDS DOCUMENT" in descriptors:
+        indicators += 'W'
+
+    if len(bfo.fields('611')) > 0:
+        indicators += 'X'
+
+    if "PROGRESS REPORT" in descriptors:
+        indicators += 'Y'
+
+    if "BIBLIOGRAPHIES" in descriptors:
+        indicators += 'Z'
+
+    indicators = ''.join(sorted(set(indicators)))
+
+    subjects = ''
+    record_type = ''
+    for e in d.values():
+        if 'a' in e:
+            subjects += e['a'] + ';'
+        if 'c' in e:
+            record_type = e['c']
+    subjects = subjects.strip(';')
+
+    levels = 'M'
+
+    elements = [subjects, "%02d" % abstracts_no, record_type, levels, indicators]
+    elements = [e for e in elements if e]
+
+    return '/'.join(elements)
+
+
 def create_languages_ttf(res):
     out = '('
     for tag in res:
@@ -352,7 +416,7 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             out = res[0][0]
         return out
 
-    skip_tags = set(['100', '213', '401', '403', '856', '600', '980', '911'])
+    skip_tags = set(['100', '213', '401', '403', '856', '600', '908', '980', '911'])
 
     out = ""
     prefix = "%s^"
@@ -393,17 +457,20 @@ def record_get_ttf(recID, mode='text', on_the_fly=False):
             else:
                 out += """001^%s\n""" % (value, )
 
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib00x AS b, bibrec_bib00x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '009%%' "\
+        query = "SELECT b.tag,b.value,bb.field_number FROM bib90x AS b, bibrec_bib90x AS bb "\
+                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '908%%' "\
                 "ORDER BY bb.field_number, b.tag ASC" % recID
         res = run_sql(query)
+
+        d = {}
         for row in res:
-            field, value = row[0], row[1]
-            value = encode_for_xml(value)
-            if mode == 'xml':
-                out += """<tag name='009'>%s</tag>""" % (encode_for_xml(value), )
-            else:
-                out += """009^%s\n""" % (encode_for_xml(value), )
+            field, value, tag = row[0][-1], row[1], row[2]
+            if tag not in d:
+                d[tag] = {}
+            d[tag][field] = value
+
+        value = create_control_data(d, recID)
+        out += prefix % ('008', ) + encode_for_xml(value) + postfix if value != '' else ''
 
         # datafields
         i = 1
@@ -580,6 +647,8 @@ def load_knowledge_bases():
 
     from inis.demosite.descriptors_en import descriptors_en
     load_kb('descriptors', descriptors_en)
+    from inis.demosite.subjects import subjects
+    load_kb('subjects', subjects)
 
     from inis.demosite.members import CFG_COUNTRIES_DICT, CFG_MEMBERS_DICT, CFG_ORGANIZATIONS_DICT
 

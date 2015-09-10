@@ -34,9 +34,15 @@ def format_element(bfo):
 
     place = bfo.field('401')
     publisher = bfo.field('402__a')
-    city = place['a']
-    country_code = place['b']
-    country = get_kb_value('countries', country_code)
+
+    city = ''
+    if 'a' in place:
+        city = place['a']
+
+    country = ''
+    if 'b' in place:
+        country_code = place['b']
+        country = get_kb_value('countries', country_code)
 
     template = "%(publisher)s%(city)s%(country)s"
 

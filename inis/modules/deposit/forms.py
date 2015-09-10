@@ -51,7 +51,7 @@ trn = fields.StringField(
 )
 title = fields.TitleField(
     validators=[validators.DataRequired()],
-    # description='Required.',
+    description='Required.',
     filters=[strip_string, ],
     icon='fa fa-book fa-fw',
 )
@@ -228,17 +228,9 @@ abstract = fields.TextAreaField(
 )
 
 
-# def grants_validator(form, field):
-#     if field.data:
-#         for item in field.data:
-#             val = get_kb_mapping('descriptors', str(item['id']))
-#             if val:
-#                 data = descriptors_kb_mapper(val)
-#                 item['acronym'] = data['fields']['acronym']
-#                 item['title'] = data['fields']['title']
-#                 continue
-#             raise ValidationError("Invalid grant identifier %s" % item['id'])
-
+#
+# Descriptors
+#
 
 def descriptor_kb_value(key_name):
     def _getter(field):
@@ -285,10 +277,6 @@ proposed_descriptors = fields.DynamicFieldList(
         DescriptorForm,
         widget=ExtendedListWidget(html_tag='div', item_widget=ItemWidget()),
         export_key='proposed_descriptors',
-        # lambda f: {
-        #     'identifier': f.data['id'],
-        #     'descriptor': f.data['descriptor'],
-        # }
     ),
     widget=TagListWidget(template="{{descriptor}}",
                          html_tag='ul',
@@ -301,10 +289,72 @@ proposed_descriptors = fields.DynamicFieldList(
 )
 
 
+#
+# Subjects
+#
+
+def subject_kb_value(key_name):
+    def _getter(field):
+        if field.data:
+            val = get_kb_mapping('subjects', str(field.data))
+            if val:
+                data = subjects_kb_mapper(val)
+                return data['fields'][key_name]
+        return ''
+    return _getter
+
+
+def subjects_kb_mapper(val):
+    data = val['value']
+    return {
+        'value': "%s" % (data),
+        'fields': {
+            'id': data[:3],
+            'subject': data,
+        }
+    }
+
+
+class SubjectForm(WebDepositForm):
+    id = fields.StringField(
+        widget=widgets.HiddenInput(),
+        processors=[
+            replace_field_data('subject', subject_kb_value('id')),
+        ],
+    )
+    subject = fields.StringField(
+        placeholder="Start typing a subject...",
+        autocomplete_fn=kb_autocomplete(
+            'subjects',
+            mapper=subjects_kb_mapper
+        ),
+        widget=TagInput(),
+        widget_classes='form-control',
+    )
+
+
+subjects = fields.DynamicFieldList(
+    fields.FormField(
+        SubjectForm,
+        widget=ExtendedListWidget(html_tag='div', item_widget=ItemWidget()),
+        export_key='subjects',
+    ),
+    widget=TagListWidget(template="{{subject}}",
+                         html_tag='ul',
+                         class_='list-unstyled',
+                         ),
+    widget_classes=' dynamic-field-list',
+    icon='fa fa-tags fa-fw',
+    description="Add here the subjects",
+    export_key='subjects',
+    #validators=[grants_validator],
+)
+
+
 groups = [
     ('Basic information', [
-        'trn', 'title', 'original_title', 'language', 'description',
-        'proposed_descriptors',
+        'trn', 'title', 'original_title', 'subjects', 'language',
+        'description', 'proposed_descriptors',
     ], {'indication': 'required', }),
     ('Publication information', [
         'place', 'publisher', 'publication_date', 'edition',
@@ -370,6 +420,7 @@ class INISForm(WebDepositForm):
     trn = trn
     title = title
     original_title = original_title
+    subjects = subjects
     language = language
     description = description
     proposed_descriptors = proposed_descriptors
