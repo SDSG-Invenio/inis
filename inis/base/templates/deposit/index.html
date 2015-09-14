@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -28,9 +28,10 @@
 
     <div class="well">
       <h1>INIS Input Management</h1></br>
-      {% include "deposit/inis_info.html" %}
+        {% include "deposit/inis_info.html" %}
       </br>
-      <h4>Choose the type of submission</h4>
+
+      <h4>Choose an action</h4>
       <div class="well" style="background-color:white;">
         <div id="uploader-uploaders" class="row text-center">
           <div class="col-md-5" id="local">
@@ -38,6 +39,13 @@
               Upload
             </a>
           </div>
+          {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
+            <div class="col-md-5" id="local">
+              <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
+                <small>{{ _('See latest uploads') }}</small>
+              </a>
+            </div>
+          {% endif %}
   <!--         <div class="col-md-5" id="local">
             <a class="btn btn-primary btn-lg fa fa-edit fa-2x disabled" href="/upload/create">
               Input

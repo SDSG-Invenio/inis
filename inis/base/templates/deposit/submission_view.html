@@ -32,22 +32,19 @@
         <td>
             {% with recid = sip.metadata['recid'] %}
             {% with links = format_record(recid, 'FILELINKS', ln=g.ln)|safe %}
-            {% if links != '' %}
-                {{ links }}
-            {% else %}
-                <ul style="list-style-type:circle; padding-left:15px">
-                    {% for file in sip.metadata['fft'] %}
-                    <li>
-                        {{ file['name'] }}
-                    </li>
-                    {% endfor %}
-                </ul>
-            {%- endif %}
+                {% if links != '' %}
+                    {{ links }}
+                {% else %}
+                    <ul style="list-style-type:circle; padding-left:15px">
+                        {% for file in sip.metadata['fft'] %}
+                        <li>
+                            {{ file['name'] }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {%- endif %}
             {% endwith %}
             {% endwith %}
- 
-
-
         </td>
     </tr>
     </table>

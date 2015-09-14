@@ -1,11 +1,12 @@
 from flask import Blueprint, current_app, render_template
 from flask.ext.breadcrumbs import register_breadcrumb
-from flask.ext.login import current_user
+from flask.ext.login import current_user, login_required
 from flask.ext.menu import current_menu, register_menu
 
-from flask_login import login_required
+from inis.config import CFG_MEMBERS_DICT
 
 from invenio.base.i18n import _
+
 
 blueprint = Blueprint(
     "inis",
@@ -88,3 +89,33 @@ def bibsched():
 
     return render_template('inis/bibsched.html', mode=get_bibsched_mode(),
                            tasks=tasks, bibsched_error=bibsched_error, running=running)
+
+
+@blueprint.route('/list')
+@login_required
+@register_menu(blueprint, 'main.list', _('Upload List'), order=6,
+               visible_when=lambda: current_user.is_admin)
+@register_breadcrumb(blueprint, 'breadcrumbs.bibsched', _("Upload List"))
+def list():
+
+    from invenio.modules.deposit.models import Deposition
+    from invenio.modules.formatter import format_record
+
+    uploads = []
+
+    depositions = [d for d in Deposition.get_depositions() if d.submitted and d.has_sip()]
+    for d in depositions:
+        sip = d.get_latest_sip()
+        m = sip.metadata
+        if 'Accepted' in m['collections'][0].values():
+            u = {'id': d.id,
+                 'recid': m['recid'],
+                 'date': d.modified,
+                 'member': CFG_MEMBERS_DICT[m['member']],
+                 'submitter': m['owner']['username'],
+                 'upload_name': d.title,
+                 'notes': m['notes'] if 'notes' in m else None,
+                 'records': len(m['trns'])}
+            uploads.append(u)
+
+    return render_template('inis/upload_list.html', uploads=uploads, sip=sip, dep=d, format_record=format_record)
