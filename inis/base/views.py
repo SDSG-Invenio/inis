@@ -5,6 +5,7 @@ from flask.ext.menu import current_menu, register_menu
 
 from inis.config import CFG_MEMBERS_DICT
 
+from invenio.base.decorators import wash_arguments
 from invenio.base.i18n import _
 
 
@@ -96,14 +97,45 @@ def bibsched():
 @register_menu(blueprint, 'main.list', _('Upload List'), order=6,
                visible_when=lambda: current_user.is_admin)
 @register_breadcrumb(blueprint, 'breadcrumbs.bibsched', _("Upload List"))
-def list():
+@wash_arguments({'date_from': (unicode, ''),
+                 'date_to': (unicode, ''),
+                 'range': (unicode, 'this_week')})
+def list(date_from, date_to, range):
 
     from invenio.modules.deposit.models import Deposition
     from invenio.modules.formatter import format_record
+    from datetime import datetime, timedelta
+
+    ranges = {
+        'today': 1,
+        'this_week': 7,
+        'last_week': 14,
+        'last_month': 31,
+    }
+
+    days = ranges[range]
+
+    if date_from:
+        try:
+            date_from = datetime.strptime(date_from, '%Y-%m-%d')
+        except:
+            now = datetime.now()
+            date_from = now - timedelta(days=days)
+    else:
+        now = datetime.now()
+        date_from = now - timedelta(days=days)
+
+    if date_to:
+        try:
+            date_to = datetime.strptime(date_to, '%Y-%m-%d')
+        except:
+            date_to = None
+    else:
+        date_to = None
 
     uploads = []
 
-    depositions = [d for d in Deposition.get_depositions() if d.submitted and d.has_sip()]
+    depositions = [d for d in Deposition.get_depositions(date_from=date_from, date_to=date_to) if d.submitted and d.has_sip()]
     for d in depositions:
         sip = d.get_latest_sip()
         m = sip.metadata
@@ -118,4 +150,4 @@ def list():
                  'records': len(m['trns'])}
             uploads.append(u)
 
-    return render_template('inis/upload_list.html', uploads=uploads, sip=sip, dep=d, format_record=format_record)
+    return render_template('inis/upload_list.html', uploads=uploads, format_record=format_record)
