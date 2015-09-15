@@ -1,13 +1,18 @@
 {%- extends "page.html" -%}
 {%- block body -%}
 
-<h2>Upload list</h2>
+<h2>Uploads from week {{ week_displayed[0] }}/{{ "%02d"|format(week_displayed[1]) }}</h2>
 </br>
-<div class="btn-group btn-group-lg" role="group" aria-label="...">
-  <a class="btn btn-default btn-lg" href="/list?range=today">today</a>
-  <a class="btn btn-default btn-lg" href="/list?range=this_week">this week</a>
-  <a class="btn btn-default btn-lg" href="/list?range=last_week">last week</a>
-  <a class="btn btn-default btn-lg" href="/list?range=last_month">last month</a>
+<div class="btn-group">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Week
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+            {% for (issue, week) in weeks %}
+                <li><a href="/list?issue={{issue}}&week={{week}}">{{ issue }}/{{ "%02d"|format(week) }}</a></li>
+            {% endfor %}
+            </ul>
+    </div>
 </div>
 </br></br>
 <div class="table-responsive">
@@ -45,13 +50,6 @@
         {% endif %}
     {%- endfor %}
 </table>
-</div>
-
-<div class="btn-group btn-group-lg" role="group" aria-label="...">
-  <a class="btn btn-default btn-lg" href="/list?range=today">today</a>
-  <a class="btn btn-default btn-lg" href="/list?range=this_week">this week</a>
-  <a class="btn btn-default btn-lg" href="/list?range=last_week">last week</a>
-  <a class="btn btn-default btn-lg" href="/list?range=last_month">last month</a>
 </div>
 
 {%- endblock body -%}

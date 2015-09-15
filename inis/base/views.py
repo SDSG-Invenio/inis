@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 from flask import Blueprint, current_app, render_template
 from flask.ext.breadcrumbs import register_breadcrumb
 from flask.ext.login import current_user, login_required
@@ -99,39 +101,29 @@ def bibsched():
 @register_breadcrumb(blueprint, 'breadcrumbs.bibsched', _("Upload List"))
 @wash_arguments({'date_from': (unicode, ''),
                  'date_to': (unicode, ''),
-                 'range': (unicode, 'this_week')})
-def list(date_from, date_to, range):
+                 'issue': (int, 0),
+                 'week': (int, 0)})
+def list(date_from, date_to, issue, week):
 
     from invenio.modules.deposit.models import Deposition
     from invenio.modules.formatter import format_record
-    from datetime import datetime, timedelta
 
-    ranges = {
-        'today': 1,
-        'this_week': 7,
-        'last_week': 14,
-        'last_month': 31,
-    }
+    current_issue, current_week = current_inis_week()
 
-    days = ranges[range]
+    if week < 1 or issue < 1:
+        (issue, week) = (current_issue, current_week)
 
-    if date_from:
-        try:
-            date_from = datetime.strptime(date_from, '%Y-%m-%d')
-        except:
-            now = datetime.now()
-            date_from = now - timedelta(days=days)
-    else:
-        now = datetime.now()
-        date_from = now - timedelta(days=days)
-
-    if date_to:
-        try:
-            date_to = datetime.strptime(date_to, '%Y-%m-%d')
-        except:
-            date_to = None
-    else:
-        date_to = None
+    date_from, date_to = week_range(issue, week)
+    week_displayed = (issue, week)
+    weeks = []
+    issue, week = current_issue, current_week
+    weeks.append((current_issue, current_week))
+    for i in range(1, 5):
+        week = week - 1
+        if week == 0:
+            week = 50
+            issue = issue - 1
+        weeks.append((issue, week))
 
     uploads = []
 
@@ -150,4 +142,36 @@ def list(date_from, date_to, range):
                  'records': len(m['trns'])}
             uploads.append(u)
 
-    return render_template('inis/upload_list.html', uploads=uploads, format_record=format_record)
+    return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
+                           format_record=format_record, week_displayed=week_displayed)
+
+
+def current_inis_week():
+    today = date.today()
+
+    issue = today.year - 1969
+    for w in range(1, 50):
+        start, end = week_range(issue, w)
+        if start <= today:
+            if end >= today:
+                return (issue, w)
+
+
+def week_range(issue, week_number):
+
+    year = 1969 + issue
+
+    week_offset = min(week_number, 50) - 1
+    first_day_year = date(year, 1, 1)
+    first_weekday_year = first_day_year.weekday()
+    first_wed_year = first_day_year + timedelta(days=2-first_weekday_year)
+
+    if week_number == 1:
+        (dummy, start) = week_range(issue-1, 50)
+        start = start + timedelta(days=1)
+    else:
+        start = first_wed_year + timedelta(days=7*week_offset)
+
+    end = first_wed_year + timedelta(days=7*week_offset + 6)
+
+    return (start, end)
