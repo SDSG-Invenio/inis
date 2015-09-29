@@ -29,6 +29,17 @@ class UploadForm(WebDepositForm):
         export_key='title.title',
     )
 
+    action = fields.RadioField(
+        label=_('Action'),
+        icon='fa fa-book fa-fw',
+        validators=[validators.DataRequired()],
+        export_key='action',
+        widget_classes='list-unstyled',
+        default='INPUT',
+        choices=[('INPUT', 'Final input for INIS'),
+                 ('CAI', 'To be indexed in CAI')]
+    )
+
     note = fields.TextAreaField(
         label=_("Notes"),
         description='Optional.',
@@ -65,5 +76,5 @@ class UploadForm(WebDepositForm):
 
     groups = [
         ('Basic information',
-            ['title', 'note']),
+            ['title', 'note', 'action']),
     ]
