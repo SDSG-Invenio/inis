@@ -23,6 +23,7 @@
         <th class='text-center'><li class="list-group-item active">Member</th>
         <th class='text-center'><li class="list-group-item active">Submitter</th>
         <th class='text-center'><li class="list-group-item active">Upload name</th>
+        <th class='text-center'><li class="list-group-item active">Action</th>
         <th class='text-center' style="width: 20px;"><li class="list-group-item active">Rec#</th>
         <th class='text-center'><li class="list-group-item active">Files</th>
     </tr>
@@ -30,9 +31,10 @@
         <tr data-toggle="collapse" data-target="#notes{{ u['id'] }}">
             <td class='text-center'><span class="badge">{{ u['id'] }}</span></td>
             <td class='text-center'>{{ u['date'] | string | truncate(16, killwords=True, end='') }}</td>
-            <td>{{ u['member'] }}</td>
-            <td>{{ u['submitter'] }}</td>
-            <td>{{ u['upload_name'] }}</td>
+            <td class='text-center'>{{ u['member'] }}</td>
+            <td class='text-center'>{{ u['submitter'] }}</td>
+            <td class='text-center'>{{ u['upload_name'] }}</td>
+            <td class='text-center'>{{ u['action'] }}</td>
             <td class='text-center'>{{ u['records'] }}</td>
             <td>{% with recid = u['recid'] %}
                     {{ format_record(recid, 'FILELINKS', ln=g.ln)|safe }}

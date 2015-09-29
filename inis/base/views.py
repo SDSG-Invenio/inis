@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 from flask import Blueprint, current_app, render_template
 from flask.ext.breadcrumbs import register_breadcrumb
@@ -114,6 +114,8 @@ def list(date_from, date_to, issue, week):
         (issue, week) = (current_issue, current_week)
 
     date_from, date_to = week_range(issue, week)
+    date_from = datetime.combine(date_from, datetime.min.time())
+    date_to = datetime.combine(date_to, datetime.max.time())
     week_displayed = (issue, week)
     weeks = []
     issue, week = current_issue, current_week
@@ -134,6 +136,7 @@ def list(date_from, date_to, issue, week):
         if 'Accepted' in m['collections'][0].values():
             u = {'id': d.id,
                  'recid': m['recid'],
+                 'action': m['action'] if 'action' in m else '',
                  'date': d.modified,
                  'member': CFG_MEMBERS_DICT[m['member']],
                  'submitter': m['owner']['username'],
