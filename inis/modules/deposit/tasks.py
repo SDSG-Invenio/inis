@@ -189,7 +189,7 @@ def trn_exists(trn):
     from invenio.legacy.search_engine import perform_request_search
 
     url = 'http://nkp.iaea.org/changerecord/inischangerecord.asmx/ProcRecords?list='
-    if perform_request_search(p=trn, cc=trn[:2].upper()) == []:
+    if perform_request_search(p=trn + " and 914__a:INPUT", cc=trn[:2].upper()) == []:
         try:
             response = urlopen(url + trn)
             html = response.read()

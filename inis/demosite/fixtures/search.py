@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Zenodo.
-# Copyright (C) 2014 CERN.
+# Copyright (C) 2014, 2015 CERN.
 #
 # Zenodo is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,8 +36,9 @@ class CollectionData(DataSet):
 colls = []
 colls.append((2, 'Accepted', 'Accepted', '980__a:Accepted'))
 colls.append((3, 'Rejected', 'Rejected', '980__a:Rejected'))
+colls.append((4, 'CAI', 'CAI', '914__a:CAI'))
 
-i = 4
+i = 5
 for code in CFG_MEMBERS_CODES:
     name = CFG_MEMBERS_DICT[code]
     colls.append((i, name, code, '980__a:"Accepted" AND 913__a:"' + code + '"', ))
@@ -77,13 +78,14 @@ for cid in coll_ids:
 # ===============
 order = 1
 coll_coll_data = []
-for i, t, n, q in colls[2:]:  # we exclude 'Accepted' and 'Rejected' from the tree
+for i, t, n, q in colls[3:]:  # we exclude 'Accepted', 'Rejected' and 'CAI' from the tree
     if n.startswith('r-'):
         father = 3
     else:
         father = 2
     coll_coll_data.append((father, i, 'r', order))
     order = order + 1
+coll_coll_data.append((1, 4, 'v', order))
 coll_coll_data = tuple(coll_coll_data)
 
 
