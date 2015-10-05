@@ -28,8 +28,12 @@ def format_element(bfo):
 
     out += '<ul style="list-style-type:circle; padding-left:15px">'
     for f in main_urls['Fulltext']:
-        out += '<li><a href="%(url)s">%(text)s</a></li>' % {'url': f[0],
-                                                            'text': '.'.join([f[1][37:], f[2]])}
+        if len(f[1]) > 37 and f[1].count('-') >= 5:
+            out += '<li><a href="%(url)s">%(text)s</a></li>' % {'url': f[0],
+                                                                'text': '.'.join([f[1][37:], f[2]])}
+        else:
+            out += '<li><a href="%(url)s">%(text)s</a></li>' % {'url': f[0],
+                                                                'text': '.'.join([f[1], f[2]])}
 
     out += '</ul>'
     return out
