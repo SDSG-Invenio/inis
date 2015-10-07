@@ -105,8 +105,9 @@ def bibsched():
                  'week': (int, 0)})
 def list(date_from, date_to, issue, week):
 
+    from inis.utils import get_file_links
+
     from invenio.modules.deposit.models import Deposition
-    from invenio.modules.formatter import format_record
 
     current_issue, current_week = current_inis_week()
 
@@ -142,11 +143,12 @@ def list(date_from, date_to, issue, week):
                  'submitter': m['owner']['username'],
                  'upload_name': d.title,
                  'notes': m['notes'] if 'notes' in m else None,
-                 'records': len(m['trns'])}
+                 'records': len(m['trns']),
+                 'files': get_file_links(m['recid'])}
             uploads.append(u)
 
     return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
-                           format_record=format_record, week_displayed=week_displayed)
+                           week_displayed=week_displayed)
 
 
 def current_inis_week():

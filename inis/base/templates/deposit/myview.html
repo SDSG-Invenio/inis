@@ -33,7 +33,7 @@
         <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
                title="{{ dep.title }}">
               {% if dep.title %}
-                  {{ dep.title | truncate(32, killwords=True) }}
+                  {{ dep.title | truncate(30, killwords=True) }}
               {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
                 {{ dep.get_latest_sip().metadata['title']  }}
               {% else %}
@@ -49,35 +49,53 @@
 
     {% endfor %}
 
-    {% for dep in my_depositions if dep.has_sip() %}
-    {%- set deposition_type = None if dep.type.is_default() else dep.type.get_identifier() -%}
-    {%- if loop.first %}
-    <h4>{{ _('Submitted') }}</h4>
-    <table class="table table-striped">
-    {% endif %}
-    <tr>
-        <td>
-        {%- if dep.get_latest_sip().metadata['collections'] %}
-            {%- if dep.get_latest_sip().metadata['collections'][0]['primary'] == 'Rejected' %}
-                <div class="fa fa-warning" style="color:red"></div>
-            {%- else %}
-                <div class="fa fa-check" style="color:green"></div>
-            {%- endif %}
-        {%- endif %}
+    {% for group in my_depositions | batch(8) %}
+      {%- if loop.first %}
+        <h4>{{ _('Submitted') }}</h4>
+        <table class="table table-striped">
+        {%- set first = 'in' -%}
+      {% else %}
+        {%- set first = '' -%}
+      {% endif %}
+      {%- set group_no = loop.index -%}
+      {% for dep in group if dep.has_sip() %}
+      {%- set deposition_type = None if dep.type.is_default() else dep.type.get_identifier() -%}
+
+    
+      <tr class="accordion-body collapse {{first}} group{{ group_no }}" id="group{{ group_no }}">
+          <td>
+          {%- if dep.get_latest_sip().metadata['collections'] %}
+              {%- if dep.get_latest_sip().metadata['collections'][0]['primary'] == 'Rejected' %}
+                  <div class="fa fa-warning" style="color:red"></div>
+              {%- else %}
+                  <div class="fa fa-check" style="color:green"></div>
+              {%- endif %}
+          {%- endif %}
+          </td>
+          <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
+                 title="{{ dep.title }}">
+                {% if dep.title %}
+                    {{ dep.title | truncate(30, killwords=True) }}
+                {% else %}
+                    {{ _('Untitled') }}
+                {% endif %}</a>
+          </td>
+          <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
+          <td>
+      </tr>
+      {%- endfor %}
+      {%- if loop.last %}
+        </table>
+      {%- endif %}
+      {%- if not loop.last %}
+      <tr class="accordion-body collapse {{first}} group{{ group_no }}" data-toggle="collapse"
+          data-target=".group{{ group_no+1 }},#separator{{ group_no }}" id="separator{{ group_no }}">
+        <td class="row text-center" colspan="3">
+          <button type="button" class="btn btn-default btn-xs">See More</button>
         </td>
-        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
-               title="{{ dep.title }}">
-              {% if dep.title %}
-                  {{ dep.title | truncate(32, killwords=True) }}
-              {% else %}
-                  {{ _('Untitled') }}
-              {% endif %}</a>
-        </td>
-        <td>{{ dep.modified | string | truncate(16, killwords=True, end='') }}</td>
-    </tr>
-    {%- if loop.last %}
-    </table>
-    {%- endif %}
+      </tr>
+      {%- endif %}
     {%- endfor %}
+
     {%- endif %}
 </div>

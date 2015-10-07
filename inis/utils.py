@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2012, 2013, 2014 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -176,3 +176,26 @@ def import_ttf(filename):
     os.close(fd)
 
     task_low_level_submission('bibupload', 'admin', '-i', name)
+
+
+def get_file_links(recid):
+    from invenio.modules.formatter.format_elements.bfe_fulltext import _CFG_BIBFORMAT_HIDDEN_DOCTYPES, get_files
+    from invenio.modules.formatter.engine import BibFormatObject
+
+    bfo = BibFormatObject(recid)
+
+    (parsed_urls, old_versions, additionals) = get_files(bfo, distinguish_main_and_additional_files=True,
+                                                         include_subformat_icons=True,
+                                                         hide_doctypes=_CFG_BIBFORMAT_HIDDEN_DOCTYPES)
+
+    main_urls = parsed_urls['main_urls']
+    fulltexts = main_urls['Fulltext'] if 'Fulltext' in main_urls else []
+
+    files = []
+    for f in fulltexts:
+        if len(f[1]) > 37 and f[1].count('-') >= 5:
+            files.append([f[0], '.'.join([f[1][37:], f[2]])])
+        else:
+            files.append([f[0], '.'.join([f[1], f[2]])])
+
+    return files

@@ -2,7 +2,7 @@
 from invenio.modules.formatter.format_elements.bfe_fulltext import _CFG_BIBFORMAT_HIDDEN_DOCTYPES, get_files
 
 
-def format_element(bfo):
+def format_element(bfo, limit=None):
     """
     This is the format for formatting fulltext links in the mini panel.
     @param separator: the separator between urls.
@@ -22,12 +22,17 @@ def format_element(bfo):
                                                          hide_doctypes=_CFG_BIBFORMAT_HIDDEN_DOCTYPES)
 
     main_urls = parsed_urls['main_urls']
+    fulltexts = main_urls['Fulltext']
 
-    if len(main_urls) == 0:
+    if len(fulltexts) == 0:
         return ''
 
+    if limit and len(fulltexts) > limit:
+        fulltexts = fulltexts[:limit]
+
     out += '<ul style="list-style-type:circle; padding-left:15px">'
-    for f in main_urls['Fulltext']:
+
+    for f in fulltexts:
         if len(f[1]) > 37 and f[1].count('-') >= 5:
             out += '<li><a href="%(url)s">%(text)s</a></li>' % {'url': f[0],
                                                                 'text': '.'.join([f[1][37:], f[2]])}

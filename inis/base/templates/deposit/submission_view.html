@@ -32,17 +32,36 @@
         <td>
             {% with recid = sip.metadata['recid'] %}
             {% with links = format_record(recid, 'FILELINKS', ln=g.ln)|safe %}
-                {% if links != '' %}
-                    {{ links }}
-                {% else %}
-                    <ul style="list-style-type:circle; padding-left:15px">
-                        {% for file in sip.metadata['fft'] %}
-                        <li>
+            {% with group_size = 15 %}
+                <ul style="list-style-type:none; padding-left:0px">
+                    {% for file in sip.metadata['fft'] | batch(group_size) | first %}
+                    <li>
+                        {% if links == '' %}
                             {{ file['name'] }}
+                        {% else %}
+                            <a href="{{ url_for('record.files', recid=recid) }}/{{file['name']}}">{{ file['name'] }}</a>
+                        {%- endif %}
+                    </li>
+                    {% endfor %}
+                    {% if (sip.metadata['fft']|count) > group_size %}
+                        <li class="accordion-body collapse in" data-toggle="collapse"
+                            data-target=".files,#showall" id="showall">
+                            <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
-                        {% endfor %}
-                    </ul>
-                {%- endif %}
+                        {% for file in sip.metadata['fft'] %}
+                            {% if loop.index > group_size %}
+                                <li class="accordion-body collapse files">
+                                    {% if links == '' %}
+                                        {{ file['name'] }}
+                                    {% else %}
+                                        <a href="{{ url_for('record.files', recid=recid) }}/{{file['name']}}">{{ file['name'] }}</a>
+                                    {%- endif %}
+                                </li>
+                            {%- endif %}
+                        {%- endfor %}
+                    {%- endif %}
+                </ul>
+            {% endwith %}
             {% endwith %}
             {% endwith %}
         </td>
