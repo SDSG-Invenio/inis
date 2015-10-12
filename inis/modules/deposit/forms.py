@@ -23,7 +23,7 @@ class UploadForm(WebDepositForm):
     title = fields.TitleField(
         label=_('Upload name'),
         widget_classes="form-control",
-        default='Upload of ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        placeholder='e.g. Upload of ' + datetime.now().strftime('%Y-%m-%d %H:%M'),
         icon='fa fa-book fa-fw',
         validators=[validators.DataRequired()],
         export_key='title.title',
@@ -51,6 +51,7 @@ class UploadForm(WebDepositForm):
         widget_classes='form-control',
         icon='fa fa-pencil fa-fw',
         export_key='notes',
+        placeholder="e.g. Journal of Radiation Research. JP. 23 records"
     )
 
     plupload_file = fields.FileUploadField(
