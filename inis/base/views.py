@@ -5,7 +5,7 @@ from flask.ext.breadcrumbs import register_breadcrumb
 from flask.ext.login import current_user, login_required
 from flask.ext.menu import current_menu, register_menu
 
-from inis.config import CFG_MEMBERS_DICT
+from inis.utils import get_kb_value
 
 from invenio.base.decorators import wash_arguments
 from invenio.base.i18n import _
@@ -139,7 +139,7 @@ def list(date_from, date_to, issue, week):
                  'recid': m['recid'],
                  'action': m['action'] if 'action' in m else '',
                  'date': d.modified,
-                 'member': CFG_MEMBERS_DICT[m['member']],
+                 'member': get_kb_value('members', m['member']),
                  'submitter': m['owner']['username'],
                  'upload_name': d.title,
                  'notes': m['notes'] if 'notes' in m else None,
