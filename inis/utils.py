@@ -245,7 +245,7 @@ def create_control_data(d, recid):
     abstracts_no = len(bfo.fields('860'))
 
     indicators = ''
-    descriptors = bfo.fields('810__a')
+    descriptors = bfo.fields('800__a')
 
     if abstracts_no == 0:
         indicators += 'E'

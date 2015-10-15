@@ -45,14 +45,17 @@
             {%- endif %}
         {%- endif %}
         </td>
-        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}">{% if dep.title %}
-                  {{ dep.title | truncate(36, killwords=True) }}
-
-              {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
-                {{ dep.get_latest_sip().metadata['title']  }}
-              {% else %}
-                  {{ _('Untitled') }}
-              {% endif %}</a>
+        {% if dep.title %}
+          {% set title = dep.title %}
+        {% elif dep.has_sip() and dep.get_latest_sip().metadata['title'] != ''  %}
+          {% set title = dep.get_latest_sip().metadata['title'] %}
+        {% else %}
+          {% set title = _('Untitled') %}
+        {% endif %}
+        <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
+               title="{{ title }}">
+              {{ title | truncate(36, killwords=True) }}
+            </a>
         </td>
         <td>{{ dep.modified | string | truncate(10, killwords=True, end='') }}</td>
     </tr>
@@ -63,7 +66,7 @@
 
     {% endfor %}
 
-    {% for group in my_depositions|selectattr("sips") | batch(8) %}
+    {% for group in my_depositions|selectattr("sips") | batch(9) %}
       {%- if loop.first %}
         <h4>{{ _('Submitted') }}</h4>
         <table class="table table-striped">
@@ -87,19 +90,19 @@
           </td>
           <td>
           {%- if dep.type.name %}
-              {%- if dep.type.name == 'Upload' %}
-                  <div class="fa fa-upload"></div>
-              {%- else %}
-                  <div class="fa fa-edit"></div>
-              {%- endif %}
+            {%- if dep.type.name == 'Upload' %}
+              <div class="fa fa-upload"></div>
+            {%- else %}
+              <div class="fa fa-edit"></div>
+            {%- endif %}
           {%- endif %}
           </td>
           <td><a href="{{ url_for('webdeposit.run', deposition_type=deposition_type, uuid=dep.id) }}"
                  title="{{ dep.title }}">
                 {% if dep.title %}
-                    {{ dep.title | truncate(36, killwords=True) }}
+                  {{ dep.title | truncate(36, killwords=True) }}
                 {% else %}
-                    {{ _('Untitled') }}
+                  {{ _('Untitled') }}
                 {% endif %}</a>
           </td>
           <td>{{ dep.modified | string | truncate(10, killwords=True, end='') }}</td>
@@ -112,7 +115,7 @@
       {%- if not loop.last %}
       <tr class="accordion-body collapse {{first}} group{{ group_no }}" data-toggle="collapse"
           data-target=".group{{ group_no+1 }},#separator{{ group_no }}" id="separator{{ group_no }}">
-        <td class="row text-center" colspan="3">
+        <td class="row text-center" colspan="4">
           <button type="button" class="btn btn-default btn-xs">See More</button>
         </td>
       </tr>

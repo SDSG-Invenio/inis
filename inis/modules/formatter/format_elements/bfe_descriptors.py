@@ -29,7 +29,7 @@ def format_element(bfo, separator=" ", highlight='no'):
     @param highlight: highlights the words corresponding to search query if set to 'yes'
     """
 
-    descriptors = bfo.fields('810__a')
+    descriptors = bfo.fields('800__a')
 
     if not descriptors:
         return ''

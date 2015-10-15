@@ -17,7 +17,7 @@ def create_user(name, email, country):
     set_password(email)
 
 
-def get_deposition(order=0, sip=True):
+def get_deposition(order=0, sip=False):
     from invenio.modules.deposit.models import Deposition
     depositions = Deposition.get_depositions()
     d = depositions[order]

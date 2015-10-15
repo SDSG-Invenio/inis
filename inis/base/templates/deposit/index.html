@@ -35,14 +35,14 @@
       <div class="well" style="background-color:white;">
         <div id="uploader-uploaders" class="row text-center">
 
-          <div class="col-md-5" id="local">
+          <div class="col-md-6" id="local">
             <a class="btn btn-primary btn-lg fa fa-upload fa-2x" href="/upload/create">
               Upload
             </a>
             <p class='text-muted'>Send batch files and fulltexts</p>
           </div>
 
-          <div class="col-md-5" id="local">
+          <div class="col-md-6" id="local">
             <div class="btn-group">
               <button type="button" class="btn btn-primary btn-lg fa fa-edit fa-2x">
                 Input
@@ -70,12 +70,12 @@
       <h4>Admin</h4>
       <div class="well" style="background-color:white;">
         <div id="uploader-uploaders" class="row text-center">
-          <div class="col-md-7" id="local">
+          <div class="col-md-6" id="local">
             <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
-              <small>{{ _('See latest uploads') }}</small>
+              <small>{{ _('Latest uploads') }}</small>
             </a>
           </div>
-          <div class="col-md-5" id="local">
+          <div class="col-md-6" id="local">
             <a class="btn btn-primary btn-lg fa fa-cogs fa-2x" href="{{ url_for('bibsched') }}">
               <small>{{ _('Task queue') }}</small>
             </a>
@@ -84,7 +84,6 @@
       </div>
       {% endif %}
     </div>
-    <!--     {% include "deposit/inis_info.html" %}-->
   </div>
 
   <div class="col-sm-6 col-md-5">

@@ -265,18 +265,19 @@ class DescriptorForm(WebDepositForm):
         placeholder="Start typing a descriptor...",
         autocomplete_fn=kb_autocomplete(
             'descriptors',
-            mapper=descriptors_kb_mapper
+            mapper=descriptors_kb_mapper,
+            match_type='b',
         ),
         widget=TagInput(),
         widget_classes='form-control',
     )
 
 
-proposed_descriptors = fields.DynamicFieldList(
+descriptors = fields.DynamicFieldList(
     fields.FormField(
         DescriptorForm,
         widget=ExtendedListWidget(html_tag='div', item_widget=ItemWidget()),
-        export_key='proposed_descriptors',
+        export_key='descriptors',
     ),
     widget=TagListWidget(template="{{descriptor}}",
                          html_tag='ul',
@@ -284,8 +285,21 @@ proposed_descriptors = fields.DynamicFieldList(
                          ),
     widget_classes=' dynamic-field-list',
     icon='fa fa-tags fa-fw',
-    description="Add here the proposed descriptors",
+    description="Add here the descriptors",
     #validators=[grants_validator],
+)
+
+
+proposed_descriptors = fields.DynamicFieldList(
+    fields.StringField(
+        placeholder="Propose a descriptor",
+        filters=[strip_string, ],
+    ),
+    add_label='Add another proposed descriptor',
+    icon='fa fa-flag fa-fw',
+    # widget_classes='',
+    min_entries=1,
+    max_entries=8,
 )
 
 
@@ -318,9 +332,9 @@ def subjects_kb_mapper(val):
 class SubjectForm(WebDepositForm):
     id = fields.StringField(
         widget=widgets.HiddenInput(),
-        processors=[
-            replace_field_data('subject', subject_kb_value('id')),
-        ],
+        # processors=[
+        #     replace_field_data('subject', subject_kb_value('id')),
+        # ],
     )
     subject = fields.StringField(
         placeholder="Start typing a subject...",
@@ -354,7 +368,7 @@ subjects = fields.DynamicFieldList(
 groups = [
     ('Basic information', [
         'trn', 'title', 'original_title', 'subjects', 'language',
-        'description', 'proposed_descriptors',
+        'description', 'descriptors', 'proposed_descriptors',
     ], {'indication': 'required', }),
     ('Publication information', [
         'place', 'publisher', 'publication_date', 'edition',
@@ -423,6 +437,7 @@ class INISForm(WebDepositForm):
     subjects = subjects
     language = language
     description = description
+    descriptors = descriptors
     proposed_descriptors = proposed_descriptors
 
     # Publication information
