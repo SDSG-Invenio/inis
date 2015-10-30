@@ -219,28 +219,38 @@ def get_file_links(recid):
     return files
 
 
-def create_authors_ttf(d):
-    out = ''
-    for tag in d:
-        affiliation = " (%(aff)s%(city)s%(country)s)" % {'aff': d[tag]['n'] if 'n' in d[tag] else '',
-                                                         'city': ", " + d[tag]['k'] if 'k' in d[tag] else '',
-                                                         'country': " (" + d[tag]['l'] + ')' if 'l' in d[tag] else '',
+def create_authors_ttf(bfo):
+    authors = []
+    for entry in bfo.fields('100'):
+        affiliation = " (%(aff)s%(city)s%(country)s)" % {'aff': entry['n'] if 'n' in entry else '',
+                                                         'city': ", " + entry['k'] if 'k' in entry else '',
+                                                         'country': " (" + entry['l'] + ')' if 'l' in entry else '',
                                                          }
 
-        author = """%(familyname)s, %(firstname)s%(affiliation)s%(email)s; """
+        author = """%(familyname)s, %(firstname)s%(affiliation)s%(email)s"""
 
-        out += author % {'firstname': d[tag]['b'],
-                         'familyname': d[tag]['a'],
-                         'affiliation': affiliation if 'n' in d[tag] else '',
-                         'email': ', ' + d[tag]['e'] if 'e' in d[tag] else '',
-                         }
-    return out.strip(' ;')
+        author = author % {'firstname': entry['b'],
+                           'familyname': entry['a'],
+                           'affiliation': affiliation if 'n' in entry else '',
+                           'email': ', ' + entry['e'] if 'e' in entry else '',
+                           }
+
+        authors.append(author)
+
+    return '; '.join(authors)
 
 
-def create_control_data(d, recid):
-    from invenio.modules.formatter.engine import BibFormatObject
+def create_control_data(bfo):
 
-    bfo = BibFormatObject(recid)
+    d = {}
+    for field in bfo.fields('908'):
+        d.update(field)
+
+    import collections
+    d = collections.defaultdict(list)
+    for field in bfo.fields('908'):
+        for k, v in field.iteritems():
+            d[k].append(v)
 
     abstracts_no = len(bfo.fields('860'))
 
@@ -286,12 +296,10 @@ def create_control_data(d, recid):
 
     subjects = ''
     record_type = ''
-    for e in d.values():
-        if 'a' in e:
-            subjects += e['a'] + ';'
-        if 'c' in e:
-            record_type = e['c']
-    subjects = subjects.strip(';')
+    if 'a' in d:
+        subjects = ';'.join(d['a'])
+    if 'c' in d:
+        record_type = d['c'][0]
 
     levels = 'M'
 
@@ -309,11 +317,11 @@ def create_languages_ttf(res):
 
 
 def create_place_ttf(d):
-    out = ''
-    for tag in d:
-        out += "%(city)s (%(country)s), " % {'city': d[tag]['a'] if 'a' in d[tag] else '',
-                                             'country': d[tag]['b'] if 'b' in d[tag] else ''}
-    return out.strip(' ,')
+    places = []
+    for entry in d:
+        places.append("%(city)s (%(country)s)" % {'city': entry['a'] if 'a' in entry else '',
+                                                  'country': entry['b'] if 'b' in entry else ''})
+    return ', '.join(places)
 
 
 def create_date_ttf(d):
@@ -372,249 +380,6 @@ def create_date_ttf(d):
                                              'separator': ' - ' if m2 else ('-' if date_to else '')}
 
     return z.strip(' ,')
-
-
-def record_get_ttf(recID, mode='text', on_the_fly=False):
-    """
-    Returns an XML string of the record given by recID.
-
-    The function builds the XML directly from the database,
-    without using the standard formatting process.
-
-    'format' allows to define the flavour of XML:
-        - 'xm' for standard XML
-        - 'marcxml' for MARC XML
-        - 'oai_dc' for OAI Dublin Core
-        - 'xd' for XML Dublin copy_reg
-
-    If record does not exist, returns empty string.
-    If the record is deleted, returns an empty MARCXML (with recid
-    controlfield, OAI ID fields and 980__c=DELETED)
-
-    @param recID: the id of the record to retrieve
-    @param format: the format to use
-    @param on_the_fly: if False, try to fetch precreated one in database
-    @param decompress: the library to use to decompress cache from DB
-    @return: the xml string of the record
-    """
-    from invenio.legacy.search_engine import record_exists
-    from xml.sax.saxutils import escape as encode_for_xml
-
-    def get_creation_date(recID, fmt="%Y-%m-%d"):
-        "Returns the creation date of the record 'recID'."
-        out = ""
-        res = run_sql("SELECT DATE_FORMAT(creation_date,%s) FROM bibrec WHERE id=%s", (fmt, recID), 1)
-        if res:
-            out = res[0][0]
-        return out
-
-    def get_modification_date(recID, fmt="%Y-%m-%d"):
-        "Returns the date of last modification for the record 'recID'."
-        out = ""
-        res = run_sql("SELECT DATE_FORMAT(modification_date,%s) FROM bibrec WHERE id=%s", (fmt, recID), 1)
-        if res:
-            out = res[0][0]
-        return out
-
-    skip_tags = set(['100', '213', '401', '403', '856', '600', '908', '980', '911'])
-
-    out = ""
-    prefix = "%s^"
-    postfix = "\n"
-
-    if mode == 'xml':
-        out += '<inisrecord>\n'
-        prefix = "<tag name='%s'>"
-        postfix = "</tag>"
-
-    # sanity check:
-    record_exist_p = record_exists(recID)
-    if record_exist_p == 0:  # doesn't exist
-        return out
-
-    # record 'recID' is not formatted in 'format' -- they are
-    # not in "bibfmt" table; so fetch all the data from
-    # "bibXXx" tables:
-    # out += "001^%d\n" % int(recID)
-    if record_exist_p == -1:
-        # deleted record, so display only 980:
-        out += "<datafield tag=\"980\" ind1=\" \" ind2=\" \"><subfield code=\"c\">DELETED</subfield></datafield>\n"
-        from invenio.legacy.search_engine import get_merged_recid
-        merged_recid = get_merged_recid(recID)
-        if merged_recid:  # record was deleted but merged to other record, so display this information:
-            out += "<datafield tag=\"970\" ind1=\" \" ind2=\" \"><subfield code=\"d\">%d</subfield></datafield>\n" % merged_recid
-    else:
-        # controlfields
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib91x AS b, bibrec_bib91x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '911%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-        for row in res:
-            field, value = row[0], row[1]
-            value = encode_for_xml(value)
-            if mode == 'xml':
-                out += """<tag name='001'>%s</tag>""" % (encode_for_xml(value), )
-            else:
-                out += """001^%s\n""" % (value, )
-
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib90x AS b, bibrec_bib90x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '908%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        d = {}
-        for row in res:
-            field, value, tag = row[0][-1], row[1], row[2]
-            if tag not in d:
-                d[tag] = {}
-            d[tag][field] = value
-
-        value = create_control_data(d, recID)
-        out += prefix % ('008', ) + encode_for_xml(value) + postfix if value != '' else ''
-
-        # datafields
-        i = 1
-        # Do not process bib00x and bibrec_bib00x, as
-        # they are controlfields. So start at bib01x and
-        # bibrec_bib00x (and set i = 0 at the end of
-        # first loop)
-
-        # authors
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib10x AS b, bibrec_bib10x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '100%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        d = {}
-        for row in res:
-            field, value, tag = row[0][-1], row[1], row[2]
-            if tag not in d:
-                d[tag] = {}
-            d[tag][field] = value
-
-        value = create_authors_ttf(d)
-
-        out += prefix % ('100', ) + encode_for_xml(value) + postfix if value != '' else ''
-
-        # languages
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib60x AS b, bibrec_bib60x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '600%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        out += prefix % ('600', )
-        value = create_languages_ttf(res)
-        out += "%s" % (encode_for_xml(value), )
-        out += postfix
-
-        # place
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '401%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        d = {}
-        for row in res:
-            field, value, tag = row[0][-1], row[1], row[2]
-            if tag not in d:
-                d[tag] = {}
-            d[tag][field] = value
-
-        value = create_place_ttf(d)
-        if value.strip():
-            out += prefix % ('401', )
-            out += "%s" % (encode_for_xml(value), )
-            out += postfix
-
-        # dates
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib40x AS b, bibrec_bib40x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '403%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        d = {}
-        for row in res:
-            field, value = row[0][-1], row[1]
-            d[field] = value
-
-        value = create_date_ttf(d)
-        if value.strip():
-            out += prefix % ('403', )
-            out += "%s" % (encode_for_xml(value), )
-            out += postfix
-
-        query = "SELECT b.tag,b.value,bb.field_number FROM bib21x AS b, bibrec_bib21x AS bb "\
-                "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag like '213%%' "\
-                "ORDER BY bb.field_number, b.tag ASC" % recID
-        res = run_sql(query)
-
-        d = {}
-        for row in res:
-            field, value = row[0][-1], row[1]
-            d[field] = value
-
-        value = create_date_ttf(d)
-        if value.strip():
-            out += prefix % ('213', )
-            out += "%s" % (encode_for_xml(value), )
-            out += postfix
-
-        # other tags
-        printed = False
-        for digit1 in range(0, 10):
-            for digit2 in range(i, 10):
-                bx = "bib%d%dx" % (digit1, digit2)
-                bibx = "bibrec_bib%d%dx" % (digit1, digit2)
-                query = "SELECT b.tag,b.value,bb.field_number FROM %s AS b, %s AS bb "\
-                        "WHERE bb.id_bibrec='%s' AND b.id=bb.id_bibxxx AND b.tag LIKE '%s%%' "\
-                        "ORDER BY bb.field_number, b.tag ASC" % (bx,
-                                                                 bibx,
-                                                                 recID,
-                                                                 str(digit1)+str(digit2))
-                res = run_sql(query)
-                field_old = ""
-                for row in res:
-                    field, value = row[0], row[1]
-                    if field[:3] not in skip_tags:
-                        # print field tag
-                        if field != field_old:
-                            out += prefix % (field[:3], )
-                        else:
-                            out += "; "
-
-                        field_old = field
-                        # print subfield value
-                        out += "%s" % (encode_for_xml(value), )
-                        printed = True
-                        # out += postfix
-
-                # all fields/subfields printed in this run, so close the tag:
-                if printed:
-                    out += postfix
-                    printed = False
-            i = 0  # Next loop should start looking at bib%0 and bibrec_bib00x
-    # we are at the end of printing the record
-    if mode == 'xml':
-        out += '</inisrecord>\n'
-
-    return out.strip()
-
-
-# def process_date(d):
-#     if 'publication_date' in d:
-#         if 'date_from' in d['publication_date']:
-#             d['publication_date_from'] = d['publication_date']['date_from']
-#             if 'month' in d['publication_date_from'] and int(d['publication_date_from']['month']) > 20:
-#                 d['publication_date_from']['season'] = int(d['publication_date_from']['month']) - 20
-#                 d['publication_date_from'].pop('month')
-#                 d['publication_date_from'].pop('day')
-#         if 'date_to' in d['publication_date']:
-#             d['publication_date_to'] = d['publication_date']['date_to']
-#             if 'month' in d['publication_date_to'] and int(d['publication_date_to']['month']) > 20:
-#                 d['publication_date_to']['season'] = int(d['publication_date_to']['month']) - 20
-#                 d['publication_date_to'].pop('month')
-#                 d['publication_date_to'].pop('day')
-#     return d
 
 
 def must_switch(d1, d2):
