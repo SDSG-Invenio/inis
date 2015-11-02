@@ -19,6 +19,20 @@
 
 {%- extends "deposit/run_base.html" -%}
 
+{% block form_submit_dialog %}
+<div id="form-submit-dialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="{{id}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div align="center" id="{{id}}Label">{{ _('Submitting') }} <img src="/img/loading.gif" /></div>
+            <br />
+            <div align="center" id="{{id}}Message"><small>{{ _('(Relax, this might take a while...)') }}</small></div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock form_submit_dialog %}
+
 {% block deposit_page %}
 <div class="row">
     {% block file_container %}

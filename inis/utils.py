@@ -71,9 +71,14 @@ def set_password(email):
 
 
 def create_user(name, email, country):
+    import time
     from invenio.ext.sqlalchemy import db
     from invenio.modules.accounts.models import User, Usergroup, UserUsergroup
     from inis.config import CFG_MEMBERS_DICT
+
+    print "You have 5 seconds to cancel the creation of this account:"
+    print "\t".join([name, email, country])
+    time.sleep(7)
 
     u = User(email=email, nickname=name, password=id_generator())
     db.session.add(u)
