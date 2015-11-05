@@ -102,8 +102,9 @@ def bibsched():
 @wash_arguments({'date_from': (unicode, ''),
                  'date_to': (unicode, ''),
                  'issue': (int, 0),
-                 'week': (int, 0)})
-def list(date_from, date_to, issue, week):
+                 'week': (int, 0),
+                 'upload_type': (unicode, '')})
+def list(date_from, date_to, issue, week, upload_type):
 
     from inis.utils import get_file_links
 
@@ -113,6 +114,9 @@ def list(date_from, date_to, issue, week):
 
     if week < 1 or issue < 1:
         (issue, week) = (current_issue, current_week)
+
+    if upload_type not in ['', 'INPUT'] and not upload_type.startswith('CAI'):
+        upload_type = ''
 
     date_from, date_to = week_range(issue, week)
     date_from = datetime.combine(date_from, datetime.min.time())
@@ -131,6 +135,7 @@ def list(date_from, date_to, issue, week):
     uploads = []
 
     depositions = [d for d in Deposition.get_depositions(date_from=date_from, date_to=date_to) if d.submitted and d.has_sip()]
+    depositions = [d for d in depositions if d.get_latest_sip().metadata['action'].startswith(upload_type)]
     for d in depositions:
         sip = d.get_latest_sip()
         m = sip.metadata
@@ -148,7 +153,7 @@ def list(date_from, date_to, issue, week):
             uploads.append(u)
 
     return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
-                           week_displayed=week_displayed)
+                           week_displayed=week_displayed, upload_type='ALL' if not upload_type else upload_type)
 
 
 def current_inis_week():

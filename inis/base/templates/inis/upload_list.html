@@ -1,17 +1,37 @@
 {%- extends "page.html" -%}
 {%- block body -%}
 
-<h2>Uploads from week {{ week_displayed[0] }}/{{ "%02d"|format(week_displayed[1]) }}</h2>
-</br>
-<div class="btn-group">
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Week
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-            {% for (issue, week) in weeks %}
-                <li><a href="/list?issue={{issue}}&week={{week}}">{{ issue }}/{{ "%02d"|format(week) }}</a></li>
-            {% endfor %}
-            </ul>
+<div class='row'>
+    <div class="col-md-8">
+        <h2>Uploads from week {{ week_displayed[0] }}/{{ "%02d"|format(week_displayed[1]) }}</h2>
+    </div>
+    <div class="col-md-1">
+        <div class="btn-group">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Week
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                    {% for (issue, week) in weeks %}
+                        <li><a href="/list?week={{week}}&issue={{issue}}&upload_type={{upload_type}}">{{ issue }}/{{ "%02d"|format(week) }}</a></li>
+                    {% endfor %}
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="btn-group" role="group" aria-label="...">
+        {% for action in ('ALL', 'CAI', 'INPUT') %}
+            {% if action == upload_type %}
+                <a class="btn btn-primary"
+                    href="{{ url_for('list', upload_type=action, week=week_displayed[1], issue=week_displayed[0]) | safe }}"
+                    role="button">{{action}}</a>
+            {% else %}
+                <a class="btn btn-default"
+                    href="{{ url_for('list', upload_type=action, week=week_displayed[1], issue=week_displayed[0]) | safe }}"
+                    role="button">{{action}}</a>
+            {% endif %}
+        {% endfor %}
+        </div>
     </div>
 </div>
 </br></br>
@@ -29,7 +49,7 @@
             <th class='text-center'><li class="list-group-item active">Files</th>
         </tr>
         {%- for u in uploads %}
-            <tr data-toggle="collapse" data-target="#notes{{ u['id'] }},#files{{ u['id'] }}">
+            <tr data-toggle="collapse" data-target=".files{{ u['id'] }}">
                 <td class='text-center'><span class="badge">{{ u['id'] }}</span></td>
                 <td class='text-center'>{{ u['date'] | string | truncate(16, killwords=True, end='') }}</td>
                 <td class='text-center'>{{ u['member'] }}</td>
@@ -43,13 +63,13 @@
                     <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                 {%- endfor %}
                 {% if (u['files']|count) > group_size %}
-                        <li class="accordion-body collapse in" data-toggle="collapse"
+                        <li class="accordion-body collapse in files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}">
                         <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
                     {%- for f in u['files'] %}
                         {% if loop.index > group_size %}
-                        <li class="accordion-body collapse" data-toggle="collapse"
+                        <li class="accordion-body collapse files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}"><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                         {% endif %}
                     {%- endfor %}
@@ -58,13 +78,13 @@
                 </td>
             </tr>
             {% if u['notes'] %}
-            <tr class="accordion-body collapse in" data-toggle="collapse" data-target="#notes{{ u['id'] }}" id="notes{{ u['id'] }}">
-                    <td colspan="3"></td>
-                    <td class='text-right'><span class="label label-primary"><b>Notes</b></span></td>
-                    <td>
-                        <div>{{ u['notes'] }}</div>
-                    </td>
-                    <td colspan="3"></td>
+            <tr>
+                <td colspan="3"></td>
+                <td class='text-right'><span class="label label-primary"><b>Notes</b></span></td>
+                <td>
+                    <div>{{ u['notes'] }}</div>
+                </td>
+                <td colspan="3"></td>
             </tr>
             {% endif %}
         {%- endfor %}

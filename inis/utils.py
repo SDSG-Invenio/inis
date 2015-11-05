@@ -204,3 +204,12 @@ def get_file_links(recid):
             files.append([f[0], '.'.join([f[1], f[2]])])
 
     return files
+
+
+def print_users():
+    from invenio.modules.accounts.models import User
+    print ''.join(['ID'.ljust(4), 'EMAIL'.ljust(37), 'NAME'.ljust(25), 'GROUP'])
+    print '-'*107
+    for u in User.query.all():
+        if u.id != 1:
+            print ''.join([str(u.id).ljust(4), u.email.ljust(37), u.nickname.ljust(25), u.usergroups[0].usergroup.name])

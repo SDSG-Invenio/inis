@@ -40,24 +40,29 @@
             </a>
           </div>
           {% if 'International Atomic Energy Agency (IAEA)' in current_user.group %}
-            <div class="col-md-5" id="local">
-              <a class="btn btn-primary btn-lg fa fa-table fa-2x" href="{{ url_for('list') }}">
-                <small>{{ _('See latest uploads') }}</small>
-              </a>
+            <div class="col-md-7" id="local">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-lg fa fa-table fa-2x">
+                  {{ _('Latest uploads') }}
+                </button>
+                <button type="button" class="btn btn-primary btn-lg fa fa-2x dropdown-toggle"
+                        data-toggle="dropdown" aria-expanded="false">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="{{ url_for('list', upload_type='INPUT') }}">Input</a></li>
+                  <li><a href="{{ url_for('list', upload_type='CAI') }}">CAI</a></li>
+                </ul>
+              </div>
             </div>
           {% endif %}
-  <!--         <div class="col-md-5" id="local">
-            <a class="btn btn-primary btn-lg fa fa-edit fa-2x disabled" href="/upload/create">
-              Input
-            </a>
-          </div> -->
+
+          </div>
         </div>
       </div>
     </div>
     <!--     {% include "deposit/inis_info.html" %}-->
-  
-  </div>
-
   <div class="col-sm-6 col-md-5">
     {% include "deposit/myview.html" %}
   </div>
