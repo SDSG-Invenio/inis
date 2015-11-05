@@ -36,8 +36,11 @@ class UploadForm(WebDepositForm):
         export_key='action',
         widget_classes='list-unstyled',
         default='INPUT',
-        choices=[('INPUT', 'Final input for INIS'),
-                 ('CAI', 'To be indexed in CAI')]
+        choices=[
+            ('INPUT', 'Final input for INIS'),
+            ('CAI-online', 'To be indexed in CAI online'),
+            ('CAI-batch', 'To be preprocessed in CAI batch'),
+            ]
     )
 
     note = fields.TextAreaField(
