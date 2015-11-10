@@ -33,9 +33,9 @@
                  x_link='<a href="{url}">{url}</a>'.format(
                     url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
                  )|safe,
-                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }} -->
+                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.config.CFG_INIS_CONTACT_EMAIL)|safe) }} -->
             {{ _('If you want to remove your upload, please contact %(x_contact)s',
-                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_SITE_SUPPORT_EMAIL)|safe) }}
+                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_INIS_CONTACT_EMAIL)|safe) }}
                  </br></br>
         </small>
 

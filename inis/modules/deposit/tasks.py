@@ -157,25 +157,29 @@ def get_TRNs(sip):
         path = submitted_file['path']
         ext = os.path.splitext(path)[1]
         if ext in current_app.config['DEPOSIT_ACCEPTED_MD_EXTENSIONS']:
-            f = open(path, 'r')
-            ttf = f.read()
-            f.close()
-            records = [r.strip() for r in ttf.split('001^') if r.strip() != '']
-            TRNs_this_file = []
-            change_records_this_file = []
-            for record in records:
-                lines = [r.strip() for r in record.splitlines() if r.strip() != '']
-                TRNs_this_file.append(lines[0])
-                for l in lines:
-                    if l.startswith('004^') and l[4] == 'C':
-                        change_records_this_file.append(lines[0])
+            try:
+                f = open(path, 'r')
+                ttf = ''
+                ttf = f.read()
+                f.close()
+                records = [r.strip() for r in ttf.split('001^') if r.strip() != '']
+                TRNs_this_file = []
+                change_records_this_file = []
+                for record in records:
+                    lines = [r.strip() for r in record.splitlines() if r.strip() != '']
+                    TRNs_this_file.append(lines[0])
+                    for l in lines:
+                        if l.startswith('004^') and l[4] == 'C':
+                            change_records_this_file.append(lines[0])
 
-            # TRNs_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '001^'))]
-            # change_records_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '004^'))]
-            if len(TRNs_this_file) == 0:
-                files_without_records.append(submitted_file['name'])
-            TRNs += TRNs_this_file
-            change_records += change_records_this_file
+                # TRNs_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '001^'))]
+                # change_records_this_file = [ttf[i + 4:i + 13] for i in list(find_all(ttf, '004^'))]
+                if len(TRNs_this_file) == 0:
+                    files_without_records.append(submitted_file['name'])
+                TRNs += TRNs_this_file
+                change_records += change_records_this_file
+            except IOError:
+                pass
 
     sip.metadata['change_records'] = change_records
     sip.metadata['empty_md_files'] = files_without_records

@@ -44,6 +44,7 @@ CFG_SUMBISSION_ERRORS = {
 }
 
 CFG_NOTIFY_SUBMISSION = ['d.mironov@iaea.org', 'j.garcia-llopis@iaea.org']
+CFG_INIS_CONTACT_EMAIL = u'INIS.feedback@iaea.org'
 
 CFG_BIBINDEX_PATH_TO_STOPWORDS_FILE = "etc/bibrank/stopwords.kb"
 
