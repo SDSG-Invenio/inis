@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -28,12 +28,6 @@
             </div>
         </div>
         <small class="text-muted">
-<!--             {{ _('This is a preview of your upload. The uploaded files are available on %(x_link)s. '
-                 'If you want to remove your upload, please contact %(x_contact)s',
-                 x_link='<a href="{url}">{url}</a>'.format(
-                    url=url_for('record.metadata', recid=sip.metadata['recid'], _external=True)
-                 )|safe,
-                 x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.config.CFG_INIS_CONTACT_EMAIL)|safe) }} -->
             {{ _('If you want to remove your upload, please contact %(x_contact)s',
                  x_contact='<a href="mailto:{email}">{email}</a>'.format(email=config.CFG_INIS_CONTACT_EMAIL)|safe) }}
                  </br></br>
