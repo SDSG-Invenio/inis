@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2014 CERN.
+# Copyright (C) 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -59,7 +59,7 @@
   {%- block index_left -%}
   {% if collection.collection_children_v %}
     <div class="col-md-4 collection clearfix">
-      <h4>Rejected submissions</h4>
+      <h4>Submissions by type</h4>
       {{ collection_tree(collection.collection_children_v, limit=2, class="nav nav-list clearfix") }}
 
       {{ search_also(collection.externalcollections_2) }}
