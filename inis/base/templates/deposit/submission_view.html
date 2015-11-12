@@ -48,7 +48,7 @@
                             data-target=".files,#showall" id="showall">
                             <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
-                        {% for file in sip.metadata['fft'] %}
+                        {% for file in sip.metadata['fft']|dictsort %}
                             {% if loop.index > group_size %}
                                 <li class="accordion-body collapse files">
                                     {% if links == '' %}

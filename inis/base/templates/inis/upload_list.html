@@ -59,17 +59,17 @@
                 <td class='text-center'>{{ u['records'] }}</td>
                 <td data-target="#files{{ u['id'] }}">
                 {% with group_size = 4 %}
-                {%- for f in u['files'] | batch(group_size) | first %}
+                {%- for f in u['files'] | sort | batch(group_size) | first %}
                     <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                 {%- endfor %}
-                {% if (u['files']|count) > group_size %}
-                        <li class="accordion-body collapse in files{{ u['id'] }}" data-toggle="collapse"
+                {% if (u['files']|sort|count) > group_size %}
+                        <li class="list-unstyled accordion-body collapse in files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}">
                         <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
-                    {%- for f in u['files'] %}
+                    {%- for f in u['files'] | sort %}
                         {% if loop.index > group_size %}
-                        <li class="accordion-body collapse files{{ u['id'] }}" data-toggle="collapse"
+                        <li class="list-unstyled accordion-body collapse files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}"><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                         {% endif %}
                     {%- endfor %}
