@@ -50,7 +50,9 @@
         </tr>
         {%- for u in uploads %}
             <tr data-toggle="collapse" data-target=".files{{ u['id'] }}">
-                <td class='text-center'><span class="badge">{{ u['id'] }}</span></td>
+                <td class='text-center'>
+                   <a class="badge" href="{{ url_for('webdeposit.run', uuid=u['id']) }}">{{ u['id'] }}</a>
+                </td>
                 <td class='text-center'>{{ u['date'] | string | truncate(16, killwords=True, end='') }}</td>
                 <td class='text-center'>{{ u['member'] }}</td>
                 <td class='text-center'>{{ u['submitter'] }}</td>

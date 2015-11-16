@@ -11,10 +11,24 @@
     <table class="table table-striped">
     <tr>
         <td width="40%">
-            <b>Total number of records:</b>
+            <b>Bibliographic metadata records:</b>
         </td>
         <td>
             {{ sip.metadata['trns']|length }}
+        </td>
+    </tr>
+    <tr>
+        <td width="40%">
+            <b>Fulltext files:</b>
+        </td>
+        <td>
+        {% set count = []  %}
+	{%- for file in sip.metadata['fft'] -%}
+            {% if file['path'][-4:] == '.pdf' %}
+                {% do count.append(1) %}
+            {% endif %}
+        {%- endfor %}
+        {{ count|length }}
         </td>
     </tr>
     <tr>
@@ -34,7 +48,7 @@
             {% with links = format_record(recid, 'FILELINKS', ln=g.ln)|safe %}
             {% with group_size = 15 %}
                 <ul style="list-style-type:none; padding-left:0px">
-                    {% for file in sip.metadata['fft'] | batch(group_size) | first %}
+                    {% for file in sip.metadata['fft']|sort | batch(group_size) | first %}
                     <li>
                         {% if links == '' %}
                             {{ file['name'] }}
@@ -48,7 +62,7 @@
                             data-target=".files,#showall" id="showall">
                             <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
-                        {% for file in sip.metadata['fft']|dictsort %}
+                        {% for file in sip.metadata['fft']|sort %}
                             {% if loop.index > group_size %}
                                 <li class="accordion-body collapse files">
                                     {% if links == '' %}
