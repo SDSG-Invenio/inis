@@ -206,11 +206,23 @@ def get_file_links(recid):
     return files
 
 
-def print_users(offset=35):
+def print_users(offset=45, return_string=False):
     from invenio.modules.accounts.models import User
-    print ''.join(['ID'.ljust(4), 'EMAIL'.ljust(offset), 'NAME'.ljust(offset), 'GROUP'])
-    print '-'*offset*3
-    for u in User.query.all():
-        if u.id != 1:
-            print ''.join([str(u.id).ljust(4), u.email.ljust(offset), u.nickname.ljust(offset), u.usergroups[0].usergroup.name])
 
+    out = ''
+    out += ''.join(['ID'.ljust(4), 'EMAIL'.ljust(offset), 'NAME'.ljust(offset), 'GROUP'])
+    out += '\n'
+    out += '-'*offset*3
+    out += '\n'
+    users = User.query.all()
+    for u in users:
+        if u.id != 1:
+           out += ''.join([str(u.id).ljust(4), u.email.ljust(offset), u.nickname.ljust(offset), u.usergroups[0].usergroup.name])
+           out += '\n'
+
+    out += "Users: " + str(len(users))
+    out += '\n'
+    if return_string:
+        return out
+    else:
+        print out
