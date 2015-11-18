@@ -56,7 +56,13 @@
                 <td class='text-center'>{{ u['date'] | string | truncate(16, killwords=True, end='') }}</td>
                 <td class='text-center'>{{ u['member'] }}</td>
                 <td class='text-center'>{{ u['submitter'] }}</td>
-                <td>{{ u['upload_name'] }}</td>
+                <td><b>{{ u['upload_name'] }}</b>
+                {% if u['notes'] %}
+                    <hr style="margin-top: 5px; margin-bottom: 5px;">
+                    <span class="label label-primary"><b>Notes</b></span>
+                    {{ u['notes'] }}
+                {% endif %}
+                </td>
                 <td class='text-center'>{{ u['action'] }}</td>
                 <td class='text-center'>{{ u['records'] }}</td>
                 <td data-target="#files{{ u['id'] }}">
@@ -79,16 +85,6 @@
                 {% endwith %}
                 </td>
             </tr>
-            {% if u['notes'] %}
-            <tr>
-                <td colspan="3"></td>
-                <td class='text-right'><span class="label label-primary"><b>Notes</b></span></td>
-                <td>
-                    <div>{{ u['notes'] }}</div>
-                </td>
-                <td colspan="3"></td>
-            </tr>
-            {% endif %}
         {%- endfor %}
     </table>
     </div>
