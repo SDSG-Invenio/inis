@@ -131,7 +131,7 @@ def launch_bibsched_tasks():
     def _launch_bibsched_tasks(obj, eng):
         from invenio.legacy.bibsched.bibtask import task_low_level_submission
 
-        task_low_level_submission('bibindex', 'admin')
+        task_low_level_submission('bibindex', '-w', 'trn,global', 'admin')
         task_low_level_submission('webcoll', 'admin')
         task_low_level_submission('oairepositoryupdater', 'admin')
 
