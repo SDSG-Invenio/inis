@@ -66,8 +66,23 @@
                 <td class='text-center'>{{ u['action'] }}</td>
                 <td class='text-center'>{{ u['records'] }}</td>
                 <td data-target="#files{{ u['id'] }}">
+                {% set md_files = []  %}
+                {% set ft_files = []  %}
+	        {%- for file in u['files'] -%}
+                  {% if file[0][-4:] == '.pdf' %}
+                    {% do ft_files.append(file) %}
+                  {% else %}
+                    {% do md_files.append(file) %}
+                  {% endif %}
+                {%- endfor %}
+                {%- for f in md_files | sort %}
+                    <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
+                {%- endfor %}
+                {% if md_files|count > 0 and ft_files|count > 0 %}
+                  <hr style="margin-top: 5px; margin-bottom: 5px;">
+                {% endif %}
                 {% with group_size = 4 %}
-                {%- for f in u['files'] | sort | batch(group_size) | first %}
+                {%- for f in ft_files | sort | batch(group_size) | first %}
                     <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                 {%- endfor %}
                 {% if (u['files']|sort|count) > group_size %}
