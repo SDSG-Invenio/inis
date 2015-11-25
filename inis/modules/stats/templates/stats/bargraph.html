@@ -2,21 +2,15 @@
 
 {%- block body -%}
 <div class="well">
-    <h1><i class="fa fa-bar-chart-o  fa-fw"></i>&nbsp;Statistics</h1>
-    <div class="row" style="padding: 12px;">
+    <h1><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Statistics</h1>
+<!--     <div class="row" style="padding: 12px;">
         <ul class="nav nav-tabs nav-justified">
           <li role="presentation" class="active"><a href="#">Submissions</a></li>
           <li role="presentation"><a href="#">Records</a></li>
           <li role="presentation"><a href="#">Full Text files</a></li>
         </ul>
-    </div>
-<!--     <div class="row">
-        {% for week in weeks %}
-                {{ week[0] }}/{{ week[1] }}: {{ week[2]|count }}
-               <hr>
-        {%- endfor %}
     </div> -->
-    {% for week in weeks %}
+<!--     {% for week in weeks %}
         <div class="progress">
           {{ week[0] }}/{{ week[1] }}
           <div class="progress-bar progress-bar-active"
@@ -30,6 +24,53 @@
             {{ week[2]|selectattr("action", 'equalto', "CAI-online")|list|count }}
           </div>
         </div>
-    {%- endfor %}
+    {%- endfor %} -->
+
+<div class="table-responsive">
+    <table class="table table-striped table-condensed table-hover">
+        <tr>
+            <th class='text-center col-md-1'><li class="list-group-item">Week</li></th>
+            <th><li class="list-group-item">Submissions</li></th>
+            <th><li class="list-group-item">Records</li></th>
+            <th><li class="list-group-item">Files</li></th>
+        </tr>
+        {% for week in weeks %}
+        <tr>
+            <td class='text-center col-md-1'>{{ week[0] }}/{{ week[1] }}</td>
+            <td class='col-md-3'>
+                <div class="progress" style="margin-bottom: 0px;">
+                    <div class="progress-bar progress-bar-active"
+                         style="width: {{ (week[2]|list|count * 100)/max_submissions }}%;">
+                        {{ week[2]|list|count }}
+                    </div>
+                </div>
+            </td>
+            <td class='col-md-3'>
+                <div class="progress" style="margin-bottom: 0px;">
+                    <div class="progress-bar progress-bar-info"
+                         style="width: {{ (week[2]|sum(attribute='records')  * 100)/max_records }}%;">
+                        {{ week[2]|sum(attribute='records') }}
+                    </div>
+                </div>
+            </td>
+            <td class='col-md-3'>
+                <div class="progress" style="margin-bottom: 0px;">
+                    <div class="progress-bar progress-bar-info"
+                         style="width: {{ (week[2]|sum(attribute='files_no')  * 100)/max_files }}%;">
+                        {{ week[2]|sum(attribute='files_no') }}
+                    </div>
+                </div>
+            </td>
+<!--             <td>
+                <div class="progress" style="margin-bottom: 0px;">
+                    <div class="progress-bar progress-bar-warning"
+                         style="width: {{ week[2]|sum(attribute='records') }}%">
+                        {{ week[2]|sum(attribute='records') }}
+                    </div>
+                </div>
+            </td> -->
+        </tr>
+        {%- endfor %}
+    </table>
 </div>
 {%- endblock body -%}

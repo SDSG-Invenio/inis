@@ -144,7 +144,7 @@ def get_week_stats(date_from, date_to, upload_type=''):
     uploads = []
 
     depositions = [d for d in Deposition.get_depositions(date_from=date_from, date_to=date_to) if d.submitted and d.has_sip()]
-    depositions = [d for d in depositions if d.get_latest_sip().metadata['action'].startswith(upload_type)]
+    depositions = [d for d in depositions if 'action' not in d.get_latest_sip().metadata or d.get_latest_sip().metadata['action'].startswith(upload_type)]
     for d in depositions:
         sip = d.get_latest_sip()
         m = sip.metadata
@@ -158,7 +158,8 @@ def get_week_stats(date_from, date_to, upload_type=''):
                  'upload_name': d.title,
                  'notes': m['notes'] if 'notes' in m else None,
                  'records': len(m['trns']),
-                 'files': get_file_links(m['recid'])}
+                 'files': get_file_links(m['recid']),
+                 'files_no': len(m['fft'])}
             uploads.append(u)
     return uploads
 

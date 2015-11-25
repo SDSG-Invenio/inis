@@ -138,9 +138,11 @@ def graphs():
     from datetime import datetime
     current_issue, current_week = current_inis_week()
     weeks = []
-    weeks.append((current_issue, current_week))
     issue, week = current_issue, current_week
-    for i in range(1, 15):
+    max_submissions = 0
+    max_records = 0
+    max_files = 0
+    for i in range(1, 51):
         week = week - 1
         if week == 0:
             week = 50
@@ -148,23 +150,16 @@ def graphs():
         date_from, date_to = week_range(issue, week)
         date_from = datetime.combine(date_from, datetime.min.time())
         date_to = datetime.combine(date_to, datetime.max.time())
-        weeks.append((issue, week, get_week_stats(date_from, date_to)))
+        stats = get_week_stats(date_from, date_to)
+        weeks.append((issue, week, stats))
+        max_submissions = max(max_submissions, len(stats))
+        max_records = max(max_records, sum([s['records'] for s in stats]))
+        max_files = max(max_files, sum([s['files_no'] for s in stats]))
 
-    return render_template('stats/bargraph.html', weeks=weeks)
-
-
-@blueprint.route('/csv_file')
-@login_required
-@permission_required('usegroups')
-def csv_file():
-    return """Mon,1.2
-              Tue,0.3
-              Wed,2.1
-              Thu,0.9
-              Fri,1.1
-              Sat,3.2
-              Sun,3.1
-              """
+    return render_template('stats/bargraph.html', weeks=weeks,
+                           max_submissions=max_submissions,
+                           max_records=max_records,
+                           max_files=max_files)
 
 
 def get_group_stats(group_name):

@@ -41,12 +41,12 @@
         <tr>
             <th class='text-center'><li class="list-group-item active">ID</li></th>
             <th class='text-center' style="width: 130px;"><li class="list-group-item active">Date</th>
-            <th class='text-center'><li class="list-group-item active">Member</th>
-            <th class='text-center'><li class="list-group-item active">Submitter</th>
-            <th class='text-center'><li class="list-group-item active">Upload name</th>
-            <th class='text-center'><li class="list-group-item active">Action</th>
-            <th class='text-center' style="width: 20px;"><li class="list-group-item active">Rec#</th>
-            <th class='text-center'><li class="list-group-item active">Files</th>
+            <th class='text-center'><li class="list-group-item active">Member</li></th>
+            <th class='text-center'><li class="list-group-item active">Submitter</li></th>
+            <th class='text-center'><li class="list-group-item active">Upload name</li></th>
+            <th class='text-center'><li class="list-group-item active">Action</li></th>
+            <th class='text-center' style="width: 20px;"><li class="list-group-item active">Rec#</li></th>
+            <th class='text-center'><li class="list-group-item active">Files</li></th>
         </tr>
         {%- for u in uploads %}
             <tr data-toggle="collapse" data-target=".files{{ u['id'] }}">
@@ -85,7 +85,7 @@
                 {%- for f in ft_files | sort | batch(group_size) | first %}
                     <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                 {%- endfor %}
-                {% if ft_files|sort|count) > group_size %}
+                {% if ft_files|sort|count > group_size %}
                         <li class="list-unstyled accordion-body collapse in files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}">
                         <button type="button" class="btn btn-default btn-xs">Show all</button>

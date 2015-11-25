@@ -70,7 +70,7 @@ class UploadForm(WebDepositForm):
             if len(form.files) == 0:
                 raise ValidationError("You must provide minumim one file")
             for f in form.files:
-                if os.path.splitext(f.name)[1] not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
+                if os.path.splitext(f.name)[1].lower() not in current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']:
                     raise ValidationError("All files must have one of the following extensions :" +
                                           ', '.join(current_app.config['DEPOSIT_ACCEPTED_EXTENSIONS']))
                 # if '-' in f.name:
