@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2012, 2013, 2014 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -128,6 +128,43 @@ def member_stats(id_usergroup):
     info = get_group_stats(g.name)
 
     return render_template('stats/member.html', info=info, error_messages=CFG_ERROR_MESSAGES)
+
+
+@blueprint.route('/graphs')
+@login_required
+@permission_required('usegroups')
+def graphs():
+    from inis.base.views import current_inis_week, get_week_stats, week_range
+    from datetime import datetime
+    current_issue, current_week = current_inis_week()
+    weeks = []
+    weeks.append((current_issue, current_week))
+    issue, week = current_issue, current_week
+    for i in range(1, 15):
+        week = week - 1
+        if week == 0:
+            week = 50
+            issue = issue - 1
+        date_from, date_to = week_range(issue, week)
+        date_from = datetime.combine(date_from, datetime.min.time())
+        date_to = datetime.combine(date_to, datetime.max.time())
+        weeks.append((issue, week, get_week_stats(date_from, date_to)))
+
+    return render_template('stats/bargraph.html', weeks=weeks)
+
+
+@blueprint.route('/csv_file')
+@login_required
+@permission_required('usegroups')
+def csv_file():
+    return """Mon,1.2
+              Tue,0.3
+              Wed,2.1
+              Thu,0.9
+              Fri,1.1
+              Sat,3.2
+              Sun,3.1
+              """
 
 
 def get_group_stats(group_name):

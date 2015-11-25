@@ -106,10 +106,6 @@ def bibsched():
                  'upload_type': (unicode, '')})
 def list(date_from, date_to, issue, week, upload_type):
 
-    from inis.utils import get_file_links
-
-    from invenio.modules.deposit.models import Deposition
-
     current_issue, current_week = current_inis_week()
 
     if week < 1 or issue < 1:
@@ -132,6 +128,19 @@ def list(date_from, date_to, issue, week, upload_type):
             issue = issue - 1
         weeks.append((issue, week))
 
+    uploads = get_week_stats(date_from, date_to, upload_type)
+
+    return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
+                           week_displayed=week_displayed, upload_type='ALL' if not upload_type else upload_type)
+
+
+def get_week_stats(date_from, date_to, upload_type=''):
+    from inis.utils import get_file_links
+    from invenio.modules.deposit.models import Deposition
+
+    if upload_type not in ['', 'INPUT'] and not upload_type.startswith('CAI'):
+        upload_type = ''
+
     uploads = []
 
     depositions = [d for d in Deposition.get_depositions(date_from=date_from, date_to=date_to) if d.submitted and d.has_sip()]
@@ -151,9 +160,7 @@ def list(date_from, date_to, issue, week, upload_type):
                  'records': len(m['trns']),
                  'files': get_file_links(m['recid'])}
             uploads.append(u)
-
-    return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
-                           week_displayed=week_displayed, upload_type='ALL' if not upload_type else upload_type)
+    return uploads
 
 
 def current_inis_week():

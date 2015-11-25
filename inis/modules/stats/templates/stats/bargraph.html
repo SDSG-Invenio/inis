@@ -1,0 +1,35 @@
+{%- extends "page.html" -%}
+
+{%- block body -%}
+<div class="well">
+    <h1><i class="fa fa-bar-chart-o  fa-fw"></i>&nbsp;Statistics</h1>
+    <div class="row" style="padding: 12px;">
+        <ul class="nav nav-tabs nav-justified">
+          <li role="presentation" class="active"><a href="#">Submissions</a></li>
+          <li role="presentation"><a href="#">Records</a></li>
+          <li role="presentation"><a href="#">Full Text files</a></li>
+        </ul>
+    </div>
+<!--     <div class="row">
+        {% for week in weeks %}
+                {{ week[0] }}/{{ week[1] }}: {{ week[2]|count }}
+               <hr>
+        {%- endfor %}
+    </div> -->
+    {% for week in weeks %}
+        <div class="progress">
+          {{ week[0] }}/{{ week[1] }}
+          <div class="progress-bar progress-bar-active"
+               style="width: {{ week[2]|selectattr("action", 'equalto', "INPUT")|list|count }}%">
+            {{ week[2]|selectattr("action", 'equalto', "INPUT")|list|count }}
+          </div>
+          <div class="progress-bar progress-bar-info" style="width: {{ week[2]|selectattr("action", 'equalto', "CAI-batch")|list|count }}%">
+            {{ week[2]|selectattr("action", 'equalto', "CAI-batch")|list|count }}
+          </div>
+          <div class="progress-bar progress-bar-info progress-bar-striped" style="width: {{ week[2]|selectattr("action", 'equalto', "CAI-online")|list|count }}%">
+            {{ week[2]|selectattr("action", 'equalto', "CAI-online")|list|count }}
+          </div>
+        </div>
+    {%- endfor %}
+</div>
+{%- endblock body -%}
