@@ -85,12 +85,12 @@
                 {%- for f in ft_files | sort | batch(group_size) | first %}
                     <li class='list-unstyled'><a href="{{ f[0] }}">{{ f[1] }}</a></li>
                 {%- endfor %}
-                {% if (u['files']|sort|count) > group_size %}
+                {% if ft_files|sort|count) > group_size %}
                         <li class="list-unstyled accordion-body collapse in files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}">
                         <button type="button" class="btn btn-default btn-xs">Show all</button>
                         </li>
-                    {%- for f in u['files'] | sort %}
+                    {%- for f in ft_files | sort %}
                         {% if loop.index > group_size %}
                         <li class="list-unstyled accordion-body collapse files{{ u['id'] }}" data-toggle="collapse"
                         data-target="#files{{ u['id'] }}" id="files{{ u['id'] }}"><a href="{{ f[0] }}">{{ f[1] }}</a></li>
