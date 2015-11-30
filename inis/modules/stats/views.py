@@ -26,6 +26,7 @@ from flask.ext.menu import register_menu
 
 from inis.config import CFG_MEMBERS_DICT, CFG_MEMBERS_INV
 
+from invenio.base.decorators import wash_arguments
 from invenio.base.i18n import _
 from invenio.ext.login import UserInfo
 from invenio.ext.principal import permission_required
@@ -130,36 +131,73 @@ def member_stats(id_usergroup):
     return render_template('stats/member.html', info=info, error_messages=CFG_ERROR_MESSAGES)
 
 
+def get_ranges_list(time_range):
+    import calendar
+    from inis.base.views import current_inis_week, week_range
+    from datetime import date, datetime, timedelta
+    from dateutil.relativedelta import relativedelta
+
+    list_of_ranges = []
+
+    if time_range == 'weeks':
+        issue, week = current_inis_week()
+        for i in range(1, 51):
+            date_from, date_to = week_range(issue, week)
+            list_of_ranges.append(("/".join([str(issue), str(week)]), date_from, date_to))
+            week = week - 1
+            if week == 0:
+                week = 50
+                issue = issue - 1
+
+    elif time_range == 'months':
+        date_from = date(date.today().year, date.today().month, 1)
+        date_to = date_from + relativedelta(months=1) + timedelta(-1)
+        list_of_ranges.append(('-'.join([str(date_from.year), calendar.month_name[date_from.month]]), date_from, date_to))
+        for i in range(1, 24):
+            date_from = date_from - relativedelta(months=1)
+            date_to = date_from + relativedelta(months=1) + timedelta(-1)
+            list_of_ranges.append(('-'.join([str(date_from.year), calendar.month_name[date_from.month]]), date_from, date_to))
+
+    elif time_range == 'years':
+        date_from = date(date.today().year, 1, 1)
+        date_to = date_from + relativedelta(years=1) + timedelta(-1)
+        list_of_ranges.append((date_from.year, date_from, date_to))
+        for i in range(1, 5):
+            date_from = date_from - relativedelta(years=1)
+            date_to = date_from + relativedelta(years=1) + timedelta(-1)
+            list_of_ranges.append((date_from.year, date_from, date_to))
+
+    return [(label, datetime.combine(df, datetime.min.time()), datetime.combine(dt, datetime.max.time()))
+            for (label, df, dt) in list_of_ranges]
+
+
 @blueprint.route('/graphs')
 @login_required
 @permission_required('usegroups')
-def graphs():
-    from inis.base.views import current_inis_week, get_week_stats, week_range
-    from datetime import datetime
-    current_issue, current_week = current_inis_week()
-    weeks = []
-    issue, week = current_issue, current_week
+@wash_arguments({'time_range': (unicode, 'weeks')})
+def graphs(time_range):
+    from inis.base.views import get_week_stats
+    if time_range not in ('weeks', 'months', 'years'):
+        time_range = 'weeks'
+    ranges = []
     max_submissions = 0
     max_records = 0
     max_files = 0
-    for i in range(1, 51):
-        week = week - 1
-        if week == 0:
-            week = 50
-            issue = issue - 1
-        date_from, date_to = week_range(issue, week)
-        date_from = datetime.combine(date_from, datetime.min.time())
-        date_to = datetime.combine(date_to, datetime.max.time())
+
+    list_of_ranges = get_ranges_list(time_range)
+
+    for label, date_from, date_to in list_of_ranges:
         stats = get_week_stats(date_from, date_to)
-        weeks.append((issue, week, stats))
+        ranges.append((label, stats))
         max_submissions = max(max_submissions, len(stats))
         max_records = max(max_records, sum([s['records'] for s in stats]))
         max_files = max(max_files, sum([s['files_no'] for s in stats]))
 
-    return render_template('stats/bargraph.html', weeks=weeks,
+    return render_template('stats/bargraph.html', ranges=ranges,
                            max_submissions=max_submissions,
                            max_records=max_records,
-                           max_files=max_files)
+                           max_files=max_files,
+                           time_range=time_range)
 
 
 def get_group_stats(group_name):

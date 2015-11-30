@@ -69,7 +69,7 @@
                 {% set md_files = []  %}
                 {% set ft_files = []  %}
 	        {%- for file in u['files'] -%}
-                  {% if file[0][-4:] == '.pdf' %}
+                  {% if file[0][-4:]|lower == '.pdf' %}
                     {% do ft_files.append(file) %}
                   {% else %}
                     {% do md_files.append(file) %}
