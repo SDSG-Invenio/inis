@@ -171,15 +171,19 @@ def get_ranges_list(time_range):
             for (label, df, dt) in list_of_ranges]
 
 
+# @login_required
+# @permission_required('usegroups')
+
+
 @blueprint.route('/graphs')
-@login_required
-@permission_required('usegroups')
 @wash_arguments({'time_range': (unicode, 'weeks'),
-                 'only_data': (int, 0)})
+                 'only_data': (unicode, '')})
 def graphs(time_range, only_data):
     from inis.base.views import get_stats
     if time_range not in ('weeks', 'months', 'years'):
         time_range = 'weeks'
+    if only_data not in ('json', 'python', 'xml'):
+        only_data = None
     ranges = []
     max_submissions = 0
     max_records = 0
@@ -196,9 +200,15 @@ def graphs(time_range, only_data):
         max_files = max(max_files, sum([s['files_no'] for s in stats]))
 
     if only_data:
-        import json
         ranges.reverse()
-        return str(json.dumps(ranges))
+        if only_data == 'json':
+            import json
+            return str(json.dumps(ranges))
+        if only_data == 'python':
+            return str(ranges)
+        if only_data == 'xml':
+            from dicttoxml import dicttoxml
+            return str(dicttoxml(ranges))
 
     return render_template('stats/bargraph.html', ranges=ranges,
                            max_submissions=max_submissions,
