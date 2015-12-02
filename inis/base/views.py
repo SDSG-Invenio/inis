@@ -128,13 +128,15 @@ def list(date_from, date_to, issue, week, upload_type):
             issue = issue - 1
         weeks.append((issue, week))
 
-    uploads = get_week_stats(date_from, date_to, upload_type)
+    uploads = get_stats(date_from, date_to, upload_type)
 
     return render_template('inis/upload_list.html', uploads=uploads, weeks=weeks,
                            week_displayed=week_displayed, upload_type='ALL' if not upload_type else upload_type)
 
 
-def get_week_stats(date_from, date_to, upload_type=''):
+def get_stats(date_from, date_to, upload_type='',
+              fields=['id', 'recid', 'action', 'date', 'member', 'submitter',
+                      'upload_name', 'notes', 'records', 'files', 'files_no']):
     from inis.utils import get_file_links
     from invenio.modules.deposit.models import Deposition
 
@@ -149,17 +151,30 @@ def get_week_stats(date_from, date_to, upload_type=''):
         sip = d.get_latest_sip()
         m = sip.metadata
         if 'Accepted' in m['collections'][0].values():
-            u = {'id': d.id,
-                 'recid': m['recid'],
-                 'action': m['action'] if 'action' in m else '',
-                 'date': d.modified,
-                 'member': CFG_MEMBERS_DICT[m['member']],
-                 'submitter': m['owner']['username'],
-                 'upload_name': d.title,
-                 'notes': m['notes'] if 'notes' in m else None,
-                 'records': len(m['trns']),
-                 'files': get_file_links(m['recid']),
-                 'files_no': len(m['fft'])}
+            u = {}
+            if 'id' in fields:
+                u['id'] = d.id
+            if 'recid' in fields:
+                u['recid'] = m['recid']
+            if 'action' in fields:
+                u['action'] = m['action'] if 'action' in m else ''
+            if 'date' in fields:
+                u['date'] = str(d.modified)
+            if 'member' in fields:
+                u['member'] = CFG_MEMBERS_DICT[m['member']]
+            if 'submitter' in fields:
+                u['submitter'] = m['owner']['username']
+            if 'upload_name' in fields:
+                u['upload_name'] = d.title
+            if 'notes' in fields:
+                u['notes'] = m['notes'] if 'notes' in m else None
+            if 'records' in fields:
+                u['records'] = len(m['trns'])
+            if 'files' in fields:
+                u['files'] = get_file_links(m['recid'])
+            if 'files_no' in fields:
+                u['files_no'] = len(m['fft'])
+
             uploads.append(u)
     return uploads
 
