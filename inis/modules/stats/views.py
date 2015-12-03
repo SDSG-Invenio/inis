@@ -208,7 +208,15 @@ def graphs(time_range, only_data):
             return str(ranges)
         if only_data == 'xml':
             from dicttoxml import dicttoxml
-            return str(dicttoxml(ranges))
+            a = {}
+            i = 0
+            for r in ranges:
+                a["%03d-id" % (i,)] = {'label': r[0],
+                                       'submissions': len(r[1]),
+                                       'records': sum([e['records'] for e in r[1]]),
+                                       'files': sum([e['files_no'] for e in r[1]])}
+                i = i + 1
+            return str(dicttoxml(a))
 
     return render_template('stats/bargraph.html', ranges=ranges,
                            max_submissions=max_submissions,
