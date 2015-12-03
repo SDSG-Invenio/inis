@@ -4,9 +4,9 @@ from inis.config import CFG_MEMBERS_INV
 
 from inis.modules.deposit.forms import UploadForm
 from inis.modules.deposit.tasks import create_error_message, \
-    file_names_not_in_TRNs, get_TRNs, get_duplicated_trns, \
+    get_TRNs, get_duplicated_trns, \
     launch_bibsched_tasks, notify_rejection, \
-    notify_submission, validate
+    notify_submission, validate  # , file_names_not_in_TRNs
 
 from invenio.ext.login import UserInfo
 
@@ -46,10 +46,10 @@ def process_recjson(deposition, recjson):
         if wrong_cc != [] and recjson['member'] != 'XA':
             sip.metadata['errors'].append({'code': 2, 'list': wrong_cc})
 
-        missing_trns = file_names_not_in_TRNs(sip)
-        recjson['missing_trns'] = missing_trns
-        if missing_trns != []:
-            sip.metadata['errors'].append({'code': 0, 'list': missing_trns})
+        # missing_trns = file_names_not_in_TRNs(sip)
+        # recjson['missing_trns'] = missing_trns
+        # if missing_trns != []:
+        #     sip.metadata['errors'].append({'code': 0, 'list': missing_trns})
 
         duplicated_trns = get_duplicated_trns(sip)
         recjson['duplicated_trns'] = duplicated_trns
