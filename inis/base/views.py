@@ -183,7 +183,7 @@ def current_inis_week():
     today = date.today()
 
     issue = today.year - 1969
-    for w in range(1, 50):
+    for w in range(1, 51):
         start, end = week_range(issue, w)
         if start <= today:
             if end >= today:

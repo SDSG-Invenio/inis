@@ -160,8 +160,11 @@ def get_TRNs(sip):
             try:
                 f = open(path, 'r')
                 ttf = ''
-                ttf = f.read()
+                ttf = f.read().decode("utf-8-sig")
                 f.close()
+                i = ttf.find('001^')
+                if i > 0:
+                    ttf = ttf[i:]
                 records = [r.strip() for r in ttf.split('001^') if r.strip() != '']
                 TRNs_this_file = []
                 change_records_this_file = []
