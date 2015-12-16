@@ -188,6 +188,12 @@ def current_inis_week():
         if start <= today:
             if end >= today:
                 return (issue, w)
+    issue = issue + 1
+    start, end = week_range(issue, 1)
+    if start <= today:
+        if end >= today:
+            return (issue, 1)
+    return (0, 0)
 
 
 def week_range(issue, week_number):
